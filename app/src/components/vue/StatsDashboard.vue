@@ -185,8 +185,8 @@ const wordsByRating = computed(() => {
 </script>
 
 <template>
-  <div v-if="error" class="muted t-meta">Klarte ikke å laste statistikken: {{ error }}</div>
-  <div v-else-if="!stats" class="muted t-meta">laster statistikken…</div>
+  <div v-if="error" class="empty-state t-meta">Klarte ikke å laste statistikken: {{ error }}</div>
+  <div v-else-if="!stats" class="empty-state t-meta">laster statistikken…</div>
 
   <div v-else class="grid">
     <!-- ============== Headlines ============== -->
@@ -855,7 +855,11 @@ const wordsByRating = computed(() => {
 </template>
 
 <style scoped>
-.muted { color: var(--fg-mute); padding: 4rem 0; text-align: center; display: block; }
+/* `.muted` is a colour modifier applied to inline spans throughout the
+   dashboard ("opptr.", " · ", "/10", etc.). Keep it inline-only.
+   The full-bleed empty-state placeholder gets its own class. */
+.muted { color: var(--fg-mute); }
+.empty-state { color: var(--fg-mute); padding: 4rem 0; text-align: center; display: block; }
 
 .grid {
   display: grid;
