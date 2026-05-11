@@ -3,6 +3,7 @@ import Page from '../layouts/Page.astro';
 import Die from '../components/Die.astro';
 import { reviewIndex } from '../lib/data';
 import { reviewSlug } from '../lib/slug';
+import { u } from '../lib/url';
 
 // Pick a random review at build time so refreshes feel different.
 const r = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
@@ -22,7 +23,7 @@ const r = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
       tilfeldig terning fra arkivet:
     </p>
 
-    <a class="suggestion" href={`/reviews/${reviewSlug(r.name, r.id)}`}>
+    <a class="suggestion" href={u(`/reviews/${reviewSlug(r.name, r.id)}`)}>
       <Die value={r.rating} size={84} />
       <div class="text">
         <span class="t-mono kicker">terningkast {r.rating ?? '—'} · {r.year}</span>
@@ -32,8 +33,8 @@ const r = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
     </a>
 
     <div class="actions">
-      <a class="btn" href="/">← Til forsiden</a>
-      <a class="btn btn-stamp" href="/random">Slå en ny</a>
+      <a class="btn" href={u('/')}>← Til forsiden</a>
+      <a class="btn btn-stamp" href={u('/random')}>Slå en ny</a>
     </div>
   </section>
 </Page>

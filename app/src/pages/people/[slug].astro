@@ -4,6 +4,7 @@ import Card from '../../components/Card.astro';
 import Die from '../../components/Die.astro';
 import { eligiblePeople, findPerson, type PersonRole } from '../../lib/people';
 import { sanitizeQuotes, ratingLabel } from '../../lib/format';
+import { u } from '../../lib/url';
 
 export async function getStaticPaths() {
   return eligiblePeople.map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
@@ -65,7 +66,7 @@ if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' :
 >
   <article class="person">
     <nav class="crumbs h-eyebrow">
-      <a href="/people">Personer</a>
+      <a href={u('/people')}>Personer</a>
       <span class="sep">/</span>
       <span>{p.name}</span>
     </nav>
@@ -107,7 +108,7 @@ if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' :
     {p.best && p.worst && p.best.review.id !== p.worst.review.id && (
       <!-- ============== BEST / WORST ============== -->
       <section class="bookends">
-        <a class="bookend" href={`/reviews/${p.best.review.slug}`}>
+        <a class="bookend" href={u(`/reviews/${p.best.review.slug}`)}>
           <div class="bookend-label h-eyebrow">Birgers favoritt</div>
           <Die value={p.best.review.rating} size={68} />
           <div class="bookend-text">
@@ -116,7 +117,7 @@ if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' :
           </div>
         </a>
         <div class="bookend-rule" aria-hidden="true">↔</div>
-        <a class="bookend" href={`/reviews/${p.worst.review.slug}`}>
+        <a class="bookend" href={u(`/reviews/${p.worst.review.slug}`)}>
           <div class="bookend-label h-eyebrow">Birgers minst-favoritt</div>
           <Die value={p.worst.review.rating} size={68} />
           <div class="bookend-text">
@@ -175,7 +176,7 @@ if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' :
             const a = p.appearances.find((x) => x.review.id === r.id && x.role === 'actor');
             return (
               <li>
-                <a href={`/reviews/${r.slug}`} class="al-row">
+                <a href={u(`/reviews/${r.slug}`)} class="al-row">
                   <Die value={r.rating} size={32} rotate={-2} />
                   <div class="al-text">
                     <span class="al-title">{sanitizeQuotes(r.name)}</span>

@@ -1,18 +1,19 @@
 ---
+import { u } from '../lib/url';
 const { current = '' } = Astro.props as { current?: string };
 const links = [
-  { href: '/',         label: 'Forsiden',   match: '/' },
-  { href: '/reviews',  label: 'Indeksen',   match: 'reviews' },
-  { href: '/people',   label: 'Personene',  match: 'people' },
-  { href: '/stats',    label: 'Statistikk', match: 'stats' },
-  { href: '/timeline', label: 'Tidslinjen', match: 'timeline' },
-  { href: '/random',   label: 'Tilfeldig',  match: 'random' },
+  { href: u('/'),         label: 'Forsiden',   match: '/' },
+  { href: u('/reviews'),  label: 'Indeksen',   match: 'reviews' },
+  { href: u('/people'),   label: 'Personene',  match: 'people' },
+  { href: u('/stats'),    label: 'Statistikk', match: 'stats' },
+  { href: u('/timeline'), label: 'Tidslinjen', match: 'timeline' },
+  { href: u('/random'),   label: 'Tilfeldig',  match: 'random' },
 ];
 ---
 
 <header class="site-header">
   <div class="container-edge inner">
-    <a href="/" class="brand" aria-label="Birgerpedia — forsiden">
+    <a href={u('/')} class="brand" aria-label="Birgerpedia — forsiden">
       <span class="brand-ink">Birger<span class="brand-mid" aria-hidden="true">·</span>pedia</span>
       <span class="brand-meta">
         <span class="dot" aria-hidden="true"></span>

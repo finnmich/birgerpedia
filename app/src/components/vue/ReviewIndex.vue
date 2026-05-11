@@ -2,6 +2,7 @@
 import { computed, ref, onMounted, watch, nextTick } from 'vue';
 import MiniSearch from 'minisearch';
 import Die from './Die.vue';
+import { u } from '../../lib/url';
 
 interface Review {
   id: string; url: string; type: string; name: string;
@@ -35,7 +36,7 @@ const searchInput = ref<HTMLInputElement | null>(null);
 let mini: MiniSearch | null = null;
 
 onMounted(async () => {
-  const res = await fetch('/data/reviews.json');
+  const res = await fetch(u('/data/reviews.json'));
   const raw: any[] = await res.json();
   reviews.value = raw.map((r) => {
     const year = Number(r.publishedAt?.slice(0, 4)) || 0;
@@ -252,7 +253,7 @@ function installShortcuts() {
       const visibleResults = filtered.value;
       if (visibleResults.length) {
         const pick = visibleResults[Math.floor(Math.random() * visibleResults.length)];
-        location.href = `/reviews/${pick.slug}`;
+        location.href = u(`/reviews/${pick.slug}`);
       }
     } else if (e.key === 'c' && (e.ctrlKey || e.metaKey)) {
       // Allow normal copy
@@ -531,7 +532,7 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
 
       <ol v-if="loaded && visible.length" :class="['list', `list--${view}`]">
         <li v-for="r in visible" :key="r.id" class="item">
-          <a :href="`/reviews/${r.slug}`" class="row">
+          <a :href="u(`/reviews/${r.slug}`)" class="row">
             <span class="idx t-mono">№ {{ String(filtered.indexOf(r) + 1).padStart(4, '0') }}</span>
             <span class="title">
               <span class="title-text" v-html="highlight(r.name)"></span>

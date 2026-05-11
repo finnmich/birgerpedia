@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { u } from '../../lib/url';
 
 interface Props {
   bins: number[];       // length 6, indexed 0..5 = ratings 1..6
@@ -12,7 +13,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   height: 220,
-  hrefBuilder: (r: number) => `/reviews?r=${r}`,
+  hrefBuilder: (r: number) => u(`/reviews?r=${r}`),
 });
 
 const max = computed(() => Math.max(1, ...props.bins));

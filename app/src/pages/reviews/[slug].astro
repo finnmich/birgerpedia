@@ -22,6 +22,7 @@ function externalFor(reviewId: string) {
   return _externalRatings[reviewId] ?? null;
 }
 import { eligibleSlugs } from '../../lib/people';
+import { u } from '../../lib/url';
 
 // Whether a name has a person page worth linking to. Splits joint credits
 // like "Phil Lord og Christopher Miller" so each gets its own anchor.
@@ -111,7 +112,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
          ============================================ -->
     <header class="r-head">
       <nav class="crumbs h-eyebrow" aria-label="brødsmuler">
-        <a href="/reviews">Indeksen</a>
+        <a href={u('/reviews')}>Indeksen</a>
         <span class="sep">/</span>
         <span>№ {String(reviewIndex.length - idx).padStart(4, '0')}</span>
       </nav>
@@ -142,7 +143,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                     <>
                       {i > 0 && <span class="comma">, </span>}
                       {p.exists
-                        ? <a href={`/people/${p.slug}`}>{p.name}</a>
+                        ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
                         : <span>{p.name}</span>}
                     </>
                   ))}
@@ -157,7 +158,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                     <>
                       {i > 0 && <span class="comma">, </span>}
                       {p.exists
-                        ? <a href={`/people/${p.slug}`}>{p.name}</a>
+                        ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
                         : <span>{p.name}</span>}
                     </>
                   ))}
@@ -174,7 +175,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                     return (
                       <>
                         {i > 0 && <span class="comma">, </span>}
-                        {exists ? <a href={`/people/${slug}`}>{name}</a> : <span>{name}</span>}
+                        {exists ? <a href={u(`/people/${slug}`)}>{name}</a> : <span>{name}</span>}
                       </>
                     );
                   })}
@@ -439,7 +440,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                 const Tag = exists ? 'a' : 'div';
                 return (
                   <li class="cast-item">
-                    <Tag href={exists ? `/people/${slug}` : undefined} class="cast-link">
+                    <Tag href={exists ? u(`/people/${slug}`) : undefined} class="cast-link">
                       <div class="cast-avatar">
                         {c.profile
                           ? <img src={c.profile} alt={c.name} loading="lazy" />
@@ -499,7 +500,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
          ============================================ -->
     <nav class="prev-next" aria-label="bla i korpuset">
       {next && (
-        <a href={`/reviews/${next.slug}`} class="pn pn-prev" data-nav="prev">
+        <a href={u(`/reviews/${next.slug}`)} class="pn pn-prev" data-nav="prev">
           <span class="pn-arrow">←</span>
           <span class="pn-content">
             <span class="h-eyebrow">Eldre · <kbd>p</kbd></span>
@@ -508,7 +509,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
         </a>
       )}
       {prev && (
-        <a href={`/reviews/${prev.slug}`} class="pn pn-next" data-nav="next">
+        <a href={u(`/reviews/${prev.slug}`)} class="pn pn-next" data-nav="next">
           <span class="pn-content right">
             <span class="h-eyebrow"><kbd>n</kbd> · Nyere</span>
             <span class="pn-title">{sanitizeQuotes(prev.name)}</span>
@@ -534,7 +535,8 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
         if (a) { e.preventDefault(); location.href = a.href; }
       } else if (e.key === 'r') {
         e.preventDefault();
-        location.href = '/random';
+        // BASE_URL is injected by Vite/Astro at build time.
+        location.href = import.meta.env.BASE_URL + 'random';
       }
     });
   </script>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, h, defineComponent } from 'vue';
 import Die from './Die.vue';
+import { u } from '../../lib/url';
 
 // Tiny inline avatar helper to keep the template tidy (no separate file).
 const PersonAvatar = defineComponent({
@@ -89,7 +90,7 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const res = await fetch('/data/stats.json');
+    const res = await fetch(u('/data/stats.json'));
     stats.value = await res.json();
   } catch (e: any) { error.value = e.message; }
 });
@@ -295,7 +296,7 @@ const wordsByRating = computed(() => {
             </svg>
           </div>
           <a v-for="(yi, i) in stats.heatmap.years" :key="`c${yi}-${rt}`"
-             :href="`/reviews?r=${rt}&y0=${yi}&y1=${yi}`"
+             :href="u(`/reviews?r=${rt}&y0=${yi}&y1=${yi}`)"
              class="hm-cell"
              :style="{
                background: `color-mix(in srgb, ${rt >= 5 ? '#E8B946' : rt <= 2 ? '#D43E2D' : '#F4EFE6'}
@@ -317,7 +318,7 @@ const wordsByRating = computed(() => {
       <ol class="top-list">
         <li v-for="(d, i) in stats.topDirectors" :key="d.name">
           <span class="t-mono rank">{{ String(i + 1).padStart(2, '0') }}</span>
-          <a class="name" :href="`/people/${d.slug}`">{{ d.name }}</a>
+          <a class="name" :href="u(`/people/${d.slug}`)">{{ d.name }}</a>
           <span class="bar-wrap">
             <span class="bar" :style="{ width: `${(d.n / stats.topDirectors[0].n) * 100}%` }"></span>
           </span>
@@ -338,7 +339,7 @@ const wordsByRating = computed(() => {
           <Die :value="i + 1" :size="32" />
           <span class="rb-bar-wrap">
             <a class="rb-bar"
-               :href="`/reviews?r=${i + 1}`"
+               :href="u(`/reviews?r=${i + 1}`)"
                :style="{
                  width: `${(n / Math.max(...stats.ratingHist)) * 100}%`,
                  background: i + 1 === 6 ? '#E8B946' : i + 1 === 1 ? '#D43E2D' : '#F4EFE6'
@@ -382,7 +383,7 @@ const wordsByRating = computed(() => {
           <text :x="scX(8)" :y="scY(2) + 4" text-anchor="end" font-family="JetBrains Mono" font-size="9"
                 fill="#7A6F62" letter-spacing="2">BIRGER STRENGERE</text>
 
-          <a v-for="p in stats.scatter" :key="p.id" :href="`/reviews/${p.slug}`">
+          <a v-for="p in stats.scatter" :key="p.id" :href="u(`/reviews/${p.slug}`)">
             <circle
               :cx="scX(p.tmdb)" :cy="scY(p.birger)"
               :r="3.5"
@@ -401,7 +402,7 @@ const wordsByRating = computed(() => {
           <div class="h-eyebrow">Birger var mildere enn verden</div>
           <ol class="diff-list">
             <li v-for="p in scatterSummary.generous" :key="p.id">
-              <a :href="`/reviews/${p.slug}`">
+              <a :href="u(`/reviews/${p.slug}`)">
                 <span class="dl-die"><Die :value="p.birger" :size="26" :rotate="0" /></span>
                 <span class="dl-name">{{ p.name }}</span>
                 <span class="t-mono dl-tmdb">vs TMDB {{ p.tmdb.toFixed(1).replace('.', ',') }}</span>
@@ -413,7 +414,7 @@ const wordsByRating = computed(() => {
           <div class="h-eyebrow">Birger var strengere enn verden</div>
           <ol class="diff-list">
             <li v-for="p in scatterSummary.harsh" :key="p.id">
-              <a :href="`/reviews/${p.slug}`">
+              <a :href="u(`/reviews/${p.slug}`)">
                 <span class="dl-die"><Die :value="p.birger" :size="26" :rotate="0" /></span>
                 <span class="dl-name">{{ p.name }}</span>
                 <span class="t-mono dl-tmdb">vs TMDB {{ p.tmdb.toFixed(1).replace('.', ',') }}</span>
@@ -484,7 +485,7 @@ const wordsByRating = computed(() => {
             <div><span class="t-mono dn">{{ d.sixes }}</span><span class="dl">mesterverk</span></div>
             <div><span class="t-mono dn">{{ d.ones }}</span><span class="dl">ettere</span></div>
           </div>
-          <a class="dec-link" :href="`/reviews?d=${d.decade}`">Se alle →</a>
+          <a class="dec-link" :href="u(`/reviews?d=${d.decade}`)">Se alle →</a>
         </article>
       </div>
     </section>
@@ -500,7 +501,7 @@ const wordsByRating = computed(() => {
         <li v-for="(p, i) in stats.lovedDirectors.slice(0, 8)" :key="p.key">
           <span class="t-mono rank">{{ String(i + 1).padStart(2, '0') }}</span>
           <PersonAvatar :name="p.key" :profile="p.profile" />
-          <a class="rank-name" :href="`/people/${p.slug}`">{{ p.key }}</a>
+          <a class="rank-name" :href="u(`/people/${p.slug}`)">{{ p.key }}</a>
           <span class="rank-bar"><span :style="{ width: `${((p.avg ?? 0) / 6) * 100}%`, background: 'linear-gradient(90deg, var(--color-paper), var(--color-spark))' }"></span></span>
           <span class="t-mono badge gold">{{ (p.avg ?? 0).toFixed(2).replace('.', ',') }}</span>
           <span class="t-mono n">{{ p.n }}</span>
@@ -518,7 +519,7 @@ const wordsByRating = computed(() => {
         <li v-for="(p, i) in stats.harshDirectors.slice(0, 8)" :key="p.key">
           <span class="t-mono rank">{{ String(i + 1).padStart(2, '0') }}</span>
           <PersonAvatar :name="p.key" :profile="p.profile" />
-          <a class="rank-name" :href="`/people/${p.slug}`">{{ p.key }}</a>
+          <a class="rank-name" :href="u(`/people/${p.slug}`)">{{ p.key }}</a>
           <span class="rank-bar"><span :style="{ width: `${((p.avg ?? 0) / 6) * 100}%`, background: 'linear-gradient(90deg, var(--color-stamp), color-mix(in srgb, var(--color-stamp) 50%, var(--color-mute)))' }"></span></span>
           <span class="t-mono badge red">{{ (p.avg ?? 0).toFixed(2).replace('.', ',') }}</span>
           <span class="t-mono n">{{ p.n }}</span>
@@ -535,7 +536,7 @@ const wordsByRating = computed(() => {
       </header>
       <ul class="actor-grid">
         <li v-for="p in stats.topActors" :key="p.key">
-          <a v-if="p.slug" :href="`/people/${p.slug}`" class="actor-card">
+          <a v-if="p.slug" :href="u(`/people/${p.slug}`)" class="actor-card">
             <PersonAvatar :name="p.key" :profile="p.profile" :size="56" />
             <span class="ac-text">
               <span class="ac-name">{{ p.key }}</span>
@@ -572,7 +573,7 @@ const wordsByRating = computed(() => {
           <h3 class="h-eyebrow">Foto</h3>
           <ol class="rank-list mini">
             <li v-for="p in stats.topCinematographers.slice(0, 8)" :key="p.key">
-              <a :href="`/people/${p.slug}`" v-if="p.slug" class="rank-name">{{ p.key }}</a>
+              <a :href="u(`/people/${p.slug}`)" v-if="p.slug" class="rank-name">{{ p.key }}</a>
               <span v-else class="rank-name">{{ p.key }}</span>
               <span class="rank-bar"><span :style="{ width: `${((p.avg ?? 0) / 6) * 100}%` }"></span></span>
               <span class="t-mono badge" :class="avgClass(p.avg)">{{ p.avg != null ? p.avg.toFixed(2).replace('.', ',') : '—' }}</span>
@@ -585,7 +586,7 @@ const wordsByRating = computed(() => {
           <h3 class="h-eyebrow">Musikk</h3>
           <ol class="rank-list mini">
             <li v-for="p in stats.topComposers.slice(0, 8)" :key="p.key">
-              <a :href="`/people/${p.slug}`" v-if="p.slug" class="rank-name">{{ p.key }}</a>
+              <a :href="u(`/people/${p.slug}`)" v-if="p.slug" class="rank-name">{{ p.key }}</a>
               <span v-else class="rank-name">{{ p.key }}</span>
               <span class="rank-bar"><span :style="{ width: `${((p.avg ?? 0) / 6) * 100}%` }"></span></span>
               <span class="t-mono badge" :class="avgClass(p.avg)">{{ p.avg != null ? p.avg.toFixed(2).replace('.', ',') : '—' }}</span>
@@ -598,7 +599,7 @@ const wordsByRating = computed(() => {
           <h3 class="h-eyebrow">Klipp</h3>
           <ol class="rank-list mini">
             <li v-for="p in stats.topEditors.slice(0, 8)" :key="p.key">
-              <a :href="`/people/${p.slug}`" v-if="p.slug" class="rank-name">{{ p.key }}</a>
+              <a :href="u(`/people/${p.slug}`)" v-if="p.slug" class="rank-name">{{ p.key }}</a>
               <span v-else class="rank-name">{{ p.key }}</span>
               <span class="rank-bar"><span :style="{ width: `${((p.avg ?? 0) / 6) * 100}%` }"></span></span>
               <span class="t-mono badge" :class="avgClass(p.avg)">{{ p.avg != null ? p.avg.toFixed(2).replace('.', ',') : '—' }}</span>
@@ -621,7 +622,7 @@ const wordsByRating = computed(() => {
           <h3 class="h-eyebrow gold">Lover godt</h3>
           <ol class="rank-list mini">
             <li v-for="g in stats.lovedGenres" :key="g.key">
-              <a class="rank-name" :href="`/reviews?g=${encodeURIComponent(g.key)}`">{{ g.key }}</a>
+              <a class="rank-name" :href="u(`/reviews?g=${encodeURIComponent(g.key)}`)">{{ g.key }}</a>
               <span class="rank-bar"><span :style="{ width: `${((g.avg ?? 0) / 6) * 100}%`, background: 'linear-gradient(90deg, var(--color-paper), var(--color-spark))' }"></span></span>
               <span class="t-mono badge gold">{{ (g.avg ?? 0).toFixed(2).replace('.', ',') }}</span>
               <span class="t-mono n">{{ g.n }}</span>
@@ -632,7 +633,7 @@ const wordsByRating = computed(() => {
           <h3 class="h-eyebrow red">Lover svakt</h3>
           <ol class="rank-list mini">
             <li v-for="g in stats.harshGenres" :key="g.key">
-              <a class="rank-name" :href="`/reviews?g=${encodeURIComponent(g.key)}`">{{ g.key }}</a>
+              <a class="rank-name" :href="u(`/reviews?g=${encodeURIComponent(g.key)}`)">{{ g.key }}</a>
               <span class="rank-bar"><span :style="{ width: `${((g.avg ?? 0) / 6) * 100}%`, background: 'linear-gradient(90deg, var(--color-stamp), color-mix(in srgb, var(--color-stamp) 50%, var(--color-mute)))' }"></span></span>
               <span class="t-mono badge red">{{ (g.avg ?? 0).toFixed(2).replace('.', ',') }}</span>
               <span class="t-mono n">{{ g.n }}</span>
@@ -774,7 +775,7 @@ const wordsByRating = computed(() => {
             <text :x="scX(t)" :y="SC_H - 8" text-anchor="middle"
                   font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ t }}</text>
           </g>
-          <a v-for="p in stats.scatterImdb" :key="p.id" :href="`/reviews/${p.slug}`">
+          <a v-for="p in stats.scatterImdb" :key="p.id" :href="u(`/reviews/${p.slug}`)">
             <circle
               :cx="scX(p.imdb)" :cy="scY(p.birger)"
               :r="3.5"
@@ -814,7 +815,7 @@ const wordsByRating = computed(() => {
             <text :x="scX(t/10)" :y="SC_H - 8" text-anchor="middle"
                   font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ t }}%</text>
           </g>
-          <a v-for="p in stats.scatterRt" :key="p.id" :href="`/reviews/${p.slug}`">
+          <a v-for="p in stats.scatterRt" :key="p.id" :href="u(`/reviews/${p.slug}`)">
             <circle
               :cx="scX(p.rt/10)" :cy="scY(p.birger)"
               :r="3.5"
@@ -838,7 +839,7 @@ const wordsByRating = computed(() => {
       </header>
       <ol class="year-fav-grid">
         <li v-for="y in stats.yearFavorites" :key="y.year">
-          <a :href="`/reviews/${y.slug}`" class="yf-card">
+          <a :href="u(`/reviews/${y.slug}`)" class="yf-card">
             <span class="yf-year h-display">{{ y.year }}</span>
             <Die :value="y.rating" :size="32" :rotate="-3" />
             <span class="yf-text">

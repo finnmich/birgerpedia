@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import { reviewIndex } from '../lib/data';
 import { sanitizeQuotes } from '../lib/format';
 
-const SITE = 'https://birgerpedia.local';
+const SITE = (import.meta.env.SITE ?? 'https://birgerpedia.local').replace(/\/$/, '');
 
 function escape(s: string): string {
   return s

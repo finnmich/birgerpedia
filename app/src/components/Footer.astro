@@ -1,5 +1,6 @@
 ---
 import { SUMMARY } from '../lib/data';
+import { u } from '../lib/url';
 const year = new Date().getFullYear();
 ---
 
@@ -32,7 +33,7 @@ const year = new Date().getFullYear();
         <li><a href="https://www.nrk.no/filmpolitiet/">NRK Filmpolitiet</a></li>
         <li><a href="https://www.nrk.no/forfatter/birger-vestmo-18.264">Birger Vestmos forfatterside</a></li>
         <li><a href="https://www.themoviedb.org/" rel="noopener">Berikelse: TMDB</a></li>
-        <li><a href="/about">Om prosjektet</a></li>
+        <li><a href={u('/about')}>Om prosjektet</a></li>
       </ul>
     </div>
   </div>

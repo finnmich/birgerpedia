@@ -17,11 +17,25 @@ if (!SITE && process.env.CI === 'true') {
   );
 }
 
+// Derive `base` from the site URL's pathname. GH Pages project sites live
+// at /<repo>/, so deploys to https://finnmich.github.io/birgerpedia/ produce
+// base = '/birgerpedia/'. Custom-domain root deploys keep base = '/'.
+// Astro auto-prefixes its own emitted assets with this; for our own absolute
+// paths in templates (href="/reviews/…"), use the `u()` helper in src/lib/url.ts.
+let BASE = '/';
+try {
+  if (SITE) {
+    const p = new URL(SITE).pathname;
+    if (p && p !== '/') BASE = p.endsWith('/') ? p : `${p}/`;
+  }
+} catch { /* malformed ASTRO_SITE — fall back to '/' */ }
+
 export default defineConfig({
   // Override at deploy time via `ASTRO_SITE` if you're on a custom domain.
   // GitHub Pages default URL is https://<user>.github.io/<repo>; set ASTRO_SITE
   // as a repo variable so the workflow's build step picks it up automatically.
   site: SITE ?? 'https://birgerpedia.local',
+  base: BASE,
   integrations: [vue({ jsx: false }), sitemap()],
 
   vite: {

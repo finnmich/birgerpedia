@@ -15,6 +15,7 @@ import {
 import { reviewSlug, slugify } from '../lib/slug';
 import { sanitizeQuotes } from '../lib/format';
 import { eligibleSlugs } from '../lib/people';
+import { u } from '../lib/url';
 
 const recent = reviewIndex.slice(0, 8);
 const histogram = ratingHistogram(reviewIndex);
@@ -84,8 +85,8 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         </ul>
 
         <div class="cta-row">
-          <a class="btn btn-stamp" href="/reviews">Bla i indeksen →</a>
-          <a class="btn" href="/random">Slå et kast</a>
+          <a class="btn btn-stamp" href={u('/reviews')}>Bla i indeksen →</a>
+          <a class="btn" href={u('/random')}>Slå et kast</a>
         </div>
       </div>
 
@@ -128,7 +129,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
 
     <div class="six-grid">
       {sixSpotlight.map((r) => (
-        <a class="six-card" href={`/reviews/${reviewSlug(r.name, r.id)}`}>
+        <a class="six-card" href={u(`/reviews/${reviewSlug(r.name, r.id)}`)}>
           <div class="six-img" style={r.image ? `background-image: url('${r.image}')` : ''}>
             <div class="six-stamp">
               <Stamp text="MESTERVERK" rotate={-9} />
@@ -143,7 +144,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
       ))}
     </div>
 
-    <a href="/reviews?r=6" class="all-link h-eyebrow">Alle {SUMMARY.perfect6} sekserne →</a>
+    <a href={u('/reviews?r=6')} class="all-link h-eyebrow">Alle {SUMMARY.perfect6} sekserne →</a>
   </section>
 
   <!-- ============================================
@@ -174,8 +175,8 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         {top10Directors.slice(0, 10).map((d, i) => {
           const slug = slugify(d.key);
           const href = eligibleSlugs.has(slug)
-            ? `/people/${slug}`
-            : `/reviews?q=${encodeURIComponent(d.key)}`;
+            ? u(`/people/${slug}`)
+            : u(`/reviews?q=${encodeURIComponent(d.key)}`);
           return (
             <li>
               <span class="t-mono rank">{String(i + 1).padStart(2, '0')}</span>
@@ -193,7 +194,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
       <ol class="taxa-list taxa-grid">
         {top10Genres.map((g, i) => (
           <li>
-            <a href={`/reviews?g=${encodeURIComponent(g.key)}`}>
+            <a href={u(`/reviews?g=${encodeURIComponent(g.key)}`)}>
               <span class="g-name">{g.key}</span>
               <span class="g-count t-mono">{g.n}</span>
             </a>
@@ -218,7 +219,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
           <span class="bs-lab">spill</span>
         </div>
       </div>
-      <a class="btn" href="/stats">Se alle tall →</a>
+      <a class="btn" href={u('/stats')}>Se alle tall →</a>
     </div>
   </section>
 </Page>

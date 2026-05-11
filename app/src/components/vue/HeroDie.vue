@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import Die from './Die.vue';
+import { u } from '../../lib/url';
 
 interface Plug {
   id: string; name: string; rating: number | null; year: number;
@@ -59,7 +60,7 @@ function pickRandom() {
     </div>
 
     <Transition name="fade">
-      <a v-if="showDetail && current()" :href="`/reviews/${current().slug}`" class="card-summary anim-fade-in">
+      <a v-if="showDetail && current()" :href="u(`/reviews/${current().slug}`)" class="card-summary anim-fade-in">
         <span class="kicker">Et tilfeldig kast</span>
         <h2 class="title">{{ current().name }}</h2>
         <div v-if="current().headline" class="head italic">«{{ current().headline }}»</div>

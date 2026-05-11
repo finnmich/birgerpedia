@@ -4,6 +4,7 @@ import Die from '../components/Die.astro';
 import { reviewIndex } from '../lib/data';
 import { reviewSlug } from '../lib/slug';
 import { sanitizeQuotes } from '../lib/format';
+import { u } from '../lib/url';
 
 // Group by year, newest first.
 const byYear = new Map<number, typeof reviewIndex>();
@@ -93,7 +94,7 @@ function bins(items: typeof reviewIndex) {
             <ol class="year-list">
               {items.map((r) => (
                 <li class="entry">
-                  <a href={`/reviews/${reviewSlug(r.name, r.id)}`} class="entry-link"
+                  <a href={u(`/reviews/${reviewSlug(r.name, r.id)}`)} class="entry-link"
                      data-rating={r.rating ?? 'none'}>
                     <Die value={r.rating} size={28} rotate={-2} />
                     <span class="entry-title">{sanitizeQuotes(r.name)}</span>

@@ -1,6 +1,7 @@
 ---
 import Die from './Die.astro';
 import { reviewSlug } from '../lib/slug';
+import { u } from '../lib/url';
 import { formatNorwegianDate, formatRuntime, sanitizeQuotes } from '../lib/format';
 import type { ReviewIndexEntry } from '../lib/types';
 
@@ -19,7 +20,7 @@ const subtitle = r.headline ? sanitizeQuotes(r.headline) : (r.abstract ?? '');
 const tail = r.factbox?.skuespillere?.slice(0, 3).join(', ') ?? '';
 ---
 
-<a href={`/reviews/${slug}`} class={cls} aria-label={`${r.name} — terningkast ${r.rating ?? '—'}`}>
+<a href={u(`/reviews/${slug}`)} class={cls} aria-label={`${r.name} — terningkast ${r.rating ?? '—'}`}>
   {variant !== 'compact' && showImage && r.image && (
     <div class="img">
       <img src={r.image} alt="" loading="lazy" decoding="async" />

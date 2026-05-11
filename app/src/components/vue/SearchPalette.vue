@@ -2,6 +2,7 @@
 import { computed, nextTick, onMounted, onBeforeUnmount, ref, watch } from 'vue';
 import MiniSearch from 'minisearch';
 import Die from './Die.vue';
+import { u } from '../../lib/url';
 
 interface ReviewDoc {
   id: string;
@@ -127,7 +128,7 @@ function scheduleIdle(fn: () => Promise<void> | void) {
 async function loadReviews() {
   loadingReviews.value = true;
   try {
-    const rRes = await fetch('/data/reviews.json');
+    const rRes = await fetch(u('/data/reviews.json'));
     const rRaw: any[] = await rRes.json();
     reviews.value = rRaw.map((r) => {
       const year = Number(r.publishedAt?.slice(0, 4)) || 0;
@@ -166,7 +167,7 @@ async function loadReviews() {
 async function loadPeople() {
   if (peopleLoaded.value) return;
   try {
-    const pRes = await fetch('/data/people.json');
+    const pRes = await fetch(u('/data/people.json'));
     const pRaw = await pRes.json();
     people.value = pRaw as PersonDoc[];
     peopleSearch = new MiniSearch({
@@ -183,19 +184,19 @@ async function loadPeople() {
 async function loadCategories() {
   if (categoriesLoaded.value) return;
   try {
-    const sRes = await fetch('/data/stats.json');
+    const sRes = await fetch(u('/data/stats.json'));
     const sRaw = await sRes.json();
     const cats: CategoryDoc[] = [];
     for (const g of sRaw.topGenres ?? []) {
       cats.push({
         kind: 'genre', key: g.key, label: g.key, n: g.n, avg: g.avg ?? null,
-        href: `/reviews?g=${encodeURIComponent(g.key)}`,
+        href: u(`/reviews?g=${encodeURIComponent(g.key)}`),
       });
     }
     for (const d of sRaw.topDistributors ?? []) {
       cats.push({
         kind: 'distributor', key: d.key, label: d.key, n: d.n, avg: d.avg ?? null,
-        href: `/reviews?q=${encodeURIComponent(d.key)}`,
+        href: u(`/reviews?q=${encodeURIComponent(d.key)}`),
       });
     }
     categories.value = cats;
@@ -300,9 +301,9 @@ function moveSelection(d: number) {
 
 function goToSelected() {
   if (selectedKind.value === 'reviews' && reviewHits.value[selectedIdx.value]) {
-    location.href = `/reviews/${reviewHits.value[selectedIdx.value].slug}`;
+    location.href = u(`/reviews/${reviewHits.value[selectedIdx.value].slug}`);
   } else if (selectedKind.value === 'people' && peopleHits.value[selectedIdx.value]) {
-    location.href = `/people/${peopleHits.value[selectedIdx.value].slug}`;
+    location.href = u(`/people/${peopleHits.value[selectedIdx.value].slug}`);
   } else if (selectedKind.value === 'categories' && categoryHits.value[selectedIdx.value]) {
     location.href = categoryHits.value[selectedIdx.value].href;
   }
@@ -363,7 +364,7 @@ const KIND_LABEL: Record<string, string> = {
                 <h3 class="h-eyebrow">Anmeldelser</h3>
                 <ol>
                   <li v-for="(r, i) in reviewHits" :key="r.id" :class="{ sel: isSelected('reviews', i) }">
-                    <a :href="`/reviews/${r.slug}`" @mouseenter="selectedKind = 'reviews'; selectedIdx = i">
+                    <a :href="u(`/reviews/${r.slug}`)" @mouseenter="selectedKind = 'reviews'; selectedIdx = i">
                       <Die :value="r.rating" :size="28" :rotate="-2" />
                       <span class="title">{{ r.name }}</span>
                       <span v-if="r.headline" class="head italic">«{{ r.headline }}»</span>
@@ -379,7 +380,7 @@ const KIND_LABEL: Record<string, string> = {
                 <h3 class="h-eyebrow">Personer</h3>
                 <ol>
                   <li v-for="(p, i) in peopleHits" :key="p.slug" :class="{ sel: isSelected('people', i) }">
-                    <a :href="`/people/${p.slug}`" @mouseenter="selectedKind = 'people'; selectedIdx = i">
+                    <a :href="u(`/people/${p.slug}`)" @mouseenter="selectedKind = 'people'; selectedIdx = i">
                       <span class="avatar">
                         <img v-if="p.profile" :src="p.profile" :alt="p.name" loading="lazy" />
                         <span v-else class="mono">{{ p.name.split(' ').map((s: string) => s[0]).slice(0, 2).join('') }}</span>

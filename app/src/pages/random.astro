@@ -1,11 +1,12 @@
 ---
 import { reviewIndex } from '../lib/data';
+import { u } from '../lib/url';
 
 // Static "shuffled" landing — picks a random review on every build, then
 // JS bounces the user to a fresh random one on each visit so refreshes feel alive.
 const initial = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
 const targets = reviewIndex
-  .map((r) => `/reviews/${r.slug}`);
+  .map((r) => u(`/reviews/${r.slug}`));
 
 // We embed the slug list as a JSON blob in the page so the browser can pick
 // without an extra fetch.
@@ -16,8 +17,8 @@ const targets = reviewIndex
     <meta charset="utf-8" />
     <title>Tilfeldig anmeldelse — Birgerpedia</title>
     <meta name="robots" content="noindex" />
-    <meta http-equiv="refresh" content={`0;url=/reviews/${initial.slug}`} />
-    <link rel="canonical" href="/random" />
+    <meta http-equiv="refresh" content={`0;url=${u(`/reviews/${initial.slug}`)}`} />
+    <link rel="canonical" href={u('/random')} />
     <style>
       html, body {
         background: #0E0B0A; color: #F4EFE6;
