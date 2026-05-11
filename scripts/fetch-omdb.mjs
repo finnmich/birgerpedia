@@ -33,6 +33,11 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ENR_DIR = resolve(ROOT, 'data/processed/enrichment');
 const OMDB_DIR = resolve(ROOT, 'data/raw/omdb');
 const OUT = resolve(ROOT, 'data/processed/omdb-ratings.json');
+// Same idea as crawl-articles: the slim digest committed to the repo
+// already has IMDb ids we've successfully looked up before. On CI
+// cold-start (empty raw/omdb cache) we use this as the skip list so we
+// don't burn the daily quota re-fetching titles we already have data for.
+const DIGEST = OUT;
 
 const MAX_PER_RUN = Number(process.env.OMDB_MAX_PER_RUN ?? 950);
 
@@ -57,9 +62,23 @@ async function main() {
 
   await ensureDir(OMDB_DIR);
 
-  // Collect every IMDb id from our enrichment cache.
+  // Skip list from the committed digest. On CI cold-start the per-id raw
+  // cache is empty (gitignored), but the merged digest has every imdb id
+  // we've previously turned into RT / Metacritic / IMDb-via-OMDb data.
+  // Treat those as "known" so we don't re-fetch them.
+  const digestIds = new Set();
+  try {
+    const digest = JSON.parse(await readFile(DIGEST, 'utf8'));
+    for (const id of Object.keys(digest)) digestIds.add(id);
+  } catch { /* fresh build, nothing committed yet */ }
+
+  // Collect every IMDb id we need. Try the enrichment cache first; if
+  // empty (CI cold-start), fall back to the committed digest so we still
+  // have something to iterate (will be all skips, but exits cleanly).
   const wanted = [];
-  for (const f of await readdir(ENR_DIR)) {
+  let enrichmentFiles = [];
+  try { enrichmentFiles = await readdir(ENR_DIR); } catch {}
+  for (const f of enrichmentFiles) {
     if (!f.endsWith('.json') || f.startsWith('_')) continue;
     try {
       const r = JSON.parse(await readFile(resolve(ENR_DIR, f), 'utf8'));
@@ -67,12 +86,12 @@ async function main() {
       if (imdb) wanted.push({ reviewId: r.reviewId, imdb, name: r.name });
     } catch {}
   }
-  console.log(`[omdb] ${wanted.length} ids to consider`);
+  console.log(`[omdb] ${wanted.length} ids from enrichment cache, ${digestIds.size} already in digest`);
 
   const limit = argv.limit ?? wanted.length;
   const limiter = new RateLimiter({ minIntervalMs: 250 });
 
-  let fetched = 0, cached = 0, errored = 0, missing = 0;
+  let fetched = 0, cached = 0, knownDigest = 0, errored = 0, missing = 0;
   for (const w of wanted.slice(0, limit)) {
     if (fetched >= MAX_PER_RUN) {
       console.log(`[omdb] hit MAX_PER_RUN=${MAX_PER_RUN}, stopping to stay under free-tier cap. Re-run tomorrow.`);
@@ -81,6 +100,12 @@ async function main() {
     const path = resolve(OMDB_DIR, `${w.imdb}.json`);
     if (!argv.refresh && await fileExists(path)) {
       cached++;
+      continue;
+    }
+    if (!argv.refresh && digestIds.has(w.imdb)) {
+      // Already in the merged digest — RT / Metacritic / IMDb-via-OMDb
+      // are all populated from a previous run. Skip the API call.
+      knownDigest++;
       continue;
     }
     try {
@@ -110,11 +135,11 @@ async function main() {
       console.warn(`  [err] ${w.imdb}: ${e.message}`);
     }
     if ((fetched + cached) % 50 === 0 && fetched > 0) {
-      console.log(`  fetched=${fetched} cached=${cached} miss=${missing} err=${errored}`);
+      console.log(`  fetched=${fetched} cached=${cached} knownDigest=${knownDigest} miss=${missing} err=${errored}`);
     }
   }
 
-  console.log(`[omdb] done this run. fetched=${fetched} cached=${cached} miss=${missing} err=${errored}`);
+  console.log(`[omdb] done this run. fetched=${fetched} cached=${cached} knownDigest=${knownDigest} miss=${missing} err=${errored}`);
 
   // Build the slim public lookup from every cache file (the result is
   // partial until backfill completes — the site renders gracefully without

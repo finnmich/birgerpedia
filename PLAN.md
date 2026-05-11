@@ -533,6 +533,38 @@ External code review surfaced 13 issues; 8 fixed before the first GH push.
   policy (which blocks AI-training UAs specifically).
 - JS bundle hashing — Astro emits `*.HASH.js` so far-future caching works.
 
+### v3.1.1 — post-first-deploy fix (cold-cache discovery)
+
+The first GH Actions run kicked off `crawl-articles.mjs` against an empty
+Actions cache and immediately started re-fetching every single article
+from NRK (1,915 requests over ~32 minutes). That's both impolite to NRK
+and a complete waste of CI minutes, since the digest at
+`data/processed/reviews.json` already records every article we've parsed.
+
+Root cause: three scripts checked only the raw-cache directory to decide
+what's "known". On CI the Actions cache hadn't been seeded, so every file
+looked new.
+
+Fix — all three crawlers now also consult the committed digest as a
+known-IDs skip-list:
+
+| Script | New behaviour |
+|---|---|
+| `scripts/crawl-articles.mjs` | If an ID is in committed `data/processed/reviews.json` AND raw HTML isn't on disk, treat as known and skip the NRK fetch entirely |
+| `scripts/build-dataset.mjs` | Use committed `data/processed/reviews.json` as a baseline; merge in any newly-parsed records from `data/raw/articles/`. Survives an empty articles dir by just rewriting the baseline |
+| `scripts/fetch-omdb.mjs` | Build a Set of IMDb ids already in `data/processed/omdb-ratings.json`; skip the API call for those |
+
+Local verification (with `data/raw/articles/` moved aside):
+```
+crawl-articles --limit=5: fetched=0 cached=0 knownDigest=5  ✓
+build-dataset:            baseline 1914 + merged 0 → 1914   ✓
+fetch-omdb:               skips digest-known ids            ✓
+```
+
+After this fix the first CI run is expected to fetch **only the Sigurd
+Vik 2015-best-of article** (which gets dropped by the author filter
+anyway) instead of all 1,915.
+
 ### Deferred to follow-up
 
 - `/timeline` is 1.8 MB raw / 101 KB gz. Acceptable post-gzip; deferred SSR

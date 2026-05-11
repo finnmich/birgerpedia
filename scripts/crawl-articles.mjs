@@ -24,6 +24,10 @@ import { parseArticle } from './parse-article.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES_DIR = resolve(ROOT, 'data/raw/articles');
 const INDEX_PATH = resolve(ROOT, 'data/raw/listing/index.json');
+// The slim digest committed to the repo. We use it as a known-IDs skip list:
+// if the article's already in here, we've parsed it on a prior run (some
+// branch / CI run / local dev) and don't need to re-bother NRK.
+const PROCESSED_REVIEWS = resolve(ROOT, 'data/processed/reviews.json');
 
 const argv = parseArgs(process.argv.slice(2));
 
@@ -31,6 +35,18 @@ async function main() {
   await ensureDir(ARTICLES_DIR);
   const index = JSON.parse(await readFile(INDEX_PATH, 'utf8'));
   const limiter = new RateLimiter({ minIntervalMs: 1000 });
+
+  // Load whatever's already been committed. Two-tier "known" check:
+  //   (a) raw HTML is on disk (this run or a previous local cache)  → use it
+  //   (b) ID is already in the committed slim dataset                → skip entirely
+  // Without (b), CI cold-starts would re-fetch every single article from
+  // NRK on the first deploy — the Actions cache is empty, so every .html
+  // is missing locally, yet the work was already done on a prior machine.
+  let knownIdsInDigest = new Set();
+  try {
+    const slim = JSON.parse(await readFile(PROCESSED_REVIEWS, 'utf8'));
+    knownIdsInDigest = new Set(slim.map((r) => r.id));
+  } catch { /* no prior digest — fresh project, fetch everything */ }
 
   // Filter to plugs that look like reviews. Birger has 3198 articles total
   // but only the /anmeldelse_-_/ ones are reviews. We still write parsed
@@ -57,11 +73,12 @@ async function main() {
   }
 
   console.log(
-    `[articles] ${all.length} plugs, ${review.length} look like reviews, fetching ${targets.length}.`,
+    `[articles] ${all.length} plugs, ${review.length} look like reviews, considering ${targets.length}.`,
   );
   if (argv.refresh) console.log('[articles] --refresh: ignoring cache');
+  if (knownIdsInDigest.size) console.log(`[articles] ${knownIdsInDigest.size} known IDs from committed digest`);
 
-  let fetched = 0, cached = 0, parsed = 0, skipped = 0, errored = 0;
+  let fetched = 0, cached = 0, knownDigest = 0, parsed = 0, skipped = 0, errored = 0;
   const errors = [];
 
   for (let i = 0; i < targets.length; i++) {
@@ -75,6 +92,12 @@ async function main() {
     if (!argv.refresh && (await fileExists(htmlPath))) {
       html = await readFile(htmlPath, 'utf8');
       cached++;
+    } else if (!argv.refresh && knownIdsInDigest.has(id)) {
+      // Already in the committed slim dataset → don't re-fetch from NRK.
+      // build-dataset.mjs will keep the existing record in the digest, so
+      // there's nothing to do for this iteration.
+      knownDigest++;
+      continue;
     } else {
       try {
         const res = await politeFetch(plug.url, { limiter });
@@ -119,12 +142,12 @@ async function main() {
     }
 
     if ((i + 1) % 25 === 0 || i === targets.length - 1) {
-      console.log(`  [${i + 1}/${targets.length}] fetched ${fetched}, cached ${cached}, parsed ${parsed}, errors ${errored}`);
+      console.log(`  [${i + 1}/${targets.length}] fetched ${fetched}, cached ${cached}, knownDigest ${knownDigest}, parsed ${parsed}, errors ${errored}`);
     }
   }
 
   console.log(
-    `\n[articles] done. fetched=${fetched} cached=${cached} parsed=${parsed} skipped=${skipped} errored=${errored}`,
+    `\n[articles] done. fetched=${fetched} cached=${cached} knownDigest=${knownDigest} parsed=${parsed} skipped=${skipped} errored=${errored}`,
   );
   if (errors.length) {
     const errPath = resolve(ARTICLES_DIR, '_errors.json');

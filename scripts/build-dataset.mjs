@@ -5,6 +5,13 @@
 //   data/processed/reviews.ndjson — one record per line, easy to grep
 //   data/processed/stats.json     — top-level counts, mostly for sanity
 //
+// Incremental by default: starts from the existing committed
+// data/processed/reviews.json (1 BLOB ~2.7 MB) and merges in whatever
+// per-article JSONs are present in data/raw/articles/ (newly fetched).
+// This means a CI cold-start with an empty raw-articles cache produces
+// a non-empty output by trusting what's already committed, instead of
+// silently regressing to an empty digest.
+//
 // Filters: keep only records with @type === Review (parser already
 // guarantees this) AND author.id === '18.264' (drops the few collab
 // pieces). bodyText is dropped from the public dataset to keep it small;
@@ -18,25 +25,12 @@ import { atomicWrite, atomicWriteJson, ensureDir } from './util.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES_DIR = resolve(ROOT, 'data/raw/articles');
 const OUT_DIR = resolve(ROOT, 'data/processed');
+const REVIEWS_OUT = resolve(OUT_DIR, 'reviews.json');
 
 const BIRGER_ID = '18.264';
 
-async function main() {
-  await ensureDir(OUT_DIR);
-  const files = (await readdir(ARTICLES_DIR)).filter((f) => f.endsWith('.json') && !f.startsWith('_'));
-
-  const records = [];
-  let dropped = 0;
-  for (const f of files) {
-    const r = JSON.parse(await readFile(resolve(ARTICLES_DIR, f), 'utf8'));
-    if (!r || !r.id) { dropped++; continue; }
-    if (r.author?.id && r.author.id !== BIRGER_ID) { dropped++; continue; }
-    records.push(r);
-  }
-
-  records.sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
-
-  const slim = records.map((r) => ({
+function slim(r) {
+  return {
     id: r.id,
     url: r.url,
     type: r.type,
@@ -55,26 +49,71 @@ async function main() {
     reviewType: r.reviewType,
     factbox: r.factbox,
     wordCount: r.wordCount,
-  }));
+  };
+}
 
-  await atomicWriteJson(resolve(OUT_DIR, 'reviews.json'), slim);
-  await atomicWrite(resolve(OUT_DIR, 'reviews.ndjson'), slim.map((r) => JSON.stringify(r)).join('\n') + '\n');
+async function main() {
+  await ensureDir(OUT_DIR);
+
+  // Start from the committed digest. On CI cold-start this is the only
+  // thing we have. On a local dev machine with a full raw/articles cache,
+  // we'll completely overwrite each record below.
+  const byId = new Map();
+  let baselineCount = 0;
+  try {
+    const existing = JSON.parse(await readFile(REVIEWS_OUT, 'utf8'));
+    for (const r of existing) {
+      if (r?.id) byId.set(r.id, r);
+    }
+    baselineCount = byId.size;
+  } catch { /* no prior digest; first build ever */ }
+
+  // Merge in fresh per-article JSONs. These exist for any article that the
+  // current run actually fetched (or had cached locally as raw HTML).
+  let merged = 0, droppedNotBirger = 0, droppedInvalid = 0;
+  let articleFiles = [];
+  try { articleFiles = (await readdir(ARTICLES_DIR)).filter((f) => f.endsWith('.json') && !f.startsWith('_')); }
+  catch { /* empty cache on CI cold start — that's fine */ }
+
+  for (const f of articleFiles) {
+    let r;
+    try { r = JSON.parse(await readFile(resolve(ARTICLES_DIR, f), 'utf8')); }
+    catch { droppedInvalid++; continue; }
+    if (!r || !r.id) { droppedInvalid++; continue; }
+    if (r.author?.id && r.author.id !== BIRGER_ID) { droppedNotBirger++; continue; }
+    byId.set(r.id, slim(r));
+    merged++;
+  }
+
+  const records = [...byId.values()]
+    .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
+
+  await atomicWriteJson(REVIEWS_OUT, records);
+  await atomicWrite(resolve(OUT_DIR, 'reviews.ndjson'), records.map((r) => JSON.stringify(r)).join('\n') + '\n');
+
+  console.log(
+    `[build] baseline ${baselineCount} + merged ${merged} ` +
+    `(dropped ${droppedNotBirger} non-Birger, ${droppedInvalid} invalid) ` +
+    `→ ${records.length} reviews.`,
+  );
+  // Reassign so the legacy stats block below keeps working unchanged.
+  // eslint-disable-next-line no-var
+  var slim_records = records;
 
   // stats
-  const byType = tally(slim, (r) => r.type);
-  const byRating = tally(slim, (r) => r.rating);
-  const byPlatform = tally(slim, (r) => r.platform);
-  const byYear = tally(slim, (r) => r.publishedAt?.slice(0, 4));
+  const byType = tally(slim_records, (r) => r.type);
+  const byRating = tally(slim_records, (r) => r.rating);
+  const byPlatform = tally(slim_records, (r) => r.platform);
+  const byYear = tally(slim_records, (r) => r.publishedAt?.slice(0, 4));
   const stats = {
     builtAt: new Date().toISOString(),
-    total: slim.length,
-    droppedNonBirgerOrInvalid: dropped,
+    total: slim_records.length,
+    droppedNonBirgerOrInvalid: droppedNotBirger + droppedInvalid,
     byType, byRating, byPlatform, byYearTop10: top(byYear, 10),
-    yearRange: yearRange(slim),
+    yearRange: yearRange(slim_records),
   };
   await atomicWriteJson(resolve(OUT_DIR, 'stats.json'), stats);
 
-  console.log(`[build] wrote ${slim.length} reviews to data/processed/`);
   console.log(`[build] type:`, byType);
   console.log(`[build] rating:`, byRating);
   console.log(`[build] year range:`, stats.yearRange);
