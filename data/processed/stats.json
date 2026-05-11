@@ -1,7 +1,7 @@
 {
-  "builtAt": "2026-05-11T20:43:45.193Z",
+  "builtAt": "2026-05-11T20:51:10.357Z",
   "total": 1914,
-  "droppedNonBirgerOrInvalid": 0,
+  "droppedNonBirgerOrInvalid": 1,
   "byType": {
     "Movie": 1865,
     "TVSeries": 31,
