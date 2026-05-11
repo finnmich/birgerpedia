@@ -19,6 +19,12 @@ const SRC  = resolve(ROOT, '..', 'data', 'processed');
 const ENR_SRC = resolve(SRC, 'enrichment');
 const IMDB_RATINGS_PATH = resolve(SRC, 'imdb-ratings.json');
 const OMDB_RATINGS_PATH = resolve(SRC, 'omdb-ratings.json');
+// Committed snapshot of the TMDB enrichment aggregate. Lives in data/processed/
+// so the workflow can commit it, unlike the gitignored per-review files in
+// data/processed/enrichment/. This is the file enrich-tmdb.mjs reads as its
+// cold-start skip-list, and the file sync-data reads as a baseline before
+// merging in any fresh per-review enrichments.
+const TMDB_SNAPSHOT_PATH = resolve(SRC, 'tmdb-enrichment.json');
 const PUB = resolve(ROOT, 'public', 'data');
 const INTERNAL = resolve(ROOT, 'src', '_data');
 
@@ -131,7 +137,16 @@ function trimReview(r) {
 }
 
 // ----- 2. Aggregate full enrichment for build-time SSG only -----
+//
+// Start from the committed snapshot (so CI cold-starts with empty caches
+// still have data to render), then merge in any fresh per-review files
+// from data/processed/enrichment/* (which only exist for reviews enriched
+// on this machine since the last commit). Fresh files override the
+// snapshot — they're newer and authoritative.
 let enrichment = {};
+try { enrichment = JSON.parse(await readFile(TMDB_SNAPSHOT_PATH, 'utf8')); } catch {}
+const snapshotKeys = new Set(Object.keys(enrichment));
+
 try {
   const files = await readdir(ENR_SRC);
   let hits = 0, misses = 0;
@@ -201,9 +216,18 @@ try {
     hits++;
   }
   await writeFile(resolve(INTERNAL, 'enrichment.json'), JSON.stringify(enrichment));
+  // Mirror the build-time aggregate to the committable snapshot location.
+  // That way the daily workflow can git-add a single fresh JSON that next
+  // run will read as its skip-list + render-data baseline.
+  await writeFile(TMDB_SNAPSHOT_PATH, JSON.stringify(enrichment));
   // Also remove any old copy from public/ that older builds left behind.
   await rm(resolve(PUB, 'enrichment.json'), { force: true });
-  console.log(`[sync] enrichment.json (build-time) — ${hits} hits, ${misses} misses`);
+  console.log(
+    `[sync] enrichment — ${hits} fresh hits + ${misses} fresh misses, ` +
+    `${snapshotKeys.size} from committed snapshot ` +
+    `→ ${Object.keys(enrichment).length} total entries written to ` +
+    `src/_data/enrichment.json + data/processed/tmdb-enrichment.json`,
+  );
 } catch (e) {
   console.warn(`[sync] enrichment skipped: ${e.message}`);
   await writeFile(resolve(INTERNAL, 'enrichment.json'), '{}');

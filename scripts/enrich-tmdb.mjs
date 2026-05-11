@@ -33,6 +33,12 @@ import {
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const REVIEWS = resolve(ROOT, 'data/processed/reviews.json');
 const ENRICH_DIR = resolve(ROOT, 'data/processed/enrichment');
+// Committed snapshot of the merged enrichment aggregate. Written by
+// app/scripts/sync-data.mjs at build time, committed by the daily workflow.
+// We read it here as a skip-list so the first CI run on a fresh repo (where
+// data/processed/enrichment/ is empty by gitignore) doesn't re-enrich the
+// entire corpus from TMDB.
+const TMDB_SNAPSHOT = resolve(ROOT, 'data/processed/tmdb-enrichment.json');
 
 const TMDB = 'https://api.themoviedb.org/3';
 const KEY = process.env.TMDB_API_KEY;
@@ -45,16 +51,26 @@ async function main() {
   await ensureDir(ENRICH_DIR);
   const reviews = JSON.parse(await readFile(REVIEWS, 'utf8'));
   const limit = arg('--limit');
+  const refresh = process.argv.includes('--refresh');
   const targets = limit ? reviews.slice(0, Number(limit)) : reviews;
+
+  // Snapshot skip-list. Misses are also recorded — we don't want to keep
+  // re-asking TMDB about a film we couldn't match yesterday.
+  const knownInSnapshot = new Set();
+  try {
+    const snap = JSON.parse(await readFile(TMDB_SNAPSHOT, 'utf8'));
+    for (const id of Object.keys(snap)) knownInSnapshot.add(id);
+  } catch { /* fresh project, no snapshot */ }
 
   // TMDB allows ~50 req/s but we keep it gentle.
   const limiter = new RateLimiter({ minIntervalMs: 250 });
 
-  let hit = 0, miss = 0, cached = 0, errors = 0;
+  let hit = 0, miss = 0, cached = 0, knownDigest = 0, errors = 0;
   for (let i = 0; i < targets.length; i++) {
     const r = targets[i];
     const out = resolve(ENRICH_DIR, `${r.id}.json`);
-    if (await fileExists(out)) { cached++; continue; }
+    if (!refresh && await fileExists(out)) { cached++; continue; }
+    if (!refresh && knownInSnapshot.has(r.id)) { knownDigest++; continue; }
 
     const year = r.publishedAt?.slice(0, 4);
     const candidates = [];
@@ -88,9 +104,9 @@ async function main() {
       enrichedAt: new Date().toISOString(),
     });
     hit++;
-    if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} cached=${cached} err=${errors}`);
+    if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
   }
-  console.log(`\n[enrich] done. hit=${hit} miss=${miss} cached=${cached} err=${errors}`);
+  console.log(`\n[enrich] done. hit=${hit} miss=${miss} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
 }
 
 async function searchTmdb(query, year, wantTV, limiter) {

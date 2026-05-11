@@ -13,17 +13,23 @@ import { resolve } from 'node:path';
 // Astro bundles lib files into the build output, which changes the
 // effective `import.meta.url`, breaking a relative path. `process.cwd()`
 // stays at the app/ root in both `astro dev` and `astro build`.
-const RAW_PATH = resolve(process.cwd(), 'src', '_data', 'enrichment.json');
+const PRIMARY = resolve(process.cwd(), 'src', '_data', 'enrichment.json');
+// Fallback path: if a fresh clone (or `astro build` running before
+// sync-data has produced src/_data/enrichment.json) needs the data, read
+// the committed snapshot directly.
+const FALLBACK = resolve(process.cwd(), '..', 'data', 'processed', 'tmdb-enrichment.json');
 
 let _map: Record<string, Enrichment> | null = null;
 function load() {
   if (_map) return _map;
-  try {
-    _map = JSON.parse(readFileSync(RAW_PATH, 'utf8'));
-  } catch (e) {
-    console.error(`[enrichment] failed to read ${RAW_PATH}:`, (e as Error).message);
-    _map = {};
+  for (const p of [PRIMARY, FALLBACK]) {
+    try {
+      _map = JSON.parse(readFileSync(p, 'utf8'));
+      return _map;
+    } catch { /* try next */ }
   }
+  console.error('[enrichment] no enrichment data found at PRIMARY or FALLBACK');
+  _map = {};
   return _map;
 }
 

@@ -145,6 +145,7 @@ jobs:
                    data/processed/stats.json \
                    data/processed/imdb-ratings.json \
                    data/processed/omdb-ratings.json \
+                   data/processed/tmdb-enrichment.json \
                    data/raw/listing/index.json
           if git diff --staged --quiet; then
             echo "No data changes today."
