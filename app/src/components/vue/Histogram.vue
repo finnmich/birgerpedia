@@ -69,7 +69,10 @@ function pipsFor(r: number): { x: number; y: number }[] {
 .hist { width: 100%; }
 .bars {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  /* minmax(0, 1fr) lets each column shrink below the label's min-content
+     width — without it, the "TERNINGKAST N" labels would force the grid
+     wider than a phone viewport and cause horizontal scroll. */
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(0.4rem, 1vw, 0.85rem);
   align-items: end;
   height: var(--h);
@@ -86,6 +89,7 @@ function pipsFor(r: number): { x: number; y: number }[] {
   color: inherit;
   text-decoration: none;
   padding: 0;
+  min-width: 0;
   transition: transform .25s var(--ease-paper);
 }
 .col.is-clickable { cursor: pointer; }
@@ -126,5 +130,16 @@ function pipsFor(r: number): { x: number; y: number }[] {
   text-transform: uppercase;
   color: var(--fg-mute);
   transition: color .2s ease;
+  /* allow "terningkast" to wrap onto its own line under narrow columns */
+  overflow-wrap: anywhere;
+  line-height: 1.15;
+}
+
+@media (max-width: 480px) {
+  .label {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+  .count { font-size: 0.65rem; }
 }
 </style>
