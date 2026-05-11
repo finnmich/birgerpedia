@@ -1,0 +1,317 @@
+---
+import Page from '../../layouts/Page.astro';
+import { eligiblePeople } from '../../lib/people';
+
+// Top 24 directors by review count
+const topDirectors = eligiblePeople
+  .filter((p) => p.asDirector >= 2)
+  .sort((a, b) => b.asDirector - a.asDirector)
+  .slice(0, 24);
+
+// Top 24 actors by appearance count
+const topActors = eligiblePeople
+  .filter((p) => p.asActor >= 3)
+  .sort((a, b) => b.asActor - a.asActor)
+  .slice(0, 24);
+
+// Strict ratings — directors with high average (min 3 reviews so it's
+// statistically slightly more interesting)
+const beloved = eligiblePeople
+  .filter((p) => p.asDirector >= 3 && p.avgRating != null)
+  .sort((a, b) => (b.avgRating ?? 0) - (a.avgRating ?? 0))
+  .slice(0, 12);
+
+const censure = eligiblePeople
+  .filter((p) => p.asDirector >= 3 && p.avgRating != null)
+  .sort((a, b) => (a.avgRating ?? 0) - (b.avgRating ?? 0))
+  .slice(0, 12);
+
+const totalEligible = eligiblePeople.length;
+---
+
+<Page
+  current="people"
+  title="Personene — Birgerpedia"
+  description="Regissørene og skuespillerne Birger Vestmo har anmeldt."
+>
+  <header class="page-head">
+    <div class="h-eyebrow">Personene</div>
+    <h1 class="page-title h-display">Bak hver <em>terningkast</em>, et menneske</h1>
+    <p class="page-lede">
+      {totalEligible.toLocaleString('nb-NO')} regissører, manusforfattere, serieskapere og
+      skuespillere figurerer i Birgers korpus. Her er de mest tilbakevendende.
+    </p>
+  </header>
+
+  <!-- =============== Beloved / Censured =============== -->
+  <section class="duals">
+    <div class="dual">
+      <header class="dual-head">
+        <div class="h-eyebrow">Birgers ynglinger</div>
+        <h2 class="dual-title h-headline">Høyest snitt</h2>
+        <p class="dual-lede italic">Regissører med min. 3 anmeldelser, sortert etter snitt-terningkast.</p>
+      </header>
+      <ol class="dual-list">
+        {beloved.map((p, i) => (
+          <li>
+            <a href={`/people/${p.slug}`} class="dual-row">
+              <span class="t-mono rank">{String(i + 1).padStart(2, '0')}</span>
+              <span class="dual-name">{p.name}</span>
+              <span class="dual-bar"><span style={`width: ${((p.avgRating ?? 0) / 6) * 100}%`}></span></span>
+              <span class="t-mono dual-num">{(p.avgRating ?? 0).toFixed(2).replace('.', ',')}</span>
+              <span class="t-mono dual-n">{p.asDirector}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="dual">
+      <header class="dual-head">
+        <div class="h-eyebrow">… og dem han er strengest mot</div>
+        <h2 class="dual-title h-headline">Lavest snitt</h2>
+        <p class="dual-lede italic">Samme regel, motsatt rangering.</p>
+      </header>
+      <ol class="dual-list">
+        {censure.map((p, i) => (
+          <li>
+            <a href={`/people/${p.slug}`} class="dual-row">
+              <span class="t-mono rank">{String(i + 1).padStart(2, '0')}</span>
+              <span class="dual-name">{p.name}</span>
+              <span class="dual-bar dual-bar--low"><span style={`width: ${((p.avgRating ?? 0) / 6) * 100}%`}></span></span>
+              <span class="t-mono dual-num">{(p.avgRating ?? 0).toFixed(2).replace('.', ',')}</span>
+              <span class="t-mono dual-n">{p.asDirector}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- =============== Top directors =============== -->
+  <section class="grid-section">
+    <header class="gs-head">
+      <div class="h-eyebrow">Mest anmeldte regissører</div>
+      <h2 class="gs-title h-headline">{topDirectors.length} navn</h2>
+    </header>
+    <ul class="people-grid">
+      {topDirectors.map((p) => (
+        <li>
+          <a href={`/people/${p.slug}`} class="pcard">
+            <div class="pcard-photo">
+              {p.profile
+                ? <img src={p.profile} alt={p.name} loading="lazy" />
+                : <span class="pcard-mono">{p.name.split(' ').map((s) => s[0]).slice(0, 2).join('')}</span>
+              }
+            </div>
+            <div class="pcard-text">
+              <span class="pcard-name">{p.name}</span>
+              <span class="t-meta">
+                {p.asDirector} {p.asDirector === 1 ? 'film' : 'filmer'}
+                {p.avgRating != null && <span class="dot"> · </span>}
+                {p.avgRating != null && <span>{p.avgRating.toFixed(2).replace('.', ',')} snitt</span>}
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- =============== Top actors =============== -->
+  <section class="grid-section">
+    <header class="gs-head">
+      <div class="h-eyebrow">Mest tilbakevendende skuespillere</div>
+      <h2 class="gs-title h-headline">{topActors.length} navn</h2>
+      <p class="gs-lede italic">Inkluderer både NRKs faktabokser og TMDBs cast — derfor bredere enn man skulle tro.</p>
+    </header>
+    <ul class="people-grid people-grid--dense">
+      {topActors.map((p) => (
+        <li>
+          <a href={`/people/${p.slug}`} class="pcard pcard--dense">
+            <div class="pcard-photo pcard-photo--small">
+              {p.profile
+                ? <img src={p.profile} alt={p.name} loading="lazy" />
+                : <span class="pcard-mono">{p.name.split(' ').map((s) => s[0]).slice(0, 2).join('')}</span>
+              }
+            </div>
+            <div class="pcard-text">
+              <span class="pcard-name">{p.name}</span>
+              <span class="t-meta">{p.asActor} {p.asActor === 1 ? 'opptreden' : 'opptredener'}</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Page>
+
+<style>
+.page-head {
+  padding-block: clamp(1.5rem, 4vw, 3rem) 0;
+  display: flex; flex-direction: column; gap: 1rem;
+  max-width: 65ch;
+}
+.page-title {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+.page-title em {
+  color: var(--color-stamp);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.page-lede {
+  font-size: 1.05rem;
+  color: var(--color-paper-2);
+  max-width: 56ch;
+}
+
+/* ---- duals ---- */
+.duals {
+  margin-block: clamp(3rem, 5vw, 5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.4rem, 3vw, 3rem);
+}
+.dual {
+  display: flex; flex-direction: column; gap: 1.2rem;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-leader-2);
+}
+.dual-head { display: flex; flex-direction: column; gap: 0.4rem; }
+.dual-title { font-size: clamp(1.4rem, 2.5vw, 1.9rem); margin: 0; letter-spacing: -0.02em; line-height: 1; }
+.dual-lede { color: var(--fg-mute); font-size: 0.85rem; }
+
+.dual-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.dual-list li { border-bottom: 1px dashed var(--color-line-dark); }
+.dual-list li:last-child { border-bottom: 0; }
+.dual-row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 2fr) minmax(60px, 1.2fr) auto auto;
+  gap: 0.7rem;
+  align-items: center;
+  padding-block: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: color .2s ease;
+}
+.dual-row:hover { color: var(--color-spark); }
+.dual-row .rank { color: var(--color-stamp); font-size: 0.7rem; }
+.dual-name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dual-bar {
+  height: 5px;
+  background: var(--color-leader-3);
+  position: relative; overflow: hidden;
+}
+.dual-bar > span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--color-paper), var(--color-spark));
+}
+.dual-bar--low > span {
+  background: linear-gradient(90deg, var(--color-stamp), color-mix(in srgb, var(--color-stamp) 50%, var(--color-mute)));
+}
+.dual-num {
+  background: color-mix(in srgb, var(--color-spark) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-spark) 50%, transparent);
+  padding: 0.18rem 0.4rem;
+  font-size: 0.7rem;
+  color: var(--color-spark);
+  text-align: center;
+}
+.dual-bar--low ~ .dual-num {
+  background: color-mix(in srgb, var(--color-stamp) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-stamp) 50%, transparent);
+  color: var(--color-stamp);
+}
+.dual-n { color: var(--fg-mute); font-size: 0.7rem; min-width: 22px; text-align: right; }
+
+/* ---- grid sections ---- */
+.grid-section {
+  margin-block: clamp(3rem, 5vw, 5rem);
+  display: flex; flex-direction: column; gap: 1.4rem;
+}
+.gs-head { display: flex; flex-direction: column; gap: 0.4rem; max-width: 60ch; }
+.gs-title { font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0; letter-spacing: -0.02em; }
+.gs-lede { color: var(--fg-mute); font-size: 0.9rem; }
+
+.people-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+.people-grid--dense {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.pcard {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.7rem 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+  transition: border-color .25s ease, transform .35s var(--ease-paper);
+  min-width: 0;
+}
+.pcard:hover { border-color: var(--color-paper); transform: translateY(-2px); color: inherit; }
+.pcard:hover .pcard-name { color: var(--color-spark); }
+
+.pcard-photo {
+  width: 56px; height: 56px;
+  background: var(--color-leader-3);
+  border-radius: 999px;
+  overflow: hidden;
+  display: grid; place-items: center;
+}
+.pcard-photo--small { width: 48px; height: 48px; }
+.pcard-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(.15) contrast(1.05);
+  transition: filter .35s ease;
+}
+.pcard:hover .pcard-photo img { filter: grayscale(0) contrast(1.1); }
+.pcard-mono {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 700;
+  color: var(--fg-mute);
+  font-size: 1rem;
+}
+
+.pcard-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.pcard-name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.012em;
+  line-height: 1.05;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  color: var(--color-paper);
+  transition: color .2s ease;
+}
+.pcard-text .t-meta {
+  font-size: 0.7rem;
+  color: var(--fg-mute);
+  white-space: nowrap;
+}
+.pcard-text .dot { color: var(--fg-mute); opacity: 0.6; }
+
+@media (max-width: 880px) {
+  .duals { grid-template-columns: 1fr; }
+}
+</style>

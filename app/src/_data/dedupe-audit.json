@@ -1,0 +1,58 @@
+[
+  {
+    "tmdbId": "1041613",
+    "day": "2024-04-30",
+    "kept": {
+      "id": "1.16859744",
+      "headline": "Inneholder noen fæle sjokkelementer"
+    },
+    "dropped": [
+      {
+        "id": "1.17227923",
+        "headline": "Immaculate"
+      }
+    ]
+  },
+  {
+    "tmdbId": "937287",
+    "day": "2024-04-23",
+    "kept": {
+      "id": "1.16849753",
+      "headline": "Holder på spenningen til klimakset"
+    },
+    "dropped": [
+      {
+        "id": "1.17227929",
+        "headline": "Challengers"
+      }
+    ]
+  },
+  {
+    "tmdbId": "929590",
+    "day": "2024-04-16",
+    "kept": {
+      "id": "1.16844697",
+      "headline": "Ofrer et menings­fullt budskap"
+    },
+    "dropped": [
+      {
+        "id": "1.17227935",
+        "headline": "Civil War"
+      }
+    ]
+  },
+  {
+    "tmdbId": "453755",
+    "day": "2019-01-31",
+    "kept": {
+      "id": "1.17229667",
+      "headline": "Arctic"
+    },
+    "dropped": [
+      {
+        "id": "1.17229668",
+        "headline": "Arctic"
+      }
+    ]
+  }
+]

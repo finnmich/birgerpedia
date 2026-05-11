@@ -1,0 +1,73 @@
+---
+// SVG terningkast die. Static (Astro) — no JS, no defs, no filter. Each die
+// is just a rounded rect + pips, so it stays cheap to embed thousands of
+// times (timeline page) without bloating HTML.
+
+interface Props {
+  value: number | null | undefined;     // 1..6, null means "not rated"
+  size?: number;                         // px
+  /** "ink" = dark pips on cream face;
+   *  "paper" = cream face on dark (default);
+   *  "stamp" = red face for terningkast 6 spotlight */
+  variant?: 'paper' | 'ink' | 'stamp';
+  rotate?: number;                       // degrees, default ~ -3
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  value,
+  size = 44,
+  variant = 'paper',
+  rotate = -3,
+  ariaLabel,
+  class: className,
+} = Astro.props;
+
+const layouts: Record<number, [number, number][]> = {
+  1: [[.5, .5]],
+  2: [[.28, .28], [.72, .72]],
+  3: [[.26, .26], [.5, .5], [.74, .74]],
+  4: [[.28, .28], [.72, .28], [.28, .72], [.72, .72]],
+  5: [[.27, .27], [.73, .27], [.5, .5], [.27, .73], [.73, .73]],
+  6: [[.27, .22], [.73, .22], [.27, .5], [.73, .5], [.27, .78], [.73, .78]],
+};
+
+const v = value && value >= 1 && value <= 6 ? value : null;
+const dots = v ? layouts[v] : [];
+const VB = 100;
+
+const palettes = {
+  paper: { face: '#F4EFE6', shadow: '#1A1614', pip: '#1A1614', edge: '#C9BFAB' },
+  ink:   { face: '#0E0B0A', shadow: '#000', pip: '#F4EFE6', edge: '#3A3330' },
+  stamp: { face: '#D43E2D', shadow: '#000', pip: '#F4EFE6', edge: '#7A1F18' },
+};
+const p = palettes[variant];
+
+const label = ariaLabel ?? (v ? `Terningkast ${v}` : 'Uten terningkast');
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox={`0 0 ${VB} ${VB}`}
+  style={`transform: rotate(${rotate}deg);`}
+  class={className ?? ''}
+  role="img"
+  aria-label={label}
+>
+  <rect x="6" y="6" width={VB - 12} height={VB - 12} rx="14" ry="14"
+        fill={p.face} stroke={p.edge} stroke-width="1.5" />
+
+  {v == null && (
+    <text x="50" y="64" text-anchor="middle"
+          font-family="JetBrains Mono, monospace"
+          font-size="32"
+          fill={p.pip}
+          opacity=".55">?</text>
+  )}
+
+  {dots.map(([x, y]) => (
+    <circle cx={x * VB} cy={y * VB} r={v === 1 ? 9 : v === 6 ? 7 : 7.5} fill={p.pip} />
+  ))}
+</svg>

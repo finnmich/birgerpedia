@@ -1,0 +1,541 @@
+---
+import Page from '../layouts/Page.astro';
+import Card from '../components/Card.astro';
+import Die from '../components/Die.astro';
+import Stamp from '../components/Stamp.astro';
+import HeroDie from '../components/vue/HeroDie.vue';
+import Histogram from '../components/vue/Histogram.vue';
+import {
+  reviewIndex,
+  ratingHistogram,
+  topGenres,
+  topCredit,
+  SUMMARY,
+} from '../lib/data';
+import { reviewSlug, slugify } from '../lib/slug';
+import { sanitizeQuotes } from '../lib/format';
+import { eligibleSlugs } from '../lib/people';
+
+const recent = reviewIndex.slice(0, 8);
+const histogram = ratingHistogram(reviewIndex);
+const perfectSix = reviewIndex.filter((r) => r.rating === 6);
+const sixSpotlight = perfectSix.slice(0, 3);
+const top10Directors = topCredit(reviewIndex, 'regi', 10);
+const top10Genres = topGenres(reviewIndex, 12);
+
+// Pool for the hero: 200 highly-rated, recent reviews. Trimmed from 600
+// to keep the homepage payload light (each entry is ~150 bytes embedded
+// in the astro-island props blob).
+const heroCandidates = reviewIndex
+  .filter((r) => r.rating != null && r.rating >= 4)
+  .slice(0, 200);
+
+const heroPool = heroCandidates.map((r) => ({
+  id: r.id,
+  name: sanitizeQuotes(r.name),
+  rating: r.rating,
+  year: r.year,
+  slug: reviewSlug(r.name, r.id),
+  headline: r.headline,
+  image: r.image,
+  regi: r.factbox?.regi ?? r.factbox?.serieskaper ?? null,
+}));
+
+// Server-pick the SSR-rendered review so the page paints with content,
+// not an empty die. Build time → fresh pick on every deploy.
+const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
+---
+
+<Page current="/" ogImage="/og/home.png">
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="masthead">
+        <div class="h-kicker">est. 2026 · uoffisiell · en hyllest</div>
+        <h1 class="masthead-title h-display">
+          <span class="line line-1">BIRGER<span class="x" aria-hidden="true">·</span></span>
+          <span class="line line-2"><span class="ped">pedia</span></span>
+        </h1>
+        <p class="lede">
+          Hver eneste anmeldelse av <em>Birger Vestmo</em>, NRK Filmpolitiets
+          mest standhaftige stemme — indeksert, søkbar, og krysset med metadata
+          fra TMDB. {SUMMARY.total.toLocaleString('nb-NO')} verker, {SUMMARY.yearMax - SUMMARY.yearMin + 1} år, ett menneskes mening.
+        </p>
+
+        <ul class="big-stats t-mono">
+          <li>
+            <span class="num">{SUMMARY.total.toLocaleString('nb-NO')}</span>
+            <span class="lab">anmeldelser</span>
+          </li>
+          <li>
+            <span class="num">{SUMMARY.yearMin}<span class="dash">–</span>{SUMMARY.yearMax}</span>
+            <span class="lab">årsspenn</span>
+          </li>
+          <li>
+            <span class="num">{SUMMARY.perfect6}</span>
+            <span class="lab">terningkast 6</span>
+          </li>
+          <li>
+            <span class="num">{SUMMARY.worst1}</span>
+            <span class="lab">terningkast 1</span>
+          </li>
+        </ul>
+
+        <div class="cta-row">
+          <a class="btn btn-stamp" href="/reviews">Bla i indeksen →</a>
+          <a class="btn" href="/random">Slå et kast</a>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <HeroDie client:idle reviews={heroPool} initialIdx={initialIdx} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HISTOGRAM
+       ============================================ -->
+  <section class="histo reveal">
+    <header class="section-head">
+      <div class="h-eyebrow">Fordelingen av kast</div>
+      <h2 class="section-title h-headline">
+        Birger er <em>en mild dommer</em>.
+      </h2>
+      <p class="section-lede">
+        Halvparten av filmene får en firer eller femmer. Bare {SUMMARY.worst1} {SUMMARY.worst1 === 1 ? 'film' : 'filmer'} har fått en ener på nitten år; {SUMMARY.perfect6} har fått toppkarakter.
+        Trykk på en søyle for å filtrere indeksen.
+      </p>
+    </header>
+    <Histogram client:visible bins={histogram} height={260} />
+  </section>
+
+  <!-- ============================================
+       PERFECT 6 SPOTLIGHT — gold seal
+       ============================================ -->
+  <section class="six">
+    <header class="section-head">
+      <div class="h-eyebrow">Mesterverkene</div>
+      <h2 class="section-title h-headline">
+        Når terningen viser seks
+      </h2>
+      <p class="section-lede">
+        Et utvalg av de aller siste filmene som fikk Birgers høyeste karakter — i alt {SUMMARY.perfect6} stykker har stått igjen med en sekser siden 2007.
+      </p>
+    </header>
+
+    <div class="six-grid">
+      {sixSpotlight.map((r) => (
+        <a class="six-card" href={`/reviews/${reviewSlug(r.name, r.id)}`}>
+          <div class="six-img" style={r.image ? `background-image: url('${r.image}')` : ''}>
+            <div class="six-stamp">
+              <Stamp text="MESTERVERK" rotate={-9} />
+            </div>
+          </div>
+          <div class="six-body">
+            <div class="t-meta">{r.year} · {r.factbox?.regi ?? r.factbox?.serieskaper ?? '—'}</div>
+            <h3 class="six-title">{sanitizeQuotes(r.name)}</h3>
+            {r.headline && <p class="six-kicker italic">«{sanitizeQuotes(r.headline)}»</p>}
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <a href="/reviews?r=6" class="all-link h-eyebrow">Alle {SUMMARY.perfect6} sekserne →</a>
+  </section>
+
+  <!-- ============================================
+       LATEST  +  ARCHIVE GLIMPSE
+       ============================================ -->
+  <section class="latest reveal">
+    <header class="section-head">
+      <div class="h-eyebrow">Sist innsendt</div>
+      <h2 class="section-title h-headline">
+        De ferskeste anmeldelsene
+      </h2>
+    </header>
+
+    <div class="cards">
+      {recent.map((r, i) => (
+        <Card r={r} index={SUMMARY.total - reviewIndex.indexOf(r)} variant="compact" />
+      ))}
+    </div>
+  </section>
+
+  <!-- ============================================
+       AT-A-GLANCE: directors + genres + types
+       ============================================ -->
+  <section class="taxa reveal">
+    <div class="taxa-col">
+      <div class="h-eyebrow">Mest anmeldte regissører</div>
+      <ol class="taxa-list">
+        {top10Directors.slice(0, 10).map((d, i) => {
+          const slug = slugify(d.key);
+          const href = eligibleSlugs.has(slug)
+            ? `/people/${slug}`
+            : `/reviews?q=${encodeURIComponent(d.key)}`;
+          return (
+            <li>
+              <span class="t-mono rank">{String(i + 1).padStart(2, '0')}</span>
+              <a href={href}>{d.key}</a>
+              <span class="t-meta dot">·</span>
+              <span class="t-meta count">{d.n}</span>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+
+    <div class="taxa-col">
+      <div class="h-eyebrow">Sjangere etter volum</div>
+      <ol class="taxa-list taxa-grid">
+        {top10Genres.map((g, i) => (
+          <li>
+            <a href={`/reviews?g=${encodeURIComponent(g.key)}`}>
+              <span class="g-name">{g.key}</span>
+              <span class="g-count t-mono">{g.n}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="taxa-col taxa-stats">
+      <div class="h-eyebrow">Korpus etter type</div>
+      <div class="bigstats">
+        <div class="bigstat">
+          <span class="bs-num t-mono">{SUMMARY.movies.toLocaleString('nb-NO')}</span>
+          <span class="bs-lab">filmer</span>
+        </div>
+        <div class="bigstat">
+          <span class="bs-num t-mono">{SUMMARY.tv}</span>
+          <span class="bs-lab">serier</span>
+        </div>
+        <div class="bigstat">
+          <span class="bs-num t-mono">{SUMMARY.games}</span>
+          <span class="bs-lab">spill</span>
+        </div>
+      </div>
+      <a class="btn" href="/stats">Se alle tall →</a>
+    </div>
+  </section>
+</Page>
+
+<style>
+/* -------- HERO -------- */
+.hero {
+  padding-block: clamp(2rem, 5vw, 4.5rem) clamp(2.5rem, 6vw, 6rem);
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 -10vw;
+  background:
+    radial-gradient(60% 50% at 18% 30%, rgba(212,62,45,.10), transparent 70%),
+    radial-gradient(50% 40% at 90% 20%, rgba(232,185,70,.08), transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 4rem);
+  align-items: center;
+}
+
+.masthead { display: flex; flex-direction: column; gap: 1.6rem; max-width: 60ch; }
+
+.masthead-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  font-size: clamp(3.4rem, 11vw, 9.6rem);
+  letter-spacing: -0.05em;
+  color: var(--color-paper);
+}
+.line { display: block; line-height: 0.84; }
+.line-1 { color: var(--color-paper); }
+.line-1 .x {
+  /* The mid-bullet — Filmpolitiet red, pulled up so it rides the cap line. */
+  color: var(--color-stamp);
+  display: inline-block;
+  transform: translate(0.06em, -0.18em);
+  font-size: 0.78em;
+}
+.line-2 {
+  display: block;
+  margin-top: -0.04em;
+  margin-left: clamp(1.8rem, 4vw, 4rem);
+}
+.line-2 .ped {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  letter-spacing: -0.02em;
+  font-size: 0.74em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-paper);
+  background:
+    linear-gradient(120deg,
+      color-mix(in srgb, var(--color-spark) 0%, transparent) 30%,
+      color-mix(in srgb, var(--color-spark) 60%, transparent) 70%);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  line-height: 1.5;
+  color: var(--color-paper-2);
+  max-width: 52ch;
+}
+.lede em {
+  font-style: italic;
+  color: var(--color-spark);
+  font-variation-settings: "opsz" 16;
+}
+
+.big-stats {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: clamp(0.7rem, 2vw, 1.6rem) clamp(1.1rem, 2.5vw, 2.4rem);
+  border-top: 1px solid var(--color-line-dark);
+  border-bottom: 1px solid var(--color-line-dark);
+  padding-block: 1rem;
+}
+.big-stats li { display: flex; flex-direction: column; gap: 0.15rem; }
+.big-stats .num {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-paper);
+  font-variant-numeric: tabular-nums;
+}
+.big-stats .num .dash { color: var(--color-stamp); margin-inline: 0.05em; }
+.big-stats .lab {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+
+.cta-row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+
+.hero-side {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .big-stats { grid-template-columns: repeat(2, auto); }
+}
+
+/* -------- generic section heads -------- */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+  max-width: 65ch;
+}
+.section-title {
+  font-size: clamp(2rem, 4.8vw, 3.6rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin: 0;
+  color: var(--color-paper);
+}
+.section-title em {
+  color: var(--color-spark);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.section-lede {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-paper-2);
+  max-width: 60ch;
+  line-height: 1.55;
+}
+
+/* -------- HISTOGRAM section -------- */
+.histo {
+  margin-block: clamp(3rem, 6vw, 6rem);
+  padding-block: 2rem;
+  border-top: 1px solid var(--color-line-dark);
+  border-bottom: 1px solid var(--color-line-dark);
+}
+
+/* -------- SIX (perfect rating spotlight) -------- */
+.six {
+  margin-block: clamp(3rem, 6vw, 6rem);
+}
+.six-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.six-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-leader-2);
+  transition: transform .35s var(--ease-paper), border-color .25s ease;
+}
+.six-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-paper);
+  color: inherit;
+}
+.six-card:hover .six-title { color: var(--color-spark); }
+
+.six-img {
+  position: relative;
+  aspect-ratio: 16/10;
+  background-color: var(--color-leader-3);
+  background-size: cover;
+  background-position: center;
+}
+.six-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.5), transparent 60%);
+}
+.six-stamp {
+  position: absolute;
+  bottom: 0.8rem;
+  right: 0.8rem;
+  z-index: 1;
+}
+
+.six-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.1rem 1.3rem;
+}
+.six-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  transition: color .25s ease;
+}
+.six-kicker {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-paper-2);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.all-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  color: var(--color-paper-2);
+  border-bottom: 1px solid var(--color-line-dark);
+  padding-bottom: 0.4rem;
+}
+.all-link:hover { color: var(--color-stamp); border-color: var(--color-stamp); }
+
+@media (max-width: 880px) {
+  .six-grid { grid-template-columns: 1fr; }
+}
+
+/* -------- LATEST -------- */
+.latest { margin-block: clamp(3rem, 6vw, 6rem); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+
+/* -------- TAXA -------- */
+.taxa {
+  margin-block: clamp(3rem, 6vw, 6rem);
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  border-top: 1px solid var(--color-line-dark);
+  padding-top: 2.5rem;
+}
+.taxa-col { display: flex; flex-direction: column; gap: 0.85rem; min-width: 0; }
+.taxa-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0.45rem;
+}
+.taxa-list li {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+.taxa-list a {
+  text-decoration: none; color: var(--color-paper);
+  border-bottom: 1px dotted transparent;
+}
+.taxa-list a:hover { color: var(--color-spark); border-bottom-color: var(--color-spark); }
+.taxa-list .rank { color: var(--color-stamp); font-size: 0.7rem; min-width: 1.6em; }
+.taxa-list .dot { opacity: 0.4; }
+.taxa-list .count { color: var(--fg-mute); font-size: 0.8rem; }
+
+.taxa-grid { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.45rem; }
+.taxa-grid li a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-line-dark);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.taxa-grid .g-count { color: var(--fg-mute); font-size: 0.7rem; }
+
+.taxa-stats { gap: 1.2rem; }
+.bigstats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: end;
+}
+.bigstat { display: flex; flex-direction: column; gap: 0.2rem; }
+.bs-num {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--color-paper);
+  font-variant-numeric: tabular-nums;
+}
+.bs-lab {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+
+@media (max-width: 880px) {
+  .taxa { grid-template-columns: 1fr; }
+}
+</style>

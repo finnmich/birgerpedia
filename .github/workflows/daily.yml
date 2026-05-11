@@ -1,0 +1,186 @@
+# Daily crawl + rebuild + deploy for Birgerpedia.
+#
+# What it does (in order):
+#   1.  Restores the heavy data caches from the last run.
+#   2.  Walks NRK's listing API to discover any articles published in the
+#       last 24 h (catches retroactive edits too).
+#   3.  Fetches only the brand-new article HTML; the article crawler is
+#       resumable and skips anything already cached.
+#   4.  Re-parses to the slim public dataset.
+#   5.  Calls TMDB for any new title that doesn't yet have enrichment.
+#   6.  Refreshes the IMDb ratings dataset (cheap, weekly cache).
+#   7.  Backfills another ≤950 OMDb calls (free-tier cap), resuming from
+#       wherever the last run stopped.
+#   8.  Re-syncs and builds the Astro site.
+#   9.  Deploys to GitHub Pages.
+#   10. Commits the slim processed digests back to main (with a `[skip ci]`
+#       on the commit message so we don't re-trigger ourselves).
+
+name: Daily crawl + deploy
+
+on:
+  schedule:
+    # 04:00 UTC = 05:00 OSL (winter) / 06:00 OSL (summer). NRK has a few
+    # late-evening reviews, so we wait a few hours for the dust to settle.
+    - cron: '0 4 * * *'
+  workflow_dispatch:                  # manual "Run workflow" button
+    inputs:
+      skip-omdb:
+        description: "Skip OMDb backfill"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write                     # commit processed digests
+  pages: write
+  id-token: write                     # for OIDC-based Pages deploy
+
+concurrency:
+  group: birgerpedia-daily
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0              # we'll commit on top of main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      # ---------- caches ----------
+      # The raw NRK HTML cache is ~309 MB and we never want to re-download it.
+      # The enrichment JSONs are ~100 MB. OMDb cache grows daily. IMDb dataset
+      # is ~8 MB, refreshed weekly by the script itself.
+      - name: Restore raw caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/raw/articles
+            data/raw/omdb
+            data/raw/imdb-ratings.tsv.gz
+            data/processed/enrichment
+          key: birgerpedia-data-v1-${{ github.run_id }}
+          restore-keys: |
+            birgerpedia-data-v1-
+
+      # ---------- install ----------
+      - name: Install app deps
+        working-directory: app
+        run: npm ci
+
+      # ---------- crawl ----------
+      - name: 1) Crawl NRK listing
+        run: node scripts/crawl-listing.mjs
+
+      - name: 2) Fetch new article HTML
+        run: node scripts/crawl-articles.mjs
+        env:
+          # If something goes very wrong (e.g. NRK changes the URL shape)
+          # we don't want one corrupt review to fail the workflow.
+          NODE_OPTIONS: --max-old-space-size=2048
+
+      - name: 3) Rebuild slim dataset
+        run: node scripts/build-dataset.mjs
+
+      # ---------- enrich ----------
+      - name: 4) TMDB enrichment (resumable)
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: node scripts/enrich-tmdb.mjs
+
+      - name: 5) IMDb dataset → ratings lookup
+        run: node scripts/fetch-imdb-ratings.mjs
+
+      - name: 6) OMDb backfill (≤950 / day, resumable)
+        if: ${{ !inputs.skip-omdb }}
+        env:
+          OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}
+        continue-on-error: true       # hitting the free-tier cap is OK
+        run: node scripts/fetch-omdb.mjs
+
+      # ---------- build site ----------
+      - name: 7) Build Astro site
+        working-directory: app
+        env:
+          # The canonical URL the built sitemap/feed/og tags resolve against.
+          # Defaults to <owner>.github.io/<repo>, but if you've set a custom
+          # domain or moved to Cloudflare Pages, set repo variable ASTRO_SITE
+          # (Settings → Secrets and variables → Actions → Variables).
+          ASTRO_SITE: ${{ vars.ASTRO_SITE || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: npm run build
+
+      # ---------- deploy ----------
+      - name: 8) Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: 9) Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: app/dist
+
+      - name: 10) Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # ---------- commit data digests ----------
+      # We commit only the small "processed" digests, not the raw HTML or
+      # the per-review enrichment files (those live in the Actions cache).
+      - name: 11) Commit processed data back to main
+        run: |
+          git config user.name  "birgerpedia-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Use `--ignore-removal` so deleted-but-still-listed paths (e.g. a
+          # removed processed file) don't abort the add. Files that don't
+          # exist yet are silently skipped.
+          git add  data/processed/reviews.json \
+                   data/processed/reviews.ndjson \
+                   data/processed/stats.json \
+                   data/processed/imdb-ratings.json \
+                   data/processed/omdb-ratings.json \
+                   data/raw/listing/index.json
+          if git diff --staged --quiet; then
+            echo "No data changes today."
+          else
+            COUNT_NEW=$(jq '.plugs|length' data/raw/listing/index.json || echo "?")
+            git commit -m "data: daily crawl $(date -u +%Y-%m-%d) — $COUNT_NEW total [skip ci]"
+            # Drift defence: if anything landed on main between our checkout
+            # and now, rebase our data commit onto it. We only ever touch
+            # data/ files in this commit, so the conflict surface with manual
+            # edits is small. Retry up to 3 times in case main moves again
+            # mid-push.
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin "${{ github.ref_name }}" || true
+              if git push origin "HEAD:${{ github.ref_name }}"; then
+                exit 0
+              fi
+              echo "push attempt $attempt failed — refetching and retrying."
+              sleep 3
+            done
+            echo "::error::could not push data commit after 3 attempts"
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### Run summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/processed/stats.json ]; then
+            jq -r '
+              "- **Reviews**: \(.total)\n" +
+              "- **Year range**: \(.yearMin)–\(.yearMax)\n" +
+              "- **IMDb coverage**: \(.coverage.imdb)\n" +
+              "- **RT coverage**: \(.coverage.rt)\n" +
+              "- **Metacritic coverage**: \(.coverage.mc)"
+            ' data/processed/stats.json >> $GITHUB_STEP_SUMMARY 2>/dev/null || echo "(stats unavailable)" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY

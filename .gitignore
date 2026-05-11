@@ -1,0 +1,18 @@
+node_modules/
+
+# Raw caches — too big to track in git, restored from Actions cache between runs
+data/raw/articles/
+data/raw/listing/page-*.json
+data/raw/imdb-ratings.tsv.gz
+data/raw/omdb/
+
+# Per-review enrichment JSONs — ~1900 files, also lives in Actions cache.
+# The slim public/data/* digests are what gets committed.
+data/processed/enrichment/
+
+# Secrets / build output / system
+.env
+.env.local
+dist/
+.astro/
+.DS_Store

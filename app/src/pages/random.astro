@@ -1,0 +1,44 @@
+---
+import { reviewIndex } from '../lib/data';
+
+// Static "shuffled" landing — picks a random review on every build, then
+// JS bounces the user to a fresh random one on each visit so refreshes feel alive.
+const initial = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
+const targets = reviewIndex
+  .map((r) => `/reviews/${r.slug}`);
+
+// We embed the slug list as a JSON blob in the page so the browser can pick
+// without an extra fetch.
+---
+<!doctype html>
+<html lang="nb-NO">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tilfeldig anmeldelse — Birgerpedia</title>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=/reviews/${initial.slug}`} />
+    <link rel="canonical" href="/random" />
+    <style>
+      html, body {
+        background: #0E0B0A; color: #F4EFE6;
+        font-family: 'JetBrains Mono', monospace;
+        height: 100%; margin: 0;
+        display: grid; place-items: center;
+      }
+      .msg { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; opacity: 0.6; }
+    </style>
+  </head>
+  <body>
+    <p class="msg">slår en terning…</p>
+    <script type="application/json" id="vmx-targets" set:html={JSON.stringify(targets)} />
+    <script>
+      try {
+        const list = JSON.parse((document.getElementById('vmx-targets') as HTMLScriptElement).textContent || '[]');
+        if (Array.isArray(list) && list.length) {
+          const pick = list[Math.floor(Math.random() * list.length)];
+          location.replace(pick);
+        }
+      } catch {}
+    </script>
+  </body>
+</html>

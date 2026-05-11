@@ -1,0 +1,302 @@
+---
+import Page from '../layouts/Page.astro';
+import Die from '../components/Die.astro';
+import { reviewIndex } from '../lib/data';
+import { reviewSlug } from '../lib/slug';
+import { sanitizeQuotes } from '../lib/format';
+
+// Group by year, newest first.
+const byYear = new Map<number, typeof reviewIndex>();
+for (const r of reviewIndex) {
+  const y = r.year;
+  if (!y) continue;
+  const arr = byYear.get(y) ?? [];
+  arr.push(r);
+  byYear.set(y, arr);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+
+// Most-recent two years are open by default; older years collapse so
+// the page is light at first paint and the user opts in.
+const OPEN_BY_DEFAULT = 2;
+
+// Pre-bake the per-year mini-distribution as a tiny array — avoids
+// shipping any per-entry computation at render time.
+function bins(items: typeof reviewIndex) {
+  const out = [0, 0, 0, 0, 0, 0];
+  for (const r of items) if (r.rating && r.rating >= 1 && r.rating <= 6) out[r.rating - 1]++;
+  return out;
+}
+---
+
+<Page
+  current="timeline"
+  title="Tidslinjen — Birgerpedia"
+  description="Fra 2007 til i dag, hvert eneste år av Birger Vestmos anmeldelser, en skala langs nesten to tiår."
+>
+  <header class="page-head">
+    <div class="h-eyebrow">Tidslinjen</div>
+    <h1 class="page-title h-display">Nitten år, <em>én anmelder</em></h1>
+    <p class="page-lede">
+      Hver kolonne er et år. Hver flekk er en anmeldelse — fargen forteller
+      kastet, plasseringen forteller når. Klikk for å lese.
+    </p>
+  </header>
+
+  <!-- Year navigator (sticky chips at top) -->
+  <nav class="year-nav scroll-x" aria-label="Hopp til år">
+    {years.map((y) => {
+      const items = byYear.get(y) ?? [];
+      const six = items.filter((r) => r.rating === 6).length;
+      return (
+        <a href={`#yr-${y}`} class="yr-chip">
+          <span class="yr-num t-mono">{y}</span>
+          <span class="yr-count">{items.length}</span>
+          {six > 0 && <span class="yr-six t-mono" title={`${six} mesterverk`}>{'★'.repeat(Math.min(six, 3))}</span>}
+        </a>
+      );
+    })}
+  </nav>
+
+  <ol class="years">
+    {years.map((y, idx) => {
+      const items = byYear.get(y) ?? [];
+      const counts = bins(items);
+      const max = Math.max(1, ...counts);
+      const isOpen = idx < OPEN_BY_DEFAULT;
+      return (
+        <li class="year" id={`yr-${y}`}>
+          <details open={isOpen} class="year-details">
+            <summary class="year-head">
+              <h2 class="year-num h-display">{y}</h2>
+              <div class="year-meta">
+                <div class="t-meta">
+                  {items.length.toLocaleString('nb-NO')} anmeldelser
+                  {(items.filter((r) => r.rating === 6).length > 0) && (
+                    <span class="seal" title="terningkast 6 dette året">
+                      · {items.filter((r) => r.rating === 6).length} mesterverk
+                    </span>
+                  )}
+                </div>
+                <div class="rating-mini" aria-hidden="true">
+                  {counts.map((n, i) => (
+                    <div class="rmini" style={`--ratio: ${n / max}`} data-rating={i + 1}>
+                      <span class="rmini-bar"></span>
+                      <span class="rmini-num t-mono">{n}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <span class="year-toggle" aria-hidden="true">+</span>
+            </summary>
+
+            <ol class="year-list">
+              {items.map((r) => (
+                <li class="entry">
+                  <a href={`/reviews/${reviewSlug(r.name, r.id)}`} class="entry-link"
+                     data-rating={r.rating ?? 'none'}>
+                    <Die value={r.rating} size={28} rotate={-2} />
+                    <span class="entry-title">{sanitizeQuotes(r.name)}</span>
+                    <span class="entry-meta t-mono">
+                      <span>{(r.publishedAt ?? '').slice(5, 10)}</span>
+                      {r.factbox?.regi && <span class="dot">·</span>}
+                      {r.factbox?.regi && <span>{r.factbox.regi}</span>}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        </li>
+      );
+    })}
+  </ol>
+</Page>
+
+<style>
+.page-head {
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 2vw, 2rem);
+  display: flex; flex-direction: column; gap: 1rem;
+  max-width: 65ch;
+}
+.page-title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+}
+.page-title em {
+  color: var(--color-stamp);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.page-lede {
+  font-size: 1.1rem; color: var(--color-paper-2); max-width: 56ch;
+}
+
+.year-nav {
+  position: sticky;
+  top: 64px;
+  z-index: 10;
+  display: flex;
+  gap: 0.4rem;
+  padding-block: 0.7rem;
+  margin-block: 1.2rem;
+  border-block: 1px solid var(--color-line-dark);
+  background: color-mix(in oklab, var(--color-leader) 92%, transparent);
+  backdrop-filter: blur(6px);
+}
+.yr-chip {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--color-line-dark);
+  color: var(--fg-mute);
+  white-space: nowrap;
+  text-align: center;
+  min-width: 64px;
+  transition: border-color .15s ease, color .15s ease;
+}
+.yr-chip:hover { border-color: var(--color-paper); color: var(--color-paper); }
+.yr-num { font-size: 0.92rem; font-weight: 600; }
+.yr-count { font-family: var(--font-mono); font-size: 0.62rem; color: var(--fg-mute); letter-spacing: 0.06em; }
+.yr-six { font-size: 0.6rem; color: var(--color-spark); margin-top: 0.15rem; }
+
+.years { list-style: none; margin: 0; padding: 0; }
+.year {
+  border-top: 1px solid var(--color-line-dark);
+  padding-block: clamp(1rem, 2vw, 1.6rem);
+}
+.year-details { display: block; }
+.year-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.year-details > summary::-webkit-details-marker { display: none; }
+
+.year-head {
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) 1fr auto;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  padding-block: 0.8rem;
+}
+.year-num {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  color: var(--color-paper);
+  transition: color .25s ease;
+}
+.year-details:not([open]) .year-num { color: var(--fg-mute); }
+.year-details[open] .year-num { color: var(--color-paper); }
+
+.year-meta { display: flex; flex-direction: column; gap: 0.6rem; color: var(--fg-mute); min-width: 0; }
+.year-meta .seal { color: var(--color-spark); }
+
+.rating-mini {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(20px, 28px));
+  gap: 0.4rem;
+  height: 56px;
+  align-items: end;
+}
+.rmini {
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+  height: 56px; justify-content: end;
+}
+.rmini-bar {
+  display: block;
+  width: 100%;
+  background: var(--color-paper);
+  height: calc(var(--ratio) * 38px + 1px);
+  transition: height .8s var(--ease-paper);
+}
+/* color-code rating bars */
+.rmini[data-rating="1"] .rmini-bar { background: #D43E2D; }
+.rmini[data-rating="2"] .rmini-bar { background: color-mix(in srgb, #D43E2D 60%, var(--color-paper)); }
+.rmini[data-rating="3"] .rmini-bar { background: color-mix(in srgb, #D43E2D 25%, var(--color-paper)); }
+.rmini[data-rating="4"] .rmini-bar { background: var(--color-paper); }
+.rmini[data-rating="5"] .rmini-bar { background: color-mix(in srgb, var(--color-spark) 60%, var(--color-paper)); }
+.rmini[data-rating="6"] .rmini-bar { background: var(--color-spark); }
+.rmini-num { font-size: 0.6rem; color: var(--fg-mute); }
+
+.year-toggle {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-size: 1.6rem;
+  color: var(--color-stamp);
+  width: 1.5em;
+  text-align: center;
+  transition: transform .25s var(--ease-paper);
+}
+.year-details[open] .year-toggle { transform: rotate(45deg); }
+
+.year-list {
+  list-style: none; margin: 1.2rem 0 1.2rem; padding: 0;
+  column-count: 2;
+  column-gap: 1.5rem;
+}
+.entry { break-inside: avoid; padding-block: 0.4rem; }
+.entry-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.6rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.4rem 0.5rem;
+  transition: background .2s ease;
+  min-width: 0;
+  position: relative;
+}
+.entry-link::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 3px;
+  height: 60%;
+  transform: translateY(-50%);
+  background: var(--marker, transparent);
+  opacity: .9;
+}
+.entry-link[data-rating="6"] { --marker: var(--color-spark); }
+.entry-link[data-rating="5"] { --marker: color-mix(in srgb, var(--color-spark) 60%, var(--color-paper)); }
+.entry-link[data-rating="4"] { --marker: var(--color-paper); }
+.entry-link[data-rating="3"] { --marker: color-mix(in srgb, var(--color-stamp) 25%, var(--color-paper)); }
+.entry-link[data-rating="2"] { --marker: color-mix(in srgb, var(--color-stamp) 60%, var(--color-paper)); }
+.entry-link[data-rating="1"] { --marker: var(--color-stamp); }
+
+.entry-link:hover { background: var(--color-leader-2); color: inherit; }
+.entry-link:hover .entry-title { color: var(--color-spark); }
+.entry-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 600;
+  font-size: 0.96rem;
+  letter-spacing: -0.012em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color .2s ease;
+}
+.entry-meta {
+  font-size: 0.7rem;
+  color: var(--fg-mute);
+  display: inline-flex; gap: 0.3rem;
+  white-space: nowrap;
+  max-width: 24ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.entry-meta .dot { opacity: 0.5; }
+
+@media (max-width: 980px) {
+  .year-head { grid-template-columns: 1fr auto; }
+  .rating-mini { display: none; }
+  .year-list { column-count: 1; }
+}
+</style>

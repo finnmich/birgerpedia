@@ -1,0 +1,400 @@
+---
+import Page from '../../layouts/Page.astro';
+import Card from '../../components/Card.astro';
+import Die from '../../components/Die.astro';
+import { eligiblePeople, findPerson, type PersonRole } from '../../lib/people';
+import { sanitizeQuotes, ratingLabel } from '../../lib/format';
+
+export async function getStaticPaths() {
+  return eligiblePeople.map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
+}
+
+const { slug } = Astro.props as { slug: string };
+const p = findPerson(slug)!;
+
+const ROLE_LABELS: Record<PersonRole, { single: string; many: string }> = {
+  director: { single: 'regissør', many: 'regissør' },
+  creator:  { single: 'serieskaper', many: 'serieskaper' },
+  writer:   { single: 'manus', many: 'manus' },
+  actor:    { single: 'skuespiller', many: 'skuespiller' },
+};
+
+const primaryRole: PersonRole = (
+  p.asDirector >= p.asActor && p.asDirector > 0 ? 'director'
+  : p.asCreator > 0 ? 'creator'
+  : 'actor'
+);
+
+const byRole = (role: PersonRole) =>
+  p.appearances.filter((a) => a.role === role).map((a) => a.review);
+
+const directing = byRole('director');
+const creating = byRole('creator');
+const writing = byRole('writer');
+const acting = byRole('actor');
+
+// Build career timeline: { year: [reviews...] } for the rated-only view
+const timeline = new Map<number, typeof p.appearances>();
+for (const a of p.appearances) {
+  const y = a.review.year;
+  if (!y) continue;
+  const arr = timeline.get(y) ?? [];
+  arr.push(a);
+  timeline.set(y, arr);
+}
+const timelineYears = [...timeline.keys()].sort();
+
+const tagline = primaryRole === 'director'
+  ? `${p.asDirector} ${p.asDirector === 1 ? 'film regissert' : 'filmer regissert'}`
+  : primaryRole === 'creator'
+  ? `${p.asCreator} ${p.asCreator === 1 ? 'serie skapt' : 'serier skapt'}`
+  : `${p.asActor} ${p.asActor === 1 ? 'opptreden' : 'opptredener'}`;
+
+const subtitleRoles: string[] = [];
+if (p.asDirector) subtitleRoles.push(`${p.asDirector} ${p.asDirector === 1 ? 'film' : 'filmer'} som regissør`);
+if (p.asCreator)  subtitleRoles.push(`${p.asCreator} ${p.asCreator === 1 ? 'serie' : 'serier'} som skaper`);
+if (p.asWriter)   subtitleRoles.push(`${p.asWriter} som manusforfatter`);
+if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' : 'roller'}`);
+---
+
+<Page
+  current=""
+  title={`${p.name} — Birgerpedia`}
+  description={`Hvert av Birger Vestmos terningkast på ${p.name}: ${subtitleRoles.join(', ')}.`}
+  ogImage={p.profile}
+>
+  <article class="person">
+    <nav class="crumbs h-eyebrow">
+      <a href="/people">Personer</a>
+      <span class="sep">/</span>
+      <span>{p.name}</span>
+    </nav>
+
+    <!-- ============== HEAD ============== -->
+    <header class="p-head">
+      <div class="p-photo">
+        {p.profile
+          ? <img src={p.profile} alt={p.name} loading="eager" />
+          : <span class="monogram">{p.name.split(' ').map((s) => s[0]).slice(0, 2).join('')}</span>
+        }
+      </div>
+      <div class="p-meta">
+        <div class="h-kicker">{ROLE_LABELS[primaryRole].single}</div>
+        <h1 class="p-name h-display">{p.name}</h1>
+        <p class="p-tagline italic">{subtitleRoles.join(' · ')}</p>
+
+        <ul class="p-stats t-mono">
+          <li>
+            <span class="num">{p.total}</span>
+            <span class="lab">{p.total === 1 ? 'anmeldelse' : 'anmeldelser'}</span>
+          </li>
+          {p.avgRating !== null && (
+            <li>
+              <span class="num">{p.avgRating.toFixed(2).replace('.', ',')}</span>
+              <span class="lab">snittkast</span>
+            </li>
+          )}
+          {p.yearRange && (
+            <li>
+              <span class="num">{p.yearRange.min}<span class="dash">–</span>{p.yearRange.max}</span>
+              <span class="lab">spennevidde</span>
+            </li>
+          )}
+        </ul>
+      </div>
+    </header>
+
+    {p.best && p.worst && p.best.review.id !== p.worst.review.id && (
+      <!-- ============== BEST / WORST ============== -->
+      <section class="bookends">
+        <a class="bookend" href={`/reviews/${p.best.review.slug}`}>
+          <div class="bookend-label h-eyebrow">Birgers favoritt</div>
+          <Die value={p.best.review.rating} size={68} />
+          <div class="bookend-text">
+            <div class="title">{sanitizeQuotes(p.best.review.name)}</div>
+            <div class="t-meta">{p.best.review.year} · {ratingLabel(p.best.review.rating)}</div>
+          </div>
+        </a>
+        <div class="bookend-rule" aria-hidden="true">↔</div>
+        <a class="bookend" href={`/reviews/${p.worst.review.slug}`}>
+          <div class="bookend-label h-eyebrow">Birgers minst-favoritt</div>
+          <Die value={p.worst.review.rating} size={68} />
+          <div class="bookend-text">
+            <div class="title">{sanitizeQuotes(p.worst.review.name)}</div>
+            <div class="t-meta">{p.worst.review.year} · {ratingLabel(p.worst.review.rating)}</div>
+          </div>
+        </a>
+      </section>
+    )}
+
+    <!-- ============== BY ROLE ============== -->
+    {directing.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">Som regissør</div>
+          <h2 class="rs-title h-headline">{directing.length} {directing.length === 1 ? 'film' : 'filmer'}</h2>
+        </header>
+        <div class="cards">
+          {directing.map((r) => <Card r={r} variant="compact" />)}
+        </div>
+      </section>
+    )}
+
+    {creating.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">Som serieskaper</div>
+          <h2 class="rs-title h-headline">{creating.length} {creating.length === 1 ? 'serie' : 'serier'}</h2>
+        </header>
+        <div class="cards">
+          {creating.map((r) => <Card r={r} variant="compact" />)}
+        </div>
+      </section>
+    )}
+
+    {writing.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">Som manusforfatter</div>
+          <h2 class="rs-title h-headline">{writing.length} {writing.length === 1 ? 'verk' : 'verker'}</h2>
+        </header>
+        <div class="cards">
+          {writing.map((r) => <Card r={r} variant="compact" />)}
+        </div>
+      </section>
+    )}
+
+    {acting.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">{primaryRole === 'actor' ? 'Filmografien' : 'Også på lerretet i'}</div>
+          <h2 class="rs-title h-headline">{acting.length} {acting.length === 1 ? 'opptreden' : 'opptredener'}</h2>
+        </header>
+        <ol class="acting-list">
+          {acting.map((r) => {
+            const a = p.appearances.find((x) => x.review.id === r.id && x.role === 'actor');
+            return (
+              <li>
+                <a href={`/reviews/${r.slug}`} class="al-row">
+                  <Die value={r.rating} size={32} rotate={-2} />
+                  <div class="al-text">
+                    <span class="al-title">{sanitizeQuotes(r.name)}</span>
+                    {a?.character && <span class="al-char italic">som «{a.character}»</span>}
+                  </div>
+                  <span class="t-meta al-year">{r.year}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    )}
+  </article>
+</Page>
+
+<style>
+.person { padding-block: clamp(1.5rem, 3vw, 3rem) 4rem; }
+
+.crumbs {
+  display: flex; gap: 0.5rem; align-items: baseline;
+  color: var(--fg-mute);
+  margin-bottom: 1.6rem;
+}
+.crumbs a { text-decoration: none; color: var(--fg-mute); }
+.crumbs a:hover { color: var(--color-stamp); }
+.crumbs .sep { opacity: 0.5; }
+
+/* ----- HEAD ----- */
+.p-head {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-line-dark);
+}
+.p-photo {
+  width: 220px; height: 220px;
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+  display: grid; place-items: center;
+  position: relative;
+}
+.p-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, transparent 60%, rgba(0,0,0,.45));
+  pointer-events: none;
+}
+.p-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(.1) contrast(1.05);
+  transition: filter .35s ease;
+}
+.p-photo:hover img { filter: grayscale(0) contrast(1.1); }
+.monogram {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-weight: 800;
+  font-size: 5rem;
+  color: var(--fg-mute);
+}
+
+.p-meta { display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
+.p-name {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--color-paper);
+}
+.p-tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--color-paper-2);
+  font-variation-settings: "opsz" 16;
+}
+
+.p-stats {
+  list-style: none; margin: 0; padding: 0;
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.4rem);
+  align-items: end;
+  border-top: 1px solid var(--color-line-dark);
+  border-bottom: 1px solid var(--color-line-dark);
+  padding-block: 0.9rem;
+  flex-wrap: wrap;
+}
+.p-stats li { display: flex; flex-direction: column; gap: 0.15rem; }
+.p-stats .num {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.7rem; line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-paper);
+  font-variant-numeric: tabular-nums;
+}
+.p-stats .num .dash { color: var(--color-stamp); margin-inline: 0.05em; }
+.p-stats .lab {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+
+/* ----- BOOKENDS ----- */
+.bookends {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  margin-block: clamp(2rem, 4vw, 4rem);
+}
+.bookend {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "label label"
+    "die text";
+  gap: 0.4rem 1rem;
+  padding: 1.4rem;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-leader-2);
+  text-decoration: none;
+  color: inherit;
+  align-items: center;
+  transition: border-color .25s ease, transform .35s var(--ease-paper);
+}
+.bookend:hover { border-color: var(--color-paper); transform: translateY(-3px); color: inherit; }
+.bookend:hover .title { color: var(--color-spark); }
+.bookend-label { grid-area: label; color: var(--color-stamp); }
+.bookend > svg { grid-area: die; }
+.bookend-text { grid-area: text; display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+.bookend .title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  transition: color .2s ease;
+}
+.bookend-rule {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--color-mute);
+  display: grid; place-items: center;
+}
+
+/* ----- ROLE SECTIONS ----- */
+.role-section { margin-block: clamp(2rem, 5vw, 4rem); }
+.rs-head {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.rs-title {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0.8rem;
+}
+
+/* Acting list — denser, since it can be long */
+.acting-list { list-style: none; margin: 0; padding: 0; }
+.acting-list li { border-top: 1px solid var(--color-line-dark); }
+.acting-list li:last-child { border-bottom: 1px solid var(--color-line-dark); }
+.al-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem 0.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s ease;
+}
+.al-row:hover { background: color-mix(in srgb, var(--color-paper) 4%, transparent); color: inherit; }
+.al-row:hover .al-title { color: var(--color-spark); }
+.al-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.al-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.012em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color .2s ease;
+}
+.al-char {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+}
+.al-year {
+  color: var(--fg-mute);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 880px) {
+  .p-head { grid-template-columns: 1fr; }
+  .p-photo { width: 60%; max-width: 220px; height: auto; aspect-ratio: 1; }
+  .bookends { grid-template-columns: 1fr; }
+  .bookend-rule { transform: rotate(90deg); padding-block: 0.4rem; }
+}
+</style>

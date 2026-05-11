@@ -1,0 +1,46 @@
+---
+import Page from '../../layouts/Page.astro';
+import ReviewIndex from '../../components/vue/ReviewIndex.vue';
+import { SUMMARY } from '../../lib/data';
+---
+
+<Page
+  current="reviews"
+  title="Indeksen — Birgerpedia"
+  description={`Hele Vestmos korpus i ett bord: ${SUMMARY.total.toLocaleString('nb-NO')} anmeldelser å filtrere på terningkast, sjanger, regissør og format.`}
+>
+  <header class="page-head">
+    <div class="h-eyebrow">Indeksen</div>
+    <h1 class="page-title h-display">Hele <em>korpuset</em></h1>
+    <p class="page-lede">
+      {SUMMARY.total.toLocaleString('nb-NO')} anmeldelser fra 2007 til i dag.
+      Søk på tittel, regissør, skuespiller eller sjanger. Filtre kombineres fritt;
+      adressefeltet holder oversikten.
+    </p>
+  </header>
+
+  <ReviewIndex client:load />
+</Page>
+
+<style>
+.page-head {
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 2vw, 2rem);
+  display: flex; flex-direction: column; gap: 1rem;
+  border-bottom: 1px solid var(--color-line-dark);
+  max-width: 65ch;
+}
+.page-title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+}
+.page-title em {
+  color: var(--color-stamp);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 1;
+}
+.page-lede {
+  font-size: 1.1rem; color: var(--color-paper-2); max-width: 56ch;
+}
+</style>

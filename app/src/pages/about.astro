@@ -1,0 +1,125 @@
+---
+import Page from '../layouts/Page.astro';
+import { SUMMARY } from '../lib/data';
+---
+
+<Page
+  current="about"
+  title="Om prosjektet — Birgerpedia"
+  description="Hva, hvorfor, og av hvem. En liten teknisk og etisk redegjørelse."
+>
+  <article class="about">
+    <header class="about-head">
+      <div class="h-eyebrow">Om prosjektet</div>
+      <h1 class="h-display">En <em>hyllest</em>, ikke et arkiv.</h1>
+    </header>
+
+    <section>
+      <h2>Hva er dette?</h2>
+      <p>
+        <strong>Birgerpedia</strong> er en uoffisiell, fanlaget indeks over hver eneste
+        anmeldelse skrevet av <strong>Birger Vestmo</strong> for NRK Filmpolitiet —
+        {SUMMARY.total.toLocaleString('nb-NO')} stykker, fra {SUMMARY.yearMin} til {SUMMARY.yearMax}.
+        Et lite oppslagsverk for nerder, fans, og folk som lurer på hva
+        Birger ga «Oppenheimer».
+      </p>
+    </section>
+
+    <section>
+      <h2>Hvorfor?</h2>
+      <p>
+        Birger har vært NRK Filmpolitiets ankerstemme siden slutten av 90-tallet.
+        Han er av en sjelden type kritiker: konsekvent, varm, og — viser tallene —
+        usedvanlig snill med terningen. Få har skrevet så mye om film for
+        norske ører. Denne siden vil gjøre det lettere å finne tilbake til
+        anmeldelsene hans.
+      </p>
+    </section>
+
+    <section>
+      <h2>Hvor kommer dataene fra?</h2>
+      <p>
+        Indeksen er bygd ved å høste artiklene fra Birgers forfatterside hos
+        <a href="https://www.nrk.no/forfatter/birger-vestmo-18.264" rel="noopener">nrk.no</a>
+        med en forsiktig, identifiserbar crawler (én forespørsel i sekundet,
+        egen User-Agent, ingen omgåing av <code>robots.txt</code>). Strukturerte
+        felter trekkes ut fra schema.org Review-blokker og artiklenes faktabokser
+        («regi:», «sjanger:», osv.). Kompletterende metadata om filmene
+        kommer fra <a href="https://www.themoviedb.org/" rel="noopener">TMDB</a>.
+      </p>
+      <p class="t-meta">
+        Tekstinnholdet i selve anmeldelsene er <strong>NRKs eiendom</strong>. Denne siden viser bare
+        tittel, ingress og nøkkeldata, og lenker alltid videre til
+        originalkilden.
+      </p>
+    </section>
+
+    <section>
+      <h2>Hva sier teknikken?</h2>
+      <ul class="tech t-mono">
+        <li><span>Datainnsamling</span><span>Node.js, fetch, ingen avhengigheter</span></li>
+        <li><span>Berikelse</span><span>TMDB v3 søk + detaljer</span></li>
+        <li><span>Frontend</span><span>Astro 5 med Vue 3-øyer</span></li>
+        <li><span>Søk</span><span>MiniSearch (ren klient)</span></li>
+        <li><span>Stil</span><span>Tailwind 4 + egen CSS</span></li>
+        <li><span>Skrift</span><span>Fraunces · Newsreader · JetBrains Mono</span></li>
+        <li><span>Hosting</span><span>statisk, ingen server</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Kreditering</h2>
+      <p>
+        Anmeldelsene tilhører Birger Vestmo og NRK; verkdataene tilhører TMDB-bidragsytere
+        (CC BY-NC). Denne sidens egen kode og samlingslogikk er en personlig hobby — ikke
+        et offisielt prosjekt.
+      </p>
+    </section>
+  </article>
+</Page>
+
+<style>
+.about {
+  padding-block: clamp(2rem, 5vw, 4rem) 4rem;
+  max-width: 70ch;
+  display: flex; flex-direction: column;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+}
+.about-head { display: flex; flex-direction: column; gap: 0.8rem; }
+.about-head h1 {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+.about-head em { color: var(--color-stamp); font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1; }
+
+.about section { display: flex; flex-direction: column; gap: 0.7rem; }
+.about h2 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-paper);
+}
+.about p { line-height: 1.6; color: var(--color-paper-2); margin: 0; }
+.about p strong { color: var(--color-paper); font-weight: 600; }
+
+.tech {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 0;
+  border-top: 1px solid var(--color-line-dark);
+}
+.tech li {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--color-line-dark);
+  font-size: 0.82rem;
+}
+.tech li span:first-child { color: var(--fg-mute); letter-spacing: 0.06em; }
+.tech li span:last-child { color: var(--color-paper); }
+</style>

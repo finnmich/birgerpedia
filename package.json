@@ -1,0 +1,20 @@
+{
+  "name": "birgerpedia",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An oppslagsverk of every Birger Vestmo review on NRK Filmpolitiet.",
+  "scripts": {
+    "crawl:listing": "node scripts/crawl-listing.mjs",
+    "crawl:articles": "node scripts/crawl-articles.mjs",
+    "build:dataset": "node scripts/build-dataset.mjs",
+    "enrich:tmdb": "node scripts/enrich-tmdb.mjs",
+    "enrich:imdb": "node scripts/fetch-imdb-ratings.mjs",
+    "enrich:omdb": "node scripts/fetch-omdb.mjs",
+    "smoke": "node scripts/test-parser.mjs"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=20"
+  }
+}

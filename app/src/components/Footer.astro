@@ -1,0 +1,99 @@
+---
+import { SUMMARY } from '../lib/data';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="rule-h"></div>
+  <div class="container-edge inner">
+    <div class="col stack-tight">
+      <div class="h-eyebrow">Birgerpedia · {year}</div>
+      <p class="muted">
+        En fanside og hyllest til <strong>Birger Vestmo</strong>, NRK Filmpolitiets
+        anmelder. Alle anmeldelser er publisert hos NRK; Birgerpedia er en
+        uoffisiell indeks med dyp-lenker til originalene.
+      </p>
+    </div>
+
+    <div class="col">
+      <div class="h-eyebrow">Korpus</div>
+      <ul class="stats t-mono">
+        <li><span class="lab">Anmeldelser</span><span class="num">{SUMMARY.total.toLocaleString('nb-NO')}</span></li>
+        <li><span class="lab">Filmer</span><span class="num">{SUMMARY.movies.toLocaleString('nb-NO')}</span></li>
+        <li><span class="lab">Serier</span><span class="num">{SUMMARY.tv.toLocaleString('nb-NO')}</span></li>
+        <li><span class="lab">Spill</span><span class="num">{SUMMARY.games.toLocaleString('nb-NO')}</span></li>
+        <li><span class="lab">Periode</span><span class="num">{SUMMARY.yearMin}–{SUMMARY.yearMax}</span></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <div class="h-eyebrow">Lenker</div>
+      <ul class="links">
+        <li><a href="https://www.nrk.no/filmpolitiet/">NRK Filmpolitiet</a></li>
+        <li><a href="https://www.nrk.no/forfatter/birger-vestmo-18.264">Birger Vestmos forfatterside</a></li>
+        <li><a href="https://www.themoviedb.org/" rel="noopener">Berikelse: TMDB</a></li>
+        <li><a href="/about">Om prosjektet</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container-edge fineprint">
+    <span>Tekstinnhold © NRK / Birger Vestmo. Anvendelse her er begrenset til indeksering og
+    sitat med tilbakelenking til originalpublikasjonen.</span>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  margin-top: 8rem;
+  padding-bottom: 2.5rem;
+}
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: clamp(1.2rem, 4vw, 4rem);
+  padding-block: 2.4rem 1.6rem;
+}
+.col { display: flex; flex-direction: column; gap: 0.9rem; }
+.stack-tight { gap: 0.7rem; }
+.muted { color: var(--fg-mute); max-width: 50ch; line-height: 1.5; }
+
+.stats {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.83rem;
+}
+.stats li {
+  display: flex; justify-content: space-between; gap: 1rem;
+  border-bottom: 1px dashed var(--color-line-dark);
+  padding-block: 0.35rem;
+}
+.stats .lab { color: var(--fg-mute); letter-spacing: 0.06em; }
+.stats .num { color: var(--color-paper); font-variant-numeric: tabular-nums; }
+
+.links {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  font-family: var(--font-body);
+}
+.links a {
+  color: var(--color-paper);
+  text-decoration-color: var(--color-line-dark);
+  font-size: 0.95rem;
+}
+
+.fineprint {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--fg-mute);
+  letter-spacing: 0.04em;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--color-line-dark);
+  max-width: 80ch;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+</style>

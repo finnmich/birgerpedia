@@ -1,0 +1,179 @@
+---
+import Die from './Die.astro';
+import { reviewSlug } from '../lib/slug';
+import { formatNorwegianDate, formatRuntime, sanitizeQuotes } from '../lib/format';
+import type { ReviewIndexEntry } from '../lib/types';
+
+interface Props {
+  r: ReviewIndexEntry;
+  variant?: 'compact' | 'editorial' | 'wide';
+  index?: number;
+  showImage?: boolean;
+}
+const { r, variant = 'compact', index, showImage = true } = Astro.props;
+
+const slug = r.slug ?? reviewSlug(r.name, r.id);
+const cls = `card card--${variant}`;
+const dirOrCreator = r.factbox?.regi ?? r.factbox?.serieskaper ?? null;
+const subtitle = r.headline ? sanitizeQuotes(r.headline) : (r.abstract ?? '');
+const tail = r.factbox?.skuespillere?.slice(0, 3).join(', ') ?? '';
+---
+
+<a href={`/reviews/${slug}`} class={cls} aria-label={`${r.name} — terningkast ${r.rating ?? '—'}`}>
+  {variant !== 'compact' && showImage && r.image && (
+    <div class="img">
+      <img src={r.image} alt="" loading="lazy" decoding="async" />
+    </div>
+  )}
+
+  <div class="body">
+    <div class="row meta-row">
+      <span class="t-meta idx">
+        {index != null
+          ? `№ ${String(index).padStart(4, '0')}`
+          : (r.id?.split('.')[1] ?? '').slice(-4)}
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span class="t-meta year">{r.year}</span>
+      {r.type && r.type !== 'Movie' && (
+        <span class="t-meta tag">· {r.type === 'TVSeries' ? 'serie' : r.type === 'Game' ? 'spill' : r.type.toLowerCase()}</span>
+      )}
+    </div>
+
+    <h3 class="title">
+      <span class="title-text">{sanitizeQuotes(r.name)}</span>
+      {r.originalTitle && r.originalTitle !== r.name && (
+        <span class="orig">«{r.originalTitle}»</span>
+      )}
+    </h3>
+
+    {subtitle && <p class="kicker">«{subtitle}»</p>}
+
+    <div class="row foot">
+      {dirOrCreator && <span class="t-meta">{dirOrCreator}</span>}
+      {r.factbox?.lengdeMinutes && <span class="t-meta">· {formatRuntime(r.factbox.lengdeMinutes)}</span>}
+    </div>
+  </div>
+
+  <div class="rating">
+    <Die value={r.rating} size={variant === 'wide' ? 56 : variant === 'editorial' ? 64 : 44} />
+  </div>
+</a>
+
+<style>
+.card {
+  display: grid;
+  position: relative;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+  text-decoration: none;
+  color: var(--color-paper);
+  transition: transform .35s var(--ease-paper), border-color .25s ease, background .25s ease;
+}
+.card:hover {
+  border-color: var(--color-paper);
+  transform: translateY(-3px);
+  background: var(--color-leader-3);
+  color: var(--color-paper);
+}
+.card:hover .title-text {
+  color: var(--color-spark);
+}
+
+.card--compact {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.05rem 1.2rem;
+}
+.card--editorial {
+  grid-template-columns: 220px 1fr auto;
+  gap: 1.6rem;
+  padding: 1.4rem;
+  align-items: center;
+}
+.card--wide {
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+.card--wide .img {
+  aspect-ratio: 16/9;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-leader-3);
+}
+.card--editorial .img {
+  width: 220px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--color-leader-3);
+}
+.card .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(.95);
+  transition: transform .8s var(--ease-paper);
+}
+.card:hover .img img { transform: scale(1.05); }
+
+.card--wide .body { padding: 1.2rem 1.3rem 1.3rem; }
+.body { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.row { display: flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap; }
+.meta-row { line-height: 1; }
+.idx { color: var(--color-spark); letter-spacing: 0.16em; }
+.dot { color: var(--fg-mute); opacity: .5; }
+.tag { color: var(--color-stamp); }
+
+.title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 1;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 1.5vw, 1.65rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  transition: color .25s ease;
+}
+.title-text { transition: color .25s ease; }
+.orig {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--fg-mute);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.kicker {
+  font-style: italic;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--color-paper-2);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.foot { color: var(--fg-mute); margin-top: 0.2rem; }
+
+.rating {
+  align-self: center;
+  justify-self: end;
+  display: grid; place-items: center;
+}
+
+.card--wide .rating {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+@media (max-width: 720px) {
+  .card--editorial { grid-template-columns: 1fr auto; }
+  .card--editorial .img { display: none; }
+}
+</style>

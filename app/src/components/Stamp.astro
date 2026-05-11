@@ -1,0 +1,45 @@
+---
+// Editorial seal stamp. Used on terningkast 6 (MESTERVERK) and 1 (UNDERMÅLER).
+// Pure SVG so it composes cleanly with print backgrounds.
+interface Props {
+  text: string;          // e.g. "MESTERVERK"
+  rotate?: number;
+  color?: string;
+  size?: number;
+}
+const { text, rotate = -8, color = 'var(--color-stamp)', size = 96 } = Astro.props;
+const r = 38;
+---
+
+<div
+  style={`
+    --c: ${color};
+    width: ${size}px; height: ${size}px;
+    transform: rotate(${rotate}deg);
+    color: var(--c);
+    position: relative;
+    display: inline-block;
+  `}
+  class="anim-stamp-in"
+>
+  <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
+    <defs>
+      <path id={`stamp-arc-${text}`} d={`M 50,50 m -${r},0 a ${r},${r} 0 1,1 ${r * 2},0 a ${r},${r} 0 1,1 -${r * 2},0`} fill="none" />
+      <filter id={`stamp-noise-${text}`}>
+        <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" />
+        <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .35 0" />
+        <feComposite in2="SourceGraphic" operator="in" />
+      </filter>
+    </defs>
+    <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="2.4" />
+    <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1" />
+    <text font-family="JetBrains Mono, monospace" font-size="9" font-weight="700"
+          letter-spacing="3" fill="currentColor">
+      <textPath href={`#stamp-arc-${text}`} startOffset="6">{text}</textPath>
+    </text>
+    <text x="50" y="56" text-anchor="middle"
+          font-family="Fraunces, serif" font-style="italic" font-weight="800"
+          font-size="22" fill="currentColor">★</text>
+    <rect x="0" y="0" width="100" height="100" fill="black" filter={`url(#stamp-noise-${text})`} opacity=".55" style="mix-blend-mode: screen;" />
+  </svg>
+</div>

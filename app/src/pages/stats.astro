@@ -1,0 +1,43 @@
+---
+import Page from '../layouts/Page.astro';
+import StatsDashboard from '../components/vue/StatsDashboard.vue';
+---
+
+<Page
+  current="stats"
+  title="Statistikk — Birgerpedia"
+  description="Tallenes tale: anmeldelser per år, snitt-terningkast over tid, varmematrise og topplister."
+>
+  <header class="page-head">
+    <div class="h-eyebrow">Statistikk</div>
+    <h1 class="page-title h-display">Et liv i <em>tall</em></h1>
+    <p class="page-lede">
+      Når man koker ned nitten år med terningkast til kurver og kart,
+      ser man hva slags anmelder Birger er — og hvordan han endrer seg.
+    </p>
+  </header>
+
+  <StatsDashboard client:load />
+</Page>
+
+<style>
+.page-head {
+  padding-block: clamp(1.5rem, 4vw, 3rem) 0;
+  display: flex; flex-direction: column; gap: 1rem;
+  max-width: 65ch;
+}
+.page-title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+}
+.page-title em {
+  color: var(--color-spark);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.page-lede {
+  font-size: 1.1rem; color: var(--color-paper-2); max-width: 56ch;
+}
+</style>

@@ -1,0 +1,1056 @@
+---
+import Page from '../../layouts/Page.astro';
+import Die from '../../components/Die.astro';
+import Stamp from '../../components/Stamp.astro';
+import Card from '../../components/Card.astro';
+import { reviewIndex } from '../../lib/data';
+import { reviewSlug, slugify } from '../../lib/slug';
+import { formatNorwegianDate, formatRuntime, ratingLabel, sanitizeQuotes } from '../../lib/format';
+import type { ReviewIndexEntry } from '../../lib/types';
+import { enrichmentFor, tmdbUrl, imdbUrl } from '../../lib/enrichment';
+import { readFileSync } from 'node:fs';
+import { resolve as resolvePath } from 'node:path';
+
+// Read external-ratings.json at build time. This is the public file
+// sync-data writes (so the rest of the site loads it client-side too).
+// We read via fs.readFileSync for the same Vite-cold-start reasons as
+// data.ts / enrichment.ts.
+const EXT_RATINGS_PATH = resolvePath(process.cwd(), 'public', 'data', 'external-ratings.json');
+let _externalRatings: Record<string, { imdb?: number; imdbVotes?: number; rt?: number; mc?: number }> = {};
+try { _externalRatings = JSON.parse(readFileSync(EXT_RATINGS_PATH, 'utf8')); } catch {}
+function externalFor(reviewId: string) {
+  return _externalRatings[reviewId] ?? null;
+}
+import { eligibleSlugs } from '../../lib/people';
+
+// Whether a name has a person page worth linking to. Splits joint credits
+// like "Phil Lord og Christopher Miller" so each gets its own anchor.
+function personLinks(name: string | null | undefined) {
+  if (!name) return [];
+  return name
+    .split(/\s+og\s+|,\s*/i)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((n) => {
+      const slug = slugify(n);
+      return { name: n, slug, exists: eligibleSlugs.has(slug) };
+    });
+}
+
+export async function getStaticPaths() {
+  return reviewIndex.map((r) => ({
+    params: { slug: r.slug },
+    props: { review: r },
+  }));
+}
+
+interface Props { review: ReviewIndexEntry; }
+const { review: r } = Astro.props;
+
+const idx = reviewIndex.indexOf(r);
+const prev = idx > 0 ? reviewIndex[idx - 1] : null;
+const next = idx < reviewIndex.length - 1 ? reviewIndex[idx + 1] : null;
+
+// Find related: same director or shared genre, same type, prefer close years
+const refDirector = r.factbox?.regi ?? r.factbox?.serieskaper ?? null;
+const refGenres = new Set((r.factbox?.sjanger ?? []).map((g) => g.toLowerCase()));
+
+const related = reviewIndex
+  .filter((x) => x.id !== r.id && x.type === r.type)
+  .map((x) => {
+    let score = 0;
+    const xd = x.factbox?.regi ?? x.factbox?.serieskaper ?? null;
+    if (refDirector && xd === refDirector) score += 100;
+    for (const g of x.factbox?.sjanger ?? []) if (refGenres.has(g.toLowerCase())) score += 5;
+    score -= Math.abs((x.year || 0) - (r.year || 0)) * 0.1;
+    return { x, score };
+  })
+  .filter((p) => p.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 6)
+  .map((p) => p.x);
+
+const dirRelated = refDirector
+  ? reviewIndex.filter((x) => x.id !== r.id && (x.factbox?.regi === refDirector || x.factbox?.serieskaper === refDirector)).slice(0, 6)
+  : [];
+
+const isMasterpiece = r.rating === 6;
+const isWorst = r.rating === 1;
+
+const tmdb = enrichmentFor(r.id);
+// Prefer NRK editor's chosen og:image (better cropping, includes overlay text)
+// but fall back to TMDB poster when NRK image is missing.
+const heroImage = r.image ?? tmdb?.poster ?? null;
+const backdrop = tmdb?.backdrop ?? null;
+
+const ext = externalFor(r.id);
+const hasAnyExternal = !!(tmdb?.voteAverage != null || ext?.imdb != null || ext?.rt != null || ext?.mc != null);
+const birgerPct = r.rating != null ? Math.round(((r.rating - 1) / 5) * 100) : null;
+// Verdict colors for each source (gold = liked, red = disliked, neutral cream)
+function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'): string {
+  if (score == null) return 'mute';
+  const pct = kind === 'r6' ? ((score - 1) / 5) * 100
+            : kind === 'r10' ? score * 10
+            : score;
+  if (pct >= 70) return 'gold';
+  if (pct <= 40) return 'red';
+  return 'paper';
+}
+---
+
+<Page
+  current="reviews"
+  title={`${sanitizeQuotes(r.name)} — terningkast ${r.rating ?? '—'} — Birgerpedia`}
+  description={r.headline ? `«${r.headline}» — Birger Vestmos anmeldelse av ${sanitizeQuotes(r.name)}` : undefined}
+  ogImage={r.image}
+>
+  <article class="review-page">
+
+    <!-- ============================================
+         HEAD
+         ============================================ -->
+    <header class="r-head">
+      <nav class="crumbs h-eyebrow" aria-label="brødsmuler">
+        <a href="/reviews">Indeksen</a>
+        <span class="sep">/</span>
+        <span>№ {String(reviewIndex.length - idx).padStart(4, '0')}</span>
+      </nav>
+
+      <div class="r-grid">
+        <div class="r-meta">
+          <div class="r-kicker h-kicker">
+            {r.reviewType ?? 'Anmeldelse'}
+            {r.platform && (<><span class="sep">·</span><span>{r.platform}</span></>)}
+          </div>
+
+          <h1 class="r-title h-display">{sanitizeQuotes(r.name)}</h1>
+
+          {r.originalTitle && r.originalTitle !== r.name && (
+            <div class="r-orig italic">«{r.originalTitle}»</div>
+          )}
+
+          {r.headline && (
+            <p class="r-headline italic">«{sanitizeQuotes(r.headline)}»</p>
+          )}
+
+          <ul class="r-credits t-mono">
+            {r.factbox?.regi && (
+              <li>
+                <span class="lab">Regi</span>
+                <span class="val">
+                  {personLinks(r.factbox.regi).map((p, i) => (
+                    <>
+                      {i > 0 && <span class="comma">, </span>}
+                      {p.exists
+                        ? <a href={`/people/${p.slug}`}>{p.name}</a>
+                        : <span>{p.name}</span>}
+                    </>
+                  ))}
+                </span>
+              </li>
+            )}
+            {r.factbox?.serieskaper && (
+              <li>
+                <span class="lab">Serieskaper</span>
+                <span class="val">
+                  {personLinks(r.factbox.serieskaper).map((p, i) => (
+                    <>
+                      {i > 0 && <span class="comma">, </span>}
+                      {p.exists
+                        ? <a href={`/people/${p.slug}`}>{p.name}</a>
+                        : <span>{p.name}</span>}
+                    </>
+                  ))}
+                </span>
+              </li>
+            )}
+            {r.factbox?.skuespillere && r.factbox.skuespillere.length > 0 && (
+              <li>
+                <span class="lab">Med</span>
+                <span class="val">
+                  {r.factbox.skuespillere.map((name, i) => {
+                    const slug = slugify(name);
+                    const exists = eligibleSlugs.has(slug);
+                    return (
+                      <>
+                        {i > 0 && <span class="comma">, </span>}
+                        {exists ? <a href={`/people/${slug}`}>{name}</a> : <span>{name}</span>}
+                      </>
+                    );
+                  })}
+                </span>
+              </li>
+            )}
+            {r.factbox?.sjanger && r.factbox.sjanger.length > 0 && (
+              <li><span class="lab">Sjanger</span>
+                <span class="val">{r.factbox.sjanger.join(', ')}</span></li>
+            )}
+            {r.factbox?.lengdeMinutes && (
+              <li><span class="lab">Lengde</span><span class="val">{formatRuntime(r.factbox.lengdeMinutes)}</span></li>
+            )}
+            {r.factbox?.aldersgrense && (
+              <li><span class="lab">Aldersgrense</span><span class="val">{r.factbox.aldersgrense}</span></li>
+            )}
+            {r.factbox?.distributor && (
+              <li><span class="lab">Distributør</span><span class="val">{r.factbox.distributor}</span></li>
+            )}
+            {r.factbox?.norgespremiere && (
+              <li><span class="lab">Norgespremiere</span><span class="val">{formatNorwegianDate(r.factbox.norgespremiere)}</span></li>
+            )}
+            {r.factbox?.land && r.factbox.land.length > 0 && (
+              <li><span class="lab">Land</span><span class="val">{r.factbox.land.join(', ')}</span></li>
+            )}
+          </ul>
+        </div>
+
+        <div class="r-rating">
+          <div class="rating-block">
+            <div class="rating-die anim-roll-in">
+              <Die value={r.rating} size={140} variant="paper" rotate={-6} />
+            </div>
+            <div class="rating-text">
+              <div class="rating-num t-mono">{r.rating ?? '—'} av {r.ratingMax}</div>
+              <div class="rating-word italic">{ratingLabel(r.rating)}</div>
+            </div>
+            {isMasterpiece && (
+              <div class="badge"><Stamp text="MESTERVERK" rotate={-9} /></div>
+            )}
+            {isWorst && (
+              <div class="badge"><Stamp text="UNDERMÅLER" rotate={5} color="var(--color-mute)" /></div>
+            )}
+          </div>
+
+          <div class="meta-line t-meta">
+            <span>Publisert {formatNorwegianDate(r.publishedAt)}</span>
+            {r.modifiedAt && r.modifiedAt !== r.publishedAt && (
+              <span> · oppdatert {formatNorwegianDate(r.modifiedAt)}</span>
+            )}
+          </div>
+        </div>
+
+        {r.image && (
+          <div class="r-image">
+            <img src={r.image} alt={sanitizeQuotes(r.name)} loading="eager" />
+          </div>
+        )}
+      </div>
+    </header>
+
+    {hasAnyExternal && (
+      <!-- ============================================
+           HVA SIER VERDEN — cross-source rating comparison
+           ============================================ -->
+      <section class="verdicts" aria-label="Andre meninger om dette verket">
+        <header class="verdicts-head">
+          <div class="h-eyebrow">Hva sier verden?</div>
+          <h2 class="vs-title h-headline">
+            Birger vs. <em>resten</em>
+          </h2>
+        </header>
+
+        <ol class="vs-grid">
+          <li class={`vs-card vs-birger ${verdict(r.rating, 'r6')}`}>
+            <span class="vs-src">Birger</span>
+            <span class="vs-score">
+              <span class="vs-n">{r.rating ?? '—'}</span>
+              <span class="vs-scale">/ 6</span>
+            </span>
+            <span class="vs-bar"><span style={`width: ${birgerPct ?? 0}%`}></span></span>
+            <span class="vs-note">Filmpolitiet</span>
+          </li>
+
+          {tmdb?.voteAverage != null && tmdb.voteCount && tmdb.voteCount > 0 && (
+            <li class={`vs-card ${verdict(tmdb.voteAverage, 'r10')}`}>
+              <span class="vs-src">TMDB</span>
+              <span class="vs-score">
+                <span class="vs-n">{tmdb.voteAverage.toFixed(1).replace('.', ',')}</span>
+                <span class="vs-scale">/ 10</span>
+              </span>
+              <span class="vs-bar"><span style={`width: ${tmdb.voteAverage * 10}%`}></span></span>
+              <span class="vs-note">{tmdb.voteCount.toLocaleString('nb-NO')} stemmer</span>
+            </li>
+          )}
+
+          {ext?.imdb != null && (
+            <li class={`vs-card ${verdict(ext.imdb, 'r10')}`}>
+              <span class="vs-src">IMDb</span>
+              <span class="vs-score">
+                <span class="vs-n">{ext.imdb.toFixed(1).replace('.', ',')}</span>
+                <span class="vs-scale">/ 10</span>
+              </span>
+              <span class="vs-bar"><span style={`width: ${ext.imdb * 10}%`}></span></span>
+              <span class="vs-note">
+                {ext.imdbVotes != null
+                  ? `${ext.imdbVotes.toLocaleString('nb-NO')} stemmer`
+                  : 'IMDb-snitt'}
+              </span>
+            </li>
+          )}
+
+          {ext?.rt != null && (
+            <li class={`vs-card ${verdict(ext.rt, 'r100')}`}>
+              <span class="vs-src">Rotten Tomatoes</span>
+              <span class="vs-score">
+                <span class="vs-n">{ext.rt}</span>
+                <span class="vs-scale">%</span>
+              </span>
+              <span class="vs-bar"><span style={`width: ${ext.rt}%`}></span></span>
+              <span class="vs-note">tomatometer</span>
+            </li>
+          )}
+
+          {ext?.mc != null && (
+            <li class={`vs-card ${verdict(ext.mc, 'r100')}`}>
+              <span class="vs-src">Metacritic</span>
+              <span class="vs-score">
+                <span class="vs-n">{ext.mc}</span>
+                <span class="vs-scale">/ 100</span>
+              </span>
+              <span class="vs-bar"><span style={`width: ${ext.mc}%`}></span></span>
+              <span class="vs-note">metascore</span>
+            </li>
+          )}
+        </ol>
+      </section>
+    )}
+
+    <!-- ============================================
+         CTA: read at NRK
+         ============================================ -->
+    <section class="cta-card">
+      <div class="cta-text">
+        <div class="h-kicker">Hele anmeldelsen</div>
+        <p>
+          Birger Vestmo skriver for NRK Filmpolitiet. Anmeldelsens fulle tekst,
+          bilder, og eventuelle traileres ligger der den hører hjemme — hos NRK.
+        </p>
+      </div>
+      <a class="btn btn-stamp" href={r.url} target="_blank" rel="noopener">
+        Les hos NRK ↗
+      </a>
+    </section>
+
+    {tmdb && (
+      <!-- ============================================
+           ENRICHED METADATA
+           ============================================ -->
+      <section class="tmdb">
+        <header class="tmdb-head">
+          <div class="tmdb-head-text">
+            <div class="h-eyebrow">Fra TMDB</div>
+            <h2 class="section-title h-headline">
+              <em>Verket</em> bak anmeldelsen
+            </h2>
+            {tmdb.tagline && <p class="tagline italic">«{tmdb.tagline}»</p>}
+          </div>
+
+          <!-- External links pinned to the top-right of the title block
+               instead of orphaned at the bottom of the section. -->
+          <div class="tmdb-links" aria-label="Eksterne lenker">
+            {tmdbUrl(tmdb) && <a class="btn" href={tmdbUrl(tmdb)} target="_blank" rel="noopener">TMDB ↗</a>}
+            {imdbUrl(tmdb) && <a class="btn" href={imdbUrl(tmdb)} target="_blank" rel="noopener">IMDb ↗</a>}
+            {tmdb.external.wikidata && (
+              <a class="btn" href={`https://www.wikidata.org/wiki/${tmdb.external.wikidata}`} target="_blank" rel="noopener">Wikidata ↗</a>
+            )}
+          </div>
+        </header>
+
+        <!-- Facts strip — always full-width, tile grid that auto-wraps. -->
+        <ul class="tmdb-facts">
+          {tmdb.runtime && tmdb.runtime > 0 && (
+            <li>
+              <span class="lab">Spilletid</span>
+              <span class="val t-mono">{formatRuntime(tmdb.runtime)}</span>
+            </li>
+          )}
+          {tmdb.releaseDate && (
+            <li>
+              <span class="lab">Verdenspremiere</span>
+              <span class="val">{formatNorwegianDate(tmdb.releaseDate)}</span>
+            </li>
+          )}
+          {tmdb.voteAverage != null && tmdb.voteCount != null && tmdb.voteCount > 0 && (
+            <li>
+              <span class="lab">TMDB-snitt</span>
+              <span class="val">
+                <span class="t-mono">{tmdb.voteAverage.toFixed(1).replace('.', ',')}</span>
+                <span class="muted"> / 10 · {tmdb.voteCount.toLocaleString('nb-NO')} stemmer</span>
+              </span>
+            </li>
+          )}
+          {tmdb.budget && tmdb.budget > 0 && (
+            <li>
+              <span class="lab">Budsjett</span>
+              <span class="val t-mono">${(tmdb.budget / 1_000_000).toFixed(1).replace('.', ',')} M</span>
+            </li>
+          )}
+          {tmdb.revenue && tmdb.revenue > 0 && (
+            <li>
+              <span class="lab">Inntjening</span>
+              <span class="val t-mono">${(tmdb.revenue / 1_000_000).toFixed(1).replace('.', ',')} M</span>
+            </li>
+          )}
+          {tmdb.productionCountries.length > 0 && (
+            <li>
+              <span class="lab">Land</span>
+              <span class="val">{tmdb.productionCountries.join(', ')}</span>
+            </li>
+          )}
+          {tmdb.productionCompanies.length > 0 && (
+            <li class="wide">
+              <span class="lab">Selskap</span>
+              <span class="val">{tmdb.productionCompanies.slice(0, 3).join(', ')}</span>
+            </li>
+          )}
+          {tmdb.crew.dop && (
+            <li>
+              <span class="lab">Foto</span>
+              <span class="val">{tmdb.crew.dop}</span>
+            </li>
+          )}
+          {tmdb.crew.composer && (
+            <li>
+              <span class="lab">Musikk</span>
+              <span class="val">{tmdb.crew.composer}</span>
+            </li>
+          )}
+          {tmdb.crew.editor && (
+            <li>
+              <span class="lab">Klipp</span>
+              <span class="val">{tmdb.crew.editor}</span>
+            </li>
+          )}
+        </ul>
+
+        {tmdb.overview && (
+          <div class="tmdb-overview">
+            <div class="h-eyebrow">Synopsis</div>
+            <p>{tmdb.overview}</p>
+          </div>
+        )}
+
+        {tmdb.cast.length > 0 && (
+          <div class="tmdb-cast">
+            <div class="h-eyebrow">På lerretet</div>
+            <ul class="cast-grid">
+              {tmdb.cast.map((c) => {
+                const slug = slugify(c.name);
+                const exists = eligibleSlugs.has(slug);
+                const Tag = exists ? 'a' : 'div';
+                return (
+                  <li class="cast-item">
+                    <Tag href={exists ? `/people/${slug}` : undefined} class="cast-link">
+                      <div class="cast-avatar">
+                        {c.profile
+                          ? <img src={c.profile} alt={c.name} loading="lazy" />
+                          : <span class="cast-monogram">{c.name.split(' ').map((p) => p[0]).slice(0, 2).join('')}</span>
+                        }
+                      </div>
+                      <span class="cast-name">{c.name}</span>
+                      {c.character && <span class="cast-char italic">{c.character}</span>}
+                    </Tag>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+
+        {tmdb.keywords.length > 0 && (
+          <div class="tmdb-keywords">
+            <div class="h-eyebrow">Stikkord</div>
+            <div class="kw-row">
+              {tmdb.keywords.map((k) => (
+                <span class="kw">{k}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- ============================================
+         RELATED
+         ============================================ -->
+    {(related.length || dirRelated.length) > 0 && (
+      <section class="related">
+        {dirRelated.length > 0 && (
+          <div class="related-section">
+            <div class="h-eyebrow">Mer fra {refDirector}</div>
+            <div class="related-grid">
+              {dirRelated.map((x) => <Card r={x} variant="compact" />)}
+            </div>
+          </div>
+        )}
+
+        {related.length > 0 && (
+          <div class="related-section">
+            <div class="h-eyebrow">Du kan også like</div>
+            <div class="related-grid">
+              {related.map((x) => <Card r={x} variant="compact" />)}
+            </div>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- ============================================
+         PREV / NEXT
+         ============================================ -->
+    <nav class="prev-next" aria-label="bla i korpuset">
+      {next && (
+        <a href={`/reviews/${next.slug}`} class="pn pn-prev" data-nav="prev">
+          <span class="pn-arrow">←</span>
+          <span class="pn-content">
+            <span class="h-eyebrow">Eldre · <kbd>p</kbd></span>
+            <span class="pn-title">{sanitizeQuotes(next.name)}</span>
+          </span>
+        </a>
+      )}
+      {prev && (
+        <a href={`/reviews/${prev.slug}`} class="pn pn-next" data-nav="next">
+          <span class="pn-content right">
+            <span class="h-eyebrow"><kbd>n</kbd> · Nyere</span>
+            <span class="pn-title">{sanitizeQuotes(prev.name)}</span>
+          </span>
+          <span class="pn-arrow">→</span>
+        </a>
+      )}
+    </nav>
+  </article>
+
+  <script>
+    // Per-page keyboard nav: n = next (newer), p = previous (older), r = random.
+    document.addEventListener('keydown', (e) => {
+      const t = e.target as HTMLElement;
+      if (t?.matches?.('input, textarea, select')) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      if (e.key === 'n') {
+        const a = document.querySelector('a[data-nav="next"]') as HTMLAnchorElement | null;
+        if (a) { e.preventDefault(); location.href = a.href; }
+      } else if (e.key === 'p') {
+        const a = document.querySelector('a[data-nav="prev"]') as HTMLAnchorElement | null;
+        if (a) { e.preventDefault(); location.href = a.href; }
+      } else if (e.key === 'r') {
+        e.preventDefault();
+        location.href = '/random';
+      }
+    });
+  </script>
+</Page>
+
+<style>
+.review-page { padding-block: clamp(1.5rem, 3vw, 3rem) 0; }
+
+/* ----- HEAD ----- */
+.crumbs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: var(--fg-mute);
+  margin-bottom: 1.6rem;
+}
+.crumbs a { text-decoration: none; color: var(--fg-mute); }
+.crumbs a:hover { color: var(--color-stamp); }
+.crumbs .sep { opacity: 0.5; }
+
+.r-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "meta image"
+    "rating image";
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.r-meta { grid-area: meta; display: flex; flex-direction: column; gap: 1.2rem; min-width: 0; }
+.r-rating { grid-area: rating; display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+.r-image { grid-area: image; }
+
+.r-kicker {
+  display: inline-flex; gap: 0.5rem; align-items: baseline;
+}
+.r-kicker .sep { opacity: 0.4; }
+
+.r-title {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 5.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--color-paper);
+}
+
+.r-orig {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--fg-mute);
+  font-variation-settings: "opsz" 16;
+}
+
+.r-headline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  line-height: 1.35;
+  color: var(--color-paper-2);
+  margin: 0;
+  max-width: 50ch;
+  border-left: 2px solid var(--color-stamp);
+  padding-left: 1rem;
+  font-variation-settings: "opsz" 16;
+}
+
+.r-credits {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  border-top: 1px solid var(--color-line-dark);
+  border-bottom: 1px solid var(--color-line-dark);
+  padding-block: 1rem;
+  font-size: 0.85rem;
+}
+.r-credits li {
+  display: grid;
+  grid-template-columns: minmax(120px, 22%) 1fr;
+  gap: 0.7rem;
+}
+.r-credits .lab {
+  color: var(--fg-mute);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  align-self: baseline;
+}
+.r-credits .val { color: var(--color-paper); line-height: 1.45; }
+.r-credits .val a {
+  color: var(--color-paper);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-line-dark);
+  transition: color .15s ease, border-color .15s ease;
+}
+.r-credits .val a:hover { color: var(--color-spark); border-bottom-color: var(--color-spark); }
+.r-credits .comma { color: var(--fg-mute); }
+
+.r-image {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+}
+.r-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: contrast(1.05) saturate(.95);
+}
+.r-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, transparent 60%, rgba(0,0,0,.45));
+  pointer-events: none;
+}
+
+/* ----- RATING ----- */
+.rating-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+}
+.rating-die { flex-shrink: 0; }
+
+.rating-text { display: flex; flex-direction: column; gap: 0.3rem; }
+.rating-num {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rating-word {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--color-spark);
+  font-size: 1rem;
+  font-variation-settings: "opsz" 16;
+}
+.badge {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  z-index: 2;
+}
+
+.meta-line { color: var(--fg-mute); }
+
+/* ----- VERDICTS ("Hva sier verden") ----- */
+.verdicts {
+  margin-block: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.verdicts-head { display: flex; flex-direction: column; gap: 0.6rem; max-width: 60ch; }
+.vs-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.vs-title em { color: var(--color-spark); font-style: italic; }
+
+.vs-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.6rem;
+}
+.vs-card {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 0.45rem;
+  padding: 0.95rem 1.05rem 1rem;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+  border-left: 3px solid var(--color-line-dark);
+  transition: border-color .2s ease;
+}
+.vs-card.vs-birger {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-stamp) 8%, var(--color-leader-2)), var(--color-leader-2));
+  border-left-color: var(--color-stamp);
+}
+.vs-card.gold  { border-left-color: var(--color-spark); }
+.vs-card.red   { border-left-color: var(--color-stamp); }
+.vs-card.paper { border-left-color: var(--color-paper-3); }
+.vs-card.mute  { border-left-color: var(--color-line); }
+
+.vs-src {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.vs-card.vs-birger .vs-src { color: var(--color-stamp); }
+
+.vs-score {
+  display: flex; align-items: baseline; gap: 0.3rem;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-weight: 800;
+  color: var(--color-paper);
+}
+.vs-card.gold .vs-n  { color: var(--color-spark); }
+.vs-card.red .vs-n   { color: var(--color-stamp); }
+.vs-card.vs-birger .vs-n { color: var(--color-paper); }
+.vs-n {
+  font-size: 2.4rem;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+.vs-scale {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--fg-mute);
+  font-weight: 500;
+  font-variation-settings: normal;
+}
+
+.vs-bar {
+  display: block;
+  height: 4px;
+  background: var(--color-leader-3);
+  position: relative;
+  overflow: hidden;
+}
+.vs-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--color-paper-3);
+  transition: width 1s var(--ease-paper);
+}
+.vs-card.gold .vs-bar > span  { background: var(--color-spark); }
+.vs-card.red .vs-bar > span   { background: var(--color-stamp); }
+.vs-card.vs-birger .vs-bar > span { background: var(--color-stamp); }
+
+.vs-note {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: var(--fg-mute);
+}
+
+@media (max-width: 460px) {
+  .vs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ----- CTA ----- */
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-block: clamp(2rem, 4vw, 4rem);
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--color-stamp);
+  background: color-mix(in srgb, var(--color-stamp) 5%, transparent);
+}
+.cta-text { display: flex; flex-direction: column; gap: 0.5rem; max-width: 60ch; }
+.cta-text p { margin: 0; line-height: 1.5; }
+
+/* ----- RELATED ----- */
+.related {
+  margin-block: clamp(2rem, 5vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.related-section { display: flex; flex-direction: column; gap: 1rem; }
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+/* ----- PREV/NEXT ----- */
+.prev-next {
+  margin-block: clamp(2rem, 5vw, 5rem) 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  border-top: 1px solid var(--color-line-dark);
+  padding-top: 2rem;
+}
+.pn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-paper);
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-leader-2);
+  transition: background .25s ease, border-color .25s ease;
+}
+.pn:hover { background: var(--color-leader-3); border-color: var(--color-paper); color: inherit; }
+.pn-prev { justify-content: flex-start; }
+.pn-next { justify-content: flex-end; }
+.pn-content { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
+.pn-content.right { text-align: right; }
+.pn-arrow { font-size: 1.4rem; color: var(--color-stamp); flex-shrink: 0; }
+.pn-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pn .h-eyebrow { display: inline-flex; gap: 0.4rem; align-items: baseline; }
+.pn kbd {
+  display: inline-grid; place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.1rem 0.3rem;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-leader);
+  color: var(--fg-mute);
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+@media (max-width: 880px) {
+  .r-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "meta"
+      "rating";
+  }
+  .r-image { aspect-ratio: 16/10; }
+  .r-credits li { grid-template-columns: 1fr; gap: 0.15rem; }
+  .related-grid { grid-template-columns: 1fr; }
+  .prev-next { grid-template-columns: 1fr; }
+}
+
+/* ----- TMDB section ----- */
+.tmdb {
+  margin-block: clamp(2rem, 5vw, 5rem);
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-line-dark);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+/* Title block — title left, external-links pinned right.
+   Keeps the eye from wandering across an empty void on big screens. */
+.tmdb-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+.tmdb-head-text { display: flex; flex-direction: column; gap: 0.7rem; max-width: 60ch; }
+.tmdb .section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 0;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.tmdb .section-title em { color: var(--color-spark); font-style: italic; }
+.tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-paper-2);
+  margin: 0;
+  font-variation-settings: "opsz" 16;
+}
+
+.tmdb-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* Facts — full-width tile grid, auto-wraps. One tile per fact. */
+.tmdb-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+}
+.tmdb-facts li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.9rem 1rem 0.95rem;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+  min-height: 76px;
+  position: relative;
+  transition: border-color .2s ease;
+}
+.tmdb-facts li:hover { border-color: var(--color-line); }
+/* Long values (production companies, country lists) span 2 tile widths so
+   they breathe instead of wrapping into a multi-line tile half the page wide. */
+.tmdb-facts li.wide { grid-column: span 2; }
+.tmdb-facts .lab {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+.tmdb-facts .val {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-paper);
+  line-height: 1.35;
+  word-break: break-word;
+}
+.tmdb-facts .val.t-mono, .tmdb-facts .val .t-mono { font-variant-numeric: tabular-nums; }
+.tmdb-facts .muted { color: var(--fg-mute); font-size: 0.78rem; }
+
+/* Synopsis — its own block under the facts strip, max-width for readability */
+.tmdb-overview { display: flex; flex-direction: column; gap: 0.6rem; max-width: 70ch; }
+.tmdb-overview p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-paper);
+  margin: 0;
+}
+
+.tmdb-cast { display: flex; flex-direction: column; gap: 1rem; }
+.cast-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+.cast-item {
+  display: flex; flex-direction: column;
+  text-align: center;
+}
+.cast-link {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  text-decoration: none; color: inherit;
+}
+.cast-link[href]:hover .cast-name { color: var(--color-spark); }
+.cast-avatar {
+  aspect-ratio: 1/1;
+  background: var(--color-leader-3);
+  display: grid; place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-line-dark);
+}
+.cast-avatar img {
+  width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15) contrast(1.05);
+  transition: transform .8s var(--ease-paper), filter .35s ease;
+}
+.cast-item:hover .cast-avatar img { transform: scale(1.04); filter: grayscale(0) contrast(1.1); }
+.cast-monogram {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--fg-mute);
+}
+.cast-name {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--color-paper);
+}
+.cast-char {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+  line-height: 1.2;
+}
+
+.tmdb-keywords { display: flex; flex-direction: column; gap: 0.7rem; }
+.kw-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.kw {
+  display: inline-block;
+  padding: 0.32rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--color-paper-2);
+  border: 1px solid var(--color-line-dark);
+  background: color-mix(in srgb, var(--color-paper) 4%, transparent);
+}
+
+@media (max-width: 720px) {
+  .tmdb-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+  .tmdb-facts { grid-template-columns: repeat(2, 1fr); }
+  .tmdb-facts li.wide { grid-column: span 2; }
+}
+@media (max-width: 460px) {
+  .tmdb-facts { grid-template-columns: 1fr; }
+  .tmdb-facts li.wide { grid-column: span 1; }
+}
+</style>

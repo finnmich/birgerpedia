@@ -1,0 +1,104 @@
+---
+import Page from '../layouts/Page.astro';
+import Die from '../components/Die.astro';
+import { reviewIndex } from '../lib/data';
+import { reviewSlug } from '../lib/slug';
+
+// Pick a random review at build time so refreshes feel different.
+const r = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
+---
+
+<Page
+  title="404 — Birgerpedia"
+  description="Siden finnes ikke. Slå en ny terning?"
+>
+  <section class="four-oh">
+    <div class="num h-display">404</div>
+    <h1 class="msg h-headline">
+      <em>Ingen anmeldelse her.</em>
+    </h1>
+    <p class="lede">
+      Lenken din traff bunnen av filmboksen. Mens du er her — slå en
+      tilfeldig terning fra arkivet:
+    </p>
+
+    <a class="suggestion" href={`/reviews/${reviewSlug(r.name, r.id)}`}>
+      <Die value={r.rating} size={84} />
+      <div class="text">
+        <span class="t-mono kicker">terningkast {r.rating ?? '—'} · {r.year}</span>
+        <span class="title">{r.name}</span>
+        {r.headline && <span class="head italic">«{r.headline}»</span>}
+      </div>
+    </a>
+
+    <div class="actions">
+      <a class="btn" href="/">← Til forsiden</a>
+      <a class="btn btn-stamp" href="/random">Slå en ny</a>
+    </div>
+  </section>
+</Page>
+
+<style>
+.four-oh {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: flex-start;
+  padding-block: clamp(3rem, 8vw, 8rem);
+  max-width: 70ch;
+}
+.num {
+  font-size: clamp(8rem, 22vw, 16rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-stamp);
+  font-weight: 800;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+}
+.msg {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-paper);
+}
+.msg em { color: var(--color-spark); font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1; }
+.lede { color: var(--color-paper-2); font-size: 1.05rem; max-width: 50ch; }
+
+.suggestion {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--color-leader-2);
+  border: 1px solid var(--color-line-dark);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .25s ease, transform .35s var(--ease-paper);
+}
+.suggestion:hover {
+  border-color: var(--color-paper);
+  transform: translateY(-3px);
+  color: inherit;
+}
+.suggestion .text { display: flex; flex-direction: column; gap: 0.3rem; }
+.suggestion .kicker {
+  font-size: 0.7rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--color-stamp);
+}
+.suggestion .title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 1;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.suggestion .head {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--fg-mute);
+}
+.actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+</style>
