@@ -138,7 +138,9 @@ async function searchTmdb(query, year, wantTV, limiter) {
 async function fetchTmdbDetail(id, mediaType, limiter) {
   const params = new URLSearchParams({
     api_key: KEY, language: 'nb-NO',
-    append_to_response: 'credits,keywords,external_ids,videos,release_dates',
+    // `watch/providers` rides on the same request — TMDB's append_to_response
+    // bundles it into the detail response, no extra HTTP hop.
+    append_to_response: 'credits,keywords,external_ids,videos,release_dates,watch/providers',
   });
   const res = await politeFetch(`${TMDB}/${mediaType}/${id}?${params}`, { limiter, redact: KEY });
   return res.json();

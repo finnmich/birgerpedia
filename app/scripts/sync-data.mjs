@@ -205,6 +205,30 @@ try {
     }));
     const ext = t.external_ids ?? {};
 
+    // Norwegian streaming/rent/buy options — TMDB sources from JustWatch.
+    // Only the NO bucket is shipped; sort by display_priority so the
+    // most-relevant logos render first.
+    const wpNO = (t['watch/providers']?.results?.NO) ?? null;
+    const trimProvider = (p) => ({
+      id: p.provider_id,
+      name: p.provider_name,
+      logo: p.logo_path ? `https://image.tmdb.org/t/p/original${p.logo_path}` : null,
+      priority: p.display_priority ?? 999,
+    });
+    const sortByPriority = (arr) => [...arr].sort((a, b) => a.priority - b.priority);
+    const watchProvidersNO = wpNO ? {
+      flatrate: sortByPriority((wpNO.flatrate ?? []).map(trimProvider)),
+      ads: sortByPriority((wpNO.ads ?? []).map(trimProvider)),
+      rent: sortByPriority((wpNO.rent ?? []).map(trimProvider)),
+      buy: sortByPriority((wpNO.buy ?? []).map(trimProvider)),
+      link: wpNO.link ?? null,
+    } : null;
+    // If every bucket is empty, treat as no data so the UI can skip the section.
+    const hasAnyProvider = watchProvidersNO && (
+      watchProvidersNO.flatrate.length || watchProvidersNO.ads.length ||
+      watchProvidersNO.rent.length || watchProvidersNO.buy.length
+    );
+
     enrichment[raw.reviewId] = {
       mediaType: raw.match?.mediaType ?? null,
       tmdbId: raw.match?.tmdbId ?? t.id ?? null,
@@ -240,6 +264,13 @@ try {
         id: t.belongs_to_collection.id, name: t.belongs_to_collection.name,
         poster: t.belongs_to_collection.poster_path ? `https://image.tmdb.org/t/p/w500${t.belongs_to_collection.poster_path}` : null,
       } : null,
+      // Provider data may live in the snapshot but not in the per-review
+      // raw — that happens on CI when the Actions cache restores stale
+      // enrichment files. Keep the snapshot value when this trim produces
+      // nothing, so we don't blow away a previously committed backfill.
+      watchProvidersNO: hasAnyProvider
+        ? watchProvidersNO
+        : (enrichment[raw.reviewId]?.watchProvidersNO ?? null),
     };
     hits++;
   }

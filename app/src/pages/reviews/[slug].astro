@@ -86,6 +86,21 @@ const backdrop = tmdb?.backdrop ?? null;
 
 const ext = externalFor(r.id);
 const hasAnyExternal = !!(tmdb?.voteAverage != null || ext?.imdb != null || ext?.rt != null || ext?.mc != null);
+
+// Norwegian streaming/rent/buy options, sourced from TMDB via JustWatch.
+// TMDB doesn't index games, so the two game reviews here that found a
+// match did so against same-titled LEGO movies — surface no providers
+// for those, the data isn't about the work the reader is reading about.
+function dedupeById<T extends { id: number }>(items: T[]): T[] {
+  const seen = new Set<number>();
+  return items.filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)));
+}
+const watchNO = r.type === 'Game' ? null : (tmdb?.watchProvidersNO ?? null);
+const watchStream = dedupeById([...(watchNO?.flatrate ?? []), ...(watchNO?.ads ?? [])]);
+const streamIds = new Set(watchStream.map((p) => p.id));
+const watchRentBuy = dedupeById([...(watchNO?.rent ?? []), ...(watchNO?.buy ?? [])])
+  .filter((p) => !streamIds.has(p.id));
+const hasWatchOptions = watchStream.length > 0 || watchRentBuy.length > 0;
 const birgerPct = r.rating != null ? Math.round(((r.rating - 1) / 5) * 100) : null;
 // Verdict colors for each source (gold = liked, red = disliked, neutral cream)
 function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'): string {
@@ -330,6 +345,56 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
         Les hos NRK ↗
       </a>
     </section>
+
+    {hasWatchOptions && (
+      <!-- ============================================
+           Hvor kan du se den? — TMDB watch providers (NO locale)
+           ============================================ -->
+      <section class="watch" aria-labelledby="watch-title">
+        <header class="watch-head">
+          <div class="h-eyebrow">Tilgjengelig i Norge</div>
+          <h2 id="watch-title" class="section-title h-headline">
+            Hvor kan du <em>se den</em>?
+          </h2>
+        </header>
+
+        {watchStream.length > 0 && (
+          <div class="watch-row">
+            <div class="watch-label t-mono">Strøm</div>
+            <ul class="watch-list">
+              {watchStream.map((p) => (
+                <li>
+                  <a class="watch-chip" href={watchNO?.link ?? '#'} target="_blank" rel="noopener" title={`Se ${p.name}`}>
+                    {p.logo && <img src={p.logo} alt={p.name} loading="lazy" width="28" height="28" />}
+                    <span class="watch-name">{p.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {watchRentBuy.length > 0 && (
+          <div class="watch-row">
+            <div class="watch-label t-mono">Lei eller kjøp</div>
+            <ul class="watch-list">
+              {watchRentBuy.map((p) => (
+                <li>
+                  <a class="watch-chip" href={watchNO?.link ?? '#'} target="_blank" rel="noopener" title={`Lei eller kjøp på ${p.name}`}>
+                    {p.logo && <img src={p.logo} alt={p.name} loading="lazy" width="28" height="28" />}
+                    <span class="watch-name">{p.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <p class="watch-credit t-meta">
+          Data fra <a href={watchNO?.link ?? 'https://www.justwatch.com'} target="_blank" rel="noopener">JustWatch via TMDB ↗</a>
+        </p>
+      </section>
+    )}
 
     {tmdb && (
       <!-- ============================================
@@ -809,6 +874,96 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
 }
 .cta-text { display: flex; flex-direction: column; gap: 0.5rem; max-width: 60ch; }
 .cta-text p { margin: 0; line-height: 1.5; }
+
+/* ----- WATCH PROVIDERS ----- */
+.watch {
+  margin-block: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.watch-head { display: flex; flex-direction: column; gap: 0.4rem; max-width: 60ch; }
+.watch .section-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.watch .section-title em { color: var(--color-spark); font-style: italic; }
+
+.watch-row {
+  display: grid;
+  grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-top: 1px solid var(--color-line-dark);
+}
+.watch-row:last-of-type { border-bottom: 1px solid var(--color-line-dark); }
+.watch-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  padding-top: 0.3rem;
+}
+.watch-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.watch-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.7rem 0.35rem 0.4rem;
+  background: var(--color-leader-3);
+  border: 1px solid var(--color-line-dark);
+  border-radius: 999px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s ease, transform .25s var(--ease-paper);
+}
+.watch-chip:hover {
+  border-color: var(--color-paper);
+  transform: translateY(-1px);
+  color: inherit;
+}
+.watch-chip img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: var(--color-paper);
+  flex-shrink: 0;
+}
+.watch-name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--color-paper);
+}
+.watch-credit {
+  margin: 0;
+  color: var(--fg-mute);
+  font-size: 0.72rem;
+}
+.watch-credit a { color: var(--fg-mute); text-decoration: underline; text-decoration-color: var(--color-line-dark); }
+.watch-credit a:hover { color: var(--color-paper); }
+
+@media (max-width: 540px) {
+  .watch-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .watch-label { padding-top: 0; }
+  /* Tighten the chips so three Norwegian-name providers
+     (Apple TV Store, Rakuten TV, Google Play Movies) wrap predictably
+     within a 390-px viewport. */
+  .watch-chip { padding: 0.3rem 0.55rem 0.3rem 0.3rem; gap: 0.4rem; }
+  .watch-chip img { width: 22px; height: 22px; }
+  .watch-name { font-size: 0.66rem; }
+}
 
 /* ----- RELATED ----- */
 .related {

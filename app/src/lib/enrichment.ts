@@ -39,6 +39,21 @@ export interface CastMember {
   profile: string | null;
 }
 
+export interface WatchProvider {
+  id: number;
+  name: string;
+  logo: string | null;
+  priority: number;
+}
+
+export interface WatchProvidersNO {
+  flatrate: WatchProvider[];
+  ads: WatchProvider[];
+  rent: WatchProvider[];
+  buy: WatchProvider[];
+  link: string | null;
+}
+
 export interface Enrichment {
   miss?: boolean;
   mediaType: 'movie' | 'tv' | null;
@@ -72,6 +87,7 @@ export interface Enrichment {
   cast: CastMember[];
   external: { imdb: string | null; wikidata: string | null; instagram: string | null };
   collection: { id: number; name: string; poster: string | null } | null;
+  watchProvidersNO: WatchProvidersNO | null;
 }
 
 export function enrichmentFor(reviewId: string): Enrichment | null {
