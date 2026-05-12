@@ -14,6 +14,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { Review, ReviewIndexEntry } from './types';
 import { reviewSlug } from './slug';
+import { decodeEntities } from './format';
 
 // Same resolution strategy as enrichment.ts — `process.cwd()` is stable
 // across `astro dev` and `astro build` (it's the app/ directory both times),
@@ -31,8 +32,24 @@ let _dropped: string[] = [];
 try { _dropped = JSON.parse(readFileSync(DROPPED_PATH, 'utf8')); } catch {}
 const _droppedSet = new Set(_dropped);
 
+// NRK's article API leaks HTML entities into a handful of title fields
+// (`God&#039;s Own Country`, `Deadpool &amp; Wolverine`, …). Decode once
+// here so every downstream consumer sees the human-readable form. We
+// freeze the slug against the raw (still-encoded) name so already-deployed
+// URLs like /reviews/god-039-s-own-country-17230143 keep resolving.
+function decodeReview(r: Review): Review & { _stableSlug: string } {
+  return {
+    ...r,
+    _stableSlug: reviewSlug(r.name, r.id),
+    name: decodeEntities(r.name),
+    originalTitle: r.originalTitle ? decodeEntities(r.originalTitle) : r.originalTitle,
+  };
+}
+
 const _allReviews: Review[] = JSON.parse(readFileSync(REVIEWS_PATH, 'utf8'));
-export const reviews: Review[] = _allReviews.filter((r) => !_droppedSet.has(r.id));
+export const reviews: (Review & { _stableSlug: string })[] = _allReviews
+  .filter((r) => !_droppedSet.has(r.id))
+  .map(decodeReview);
 
 function entryFor(r: Review): ReviewIndexEntry {
   const year = Number(r.publishedAt?.slice(0, 4)) || 0;
@@ -51,7 +68,7 @@ function entryFor(r: Review): ReviewIndexEntry {
     ...r,
     year,
     decade,
-    slug: reviewSlug(r.name, r.id),
+    slug: (r as Review & { _stableSlug?: string })._stableSlug ?? reviewSlug(r.name, r.id),
     searchHaystack: haystackParts.join(' ').toLowerCase(),
   };
 }

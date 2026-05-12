@@ -94,7 +94,7 @@ function bins(items: typeof reviewIndex) {
             <ol class="year-list">
               {items.map((r) => (
                 <li class="entry">
-                  <a href={u(`/reviews/${reviewSlug(r.name, r.id)}`)} class="entry-link"
+                  <a href={u(`/reviews/${r.slug}`)} class="entry-link"
                      data-rating={r.rating ?? 'none'}>
                     <Die value={r.rating} size={28} rotate={-2} />
                     <span class="entry-title">{sanitizeQuotes(r.name)}</span>

@@ -36,7 +36,7 @@ const heroPool = heroCandidates.map((r) => ({
   name: sanitizeQuotes(r.name),
   rating: r.rating,
   year: r.year,
-  slug: reviewSlug(r.name, r.id),
+  slug: r.slug,
   headline: r.headline,
   image: r.image,
   regi: r.factbox?.regi ?? r.factbox?.serieskaper ?? null,
@@ -129,7 +129,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
 
     <div class="six-grid">
       {sixSpotlight.map((r) => (
-        <a class="six-card" href={u(`/reviews/${reviewSlug(r.name, r.id)}`)}>
+        <a class="six-card" href={u(`/reviews/${r.slug}`)}>
           <div class="six-img" style={r.image ? `background-image: url('${r.image}')` : ''}>
             <div class="six-stamp">
               <Stamp text="MESTERVERK" rotate={-9} />

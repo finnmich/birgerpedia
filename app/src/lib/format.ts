@@ -37,6 +37,25 @@ export function sanitizeQuotes(s: string | null | undefined): string {
   return (s ?? '').replace(/[«»“”]/g, '').trim();
 }
 
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+};
+
+/** Decode the small set of HTML entities NRK's API leaks into title fields
+ *  (e.g. `God&#039;s Own Country` → `God's Own Country`). Handles named
+ *  refs and decimal/hex numeric refs. Idempotent — safe to call on
+ *  already-decoded strings. */
+export function decodeEntities(s: string | null | undefined): string {
+  if (!s) return '';
+  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, code) => {
+    if (code[0] === '#') {
+      const cp = code[1] === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      return Number.isFinite(cp) && cp > 0 ? String.fromCodePoint(cp) : m;
+    }
+    return NAMED_ENTITIES[code.toLowerCase()] ?? m;
+  });
+}
+
 export function ratingLabel(r: number | null | undefined): string {
   if (r == null) return 'Uten kast';
   return ['svakt','tynt','greit','solid','sterkt','mesterverk'][r - 1] ?? '';

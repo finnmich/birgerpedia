@@ -23,7 +23,7 @@ const r = reviewIndex[Math.floor(Math.random() * reviewIndex.length)];
       tilfeldig terning fra arkivet:
     </p>
 
-    <a class="suggestion" href={u(`/reviews/${reviewSlug(r.name, r.id)}`)}>
+    <a class="suggestion" href={u(`/reviews/${r.slug}`)}>
       <Die value={r.rating} size={84} />
       <div class="text">
         <span class="t-mono kicker">terningkast {r.rating ?? '—'} · {r.year}</span>

@@ -31,6 +31,31 @@ const INTERNAL = resolve(ROOT, 'src', '_data');
 await mkdir(PUB, { recursive: true });
 await mkdir(INTERNAL, { recursive: true });
 
+// ----- helpers used by trimReview below -----
+const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+function decodeEntities(s) {
+  if (!s) return s;
+  return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, code) => {
+    if (code[0] === '#') {
+      const cp = code[1] === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      return Number.isFinite(cp) && cp > 0 ? String.fromCodePoint(cp) : m;
+    }
+    return NAMED_ENTITIES[code.toLowerCase()] ?? m;
+  });
+}
+function slugifyForReview(name, id) {
+  const tail = String(id).split('.').at(-1) ?? id;
+  const ascii = String(name ?? '')
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/æ/g, 'ae').replace(/ø/g, 'o').replace(/å/g, 'a')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
+  return `${ascii || 'review'}-${tail}`;
+}
+
 // ----- 1. Trim the per-record list shipped to /reviews -----
 const reviewsRaw = JSON.parse(await readFile(resolve(SRC, 'reviews.json'), 'utf8'));
 // Same-day dedupe runs BEFORE we trim, since it needs the enrichment lookup
@@ -113,12 +138,15 @@ function trimReview(r) {
   const fb = r.factbox ?? {};
   const out = {
     id: r.id,
-    name: r.name,
+    name: decodeEntities(r.name),
     type: r.type,
     rating: r.rating,
     publishedAt: r.publishedAt,
     headline: r.headline ?? null,
-    originalTitle: r.originalTitle ?? null,
+    originalTitle: r.originalTitle ? decodeEntities(r.originalTitle) : null,
+    // pre-computed from the RAW (still-encoded) name so URLs already in the
+    // wild (e.g. /reviews/god-039-s-own-country-17230143) keep resolving.
+    slug: slugifyForReview(r.name, r.id),
     image: r.image ?? null,
     platform: r.platform ?? null,
     factbox: {

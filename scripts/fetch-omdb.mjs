@@ -31,6 +31,10 @@ import {
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ENR_DIR = resolve(ROOT, 'data/processed/enrichment');
+// Committed aggregate of all TMDB enrichments — used as a fallback source
+// of imdb ids when the gitignored per-review cache is empty (typical on
+// CI cold-start). Same idea as the crawl-articles digest fallback.
+const TMDB_AGGREGATE = resolve(ROOT, 'data/processed/tmdb-enrichment.json');
 const OMDB_DIR = resolve(ROOT, 'data/raw/omdb');
 const OUT = resolve(ROOT, 'data/processed/omdb-ratings.json');
 // Same idea as crawl-articles: the slim digest committed to the repo
@@ -72,10 +76,12 @@ async function main() {
     for (const id of Object.keys(digest)) digestIds.add(id);
   } catch { /* fresh build, nothing committed yet */ }
 
-  // Collect every IMDb id we need. Try the enrichment cache first; if
-  // empty (CI cold-start), fall back to the committed digest so we still
-  // have something to iterate (will be all skips, but exits cleanly).
+  // Collect every IMDb id we need. Try the gitignored per-review cache
+  // first; if empty (typical on CI cold-start, the cache is restored
+  // from Actions cache and may not always be present), fall back to the
+  // committed TMDB aggregate which has the same ids in a slimmer shape.
   const wanted = [];
+  const seenReviewIds = new Set();
   let enrichmentFiles = [];
   try { enrichmentFiles = await readdir(ENR_DIR); } catch {}
   for (const f of enrichmentFiles) {
@@ -83,10 +89,25 @@ async function main() {
     try {
       const r = JSON.parse(await readFile(resolve(ENR_DIR, f), 'utf8'));
       const imdb = r?.tmdb?.external_ids?.imdb_id;
-      if (imdb) wanted.push({ reviewId: r.reviewId, imdb, name: r.name });
+      if (imdb) {
+        wanted.push({ reviewId: r.reviewId, imdb, name: r.name });
+        seenReviewIds.add(r.reviewId);
+      }
     } catch {}
   }
-  console.log(`[omdb] ${wanted.length} ids from enrichment cache, ${digestIds.size} already in digest`);
+  let fromAggregate = 0;
+  try {
+    const aggregate = JSON.parse(await readFile(TMDB_AGGREGATE, 'utf8'));
+    for (const [reviewId, rec] of Object.entries(aggregate)) {
+      if (seenReviewIds.has(reviewId)) continue;
+      const imdb = rec?.external?.imdb;
+      if (imdb) {
+        wanted.push({ reviewId, imdb, name: rec.title ?? '' });
+        fromAggregate++;
+      }
+    }
+  } catch { /* aggregate not present on first ever run — fine */ }
+  console.log(`[omdb] ${wanted.length} ids to consider (${wanted.length - fromAggregate} from enrichment cache, ${fromAggregate} from aggregate), ${digestIds.size} already in digest`);
 
   const limit = argv.limit ?? wanted.length;
   const limiter = new RateLimiter({ minIntervalMs: 250 });

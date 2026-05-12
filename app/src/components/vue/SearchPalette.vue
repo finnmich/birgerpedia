@@ -137,7 +137,7 @@ async function loadReviews() {
         ...r,
         year,
         regi,
-        slug: reviewSlug(r.name, r.id),
+        slug: r.slug ?? reviewSlug(r.name, r.id),
         hay: [r.name, r.originalTitle, r.headline, regi, ...(r.factbox?.skuespillere ?? []), ...(r.factbox?.sjanger ?? [])]
           .filter(Boolean).join(' ').toLowerCase(),
       } as ReviewDoc;

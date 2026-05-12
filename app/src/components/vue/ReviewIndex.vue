@@ -44,7 +44,7 @@ onMounted(async () => {
       ...r,
       year,
       decade: year ? Math.floor(year / 10) * 10 : 0,
-      slug: slugify(r.name, r.id),
+      slug: r.slug ?? slugify(r.name, r.id),
     };
   });
   buildSearch();

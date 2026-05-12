@@ -43,6 +43,21 @@ const TMDB_SNAPSHOT = resolve(ROOT, 'data/processed/tmdb-enrichment.json');
 const TMDB = 'https://api.themoviedb.org/3';
 const KEY = process.env.TMDB_API_KEY;
 
+// NRK's API leaks HTML entities into name fields (`God&#039;s Own Country`,
+// `Deadpool &amp; Wolverine`). Decode before querying TMDB — the literal
+// entity string causes 27 otherwise-findable titles to register as misses.
+const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+function decodeEntities(s) {
+  if (!s) return s;
+  return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, code) => {
+    if (code[0] === '#') {
+      const cp = code[1] === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
+      return Number.isFinite(cp) && cp > 0 ? String.fromCodePoint(cp) : m;
+    }
+    return NAMED_ENTITIES[code.toLowerCase()] ?? m;
+  });
+}
+
 async function main() {
   if (!KEY) {
     console.error('ERROR: set TMDB_API_KEY in env. Get one at https://www.themoviedb.org/settings/api');
@@ -73,12 +88,14 @@ async function main() {
     if (!refresh && knownInSnapshot.has(r.id)) { knownDigest++; continue; }
 
     const year = r.publishedAt?.slice(0, 4);
+    const cleanName = decodeEntities(r.name);
+    const cleanOriginal = decodeEntities(r.originalTitle);
     const candidates = [];
-    if (r.originalTitle && r.originalTitle !== r.name) {
-      candidates.push({ q: r.originalTitle, year });
+    if (cleanOriginal && cleanOriginal !== cleanName) {
+      candidates.push({ q: cleanOriginal, year });
     }
-    candidates.push({ q: r.name, year });
-    candidates.push({ q: r.name }); // fallback no-year
+    candidates.push({ q: cleanName, year });
+    candidates.push({ q: cleanName }); // fallback no-year
 
     const wantTV = r.type === 'TVSeries';
     let match = null, tmdb = null;
