@@ -14,10 +14,13 @@ const { slug } = Astro.props as { slug: string };
 const p = findPerson(slug)!;
 
 const ROLE_LABELS: Record<PersonRole, { single: string; many: string }> = {
-  director: { single: 'regissør', many: 'regissør' },
-  creator:  { single: 'serieskaper', many: 'serieskaper' },
-  writer:   { single: 'manus', many: 'manus' },
-  actor:    { single: 'skuespiller', many: 'skuespiller' },
+  director:        { single: 'regissør',       many: 'regissør' },
+  creator:         { single: 'serieskaper',    many: 'serieskaper' },
+  writer:          { single: 'manus',          many: 'manus' },
+  actor:           { single: 'skuespiller',    many: 'skuespiller' },
+  cinematographer: { single: 'fotograf',       many: 'fotograf' },
+  composer:        { single: 'komponist',      many: 'komponist' },
+  editor:          { single: 'klipper',        many: 'klipper' },
 };
 
 const primaryRole: PersonRole = (
@@ -33,6 +36,9 @@ const directing = byRole('director');
 const creating = byRole('creator');
 const writing = byRole('writer');
 const acting = byRole('actor');
+const shooting = byRole('cinematographer');
+const composing = byRole('composer');
+const cutting = byRole('editor');
 
 // Build career timeline: { year: [reviews...] } for the rated-only view
 const timeline = new Map<number, typeof p.appearances>();
@@ -56,6 +62,9 @@ if (p.asDirector) subtitleRoles.push(`${p.asDirector} ${p.asDirector === 1 ? 'fi
 if (p.asCreator)  subtitleRoles.push(`${p.asCreator} ${p.asCreator === 1 ? 'serie' : 'serier'} som skaper`);
 if (p.asWriter)   subtitleRoles.push(`${p.asWriter} som manusforfatter`);
 if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' : 'roller'}`);
+if (p.asCinematographer) subtitleRoles.push(`${p.asCinematographer} som fotograf`);
+if (p.asComposer)        subtitleRoles.push(`${p.asComposer} som komponist`);
+if (p.asEditor)          subtitleRoles.push(`${p.asEditor} som klipper`);
 ---
 
 <Page
@@ -161,6 +170,42 @@ if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' :
         </header>
         <div class="cards">
           {writing.map((r) => <Card r={r} variant="compact" />)}
+        </div>
+      </section>
+    )}
+
+    {shooting.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">Som fotograf</div>
+          <h2 class="rs-title h-headline">{shooting.length} {shooting.length === 1 ? 'verk' : 'verker'}</h2>
+        </header>
+        <div class="cards">
+          {shooting.map((r) => <Card r={r} variant="compact" />)}
+        </div>
+      </section>
+    )}
+
+    {composing.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">Som komponist</div>
+          <h2 class="rs-title h-headline">{composing.length} {composing.length === 1 ? 'verk' : 'verker'}</h2>
+        </header>
+        <div class="cards">
+          {composing.map((r) => <Card r={r} variant="compact" />)}
+        </div>
+      </section>
+    )}
+
+    {cutting.length > 0 && (
+      <section class="role-section">
+        <header class="rs-head">
+          <div class="h-eyebrow">Som klipper</div>
+          <h2 class="rs-title h-headline">{cutting.length} {cutting.length === 1 ? 'verk' : 'verker'}</h2>
+        </header>
+        <div class="cards">
+          {cutting.map((r) => <Card r={r} variant="compact" />)}
         </div>
       </section>
     )}

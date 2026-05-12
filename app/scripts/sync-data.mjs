@@ -833,12 +833,18 @@ function computePeopleIndex(reviews, enrichment) {
     const slug = personSlug(name);
     let p = map.get(slug);
     if (!p) {
-      p = { slug, name, profile: lookup(name), asDirector: 0, asCreator: 0, asWriter: 0, asActor: 0, n: 0, sum: 0, rated: 0 };
+      p = { slug, name, profile: lookup(name),
+        asDirector: 0, asCreator: 0, asWriter: 0, asActor: 0,
+        asCinematographer: 0, asComposer: 0, asEditor: 0,
+        n: 0, sum: 0, rated: 0 };
       map.set(slug, p);
     }
     if (role === 'director') p.asDirector++;
     else if (role === 'creator') p.asCreator++;
     else if (role === 'writer') p.asWriter++;
+    else if (role === 'cinematographer') p.asCinematographer++;
+    else if (role === 'composer') p.asComposer++;
+    else if (role === 'editor') p.asEditor++;
     else p.asActor++;
     p.n++;
     if (rating != null) { p.sum += rating; p.rated++; }
@@ -852,7 +858,12 @@ function computePeopleIndex(reviews, enrichment) {
     for (const n of splitNames(r.factbox?.manus)) bump(n, 'writer', r.rating);
     for (const n of (r.factbox?.skuespillere ?? [])) bump((n ?? '').trim(), 'actor', r.rating);
     const e = enrichment[r.id];
-    if (e && !e.miss) for (const c of e.cast ?? []) bump(c.name, 'actor', r.rating);
+    if (e && !e.miss) {
+      for (const c of e.cast ?? []) bump(c.name, 'actor', r.rating);
+      for (const n of splitNames(e.crew?.dop))      bump(n, 'cinematographer', r.rating);
+      for (const n of splitNames(e.crew?.composer)) bump(n, 'composer', r.rating);
+      for (const n of splitNames(e.crew?.editor))   bump(n, 'editor', r.rating);
+    }
   }
 
   const out = [];
@@ -870,7 +881,10 @@ function computePeopleIndex(reviews, enrichment) {
       role:
         p.asDirector >= p.asActor && p.asDirector > 0 ? 'director' :
         p.asCreator > 0 ? 'creator' :
-        p.asActor > 0 ? 'actor' : 'writer',
+        p.asActor > 0 ? 'actor' :
+        p.asCinematographer > 0 ? 'cinematographer' :
+        p.asComposer > 0 ? 'composer' :
+        p.asEditor > 0 ? 'editor' : 'writer',
     });
   }
   out.sort((a, b) => b.n - a.n);

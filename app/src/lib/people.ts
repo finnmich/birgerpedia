@@ -17,7 +17,8 @@ import { slugify } from './slug';
 // have to transform 4.4 MB of JSON on every cold page render otherwise).
 const enrichment = allEnrichment() as Record<string, any>;
 
-export type PersonRole = 'director' | 'writer' | 'creator' | 'actor';
+export type PersonRole = 'director' | 'writer' | 'creator' | 'actor'
+  | 'cinematographer' | 'composer' | 'editor';
 
 export interface PersonReview {
   review: ReviewIndexEntry;
@@ -42,6 +43,9 @@ export interface PersonPage {
   asActor: number;
   asWriter: number;
   asCreator: number;
+  asCinematographer: number;
+  asComposer: number;
+  asEditor: number;
 }
 
 // Names like "Phil Lord og Christopher Miller" → ["Phil Lord", "Christopher Miller"]
@@ -110,6 +114,7 @@ function ensure(name: string): PersonPage {
       best: null, worst: null,
       yearRange: null,
       asDirector: 0, asActor: 0, asWriter: 0, asCreator: 0,
+      asCinematographer: 0, asComposer: 0, asEditor: 0,
     };
     peopleMap.set(slug, p);
   }
@@ -138,12 +143,17 @@ for (const r of reviewIndex) {
   for (const name of splitDirectors(r.factbox?.manus)) add(name, 'writer', r);
   // NRK-listed actors
   for (const name of (r.factbox?.skuespillere ?? [])) add(name.trim(), 'actor', r);
-  // TMDB cast (richer when available — includes actors NRK didn't list)
+  // TMDB cast + key crew (richer when available — covers actors NRK didn't
+  // list and adds the trades NRK's factbox doesn't credit: cinematographer,
+  // composer, editor). Each crew name may itself be a "x og y" duo.
   const e = enrichment[r.id];
   if (e && !e.miss) {
     for (const c of e.cast ?? []) {
       add(c.name, 'actor', r, c.character);
     }
+    for (const name of splitDirectors(e.crew?.dop)) add(name, 'cinematographer', r);
+    for (const name of splitDirectors(e.crew?.composer)) add(name, 'composer', r);
+    for (const name of splitDirectors(e.crew?.editor)) add(name, 'editor', r);
   }
 }
 
@@ -159,10 +169,13 @@ for (const p of peopleMap.values()) {
   }
   const years = p.appearances.map((a) => a.review.year).filter(Boolean) as number[];
   if (years.length) p.yearRange = { min: Math.min(...years), max: Math.max(...years) };
-  p.asDirector = p.appearances.filter((a) => a.role === 'director').length;
-  p.asActor    = p.appearances.filter((a) => a.role === 'actor').length;
-  p.asWriter   = p.appearances.filter((a) => a.role === 'writer').length;
-  p.asCreator  = p.appearances.filter((a) => a.role === 'creator').length;
+  p.asDirector        = p.appearances.filter((a) => a.role === 'director').length;
+  p.asActor           = p.appearances.filter((a) => a.role === 'actor').length;
+  p.asWriter          = p.appearances.filter((a) => a.role === 'writer').length;
+  p.asCreator         = p.appearances.filter((a) => a.role === 'creator').length;
+  p.asCinematographer = p.appearances.filter((a) => a.role === 'cinematographer').length;
+  p.asComposer        = p.appearances.filter((a) => a.role === 'composer').length;
+  p.asEditor          = p.appearances.filter((a) => a.role === 'editor').length;
 
   // Most-recent first within each role; appearances list also chrono-sorted
   p.appearances.sort((a, b) => (b.review.publishedAt ?? '').localeCompare(a.review.publishedAt ?? ''));
