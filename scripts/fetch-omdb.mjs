@@ -169,36 +169,52 @@ async function main() {
 }
 
 async function rebuildSlimLookup() {
+  // Start from the committed digest so the CI cold-start (empty raw/omdb/)
+  // doesn't blow away thousands of entries we've already accumulated. The
+  // raw cache is gitignored; only the digest is committed and authoritative.
   const out = {};
+  try {
+    const existing = JSON.parse(await readFile(OUT, 'utf8'));
+    Object.assign(out, existing);
+  } catch { /* first run, no digest yet */ }
+  const baseline = Object.keys(out).length;
+
+  let rawCount = 0;
+  try {
+    for (const f of await readdir(OMDB_DIR)) {
+      if (!f.endsWith('.json')) continue;
+      try {
+        const o = JSON.parse(await readFile(resolve(OMDB_DIR, f), 'utf8'));
+        if (o.miss) continue;
+        const tt = (f.replace(/\.json$/, ''));
+        const ratings = Array.isArray(o.Ratings) ? o.Ratings : [];
+        const rt = ratings.find((r) => r.Source === 'Rotten Tomatoes');
+        const mc = ratings.find((r) => r.Source === 'Metacritic');
+        // RT comes as "67%" → 0..100; Metacritic comes as "62/100" → 0..100
+        const rtPct = rt?.Value ? parseInt(String(rt.Value).replace(/%/, ''), 10) : null;
+        const mcN = mc?.Value ? parseInt(String(mc.Value).split('/')[0], 10) : null;
+        const imdbR = o.imdbRating && o.imdbRating !== 'N/A' ? parseFloat(o.imdbRating) : null;
+        const imdbV = o.imdbVotes && o.imdbVotes !== 'N/A' ? parseInt(String(o.imdbVotes).replace(/,/g, ''), 10) : null;
+        out[tt] = {
+          rt: Number.isFinite(rtPct) ? rtPct : null,
+          metacritic: Number.isFinite(mcN) ? mcN : null,
+          imdbRating: Number.isFinite(imdbR) ? imdbR : null,
+          imdbVotes: Number.isFinite(imdbV) ? imdbV : null,
+          rated: o.Rated && o.Rated !== 'N/A' ? o.Rated : null,
+          awards: o.Awards && o.Awards !== 'N/A' ? o.Awards : null,
+        };
+        rawCount++;
+      } catch {}
+    }
+  } catch { /* no raw cache yet */ }
+
   let withRt = 0, withMc = 0;
-  for (const f of await readdir(OMDB_DIR)) {
-    if (!f.endsWith('.json')) continue;
-    try {
-      const o = JSON.parse(await readFile(resolve(OMDB_DIR, f), 'utf8'));
-      if (o.miss) continue;
-      const tt = (f.replace(/\.json$/, ''));
-      const ratings = Array.isArray(o.Ratings) ? o.Ratings : [];
-      const rt = ratings.find((r) => r.Source === 'Rotten Tomatoes');
-      const mc = ratings.find((r) => r.Source === 'Metacritic');
-      // RT comes as "67%" → 0..100; Metacritic comes as "62/100" → 0..100
-      const rtPct = rt?.Value ? parseInt(String(rt.Value).replace(/%/, ''), 10) : null;
-      const mcN = mc?.Value ? parseInt(String(mc.Value).split('/')[0], 10) : null;
-      const imdbR = o.imdbRating && o.imdbRating !== 'N/A' ? parseFloat(o.imdbRating) : null;
-      const imdbV = o.imdbVotes && o.imdbVotes !== 'N/A' ? parseInt(String(o.imdbVotes).replace(/,/g, ''), 10) : null;
-      out[tt] = {
-        rt: Number.isFinite(rtPct) ? rtPct : null,
-        metacritic: Number.isFinite(mcN) ? mcN : null,
-        imdbRating: Number.isFinite(imdbR) ? imdbR : null,
-        imdbVotes: Number.isFinite(imdbV) ? imdbV : null,
-        rated: o.Rated && o.Rated !== 'N/A' ? o.Rated : null,
-        awards: o.Awards && o.Awards !== 'N/A' ? o.Awards : null,
-      };
-      if (Number.isFinite(rtPct)) withRt++;
-      if (Number.isFinite(mcN)) withMc++;
-    } catch {}
+  for (const v of Object.values(out)) {
+    if (Number.isFinite(v?.rt)) withRt++;
+    if (Number.isFinite(v?.metacritic)) withMc++;
   }
   await atomicWriteJson(OUT, out);
-  console.log(`[omdb] wrote ${OUT}: ${Object.keys(out).length} entries (${withRt} with RT, ${withMc} with Metacritic).`);
+  console.log(`[omdb] wrote ${OUT}: ${Object.keys(out).length} entries (${baseline} from prior digest + ${rawCount} from raw cache; ${withRt} with RT, ${withMc} with Metacritic).`);
 }
 
 function parseArgs(args) {
