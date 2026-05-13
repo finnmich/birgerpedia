@@ -336,7 +336,11 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
 
 .hero-side {
   display: grid;
-  place-items: center;
+  /* Vertical-center the HeroDie, but let it stretch horizontally to fill
+     the column — otherwise the inner card's content width drives the
+     whole component's width, and a wider settled card shoves the die
+     left because place-items keeps everything centered. */
+  align-items: center;
   position: relative;
 }
 
