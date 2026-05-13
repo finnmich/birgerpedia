@@ -67,8 +67,8 @@ function pickRandom() {
       <Die :value="value" :rolling="cycling" :rollSignal="rollSignal" :size="220" variant="paper" :rotate="-6" />
     </div>
 
-    <Transition name="fade">
-      <a v-if="showDetail && current()" :href="u(`/reviews/${current().slug}`)" class="card-summary anim-fade-in">
+    <Transition name="fade" mode="out-in">
+      <a v-if="showDetail && current()" key="card" :href="u(`/reviews/${current().slug}`)" class="card-summary anim-fade-in">
         <span class="kicker">Et tilfeldig kast</span>
         <h2 class="title">{{ current().name }}</h2>
         <div v-if="current().headline" class="head italic">«{{ current().headline }}»</div>
@@ -80,6 +80,12 @@ function pickRandom() {
           <span class="rating-text">terningkast {{ value }}</span>
         </div>
       </a>
+      <div v-else key="skel" class="card-summary card-summary--skel" aria-hidden="true">
+        <span class="kicker">Et tilfeldig kast</span>
+        <span class="skel skel-title"></span>
+        <span class="skel skel-head"></span>
+        <span class="skel skel-meta"></span>
+      </div>
     </Transition>
 
     <button type="button" class="btn btn-stamp" @click="pickRandom">Slå igjen</button>
@@ -172,6 +178,36 @@ function pickRandom() {
 }
 .dot { opacity: 0.5; }
 .rating-text { color: var(--color-stamp); }
+
+/* Skeleton placeholder — reserves the card's vertical space while the
+   die rolls so the page below doesn't shift when the real card lands. */
+.card-summary--skel { pointer-events: none; }
+.card-summary--skel .skel {
+  display: block;
+  background: color-mix(in srgb, var(--color-paper) 8%, transparent);
+  border-radius: 4px;
+  animation: skel-pulse 1.6s ease-in-out infinite;
+}
+.card-summary--skel .skel-title {
+  /* Match .title's clamp(2rem, 4.6vw, 3.6rem) × line-height 0.95. */
+  height: calc(clamp(2rem, 4.6vw, 3.6rem) * 0.95);
+  width: 80%;
+}
+.card-summary--skel .skel-head {
+  height: calc(clamp(1.15rem, 1.8vw, 1.45rem) * 1.3);
+  width: 60%;
+}
+.card-summary--skel .skel-meta {
+  height: 0.78rem;
+  width: 40%;
+}
+@keyframes skel-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 0.9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-summary--skel .skel { animation: none; }
+}
 
 .btn {
   justify-self: start;
