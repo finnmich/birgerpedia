@@ -878,13 +878,18 @@ function computePeopleIndex(reviews, enrichment) {
       profile: p.profile,
       n: p.n,
       avg: p.rated ? Math.round((p.sum / p.rated) * 100) / 100 : null,
-      role:
-        p.asDirector >= p.asActor && p.asDirector > 0 ? 'director' :
-        p.asCreator > 0 ? 'creator' :
-        p.asActor > 0 ? 'actor' :
-        p.asCinematographer > 0 ? 'cinematographer' :
-        p.asComposer > 0 ? 'composer' :
-        p.asEditor > 0 ? 'editor' : 'writer',
+      // Same count-based pick as people/[slug].astro — picks the role
+      // with the highest count, ties broken by the listed order (director
+      // wins over actor when equal).
+      role: ([
+        ['director',        p.asDirector],
+        ['creator',         p.asCreator],
+        ['composer',        p.asComposer],
+        ['cinematographer', p.asCinematographer],
+        ['editor',          p.asEditor],
+        ['writer',          p.asWriter],
+        ['actor',           p.asActor],
+      ].filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])[0]?.[0]) || 'actor',
     });
   }
   out.sort((a, b) => b.n - a.n);

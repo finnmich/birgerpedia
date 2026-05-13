@@ -23,11 +23,21 @@ const ROLE_LABELS: Record<PersonRole, { single: string; many: string }> = {
   editor:          { single: 'klipper',        many: 'klipper' },
 };
 
-const primaryRole: PersonRole = (
-  p.asDirector >= p.asActor && p.asDirector > 0 ? 'director'
-  : p.asCreator > 0 ? 'creator'
-  : 'actor'
-);
+// Pick the role with the most credits. Ties fall to the earlier entry in
+// this list (so a director with the same number of acting cameos still
+// reads as "director"). Falls back to 'actor' only when every count is 0,
+// which shouldn't happen for any eligible person but keeps the type safe.
+const roleCounts: Array<[PersonRole, number]> = [
+  ['director',        p.asDirector],
+  ['creator',         p.asCreator],
+  ['composer',        p.asComposer],
+  ['cinematographer', p.asCinematographer],
+  ['editor',          p.asEditor],
+  ['writer',          p.asWriter],
+  ['actor',           p.asActor],
+];
+const primaryRole: PersonRole =
+  roleCounts.filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])[0]?.[0] ?? 'actor';
 
 const byRole = (role: PersonRole) =>
   p.appearances.filter((a) => a.role === role).map((a) => a.review);
@@ -50,12 +60,6 @@ for (const a of p.appearances) {
   timeline.set(y, arr);
 }
 const timelineYears = [...timeline.keys()].sort();
-
-const tagline = primaryRole === 'director'
-  ? `${p.asDirector} ${p.asDirector === 1 ? 'film regissert' : 'filmer regissert'}`
-  : primaryRole === 'creator'
-  ? `${p.asCreator} ${p.asCreator === 1 ? 'serie skapt' : 'serier skapt'}`
-  : `${p.asActor} ${p.asActor === 1 ? 'opptreden' : 'opptredener'}`;
 
 const subtitleRoles: string[] = [];
 if (p.asDirector) subtitleRoles.push(`${p.asDirector} ${p.asDirector === 1 ? 'film' : 'filmer'} som regissør`);
