@@ -82,8 +82,14 @@ function pickRandom() {
       </a>
       <div v-else key="skel" class="card-summary card-summary--skel" aria-hidden="true">
         <span class="kicker">Et tilfeldig kast</span>
-        <span class="skel skel-title"></span>
-        <span class="skel skel-head"></span>
+        <span class="skel-group skel-title">
+          <span class="skel skel-line-full"></span>
+          <span class="skel skel-line-short"></span>
+        </span>
+        <span class="skel-group skel-head">
+          <span class="skel skel-line-full"></span>
+          <span class="skel skel-line-short"></span>
+        </span>
         <span class="skel skel-meta"></span>
       </div>
     </Transition>
@@ -137,6 +143,11 @@ function pickRandom() {
   padding: 0.5rem 0;
   text-decoration: none;
   color: inherit;
+  /* Pin to the grid column's full width (capped at 60ch) so the box
+     occupies the same horizontal space whether the contents are skeleton
+     bars or a short title — otherwise the box auto-sizes to content and
+     causes a visible width shift on settle. */
+  width: 100%;
   max-width: 60ch;
 }
 .card-summary:hover { color: inherit; }
@@ -180,7 +191,10 @@ function pickRandom() {
 .rating-text { color: var(--color-stamp); }
 
 /* Skeleton placeholder — reserves the card's vertical space while the
-   die rolls so the page below doesn't shift when the real card lands. */
+   die rolls so the page below doesn't shift when the real card lands.
+   Each group renders two bars sized to the real line-height so long
+   titles + long headlines (the common case) don't blow past the
+   reserved height. */
 .card-summary--skel { pointer-events: none; }
 .card-summary--skel .skel {
   display: block;
@@ -188,15 +202,17 @@ function pickRandom() {
   border-radius: 4px;
   animation: skel-pulse 1.6s ease-in-out infinite;
 }
-.card-summary--skel .skel-title {
-  /* Match .title's clamp(2rem, 4.6vw, 3.6rem) × line-height 0.95. */
-  height: calc(clamp(2rem, 4.6vw, 3.6rem) * 0.95);
-  width: 80%;
+.card-summary--skel .skel-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
 }
-.card-summary--skel .skel-head {
-  height: calc(clamp(1.15rem, 1.8vw, 1.45rem) * 1.3);
-  width: 60%;
-}
+.card-summary--skel .skel-title { font-size: clamp(2rem, 4.6vw, 3.6rem); }
+.card-summary--skel .skel-title .skel { height: 0.95em; }       /* line-height 0.95 */
+.card-summary--skel .skel-head  { font-size: clamp(1.15rem, 1.8vw, 1.45rem); }
+.card-summary--skel .skel-head  .skel { height: 1.3em; }        /* line-height 1.3 */
+.card-summary--skel .skel-line-full  { width: 100%; }
+.card-summary--skel .skel-line-short { width: 55%; }
 .card-summary--skel .skel-meta {
   height: 0.78rem;
   width: 40%;
