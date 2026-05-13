@@ -259,7 +259,9 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
   color: var(--color-paper);
 }
 .line { display: block; line-height: 0.84; }
-.line-1 { color: var(--color-paper); }
+/* Keep the red mid-bullet with BIRGER on one line — without nowrap the
+   dot wraps to its own line at the larger desktop type sizes. */
+.line-1 { color: var(--color-paper); white-space: nowrap; }
 .line-1 .x {
   /* The mid-bullet — Filmpolitiet red, pulled up so it rides the cap line. */
   color: var(--color-stamp);

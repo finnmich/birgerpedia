@@ -15,10 +15,14 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), { initialIdx: 0 });
 
-const idx = ref(props.initialIdx ?? 0);
-const value = ref<number | null>(props.reviews[idx.value]?.rating ?? null);
-const cycling = ref(false);
-const showDetail = ref(true);
+// Start with no fixed pick — the die rolls on hydration and the card
+// fades in only when it lands on a review. SSR renders the rolling die
+// (no review text), so the first paint never shows a stale value that
+// immediately gets replaced.
+const idx = ref<number>(props.initialIdx ?? 0);
+const value = ref<number | null>(null);
+const cycling = ref(true);
+const showDetail = ref(false);
 // Bumped on every pickRandom — Die.vue uses this so the roll animation
 // fires even when two picks in a row share the same rating.
 const rollSignal = ref(0);
@@ -26,12 +30,16 @@ const rollSignal = ref(0);
 const current = () => props.reviews[idx.value];
 
 onMounted(() => {
-  // Re-shuffle on every visit so refresh feels alive — but not on the very
-  // first paint (we already have a server-rendered pick).
-  // Skip this if reduced motion is preferred.
-  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
-  // Wait a beat so the user actually sees the SSR pick before the cycle
-  setTimeout(pickRandom, 800);
+  if (!props.reviews.length) return;
+  // Respect reduced-motion: just settle on a random review without animation.
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+    idx.value = (Math.random() * props.reviews.length) | 0;
+    value.value = current()?.rating ?? null;
+    cycling.value = false;
+    showDetail.value = true;
+    return;
+  }
+  pickRandom();
 });
 
 function pickRandom() {
