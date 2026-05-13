@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-13T12:51:58.618Z",
+  "fetchedAt": "2026-05-13T13:14:21.245Z",
   "pageCount": 2,
   "pluggCount": 2935,
   "stoppedEarly": true,
@@ -356,15 +356,12 @@
       "description": "ANMELDELSE: «The Secret Agent».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-secret-agent_-1.17781154",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17781189",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pg_A_nyqBaGPAu6o8q4kWNbA.jpg",
+          "pngUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pgfoWiel8sVuwu6o8q4kWNbA.png"
+        },
+        "description": null
       },
       "published": "2026-02-23T12:56:54Z"
     },
@@ -419,12 +416,15 @@
       "description": "ANMELDELSE: «Ustoppelig»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_ustoppelig_-1.17755017",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/oi7wwSt5EOgQBDrbEAGkughGpid6RWdps6BhBxjxaOEA.jpg",
-          "pngUrl": "https://gfx.nrk.no/oi7wwSt5EOgQBDrbEAGkugG5yq0BXXBNg6BhBxjxaOEA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17755068",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-02-04T11:22:16Z"
     },
@@ -479,12 +479,15 @@
       "description": "ANMELDELSE: «Greenland 2: Migration»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_greenland-2_-migration_-1.17743615",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/J8fQQJlccUcXdKb2amr_UgDqStT44mRd2JBSdrwHFx0w.jpg",
-          "pngUrl": "https://gfx.nrk.no/J8fQQJlccUcXdKb2amr_UgaXkD0AQ9-D-JBSdrwHFx0w.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17743685",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-01-26T17:17:46Z"
     },
