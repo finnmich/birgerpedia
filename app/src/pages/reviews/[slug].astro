@@ -471,19 +471,46 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
           {tmdb.crew.dop && (
             <li>
               <span class="lab">Foto</span>
-              <span class="val">{tmdb.crew.dop}</span>
+              <span class="val">
+                {personLinks(tmdb.crew.dop).map((p, i) => (
+                  <>
+                    {i > 0 && <span class="comma">, </span>}
+                    {p.exists
+                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                      : <span>{p.name}</span>}
+                  </>
+                ))}
+              </span>
             </li>
           )}
           {tmdb.crew.composer && (
             <li>
               <span class="lab">Musikk</span>
-              <span class="val">{tmdb.crew.composer}</span>
+              <span class="val">
+                {personLinks(tmdb.crew.composer).map((p, i) => (
+                  <>
+                    {i > 0 && <span class="comma">, </span>}
+                    {p.exists
+                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                      : <span>{p.name}</span>}
+                  </>
+                ))}
+              </span>
             </li>
           )}
           {tmdb.crew.editor && (
             <li>
               <span class="lab">Klipp</span>
-              <span class="val">{tmdb.crew.editor}</span>
+              <span class="val">
+                {personLinks(tmdb.crew.editor).map((p, i) => (
+                  <>
+                    {i > 0 && <span class="comma">, </span>}
+                    {p.exists
+                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                      : <span>{p.name}</span>}
+                  </>
+                ))}
+              </span>
             </li>
           )}
         </ul>
