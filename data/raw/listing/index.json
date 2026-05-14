@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-13T13:27:05.677Z",
+  "fetchedAt": "2026-05-14T05:14:29.333Z",
   "pageCount": 2,
   "pluggCount": 2935,
   "stoppedEarly": true,
@@ -386,12 +386,15 @@
       "description": "ANMELDELSE: «Everybody Digs Bill Evans»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_everybody-digs-bill-evans_-1.17768820",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/mUzFSMUdtJL3rdp0s_W_OQn82HiB-Z-iM0t4lrEnbQKw.jpg",
-          "pngUrl": "https://gfx.nrk.no/mUzFSMUdtJL3rdp0s_W_OQHxPVa8KupOA0t4lrEnbQKw.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17768842",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-02-13T18:00:00Z"
     },
@@ -449,12 +452,15 @@
       "description": "ANMELDELSE: «The Smashing Machine»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-smashing-machine_-1.17745301",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/0hjBM2PUMn0pG0f4IR3gLAnzv8ViI0erGOmW1gBfEwYQ.jpg",
-          "pngUrl": "https://gfx.nrk.no/0hjBM2PUMn0pG0f4IR3gLA-j06E_5js5yOmW1gBfEwYQ.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17745837",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-01-28T13:05:06Z"
     },
@@ -479,15 +485,12 @@
       "description": "ANMELDELSE: «Greenland 2: Migration»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_greenland-2_-migration_-1.17743615",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17743685",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/J8fQQJlccUcXdKb2amr_UgDqStT44mRd2JBSdrwHFx0w.jpg",
+          "pngUrl": "https://gfx.nrk.no/J8fQQJlccUcXdKb2amr_UgaXkD0AQ9-D-JBSdrwHFx0w.png"
+        },
+        "description": null
       },
       "published": "2026-01-26T17:17:46Z"
     },
@@ -707,12 +710,15 @@
       "description": "ANMELDELSE: «Eternity»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_eternity_-1.17676484",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/VBxh5HmnRvk10EkwogvQXQm7cgFBg_JsBSWoH8JpC_Yw.jpg",
-          "pngUrl": "https://gfx.nrk.no/VBxh5HmnRvk10EkwogvQXQTk3ZMSk3VuxSWoH8JpC_Yw.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17676505",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2025-12-03T08:32:14Z"
     },
