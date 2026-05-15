@@ -705,12 +705,13 @@ section { display: flex; flex-direction: column; gap: 0.7rem; }
 
 .dice-row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0.4rem;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.3rem;
 }
 .die-pill {
   display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
-  padding: 0.35rem 0.2rem;
+  padding: 0.35rem 0.15rem;
+  min-width: 0;
   background: transparent; border: 1px solid transparent; border-radius: 6px;
   cursor: pointer; color: inherit; font: inherit;
   transition: background .2s ease, border-color .2s ease, transform .15s ease;
@@ -719,6 +720,11 @@ section { display: flex; flex-direction: column; gap: 0.7rem; }
 .die-pill[aria-pressed="true"] {
   border-color: var(--color-stamp);
   background: color-mix(in srgb, var(--color-stamp) 8%, transparent);
+}
+.die-pill :deep(svg) {
+  width: 100%;
+  height: auto;
+  max-width: 34px;
 }
 .die-pill .t-meta { font-size: 0.6rem; }
 
