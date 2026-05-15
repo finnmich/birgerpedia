@@ -29,6 +29,11 @@ on:
         description: "Skip OMDb backfill"
         type: boolean
         default: false
+  # Push to main rebuilds & redeploys without re-crawling — the crawl/enrich/
+  # commit-back steps are gated to schedule + workflow_dispatch only. The
+  # daily bot tags its data commits with [skip ci] so this never loops.
+  push:
+    branches: [main]
 
 permissions:
   contents: write                     # commit processed digests
@@ -45,11 +50,11 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0              # we'll commit on top of main
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: npm
@@ -60,7 +65,8 @@ jobs:
       # The enrichment JSONs are ~100 MB. OMDb cache grows daily. IMDb dataset
       # is ~8 MB, refreshed weekly by the script itself.
       - name: Restore raw caches
-        uses: actions/cache@v4
+        if: github.event_name != 'push'
+        uses: actions/cache@v5
         with:
           path: |
             data/raw/articles
@@ -77,10 +83,16 @@ jobs:
         run: npm ci
 
       # ---------- crawl ----------
+      # All crawl/enrich steps are skipped on `push` — code-only deploys
+      # reuse whatever data already lives in the checkout. The daily cron
+      # (and manual dispatch) are still the only paths that touch NRK/TMDB/
+      # IMDb/OMDb and the data caches.
       - name: 1) Crawl NRK listing
+        if: github.event_name != 'push'
         run: node scripts/crawl-listing.mjs
 
       - name: 2) Fetch new article HTML
+        if: github.event_name != 'push'
         run: node scripts/crawl-articles.mjs
         env:
           # If something goes very wrong (e.g. NRK changes the URL shape)
@@ -88,19 +100,22 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=2048
 
       - name: 3) Rebuild slim dataset
+        if: github.event_name != 'push'
         run: node scripts/build-dataset.mjs
 
       # ---------- enrich ----------
       - name: 4) TMDB enrichment (resumable)
+        if: github.event_name != 'push'
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: node scripts/enrich-tmdb.mjs
 
       - name: 5) IMDb dataset → ratings lookup
+        if: github.event_name != 'push'
         run: node scripts/fetch-imdb-ratings.mjs
 
       - name: 6) OMDb backfill (≤950 / day, resumable)
-        if: ${{ !inputs.skip-omdb }}
+        if: ${{ github.event_name != 'push' && !inputs.skip-omdb }}
         env:
           OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}
         continue-on-error: true       # hitting the free-tier cap is OK
@@ -119,21 +134,22 @@ jobs:
 
       # ---------- deploy ----------
       - name: 8) Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: 9) Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: app/dist
 
       - name: 10) Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       # ---------- commit data digests ----------
       # We commit only the small "processed" digests, not the raw HTML or
       # the per-review enrichment files (those live in the Actions cache).
       - name: 11) Commit processed data back to main
+        if: github.event_name != 'push'
         run: |
           git config user.name  "birgerpedia-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
