@@ -1,10 +1,25 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-17T05:15:30.242Z",
-  "pageCount": 2,
-  "pluggCount": 2935,
+  "fetchedAt": "2026-05-18T05:20:59.597Z",
+  "pageCount": 3,
+  "pluggCount": 2936,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "1.17886037",
+      "title": "«X-Files»-stjerne overrasket i Cannes",
+      "description": "Gillian Anderson med LHBTQ+-skrekk på Croisetten.",
+      "url": "https://www.nrk.no/filmpolitiet/hoydepunkter-fra-cannes-1.17886037",
+      "image": {
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/GuTUyAZ4WzI9gps6RKHIhA2memSLZhOT614l2rAhhC9w.jpg",
+          "pngUrl": "https://gfx.nrk.no/GuTUyAZ4WzI9gps6RKHIhACDuh-N7L2b614l2rAhhC9w.png"
+        },
+        "description": null
+      },
+      "published": "2026-05-17T06:13:19Z"
+    },
     {
       "id": "1.17873593",
       "title": "«Teite typer i tøffe tvekamper»",
@@ -748,8 +763,8 @@
       "image": {
         "format": "image/jpeg",
         "crop": {
-          "jpegUrl": "https://gfx.nrk.no/s8RGKUxGegfGdvhqbzO1vg22VYcpL18p74FLeZfGuWOw.jpg",
-          "pngUrl": "https://gfx.nrk.no/s8RGKUxGegfGdvhqbzO1vgrOi3oPwuUaz4FLeZfGuWOw.png"
+          "jpegUrl": "https://gfx.nrk.no/s8RGKUxGegfGdvhqbzO1vgi2epYjiC1kX4FLeZfGuWOw.jpg",
+          "pngUrl": "https://gfx.nrk.no/s8RGKUxGegfGdvhqbzO1vg2DTuw8Qzbwn4FLeZfGuWOw.png"
         },
         "description": null
       },
@@ -1508,7 +1523,7 @@
     {
       "id": "1.17417742",
       "title": "«Treffer hardest i de stille stundene»",
-      "lead": "ANMELDELSE: Grand Prix-vinneren «Affeksjonsverdi»",
+      "description": "ANMELDELSE: Grand Prix-vinneren «Affeksjonsverdi»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_affeksjonsverdi_-1.17417742",
       "image": {
         "format": "image/jpeg",
@@ -1523,7 +1538,7 @@
     {
       "id": "1.17417595",
       "title": "«Har skapt sin egen spesielle filmsjanger»",
-      "lead": "ANMELDELSE: «The Phoenician Scheme»",
+      "description": "ANMELDELSE: «The Phoenician Scheme»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-phoenician-scheme_-1.17417595",
       "image": {
         "format": "image/jpeg",
@@ -1538,7 +1553,7 @@
     {
       "id": "1.17417115",
       "title": "«MAGA-western med mørk satire»",
-      "lead": "ANMELDELSE: «Eddington»",
+      "description": "ANMELDELSE: «Eddington»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_eddington_-1.17417115",
       "image": {
         "format": "image/jpeg",
@@ -1553,7 +1568,7 @@
     {
       "id": "1.17417187",
       "title": "«En underholdningspakke man vanskelig kan motstå»",
-      "lead": "ANMELDELSE: «Mission: Impossible – The Final Reckoning»",
+      "description": "ANMELDELSE: «Mission: Impossible – The Final Reckoning»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_mission_-impossible-_-the-final-reckoning_-1.17417187",
       "image": {
         "format": "image/jpeg",
@@ -1568,7 +1583,7 @@
     {
       "id": "1.17408029",
       "title": "«En av de vakreste eventyrfilmene på lenge»",
-      "lead": "ANMELDELSE: «The Legend of Ochi»",
+      "description": "ANMELDELSE: «The Legend of Ochi»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-legend-of-ochi_-1.17408029",
       "image": {
         "format": "image/jpeg",
@@ -1583,7 +1598,7 @@
     {
       "id": "1.17406206",
       "title": "«Et livsfilosofisk pustehull»",
-      "lead": "ANMELDELSE: «Sommerboken».",
+      "description": "ANMELDELSE: «Sommerboken».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_sommerboken_-1.17406206",
       "image": {
         "format": "image/jpeg",
@@ -1598,7 +1613,7 @@
     {
       "id": "1.17399701",
       "title": "«Mye ståk for lite moro»",
-      "lead": "ANMELDELSE: «Thunderbolts*»",
+      "description": "ANMELDELSE: «Thunderbolts*»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_thunderbolts__-1.17399701",
       "image": {
         "format": "image/jpeg",
@@ -1613,7 +1628,7 @@
     {
       "id": "1.17396293",
       "title": "«Du må være forberedt på sterke bilder»",
-      "lead": "ANMELDELSE: «Warfare»",
+      "description": "ANMELDELSE: «Warfare»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_warfare_-1.17396293",
       "image": {
         "format": "image/jpeg",
@@ -1628,7 +1643,7 @@
     {
       "id": "1.17392406",
       "title": "«Burde vært betydelig skumlere»",
-      "lead": "ANMELDELSE: «Until Dawn»",
+      "description": "ANMELDELSE: «Until Dawn»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_until-dawn_-1.17392406",
       "image": {
         "format": "image/jpeg",
@@ -1643,7 +1658,7 @@
     {
       "id": "1.17391375",
       "title": "«Vil glede de actionglade»",
-      "lead": "ANMELDELSE: «The Accountant 2»",
+      "description": "ANMELDELSE: «The Accountant 2»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-accountant-2_-1.17391375",
       "image": {
         "format": "image/jpeg",
@@ -1658,7 +1673,7 @@
     {
       "id": "1.17376596",
       "title": "«En stille film som behager sansene»",
-      "lead": "ANMELDELSE: «Vermiglio»",
+      "description": "ANMELDELSE: «Vermiglio»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_vermiglio_-1.17376596",
       "image": {
         "format": "image/jpeg",
@@ -1673,7 +1688,7 @@
     {
       "id": "1.17375528",
       "title": "«Bond og Bourne har lite å frykte»",
-      "lead": "ANMELDELSE: «The Amateur»",
+      "description": "ANMELDELSE: «The Amateur»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-amateur_-1.17375528",
       "image": {
         "format": "image/jpeg",
@@ -1688,7 +1703,7 @@
     {
       "id": "1.17370088",
       "title": "«Alle vet at dette er tøys»",
-      "lead": "ANMELDELSE: «En Minecraft-film»",
+      "description": "ANMELDELSE: «En Minecraft-film»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_en-minecraft-film_-1.17370088",
       "image": {
         "format": "image/jpeg",
@@ -1703,7 +1718,7 @@
     {
       "id": "1.17365782",
       "title": "«Dansk film nær sitt aller beste»",
-      "lead": "ANMELDELSE: «Piken med nålen»",
+      "description": "ANMELDELSE: «Piken med nålen»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_piken-med-nalen_-1.17365782",
       "image": {
         "format": "image/jpeg",
@@ -1718,7 +1733,7 @@
     {
       "id": "1.17365066",
       "title": "«Fortalt med et smil om munnen»",
-      "lead": "ANMELDELSE: «Onkel Jens»",
+      "description": "ANMELDELSE: «Onkel Jens»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_onkel-jens_-1.17365066",
       "image": {
         "format": "image/jpeg",
@@ -1733,7 +1748,7 @@
     {
       "id": "1.17357115",
       "title": "«Kan på ingen måte kalles elegant»",
-      "lead": "ANMELDELSE: «A Working Man»",
+      "description": "ANMELDELSE: «A Working Man»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_a-working-man_-1.17357115",
       "image": {
         "format": "image/jpeg",
@@ -1748,7 +1763,7 @@
     {
       "id": "1.17355234",
       "title": "«Må kunne kalles en eastern»",
-      "lead": "ANMELDELSE: «Black Dog»",
+      "description": "ANMELDELSE: «Black Dog»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_black-dog_-1.17355234",
       "image": {
         "format": "image/jpeg",
@@ -1763,7 +1778,7 @@
     {
       "id": "1.17353641",
       "title": "«Skaper umiddelbar sympati»",
-      "lead": "ANMELDELSE: «Berlin, sommeren 1942»",
+      "description": "ANMELDELSE: «Berlin, sommeren 1942»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_berlin_-sommeren-1942_-1.17353641",
       "image": {
         "format": "image/jpeg",
@@ -1778,7 +1793,7 @@
     {
       "id": "1.17347181",
       "title": "«Lykkes med å vekke eventyrlysten»",
-      "lead": "ANMELDELSE: «Snehvit»",
+      "description": "ANMELDELSE: «Snehvit»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_snehvit_-1.17347181",
       "image": {
         "format": "image/jpeg",
@@ -1793,7 +1808,7 @@
     {
       "id": "1.17344779",
       "title": "«Man må bare la seg imponere»",
-      "lead": "ANMELDELSE: «Frøet fra det hellige fikentreet»",
+      "description": "ANMELDELSE: «Frøet fra det hellige fikentreet»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_froet-fra-det-hellige-fikentreet_-1.17344779",
       "image": {
         "format": "image/jpeg",
@@ -1808,7 +1823,7 @@
     {
       "id": "1.17343450",
       "title": "«Hissig oppvekstskildring med gnist og nerve»",
-      "lead": "ANMELDELSE: «Bird»",
+      "description": "ANMELDELSE: «Bird»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_bird_-1.17343450",
       "image": {
         "format": "image/jpeg",
@@ -1823,7 +1838,7 @@
     {
       "id": "1.17337999",
       "title": "«Sjarmerer uten å bli for søtladen»",
-      "lead": "ANMELDELSE: «En fanfare for livet»",
+      "description": "ANMELDELSE: «En fanfare for livet»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_en-fanfare-for-livet_-1.17337999",
       "image": {
         "format": "image/jpeg",
@@ -1838,7 +1853,7 @@
     {
       "id": "1.17334451",
       "title": "«Skaper både nerve og undring»",
-      "lead": "ANMELDELSE: «Flow»",
+      "description": "ANMELDELSE: «Flow»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_flow_-1.17334451",
       "image": {
         "format": "image/jpeg",
@@ -1853,7 +1868,7 @@
     {
       "id": "1.17328464",
       "title": "«Hvordan greide de å gjøre filmen så sjarmløs?»",
-      "lead": "ANMELDELSE: «The Electric State»",
+      "description": "ANMELDELSE: «The Electric State»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-electric-state_-pa-netflix-1.17328464",
       "image": {
         "format": "image/jpeg",
@@ -1868,7 +1883,7 @@
     {
       "id": "1.17316774",
       "title": "«De svimlende ambisjonene lyser i hver filmrute»",
-      "lead": "ANMELDELSE: «The Brutalist».",
+      "description": "ANMELDELSE: «The Brutalist».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-brutalist_-1.17316774",
       "image": {
         "format": "image/jpeg",
@@ -1883,7 +1898,7 @@
     {
       "id": "1.17309149",
       "title": "«Det finnes knapt noe bedre for en filmfrelst!» ",
-      "lead": "Dette er de fem beste filmene fra årets Berlinale.",
+      "description": "Dette er de fem beste filmene fra årets Berlinale.",
       "url": "https://www.nrk.no/filmpolitiet/de-beste-filmene-fra-berlinalen-1.17309149",
       "image": {
         "format": "image/jpeg",
@@ -1898,7 +1913,7 @@
     {
       "id": "1.17291895",
       "title": "«Bygger opp til et elektrisk klimaks»",
-      "lead": "ANMELDELSE: «A Complete Unknown»",
+      "description": "ANMELDELSE: «A Complete Unknown»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_a-complete-unknown_-1.17291895",
       "image": {
         "format": "image/jpeg",
@@ -1913,7 +1928,7 @@
     {
       "id": "1.17285994",
       "title": "«Det er lov å være litt skuffet»",
-      "lead": "ANMELDELSE: «Mickey 17»",
+      "description": "ANMELDELSE: «Mickey 17»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_mickey-17_-1.17285994",
       "image": {
         "format": "image/jpeg",
@@ -1928,7 +1943,7 @@
     {
       "id": "1.17267829",
       "title": "«Blodig og lekker eventyrsatire»",
-      "lead": "ANMELDELSE: «Den stygge stesøsteren»",
+      "description": "ANMELDELSE: «Den stygge stesøsteren»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_den-stygge-stesosteren_-1.17267829",
       "image": {
         "format": "image/jpeg",
@@ -1943,7 +1958,7 @@
     {
       "id": "1.17264704",
       "title": "«Nedslående å se hvor aktuell filmen er»",
-      "lead": "ANMELDELSE: «Den lange veien til registolen»",
+      "description": "ANMELDELSE: «Den lange veien til registolen»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_den-lange-veien-til-registolen_-1.17264704",
       "image": {
         "format": "image/jpeg",
@@ -1958,7 +1973,7 @@
     {
       "id": "1.17261780",
       "title": "«Eiendommelig film om identitet og egenart»",
-      "lead": "ANMELDELSE: «A Different Man»",
+      "description": "ANMELDELSE: «A Different Man»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_a-different-man_-1.17261780",
       "image": {
         "format": "image/jpeg",
@@ -1973,7 +1988,7 @@
     {
       "id": "1.17253856",
       "title": "«Nok av sjarm, fremdrift og eventyrlyst»",
-      "lead": "ANMELDELSE: «Kaptein Sabeltann og Grevinnen av Gral»",
+      "description": "ANMELDELSE: «Kaptein Sabeltann og Grevinnen av Gral»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_kaptein-sabeltann-og-grevinnen-av-gral_-1.17253856",
       "image": {
         "format": "image/jpeg",
@@ -1988,7 +2003,7 @@
     {
       "id": "1.17251464",
       "title": "«Det er vanskelig å ikke la seg provosere»",
-      "lead": "ANMELDELSE: Oscar-nominerte «No Other Land»",
+      "description": "ANMELDELSE: Oscar-nominerte «No Other Land»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_no-other-land_-1.17251464",
       "image": {
         "format": "image/jpeg",
@@ -2003,7 +2018,7 @@
     {
       "id": "1.17253376",
       "title": "«De vakreste bildene er også de villeste»",
-      "lead": "ANMELDELSE: «SKI»",
+      "description": "ANMELDELSE: «SKI»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_ski_-1.17253376",
       "image": {
         "format": "image/jpeg",
@@ -2018,7 +2033,7 @@
     {
       "id": "1.17233781",
       "title": "«Sorthumoristisk teknothriller med et satirisk skjær»",
-      "lead": "ANMELDELSE: «Companion»",
+      "description": "ANMELDELSE: «Companion»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_companion_-1.17233781",
       "image": {
         "format": "image/jpeg",
@@ -2033,7 +2048,7 @@
     {
       "id": "1.17227580",
       "title": "«Du har sannsynligvis aldri sett noe lignende»",
-      "lead": "ANMELDELSE: «Emilia Pérez»",
+      "description": "ANMELDELSE: «Emilia Pérez»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_emilia-perez_-1.17227580",
       "image": {
         "format": "image/jpeg",
@@ -2048,7 +2063,7 @@
     {
       "id": "1.17227585",
       "title": "«Et godt stykke bak de store»",
-      "lead": "ANMELDELSE: «Den of Thieves: Pantera»",
+      "description": "ANMELDELSE: «Den of Thieves: Pantera»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_den-of-thieves_-pantera_-1.17227585",
       "image": {
         "format": "image/jpeg",
@@ -2063,7 +2078,7 @@
     {
       "id": "1.17227586",
       "title": "«Lykkes forbausende enkelt»",
-      "lead": "ANMELDELSE: «A Real Pain»",
+      "description": "ANMELDELSE: «A Real Pain»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_a-real-pain_-1.17227586",
       "image": {
         "format": "image/jpeg",
@@ -2078,7 +2093,7 @@
     {
       "id": "1.17227587",
       "title": "«Ga meg lyst til å hoppe og skrike»",
-      "lead": "ANMELDELSE: «Better Man»",
+      "description": "ANMELDELSE: «Better Man»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_better-man_-1.17227587",
       "image": {
         "format": "image/jpeg",
@@ -2093,7 +2108,7 @@
     {
       "id": "1.17227592",
       "title": "«Dødsbo-drama med latter og vemod»",
-      "lead": "ANMELDELSE: «Alt skal bort»",
+      "description": "ANMELDELSE: «Alt skal bort»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_alt-skal-bort_-1.17227592",
       "image": {
         "format": "image/jpeg",
@@ -2108,7 +2123,7 @@
     {
       "id": "1.17227593",
       "title": "2025: Filmene vi gleder oss til",
-      "lead": "Her er Filmpolitiets 10 forhåndsfavoritter.",
+      "description": "Her er Filmpolitiets 10 forhåndsfavoritter.",
       "url": "https://www.nrk.no/filmpolitiet/2025_-filmene-vi-gleder-oss-til-1.17227593",
       "image": {
         "format": "image/jpeg",
@@ -2123,7 +2138,7 @@
     {
       "id": "1.17227597",
       "title": "«Kunstig drama uten sjel»",
-      "lead": "ANMELDELSE: «Parthenope»",
+      "description": "ANMELDELSE: «Parthenope»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_parthenope_-1.17227597",
       "image": {
         "format": "image/jpeg",
@@ -2138,7 +2153,7 @@
     {
       "id": "1.17227598",
       "title": "«Saftig film som både pirrer og provoserer»",
-      "lead": "ANMELDELSE: «Babygirl»",
+      "description": "ANMELDELSE: «Babygirl»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_babygirl_-1.17227598",
       "image": {
         "format": "image/jpeg",
@@ -2153,7 +2168,7 @@
     {
       "id": "1.17227599",
       "title": "«Preget av latter, glede og hjertevarme»",
-      "lead": "ANMELDELSE: «En annerledes sommer»",
+      "description": "ANMELDELSE: «En annerledes sommer»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_en-annerledes-sommer_-1.17227599",
       "image": {
         "format": "image/jpeg",
@@ -2168,7 +2183,7 @@
     {
       "id": "1.17227728",
       "title": "«Rendyrker det mørke og makabre»",
-      "lead": "ANMELDELSE: «Nosferatu»",
+      "description": "ANMELDELSE: «Nosferatu»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_nosferatu_-1.17227728",
       "image": {
         "format": "image/jpeg",
@@ -2183,7 +2198,7 @@
     {
       "id": "1.17227730",
       "title": "«Godt sportsdrama med spennende boksing»",
-      "lead": "ANMELDELSE: «Team Havnaa»",
+      "description": "ANMELDELSE: «Team Havnaa»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_team-havnaa_-1.17227730",
       "image": {
         "format": "image/jpeg",
@@ -2198,7 +2213,7 @@
     {
       "id": "1.17227732",
       "title": "«Sterk form og sympatisk budskap»",
-      "lead": "ANMELDELSE: «Vi har ennå i morgen»",
+      "description": "ANMELDELSE: «Vi har ennå i morgen»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_vi-har-enna-i-morgen_-1.17227732",
       "image": {
         "format": "image/jpeg",
@@ -2213,7 +2228,7 @@
     {
       "id": "1.17227733",
       "title": "«Mild satire med hjertevarme»",
-      "lead": "ANMELDELSE: «Munken og geværet»",
+      "description": "ANMELDELSE: «Munken og geværet»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_munken-og-gevaeret_-1.17227733",
       "image": {
         "format": "image/jpeg",
@@ -2228,7 +2243,7 @@
     {
       "id": "1.17227734",
       "title": "«Et eventyrlig sikkerstikk på kino»",
-      "lead": "ANMELDELSE: «Kvitebjørn»",
+      "description": "ANMELDELSE: «Kvitebjørn»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_kvitebjorn_-1.17227734",
       "image": {
         "format": "image/jpeg",
