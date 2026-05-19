@@ -1,15 +1,30 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-18T05:20:59.597Z",
+  "fetchedAt": "2026-05-19T05:18:11.498Z",
   "pageCount": 3,
-  "pluggCount": 2936,
+  "pluggCount": 2937,
   "stoppedEarly": true,
   "plugs": [
     {
+      "id": "1.17888432",
+      "title": "«Flengende kritikk av norsk barnevern»",
+      "description": "ANMELDELSE: «Fjord»",
+      "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_fjord_-1.17888432",
+      "image": {
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/_gpcXNkdCbcvC3y3eCa4SwNL0mDbMUrSx_Mx04os83Og.jpg",
+          "pngUrl": "https://gfx.nrk.no/_gpcXNkdCbcvC3y3eCa4SwbGHvtP6znql_Mx04os83Og.png"
+        },
+        "description": null
+      },
+      "published": "2026-05-18T20:18:24Z"
+    },
+    {
       "id": "1.17886037",
-      "title": "«X-Files»-stjerne overrasket i Cannes",
+      "title": "«X-Files»-stjerne overrasket på filmfestivalen i Cannes",
       "description": "Gillian Anderson med LHBTQ+-skrekk på Croisetten.",
-      "url": "https://www.nrk.no/filmpolitiet/hoydepunkter-fra-cannes-1.17886037",
+      "url": "https://www.nrk.no/filmpolitiet/filmpolitiet-sine-hoydepunkter-fra-filmfestivalen-i-cannes-1.17886037",
       "image": {
         "format": "image/jpeg",
         "crop": {
@@ -748,8 +763,8 @@
       "image": {
         "format": "image/jpeg",
         "crop": {
-          "jpegUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmg0mDzu5Sro8bcknREyEM9hA.jpg",
-          "pngUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgimOsmHkaBYncknREyEM9hA.png"
+          "jpegUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgRaaTxirffoDcknREyEM9hA.jpg",
+          "pngUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgfNHbq56sDR7cknREyEM9hA.png"
         },
         "description": null
       },

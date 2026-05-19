@@ -1,9 +1,9 @@
 {
-  "builtAt": "2026-05-18T05:20:59.986Z",
-  "total": 1914,
+  "builtAt": "2026-05-19T05:18:12.340Z",
+  "total": 1915,
   "droppedNonBirgerOrInvalid": 1,
   "byType": {
-    "Movie": 1865,
+    "Movie": 1866,
     "TVSeries": 31,
     "Game": 18
   },
@@ -12,7 +12,7 @@
     "2": 61,
     "3": 303,
     "4": 816,
-    "5": 652,
+    "5": 653,
     "6": 72,
     "∅": 3
   },
@@ -80,6 +80,7 @@
     "Warner Bros Home Entertainment": 2,
     "United International Pictures Norway": 2,
     "Electronic Arts": 2,
+    "Filmfestivalen i Cannes: 18. mai": 1,
     "13. februar 2026 (Berlinalen)": 1,
     "Høsten 2026": 1,
     "HBO Max": 1,
