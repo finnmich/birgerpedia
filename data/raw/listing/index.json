@@ -1,10 +1,25 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-20T05:18:45.527Z",
-  "pageCount": 2,
-  "pluggCount": 2937,
+  "fetchedAt": "2026-05-21T05:22:41.569Z",
+  "pageCount": 3,
+  "pluggCount": 2938,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "1.17889779",
+      "title": "«Girl in red innfrir i sin første filmrolle»",
+      "description": "Anmeldelse: «Lave forventninger»",
+      "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_lave-forventninger_-1.17889779",
+      "image": {
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/gd8kg3yXsGY4d9NyR_6_GwTblfvmuEw1vJnBxo3-JJlQ.jpg",
+          "pngUrl": "https://gfx.nrk.no/gd8kg3yXsGY4d9NyR_6_GwOMa1jkTT1rLJnBxo3-JJlQ.png"
+        },
+        "description": null
+      },
+      "published": "2026-05-19T16:15:14Z"
+    },
     {
       "id": "1.17888432",
       "title": "«Flengende kritikk av norsk barnevern»",
@@ -446,12 +461,15 @@
       "description": "ANMELDELSE: «Ustoppelig»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_ustoppelig_-1.17755017",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/oi7wwSt5EOgQBDrbEAGkughGpid6RWdps6BhBxjxaOEA.jpg",
-          "pngUrl": "https://gfx.nrk.no/oi7wwSt5EOgQBDrbEAGkugG5yq0BXXBNg6BhBxjxaOEA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17755068",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-02-04T11:22:16Z"
     },
@@ -748,8 +766,8 @@
       "image": {
         "format": "image/jpeg",
         "crop": {
-          "jpegUrl": "https://gfx.nrk.no/aZbiBN9gr6YAbM12EIdckQOLF2Paa-dxd_wzfNTRefNg.jpg",
-          "pngUrl": "https://gfx.nrk.no/aZbiBN9gr6YAbM12EIdckQ205RXBLfbuJ_wzfNTRefNg.png"
+          "jpegUrl": "https://gfx.nrk.no/aZbiBN9gr6YAbM12EIdckQDUMzQHZlhXJ_wzfNTRefNg.jpg",
+          "pngUrl": "https://gfx.nrk.no/aZbiBN9gr6YAbM12EIdckQvZ6fiWE0-WR_wzfNTRefNg.png"
         },
         "description": null
       },
