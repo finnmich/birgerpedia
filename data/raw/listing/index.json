@@ -1,7 +1,7 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-21T05:22:41.569Z",
-  "pageCount": 3,
+  "fetchedAt": "2026-05-22T05:18:29.255Z",
+  "pageCount": 2,
   "pluggCount": 2938,
   "stoppedEarly": true,
   "plugs": [
@@ -371,12 +371,15 @@
       "description": "ANMELDELSE: «Shelter»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_shelter_-1.17784646",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/kl9yHpiyYduk_uIG3lUA6wpOfZQVH5GnF4iW-Co8E2eg.jpg",
-          "pngUrl": "https://gfx.nrk.no/kl9yHpiyYduk_uIG3lUA6w3kFKH7ANbfB4iW-Co8E2eg.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17784712",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-02-25T13:49:46Z"
     },
@@ -401,12 +404,15 @@
       "description": "ANMELDELSE: «The Secret Agent».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-secret-agent_-1.17781154",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pg_A_nyqBaGPAu6o8q4kWNbA.jpg",
-          "pngUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pgfoWiel8sVuwu6o8q4kWNbA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17781189",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-02-23T12:56:54Z"
     },
@@ -461,15 +467,12 @@
       "description": "ANMELDELSE: «Ustoppelig»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_ustoppelig_-1.17755017",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17755068",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/oi7wwSt5EOgQBDrbEAGkughGpid6RWdps6BhBxjxaOEA.jpg",
+          "pngUrl": "https://gfx.nrk.no/oi7wwSt5EOgQBDrbEAGkugG5yq0BXXBNg6BhBxjxaOEA.png"
+        },
+        "description": null
       },
       "published": "2026-02-04T11:22:16Z"
     },
