@@ -1,14 +1,14 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-22T05:18:29.255Z",
+  "fetchedAt": "2026-05-23T05:12:34.660Z",
   "pageCount": 2,
   "pluggCount": 2938,
   "stoppedEarly": true,
   "plugs": [
     {
       "id": "1.17889779",
-      "title": "«Girl in red innfrir i sin første filmrolle»",
-      "description": "Anmeldelse: «Lave forventninger»",
+      "title": "«Girl in Red innfrir i sin første filmrolle»",
+      "description": "ANMELDELSE: «Lave forventninger»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_lave-forventninger_-1.17889779",
       "image": {
         "format": "image/jpeg",
@@ -191,12 +191,15 @@
       "description": "ANMELDELSE: «The Drama»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-drama_-1.17838535",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/ZFY9lfPxGkCDS0ycpTLHyg6nkl_Nhu8H7Me5lzkXvxeg.jpg",
-          "pngUrl": "https://gfx.nrk.no/ZFY9lfPxGkCDS0ycpTLHygrFcDQOmnZH_Me5lzkXvxeg.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17838565",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-04-08T11:34:11Z"
     },
@@ -266,12 +269,15 @@
       "description": "ANMELDELSE: «Project Hail Mary»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_project-hail-mary_-1.17814556",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/4TtlEpFFMVY40vzgVTPtWQ56iJdKtimdeg7j3-qhwXKg.jpg",
-          "pngUrl": "https://gfx.nrk.no/4TtlEpFFMVY40vzgVTPtWQc-aHP8kgPUug7j3-qhwXKg.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Connect to kaleido.nrk.no:443 [kaleido.nrk.no/20.100.145.94] failed: Read timed out"
+        ],
+        "id": "1.17814600",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-03-18T11:33:59Z"
     },
@@ -341,12 +347,15 @@
       "description": "ANMELDELSE: «The Bride!»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-bride__-1.17794610",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/ju8_NS2WeTol2ijCJnFVqw_Gm6vAce6LEo8D7Bpm-a1g.jpg",
-          "pngUrl": "https://gfx.nrk.no/ju8_NS2WeTol2ijCJnFVqw9bQOptuM32Io8D7Bpm-a1g.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17794682",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-03-04T20:00:00Z"
     },
@@ -356,12 +365,15 @@
       "description": "ANMELDELSE: «Pillion»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_pillion_-1.17793926",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/Kfz_Dq-YN_aoiQswFrIDaQyyiC6FASx8YPtVgGAiOm9w.jpg",
-          "pngUrl": "https://gfx.nrk.no/Kfz_Dq-YN_aoiQswFrIDaQKjGWd7i0hLIPtVgGAiOm9w.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Connect to kaleido.nrk.no:443 [kaleido.nrk.no/20.100.145.94] failed: Connect timed out"
+        ],
+        "id": "1.17793978",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-03-04T14:15:19Z"
     },
@@ -371,15 +383,12 @@
       "description": "ANMELDELSE: «Shelter»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_shelter_-1.17784646",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17784712",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/kl9yHpiyYduk_uIG3lUA6wpOfZQVH5GnF4iW-Co8E2eg.jpg",
+          "pngUrl": "https://gfx.nrk.no/kl9yHpiyYduk_uIG3lUA6w3kFKH7ANbfB4iW-Co8E2eg.png"
+        },
+        "description": null
       },
       "published": "2026-02-25T13:49:46Z"
     },
@@ -404,15 +413,12 @@
       "description": "ANMELDELSE: «The Secret Agent».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-secret-agent_-1.17781154",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17781189",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pg_A_nyqBaGPAu6o8q4kWNbA.jpg",
+          "pngUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pgfoWiel8sVuwu6o8q4kWNbA.png"
+        },
+        "description": null
       },
       "published": "2026-02-23T12:56:54Z"
     },
@@ -527,12 +533,15 @@
       "description": "ANMELDELSE: «Greenland 2: Migration»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_greenland-2_-migration_-1.17743615",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/J8fQQJlccUcXdKb2amr_UgDqStT44mRd2JBSdrwHFx0w.jpg",
-          "pngUrl": "https://gfx.nrk.no/J8fQQJlccUcXdKb2amr_UgaXkD0AQ9-D-JBSdrwHFx0w.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17743685",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-01-26T17:17:46Z"
     },
