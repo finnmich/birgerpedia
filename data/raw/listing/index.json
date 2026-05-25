@@ -1,7 +1,7 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-24T05:17:36.255Z",
-  "pageCount": 3,
+  "fetchedAt": "2026-05-25T05:29:49.673Z",
+  "pageCount": 2,
   "pluggCount": 2939,
   "stoppedEarly": true,
   "plugs": [
@@ -221,15 +221,12 @@
       "description": "ANMELDELSE: «How to Make a Killing»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_how-to-make-a-killing_-1.17824621",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17824672",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/IJSnrmJaIfrau2NfIJR95AhHkGsBXX2TnGHt61IrFWCA.jpg",
+          "pngUrl": "https://gfx.nrk.no/IJSnrmJaIfrau2NfIJR95A5WcBv-JXwt_GHt61IrFWCA.png"
+        },
+        "description": null
       },
       "published": "2026-03-25T13:17:35Z"
     },
@@ -329,15 +326,12 @@
       "description": "ANMELDELSE: «No Other Choice»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_no-other-choice_-1.17802994",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17803140",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/Db9xKtjQL2MmDbPczMPeKg2Rb5iz-55_KpAiJM8Il-NA.jpg",
+          "pngUrl": "https://gfx.nrk.no/Db9xKtjQL2MmDbPczMPeKg0SqNbpqeg2OpAiJM8Il-NA.png"
+        },
+        "description": null
       },
       "published": "2026-03-11T08:23:09Z"
     },
@@ -362,15 +356,12 @@
       "description": "ANMELDELSE: «The Bride!»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-bride__-1.17794610",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17794682",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/ju8_NS2WeTol2ijCJnFVqw_Gm6vAce6LEo8D7Bpm-a1g.jpg",
+          "pngUrl": "https://gfx.nrk.no/ju8_NS2WeTol2ijCJnFVqw9bQOptuM32Io8D7Bpm-a1g.png"
+        },
+        "description": null
       },
       "published": "2026-03-04T20:00:00Z"
     },
@@ -425,15 +416,12 @@
       "description": "ANMELDELSE: «The Secret Agent».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-secret-agent_-1.17781154",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Connect to kaleido.nrk.no:443 [kaleido.nrk.no/20.100.145.94] failed: Read timed out"
-        ],
-        "id": "1.17781189",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pg_A_nyqBaGPAu6o8q4kWNbA.jpg",
+          "pngUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pgfoWiel8sVuwu6o8q4kWNbA.png"
+        },
+        "description": null
       },
       "published": "2026-02-23T12:56:54Z"
     },
@@ -533,15 +521,12 @@
       "description": "ANMELDELSE: «Solomamma»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_solomamma_-1.17743825",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17743848",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/AXXxfndVm7v_KmGjUJoJtACgR2rL-Jj-h1WGLIVNUlgg.jpg",
+          "pngUrl": "https://gfx.nrk.no/AXXxfndVm7v_KmGjUJoJtAA7050Mx9b4x1WGLIVNUlgg.png"
+        },
+        "description": null
       },
       "published": "2026-01-27T14:54:14Z"
     },
@@ -671,15 +656,12 @@
       "description": "Filmpolitiets favorittar frå 2025.",
       "url": "https://www.nrk.no/filmpolitiet/2025_-arets-beste-filmar-1.17675345",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17696694",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/j-nKvNHL1UGf2wRK8JON0g15p8iqtzo-cwHiVYwPe91A.jpg",
+          "pngUrl": "https://gfx.nrk.no/j-nKvNHL1UGf2wRK8JON0gST6aTU5ixaEwHiVYwPe91A.png"
+        },
+        "description": null
       },
       "published": "2025-12-18T13:25:15Z"
     },
@@ -689,12 +671,15 @@
       "description": "ANMELDELSE: «Flåklypa: Fra Paris til pyramidene»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_flaklypa_-fra-paris-til-pyramidene_-1.17695460",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/XE-otSTsbTSPA3mUnIlOigViLUllCD0TaOrlHtvtYTMA.jpg",
-          "pngUrl": "https://gfx.nrk.no/XE-otSTsbTSPA3mUnIlOigjKhZIElgjceOrlHtvtYTMA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17696244",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2025-12-17T08:44:31Z"
     },
