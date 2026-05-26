@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-05-25T05:29:49.673Z",
+  "fetchedAt": "2026-05-26T05:18:13.118Z",
   "pageCount": 2,
   "pluggCount": 2939,
   "stoppedEarly": true,
@@ -671,15 +671,12 @@
       "description": "ANMELDELSE: «Flåklypa: Fra Paris til pyramidene»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_flaklypa_-fra-paris-til-pyramidene_-1.17695460",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17696244",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/XE-otSTsbTSPA3mUnIlOigViLUllCD0TaOrlHtvtYTMA.jpg",
+          "pngUrl": "https://gfx.nrk.no/XE-otSTsbTSPA3mUnIlOigjKhZIElgjceOrlHtvtYTMA.png"
+        },
+        "description": null
       },
       "published": "2025-12-17T08:44:31Z"
     },
