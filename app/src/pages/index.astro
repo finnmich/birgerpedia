@@ -21,6 +21,17 @@ const recent = reviewIndex.slice(0, 8);
 const histogram = ratingHistogram(reviewIndex);
 const perfectSix = reviewIndex.filter((r) => r.rating === 6);
 const sixSpotlight = perfectSix.slice(0, 3);
+
+// Slim pool of all sixers, embedded as JSON for the client-side
+// per-page-load shuffle. ~72 items × ~200B ≈ 15 KB.
+const sixPool = perfectSix.map((r) => ({
+  slug: r.slug,
+  name: sanitizeQuotes(r.name),
+  year: r.year,
+  headline: r.headline ? sanitizeQuotes(r.headline) : null,
+  image: r.image ?? null,
+  regi: r.factbox?.regi ?? r.factbox?.serieskaper ?? null,
+}));
 const top10Directors = topCredit(reviewIndex, 'regi', 10);
 const top10Genres = topGenres(reviewIndex, 12);
 
@@ -127,24 +138,60 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
       </p>
     </header>
 
-    <div class="six-grid">
+    <div class="six-grid" data-six-grid>
       {sixSpotlight.map((r) => (
-        <a class="six-card" href={u(`/reviews/${r.slug}`)}>
+        <a class="six-card" data-six-card href={u(`/reviews/${r.slug}`)}>
           <div class="six-img" style={r.image ? `background-image: url('${r.image}')` : ''}>
             <div class="six-stamp">
               <Stamp text="MESTERVERK" rotate={-9} />
             </div>
           </div>
           <div class="six-body">
-            <div class="t-meta">{r.year} · {r.factbox?.regi ?? r.factbox?.serieskaper ?? '—'}</div>
-            <h3 class="six-title">{sanitizeQuotes(r.name)}</h3>
-            {r.headline && <p class="six-kicker italic">«{sanitizeQuotes(r.headline)}»</p>}
+            <div class="t-meta" data-six-meta>{r.year} · {r.factbox?.regi ?? r.factbox?.serieskaper ?? '—'}</div>
+            <h3 class="six-title" data-six-title>{sanitizeQuotes(r.name)}</h3>
+            <p class="six-kicker italic" data-six-kicker>{r.headline ? `«${sanitizeQuotes(r.headline)}»` : ''}</p>
           </div>
         </a>
       ))}
     </div>
 
     <a href={u('/reviews?r=6')} class="all-link h-eyebrow">Alle {SUMMARY.perfect6} sekserne →</a>
+
+    <script is:inline define:vars={{ pool: sixPool, base: import.meta.env.BASE_URL }}>
+      // Reshuffle the three Mesterverk cards on every page load.
+      // Runs synchronously before paint, so users see fresh picks — not the
+      // SSR fallback that's left in place for crawlers / no-JS.
+      (function () {
+        const grid = document.querySelector('[data-six-grid]');
+        if (!grid || !Array.isArray(pool) || pool.length === 0) return;
+        const cards = grid.querySelectorAll('[data-six-card]');
+        if (cards.length === 0) return;
+
+        const picks = [];
+        const used = new Set();
+        const n = Math.min(cards.length, pool.length);
+        while (picks.length < n) {
+          const idx = Math.floor(Math.random() * pool.length);
+          if (used.has(idx)) continue;
+          used.add(idx);
+          picks.push(pool[idx]);
+        }
+
+        cards.forEach((card, i) => {
+          const r = picks[i];
+          if (!r) return;
+          card.href = base + 'reviews/' + r.slug;
+          const img = card.querySelector('.six-img');
+          if (img) img.style.backgroundImage = r.image ? `url('${r.image}')` : '';
+          const meta = card.querySelector('[data-six-meta]');
+          if (meta) meta.textContent = (r.year ?? '') + ' · ' + (r.regi ?? '—');
+          const title = card.querySelector('[data-six-title]');
+          if (title) title.textContent = r.name;
+          const kicker = card.querySelector('[data-six-kicker]');
+          if (kicker) kicker.textContent = r.headline ? `«${r.headline}»` : '';
+        });
+      })();
+    </script>
   </section>
 
   <!-- ============================================
