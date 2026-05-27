@@ -208,7 +208,9 @@ try {
     // Norwegian streaming/rent/buy options — TMDB sources from JustWatch.
     // Only the NO bucket is shipped; sort by display_priority so the
     // most-relevant logos render first.
-    const wpNO = (t['watch/providers']?.results?.NO) ?? null;
+    const wp = t['watch/providers'];
+    const hasProvidersBlock = wp != null;
+    const wpNO = wp?.results?.NO ?? null;
     const trimProvider = (p) => ({
       id: p.provider_id,
       name: p.provider_name,
@@ -264,12 +266,13 @@ try {
         id: t.belongs_to_collection.id, name: t.belongs_to_collection.name,
         poster: t.belongs_to_collection.poster_path ? `https://image.tmdb.org/t/p/w500${t.belongs_to_collection.poster_path}` : null,
       } : null,
-      // Provider data may live in the snapshot but not in the per-review
-      // raw — that happens on CI when the Actions cache restores stale
-      // enrichment files. Keep the snapshot value when this trim produces
-      // nothing, so we don't blow away a previously committed backfill.
-      watchProvidersNO: hasAnyProvider
-        ? watchProvidersNO
+      // Snapshot fallback handles the cold-cache case (CI cache miss → raw
+      // file has no watch/providers block at all). When the block IS present
+      // but NO bucket is empty, the refresh has confirmed there's no
+      // Norwegian availability — respect that and clear the snapshot, so
+      // films that have left every NO platform stop showing stale chips.
+      watchProvidersNO: hasProvidersBlock
+        ? (hasAnyProvider ? watchProvidersNO : null)
         : (enrichment[raw.reviewId]?.watchProvidersNO ?? null),
     };
     hits++;
