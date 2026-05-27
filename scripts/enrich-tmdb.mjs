@@ -114,11 +114,16 @@ async function main() {
       console.warn(`  [detail-err] ${r.id}: ${e.message}`);
     }
 
+    const enrichedAt = new Date().toISOString();
     await atomicWriteJson(out, {
       reviewId: r.id, name: r.name, originalTitle: r.originalTitle,
       match: { ...match, tmdbId: tmdb.id, confidence: confidenceFor(r, tmdb) },
       tmdb: detail ?? tmdb,
-      enrichedAt: new Date().toISOString(),
+      enrichedAt,
+      // watch/providers rides on the detail call (see append_to_response).
+      // Stamp the timestamp so fetch-watch-providers.mjs's --max-age check
+      // doesn't immediately re-fetch this title on the next daily run.
+      providersFetchedAt: detail?.['watch/providers'] ? enrichedAt : null,
     });
     hit++;
     if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} cached=${cached} knownDigest=${knownDigest} err=${errors}`);

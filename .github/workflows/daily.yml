@@ -110,6 +110,15 @@ jobs:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
         run: node scripts/enrich-tmdb.mjs
 
+      # Streaming availability shifts constantly. Re-fetches the oldest-known
+      # ~200 watch/providers records per run (full corpus rotation every ~9d).
+      - name: 4b) Refresh stale watch providers
+        if: github.event_name != 'push'
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        continue-on-error: true
+        run: node scripts/fetch-watch-providers.mjs --max-age=9d --max=200
+
       - name: 5) IMDb dataset → ratings lookup
         if: github.event_name != 'push'
         run: node scripts/fetch-imdb-ratings.mjs
