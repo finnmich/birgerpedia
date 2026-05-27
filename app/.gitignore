@@ -5,5 +5,7 @@ public/data/reviews.json
 public/data/reviews.ndjson
 public/data/stats.json
 public/data/tmdb-ratings.json
+public/data/external-ratings.json
+public/data/people.json
 src/_data/enrichment.json
 .DS_Store
