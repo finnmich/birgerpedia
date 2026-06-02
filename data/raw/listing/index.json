@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-01T05:34:34.064Z",
+  "fetchedAt": "2026-06-02T05:31:21.894Z",
   "pageCount": 2,
   "pluggCount": 2939,
   "stoppedEarly": true,
@@ -1241,12 +1241,15 @@
       "description": "ANMELDELSE: «Caught Stealing»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_caught-stealing_-1.17545816",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/XBg-1HCSst4dqUweYGsNqg_DCtt74JUDH6KQ4QG3y77w.jpg",
-          "pngUrl": "https://gfx.nrk.no/XBg-1HCSst4dqUweYGsNqgWVFoh5NVbNr6KQ4QG3y77w.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:351,quality:10,format:jpeg) pngUrl:url(width:351,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17545933",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2025-08-28T12:13:00Z"
     },
