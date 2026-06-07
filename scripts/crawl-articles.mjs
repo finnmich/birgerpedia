@@ -49,10 +49,13 @@ async function main() {
   } catch { /* no prior digest — fresh project, fetch everything */ }
 
   // Filter to plugs that look like reviews. Birger has 3198 articles total
-  // but only the /anmeldelse_-_/ ones are reviews. We still write parsed
-  // results for all of them — the build step decides what makes the dex.
+  // but only the /anmeldelse_-_/ ones are reviews. New-CMS (May 2026+)
+  // /artikkel/ plugs come pre-verified from crawl-newcms.mjs and don't
+  // encode review-ness in the URL — parseArticle's Review JSON-LD check
+  // decides for those. We still write parsed results for all of them —
+  // the build step decides what makes the dex.
   const all = index.plugs ?? [];
-  const review = all.filter((p) => /\/anmeldelse_-_/.test(p.url));
+  const review = all.filter((p) => /\/anmeldelse_-_/.test(p.url) || /\/artikkel\//.test(p.url));
   let targets;
   if (argv.sample) {
     // Stratified sample: take N items spread evenly across the (already

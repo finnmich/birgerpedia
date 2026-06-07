@@ -65,10 +65,14 @@ export function parseArticle(html, { url, id } = {}) {
   const rating = pickRating(ld);
 
   const skuespillere = splitList(factbox.skuespillere ?? factbox.stemmer);
-  const sjanger = splitList(factbox.sjanger ?? reviewInfo.sjangerLine);
+  // New-CMS (May 2026+) pages have no review-info block and no factbox —
+  // but itemReviewed carries genre, contentRating and the premiere date.
+  const sjanger = splitList(factbox.sjanger ?? reviewInfo.sjangerLine ?? itemReviewed.genre);
   const land = splitList(factbox.land);
   const lengdeMinutes = parseRuntime(factbox.lengde);
-  const norgespremiere = parseDate(factbox.norgespremiere ?? reviewInfo.premiereLine);
+  const norgespremiere = parseDate(
+    factbox.norgespremiere ?? reviewInfo.premiereLine ?? itemReviewed.datePublished,
+  );
 
   return {
     id: id ?? meta['nrk:content_id'] ?? null,
@@ -104,9 +108,9 @@ export function parseArticle(html, { url, id } = {}) {
       sjanger,
       lengde: factbox.lengde ?? null,
       lengdeMinutes,
-      aldersgrense: factbox.aldersgrense ?? reviewInfo.aldersLine ?? null,
+      aldersgrense: factbox.aldersgrense ?? reviewInfo.aldersLine ?? itemReviewed.contentRating ?? null,
       norgespremiere,
-      norgespremiereRaw: factbox.norgespremiere ?? reviewInfo.premiereLine ?? null,
+      norgespremiereRaw: factbox.norgespremiere ?? reviewInfo.premiereLine ?? itemReviewed.datePublished ?? null,
       produksjonsAr: factbox.produksjonsAr ?? null,
       land,
       sprak: factbox.sprak ?? null,
@@ -120,7 +124,7 @@ export function parseArticle(html, { url, id } = {}) {
     },
 
     platform: reviewInfo.platformLine ?? null,    // Kino, Netflix, HBO, Viaplay, …
-    reviewType: reviewInfo.reviewType ?? null,    // "Film" | "Serie" | "Spill" | …
+    reviewType: reviewInfo.reviewType ?? reviewTypeFromItemType(itemReviewed['@type']),
 
     bodyText: body.text,
     wordCount: body.wordCount,
@@ -291,6 +295,12 @@ function extractBody(html) {
     const m2 = /<div[^>]*class="[^"]*\blp_articlebody\b[^"]*"[^>]*>([\s\S]*)/i.exec(html);
     inner = m2 ? m2[1] : '';
   }
+  if (!inner) {
+    // New-CMS (May 2026+): article-body div with utility classes, no
+    // lp_articlebody, no footer/aside sentinel — capture to </article>.
+    const m3 = /<div[^>]*class="article-body[^"]*"[^>]*>([\s\S]*?)<\/article>/i.exec(html);
+    inner = m3 ? m3[1] : '';
+  }
   // Strip NRK serum include comments and embedded relation widgets.
   inner = inner
     .replace(/<!--\s*include:[\s\S]*?-->/g, ' ')
@@ -306,11 +316,21 @@ function extractBody(html) {
   return { text, wordCount };
 }
 
+// "Film" | "Serie" | "Spill" fallback for new-CMS pages, which lack the
+// review-type span. Values mirror what the legacy span carried.
+function reviewTypeFromItemType(t) {
+  const type = Array.isArray(t) ? t[0] : t;
+  return { Movie: 'Film', TVSeries: 'Serie', Game: 'Spill', VideoGame: 'Spill' }[type] ?? null;
+}
+
 function pickAuthor(ld, meta) {
   const ldAuthor = Array.isArray(ld.author) ? ld.author[0] : ld.author;
   if (ldAuthor && (ldAuthor.identifier || ldAuthor.name)) {
+    // New-CMS JSON-LD authors carry no `identifier`, but the author url
+    // still ends in the legacy id ("…/forfatter/birger-vestmo-18.264").
+    const fromUrl = /-(\d+\.\d+)$/.exec(ldAuthor.url ?? '')?.[1] ?? null;
     return {
-      id: ldAuthor.identifier ?? null,
+      id: ldAuthor.identifier ?? fromUrl,
       name: ldAuthor.name ?? null,
       url: ldAuthor.url ?? null,
       email: ldAuthor.email ?? null,

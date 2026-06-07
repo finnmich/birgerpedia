@@ -91,6 +91,14 @@ jobs:
         if: github.event_name != 'push'
         run: node scripts/crawl-listing.mjs
 
+      # The legacy author API above froze when NRK migrated Filmpolitiet to
+      # a new CMS (newest item 2026-05-22). New articles only surface on the
+      # front page / toppsaker.rss — this step discovers them, verifies the
+      # byline, and merges Birger's into the listing index.
+      - name: 1b) Discover new-CMS articles
+        if: github.event_name != 'push'
+        run: node scripts/crawl-newcms.mjs
+
       - name: 2) Fetch new article HTML
         if: github.event_name != 'push'
         run: node scripts/crawl-articles.mjs
@@ -171,7 +179,8 @@ jobs:
                    data/processed/imdb-ratings.json \
                    data/processed/omdb-ratings.json \
                    data/processed/tmdb-enrichment.json \
-                   data/raw/listing/index.json
+                   data/raw/listing/index.json \
+                   data/raw/listing/newcms-seen.json
           if git diff --staged --quiet; then
             echo "No data changes today."
           else

@@ -137,7 +137,20 @@ async function searchTmdb(query, year, wantTV, limiter) {
   if (year) params.set(wantTV ? 'first_air_date_year' : 'year', year);
   const res = await politeFetch(`${TMDB}${path}?${params}`, { limiter, redact: KEY });
   const json = await res.json();
-  return json.results?.[0] ?? null;
+  // TMDB's year-filtered search is NOT popularity-sorted — fringe titles
+  // that merely contain the query word can outrank the actual film
+  // ("Couture" → "Ocker Couture", an 11-min short, above the Winocour
+  // film). Re-rank the first page ourselves: exact title match first,
+  // then popularity.
+  const q = query.toLowerCase();
+  const best = (json.results ?? [])
+    .map((r) => {
+      const titles = [r.title, r.original_title, r.name, r.original_name]
+        .filter(Boolean).map((s) => s.toLowerCase());
+      return { r, exact: titles.includes(q) ? 1 : 0, pop: r.popularity ?? 0 };
+    })
+    .sort((a, b) => b.exact - a.exact || b.pop - a.pop);
+  return best[0]?.r ?? null;
 }
 
 async function fetchTmdbDetail(id, mediaType, limiter) {
