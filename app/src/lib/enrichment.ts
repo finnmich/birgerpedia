@@ -83,6 +83,7 @@ export interface Enrichment {
     dop: string | null;
     composer: string | null;
     editor: string | null;
+    creators?: string[];     // TV-series creators; absent in pre-2026 snapshot entries
   };
   cast: CastMember[];
   external: { imdb: string | null; wikidata: string | null; instagram: string | null };

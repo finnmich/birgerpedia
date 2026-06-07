@@ -58,6 +58,7 @@ export function parseArticle(html, { url, id } = {}) {
   const meta = extractMetaTags(html);
   const reviewInfo = extractReviewInfo(html);
   const factbox = extractFactbox(html);
+  const newcms = extractNewCmsMeta(html);
   const body = extractBody(html);
 
   const author = pickAuthor(ld, meta);
@@ -82,7 +83,7 @@ export function parseArticle(html, { url, id } = {}) {
 
     type: itemReviewed['@type'] ?? null,         // Movie | TVSeries | VideoGame | …
     name: stripQuotes(reviewInfo.titleLine ?? itemReviewed.name ?? ld.headline ?? null),
-    originalTitle: stripQuotes(reviewInfo.originalTitleLine ?? null),
+    originalTitle: stripQuotes(reviewInfo.originalTitleLine ?? newcms.originalTitle ?? null),
     headline: ld.headline ?? null,
     abstract: ld.abstract ?? meta['og:title'] ?? null,
 
@@ -99,7 +100,7 @@ export function parseArticle(html, { url, id } = {}) {
 
     factbox: {
       tittel: stripQuotes(factbox.tittel),
-      originaltittel: stripQuotes(factbox.originaltittel ?? reviewInfo.originalTitleLine ?? null),
+      originaltittel: stripQuotes(factbox.originaltittel ?? reviewInfo.originalTitleLine ?? newcms.originalTitle ?? null),
       regi: factbox.regi ?? itemReviewed.director?.name ?? reviewInfo.regiLine ?? null,
       serieskaper: factbox.serieskaper ?? reviewInfo.serieskaperLine ?? null,
       manus: factbox.manus ?? null,
@@ -123,7 +124,7 @@ export function parseArticle(html, { url, id } = {}) {
       spillselskap: factbox.spillselskap ?? null,
     },
 
-    platform: reviewInfo.platformLine ?? null,    // Kino, Netflix, HBO, Viaplay, …
+    platform: reviewInfo.platformLine ?? newcms.platform ?? null, // Kino, Netflix, HBO, Viaplay, …
     reviewType: reviewInfo.reviewType ?? reviewTypeFromItemType(itemReviewed['@type']),
 
     bodyText: body.text,
@@ -314,6 +315,25 @@ function extractBody(html) {
   const text = ps.join('\n\n');
   const wordCount = text ? text.split(/\s+/).filter(Boolean).length : 0;
   return { text, wordCount };
+}
+
+// New-CMS (May 2026+) pages embed a serialized Sanity props blob with
+// review metadata the JSON-LD lacks — most importantly the platform
+// ("Plattform Kino" in the visible header). Keys appear HTML-escaped as
+//   &quot;platform&quot;:[0,&quot;Kino&quot;]
+// with [0] alone meaning "no value". Only review-specific keys are safe
+// to pull this way — generic ones (name, format, …) collide with other
+// objects in the blob.
+function extractNewCmsMeta(html) {
+  const pick = (key) => {
+    const m = new RegExp(`&quot;${key}&quot;:\\[0,&quot;(.*?)&quot;\\]`).exec(html);
+    const v = m ? decodeEntities(m[1]).trim() : '';
+    return v || null;
+  };
+  return {
+    platform: pick('platform'),
+    originalTitle: pick('originalTitle'),
+  };
 }
 
 // "Film" | "Serie" | "Spill" fallback for new-CMS pages, which lack the

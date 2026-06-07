@@ -15,6 +15,7 @@ import { resolve } from 'node:path';
 import type { Review, ReviewIndexEntry } from './types';
 import { reviewSlug } from './slug';
 import { decodeEntities } from './format';
+import { enrichmentFor } from './enrichment';
 
 // Same resolution strategy as enrichment.ts — `process.cwd()` is stable
 // across `astro dev` and `astro build` (it's the app/ directory both times),
@@ -39,10 +40,34 @@ const _droppedSet = new Set(_dropped);
 // URLs like /reviews/god-039-s-own-country-17230143 keep resolving.
 function decodeReview(r: Review): Review & { _stableSlug: string } {
   return {
-    ...r,
+    ...backfillFactbox(r),
     _stableSlug: reviewSlug(r.name, r.id),
     name: decodeEntities(r.name),
     originalTitle: r.originalTitle ? decodeEntities(r.originalTitle) : r.originalTitle,
+  };
+}
+
+// NRK's new CMS (May 2026+, /artikkel/ pages → slug ids) dropped the
+// factbox entirely, so director/cast/runtime no longer exist at the NRK
+// source. Backfill those from TMDB for new-CMS records only — legacy
+// factboxes stay verbatim-NRK. Gated on match confidence so a wrong TMDB
+// match can't inject people into credits/people pages. Mirrors
+// scripts/sync-data.mjs trimReview(), which does the same for the slim
+// client-side index.
+function backfillFactbox(r: Review): Review {
+  if (/^\d+\./.test(String(r.id))) return r;           // legacy id → untouched
+  const e = enrichmentFor(r.id);
+  if (!e || (e.confidence !== 'high' && e.confidence !== 'medium')) return r;
+  const fb = r.factbox ?? ({} as Review['factbox']);
+  return {
+    ...r,
+    factbox: {
+      ...fb,
+      regi: fb.regi ?? e.crew?.director?.name ?? null,
+      serieskaper: fb.serieskaper ?? (e.crew?.creators?.length ? e.crew.creators.join(', ') : null),
+      skuespillere: fb.skuespillere ?? (e.cast?.length ? e.cast.map((c) => c.name) : null),
+      lengdeMinutes: fb.lengdeMinutes ?? e.runtime ?? null,
+    },
   };
 }
 

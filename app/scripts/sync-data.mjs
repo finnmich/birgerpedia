@@ -62,9 +62,8 @@ const reviewsRaw = JSON.parse(await readFile(resolve(SRC, 'reviews.json'), 'utf8
 // for TMDB ids. The dropped ids are also written to a small audit file so
 // you can see what was removed and why on every build.
 const dedupeResult = await dedupeSameDay(reviewsRaw);
-const slim = dedupeResult.kept.map((r) => trimReview(r));
-await writeFile(resolve(PUB, 'reviews.json'), JSON.stringify(slim));
-console.log(`[sync] reviews.json (slim) — ${slim.length} records (dropped ${dedupeResult.droppedIds.size} same-day dupes), ${kb(JSON.stringify(slim).length)}`);
+// NOTE: the slim list itself is built AFTER the enrichment aggregate below —
+// trimReview backfills new-CMS factbox gaps from TMDB (see there).
 if (dedupeResult.droppedIds.size) {
   await writeFile(resolve(INTERNAL, 'dedupe-audit.json'), JSON.stringify(dedupeResult.audit, null, 2));
   console.log(`[sync] dedupe details → src/_data/dedupe-audit.json`);
@@ -134,8 +133,16 @@ function isPlaceholderHeadline(r) {
   return h === n;        // "Civil War" / "Civil War" → placeholder
 }
 
-function trimReview(r) {
+function trimReview(r, enr) {
   const fb = r.factbox ?? {};
+  // NRK's new CMS (May 2026+, /artikkel/ pages, slug ids) dropped the
+  // factbox entirely — director/cast/runtime no longer exist at the NRK
+  // source. Backfill those from TMDB for new-CMS records only; legacy
+  // factboxes stay verbatim-NRK. Gated on match confidence so a wrong
+  // TMDB match can't inject people into credits/people pages.
+  const isNewCms = !/^\d+\./.test(String(r.id));
+  const t = isNewCms && enr && !enr.miss &&
+    (enr.confidence === 'high' || enr.confidence === 'medium') ? enr : null;
   const out = {
     id: r.id,
     name: decodeEntities(r.name),
@@ -150,11 +157,11 @@ function trimReview(r) {
     image: r.image ?? null,
     platform: r.platform ?? null,
     factbox: {
-      regi: fb.regi ?? null,
-      serieskaper: fb.serieskaper ?? null,
-      skuespillere: fb.skuespillere ?? null,
+      regi: fb.regi ?? t?.crew?.director?.name ?? null,
+      serieskaper: fb.serieskaper ?? (t?.crew?.creators?.length ? t.crew.creators.join(', ') : null),
+      skuespillere: fb.skuespillere ?? (t?.cast?.length ? t.cast.map((c) => c.name) : null),
       sjanger: fb.sjanger ?? null,
-      lengdeMinutes: fb.lengdeMinutes ?? null,
+      lengdeMinutes: fb.lengdeMinutes ?? t?.runtime ?? null,
       aldersgrense: fb.aldersgrense ?? null,
       norgespremiere: fb.norgespremiere ?? null,
       land: fb.land ?? null,
@@ -259,6 +266,9 @@ try {
         dop: dop?.name ?? null,
         composer: composer?.name ?? null,
         editor: editor?.name ?? null,
+        // TV-series creators (top-level on TMDB tv detail, not in credits).
+        // Used as the serieskaper fallback for new-CMS reviews.
+        creators: (t.created_by ?? []).map((c) => c.name),
       },
       cast: slimCast,
       external: { imdb: ext.imdb_id ?? null, wikidata: ext.wikidata_id ?? null, instagram: ext.instagram_id ?? null },
@@ -294,6 +304,13 @@ try {
   console.warn(`[sync] enrichment skipped: ${e.message}`);
   await writeFile(resolve(INTERNAL, 'enrichment.json'), '{}');
 }
+
+// ----- 2b. Slim per-record list (deferred from step 1) -----
+// Built after the enrichment aggregate so trimReview can backfill
+// new-CMS factbox gaps (regi/skuespillere/lengde) from TMDB.
+const slim = dedupeResult.kept.map((r) => trimReview(r, enrichment[r.id]));
+await writeFile(resolve(PUB, 'reviews.json'), JSON.stringify(slim));
+console.log(`[sync] reviews.json (slim) — ${slim.length} records (dropped ${dedupeResult.droppedIds.size} same-day dupes), ${kb(JSON.stringify(slim).length)}`);
 
 // ----- 3a. tmdb-ratings.json (for scatter plot) -----
 const tmdbRatings = {};
