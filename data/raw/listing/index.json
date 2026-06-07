@@ -1,10 +1,28 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-07T05:29:47.856Z",
+  "fetchedAt": "2026-06-07T08:02:05.738Z",
   "pageCount": 2,
-  "pluggCount": 2939,
+  "pluggCount": 2941,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "tomt-drama-med-grunne-figurer-274",
+      "title": "«Tomt drama med grunne figurer»",
+      "description": "ANMELDELSE: «Couture»",
+      "url": "https://www.nrk.no/artikkel/tomt-drama-med-grunne-figurer-274",
+      "image": null,
+      "published": "2026-06-03T11:32:30.078Z",
+      "source": "newcms"
+    },
+    {
+      "id": "leker-med-sjangerklisjeene-287",
+      "title": "«Leker med sjangerklisjéene»",
+      "description": "ANMELDELSE: «Masters of the Universe»",
+      "url": "https://www.nrk.no/artikkel/leker-med-sjangerklisjeene-287",
+      "image": null,
+      "published": "2026-06-03T07:48:14.798Z",
+      "source": "newcms"
+    },
     {
       "id": "1.17890800",
       "title": "«De 10 beste Cannes-filmene»",

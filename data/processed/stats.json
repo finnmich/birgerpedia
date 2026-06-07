@@ -1,17 +1,17 @@
 {
-  "builtAt": "2026-06-07T05:29:48.231Z",
-  "total": 1916,
+  "builtAt": "2026-06-07T08:02:20.732Z",
+  "total": 1918,
   "droppedNonBirgerOrInvalid": 1,
   "byType": {
-    "Movie": 1867,
+    "Movie": 1869,
     "TVSeries": 31,
     "Game": 18
   },
   "byRating": {
     "1": 7,
-    "2": 61,
+    "2": 62,
     "3": 303,
-    "4": 816,
+    "4": 817,
     "5": 654,
     "6": 72,
     "∅": 3
@@ -27,8 +27,8 @@
     "Nordisk Film Distribusjon AS": 87,
     "Nordisk Film Distribusjon": 75,
     "Netflix": 64,
+    "∅": 58,
     "The Walt Disney Company": 57,
-    "∅": 56,
     "SF Norge": 54,
     "Twentieth Century Fox Norway": 52,
     "The Walt Disney Company Nordic": 45,
