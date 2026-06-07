@@ -56,6 +56,16 @@ function slugifyForReview(name, id) {
   return `${ascii || 'review'}-${tail}`;
 }
 
+// ----- 0. Load the committed enrichment snapshot -----
+// Needed by BOTH the same-day dedupe (tmdbId lookup) and the aggregate
+// build below. On push-triggered CI builds the Actions cache is not
+// restored, so data/processed/enrichment/ doesn't exist — the snapshot
+// is the only TMDB data available and everything must degrade to it,
+// not to "no enrichment at all".
+let enrichment = {};
+try { enrichment = JSON.parse(await readFile(TMDB_SNAPSHOT_PATH, 'utf8')); } catch {}
+const snapshotKeys = new Set(Object.keys(enrichment));
+
 // ----- 1. Trim the per-record list shipped to /reviews -----
 const reviewsRaw = JSON.parse(await readFile(resolve(SRC, 'reviews.json'), 'utf8'));
 // Same-day dedupe runs BEFORE we trim, since it needs the enrichment lookup
@@ -76,8 +86,14 @@ await writeFile(resolve(INTERNAL, 'dropped-ids.json'), JSON.stringify([...dedupe
 // Read enrichment from per-review files for the TMDB lookup the dedupe needs.
 // This is the same source aggregated below; we read it once early.
 async function dedupeSameDay(reviews) {
-  // Build {reviewId → tmdbId} from per-review enrichment files.
+  // Build {reviewId → tmdbId}: snapshot baseline first (always present on
+  // CI), then per-review enrichment files override where they exist.
+  // Without the snapshot baseline, push-triggered CI builds (no Actions
+  // cache → no per-review files) silently skipped dedupe entirely.
   const tmdbOf = new Map();
+  for (const [id, e] of Object.entries(enrichment)) {
+    if (!e?.miss && e?.tmdbId) tmdbOf.set(id, e.tmdbId);
+  }
   try {
     const enrFiles = await readdir(ENR_SRC);
     for (const f of enrFiles) {
@@ -89,7 +105,7 @@ async function dedupeSameDay(reviews) {
         if (tmdbId && raw.reviewId) tmdbOf.set(raw.reviewId, tmdbId);
       } catch {}
     }
-  } catch {}
+  } catch { /* no per-review files (CI push build) — snapshot covers it */ }
 
   // Group by (tmdbId, publishedDay). Only act when 2+ records collide.
   const groups = new Map();
@@ -173,17 +189,17 @@ function trimReview(r, enr) {
 
 // ----- 2. Aggregate full enrichment for build-time SSG only -----
 //
-// Start from the committed snapshot (so CI cold-starts with empty caches
-// still have data to render), then merge in any fresh per-review files
-// from data/processed/enrichment/* (which only exist for reviews enriched
-// on this machine since the last commit). Fresh files override the
-// snapshot — they're newer and authoritative.
-let enrichment = {};
-try { enrichment = JSON.parse(await readFile(TMDB_SNAPSHOT_PATH, 'utf8')); } catch {}
-const snapshotKeys = new Set(Object.keys(enrichment));
-
-try {
-  const files = await readdir(ENR_SRC);
+// Start from the committed snapshot (loaded in step 0 — so CI cold-starts
+// with empty caches still have data to render), then merge in any fresh
+// per-review files from data/processed/enrichment/* (which only exist for
+// reviews enriched on this machine since the last commit). Fresh files
+// override the snapshot — they're newer and authoritative. A missing
+// directory (push-triggered CI build, no Actions cache) just means zero
+// fresh files — the snapshot alone is still written out for SSG.
+{
+  let files = [];
+  try { files = await readdir(ENR_SRC); }
+  catch { console.log('[sync] no per-review enrichment dir — using committed snapshot only'); }
   let hits = 0, misses = 0;
   for (const f of files) {
     if (!f.endsWith('.json') || f.startsWith('_')) continue;
@@ -300,9 +316,6 @@ try {
     `→ ${Object.keys(enrichment).length} total entries written to ` +
     `src/_data/enrichment.json + data/processed/tmdb-enrichment.json`,
   );
-} catch (e) {
-  console.warn(`[sync] enrichment skipped: ${e.message}`);
-  await writeFile(resolve(INTERNAL, 'enrichment.json'), '{}');
 }
 
 // ----- 2b. Slim per-record list (deferred from step 1) -----
