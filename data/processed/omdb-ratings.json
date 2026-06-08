@@ -14622,5 +14622,21 @@
     "imdbVotes": 10,
     "rated": null,
     "awards": null
+  },
+  "tt0427340": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": null,
+    "imdbVotes": null,
+    "rated": "PG-13",
+    "awards": null
+  },
+  "tt34688195": {
+    "rt": 59,
+    "metacritic": null,
+    "imdbRating": 6.2,
+    "imdbVotes": 238,
+    "rated": null,
+    "awards": "2 nominations total"
   }
 }
