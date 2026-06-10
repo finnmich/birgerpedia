@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-09T05:19:35.584Z",
+  "fetchedAt": "2026-06-10T05:28:29.632Z",
   "pageCount": 2,
-  "pluggCount": 2941,
+  "pluggCount": 2942,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "skaper-undring-og-interesse-531",
+      "title": "«Spielberg er i slaget!»",
+      "description": "Anmeldelse: «Disclosure Day»",
+      "url": "https://www.nrk.no/artikkel/skaper-undring-og-interesse-531",
+      "image": null,
+      "published": "2026-06-09T16:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "tomt-drama-med-grunne-figurer-274",
       "title": "«Tomt drama med grunne figurer»",
