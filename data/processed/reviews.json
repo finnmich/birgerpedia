@@ -1,5 +1,56 @@
 [
   {
+    "id": "fra-god-til-hoderystende-darlig-557",
+    "url": "https://www.nrk.no/artikkel/fra-god-til-hoderystende-darlig-557",
+    "type": "Movie",
+    "name": "Scary Movie",
+    "originalTitle": null,
+    "headline": "Fra god til hoderystende dårlig",
+    "abstract": "Komedien «Scary Movie» med Anna Faris, Regina Hall og Marlon Wayans parodierer skrekkfilm-sjangeren med vekslende hell.",
+    "rating": 3,
+    "ratingMax": 6,
+    "publishedAt": "2026-06-10T11:00:44.535Z",
+    "modifiedAt": "2026-06-10T11:53:03.120Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/qP0y-Bav6OLL3-g5gWWFjwMaOD43fC80Z2i2DpPdgODQ",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Komedie"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-06-12",
+      "norgespremiereRaw": "12. juni 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 633
+  },
+  {
     "id": "skaper-undring-og-interesse-531",
     "url": "https://www.nrk.no/artikkel/skaper-undring-og-interesse-531",
     "type": "Movie",

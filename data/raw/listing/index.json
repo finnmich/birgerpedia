@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-10T05:28:29.632Z",
+  "fetchedAt": "2026-06-11T05:31:51.114Z",
   "pageCount": 2,
-  "pluggCount": 2942,
+  "pluggCount": 2943,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "fra-god-til-hoderystende-darlig-557",
+      "title": "«Fra god til hoderystende dårlig»",
+      "description": "ANMELDELSE: «Scary Movie»",
+      "url": "https://www.nrk.no/artikkel/fra-god-til-hoderystende-darlig-557",
+      "image": null,
+      "published": "2026-06-10T11:00:44.535Z",
+      "source": "newcms"
+    },
     {
       "id": "skaper-undring-og-interesse-531",
       "title": "«Spielberg er i slaget!»",
