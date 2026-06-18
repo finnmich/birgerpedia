@@ -1,5 +1,57 @@
 [
   {
+    "id": "god-nok-for-en-runde-til-1007",
+    "url": "https://www.nrk.no/artikkel/god-nok-for-en-runde-til-1007",
+    "type": "Movie",
+    "name": "Toy Story 5",
+    "originalTitle": null,
+    "headline": "God nok for en runde til",
+    "abstract": "Pixar-filmen «Toy Story 5» regissert av Andrew Stanton med stemmer av Tom Hanks, Tim Allen og Joan Cusack er god nok for en runde til på kino.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-06-17T12:18:12.562Z",
+    "modifiedAt": "2026-06-17T12:18:12.562Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/vTQSrErslRgUPFcVrrvbjA1_E7tpHMp1rJxPJL8ZnE6w",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Animasjon",
+        "eventyr"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "6 år",
+      "norgespremiere": "2026-06-19",
+      "norgespremiereRaw": "19. juni 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 601
+  },
+  {
     "id": "fra-god-til-hoderystende-darlig-557",
     "url": "https://www.nrk.no/artikkel/fra-god-til-hoderystende-darlig-557",
     "type": "Movie",
