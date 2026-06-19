@@ -1,5 +1,58 @@
 [
   {
+    "id": "anmeldelse-the-death-of-robin-hood-1118",
+    "url": "https://www.nrk.no/artikkel/anmeldelse-the-death-of-robin-hood-1118",
+    "type": "Movie",
+    "name": "The Death of Robin Hood",
+    "originalTitle": null,
+    "headline": "Mørk historie om skam og forsoning",
+    "abstract": "Regissør Michael Sarnoskis «The Death of Robin Hood» med Hugh Jackman, Bill Skarsgård og Jodie Comer dekonstruerer myten om Robin Hood med klare kunstneriske kvaliteter.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-06-18T12:14:30.812Z",
+    "modifiedAt": "2026-06-18T12:14:30.812Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/u4fi8jHIau0dFv9suNx-sw2F3r1bZA8jWE2qT9D4zyMw",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama",
+        "eventyr",
+        "action"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-06-19",
+      "norgespremiereRaw": "19. juni 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 826
+  },
+  {
     "id": "god-nok-for-en-runde-til-1007",
     "url": "https://www.nrk.no/artikkel/god-nok-for-en-runde-til-1007",
     "type": "Movie",

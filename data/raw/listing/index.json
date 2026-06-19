@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-18T05:32:39.631Z",
+  "fetchedAt": "2026-06-19T05:40:35.660Z",
   "pageCount": 2,
-  "pluggCount": 2944,
+  "pluggCount": 2945,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "anmeldelse-the-death-of-robin-hood-1118",
+      "title": "«Mørk historie om skam og forsoning»",
+      "description": "ANMELDELSE: «The Death of Robin Hood»",
+      "url": "https://www.nrk.no/artikkel/anmeldelse-the-death-of-robin-hood-1118",
+      "image": null,
+      "published": "2026-06-18T12:14:30.812Z",
+      "source": "newcms"
+    },
     {
       "id": "god-nok-for-en-runde-til-1007",
       "title": "«God nok for en runde til»",
@@ -836,12 +845,15 @@
       "description": "Her er de ti beste Pixar-filmene",
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-pixar-filmene-1.17657961",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgRaaTxirffoDcknREyEM9hA.jpg",
-          "pngUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgfNHbq56sDR7cknREyEM9hA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:351,quality:10,format:jpeg) pngUrl:url(width:351,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17659218",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2025-11-21T23:01:00Z"
     },
