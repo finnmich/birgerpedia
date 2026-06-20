@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-19T05:40:35.660Z",
+  "fetchedAt": "2026-06-20T05:27:07.568Z",
   "pageCount": 2,
   "pluggCount": 2945,
   "stoppedEarly": true,
@@ -845,15 +845,12 @@
       "description": "Her er de ti beste Pixar-filmene",
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-pixar-filmene-1.17657961",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:351,quality:10,format:jpeg) pngUrl:url(width:351,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17659218",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgRaaTxirffoDcknREyEM9hA.jpg",
+          "pngUrl": "https://gfx.nrk.no/UFd_U2EnggoyTSqaaaKRmgfNHbq56sDR7cknREyEM9hA.png"
+        },
+        "description": null
       },
       "published": "2025-11-21T23:01:00Z"
     },
