@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-24T05:17:03.169Z",
+  "fetchedAt": "2026-06-25T05:18:30.130Z",
   "pageCount": 2,
-  "pluggCount": 2945,
+  "pluggCount": 2946,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "anmeldelse-supergirl-165919",
+      "title": "«En film du raskt vil glemme»",
+      "description": "ANMELDELSE: «Supergirl»",
+      "url": "https://www.nrk.no/artikkel/anmeldelse-supergirl-165919",
+      "image": null,
+      "published": "2026-06-24T16:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "anmeldelse-the-death-of-robin-hood-1118",
       "title": "«Mørk historie om skam og forsoning»",
@@ -61,6 +70,7 @@
     },
     {
       "id": "1.17890800",
+      "type": "standard",
       "title": "«De 10 beste Cannes-filmene»",
       "description": "ANBEFALING: Høydepunktene fra filmfestivalen",
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-2026-1.17890800",
@@ -72,10 +82,11 @@
         },
         "description": null
       },
-      "published": "2026-05-22T12:25:58Z"
+      "published": "2026-05-22T12:25:58.000Z"
     },
     {
       "id": "1.17889779",
+      "type": "standard",
       "title": "«Girl in Red innfrir i sin første filmrolle»",
       "description": "ANMELDELSE: «Lave forventninger»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_lave-forventninger_-1.17889779",
@@ -87,10 +98,11 @@
         },
         "description": null
       },
-      "published": "2026-05-19T16:15:14Z"
+      "published": "2026-05-19T16:15:14.000Z"
     },
     {
       "id": "1.17888432",
+      "type": "standard",
       "title": "«Flengende kritikk av norsk barnevern»",
       "description": "ANMELDELSE: «Fjord»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_fjord_-1.17888432",
@@ -102,10 +114,11 @@
         },
         "description": null
       },
-      "published": "2026-05-18T20:18:24Z"
+      "published": "2026-05-18T20:18:24.000Z"
     },
     {
       "id": "1.17886037",
+      "type": "standard",
       "title": "«X-Files»-stjerne overrasket på filmfestivalen i Cannes",
       "description": "Gillian Anderson med LHBTQ+-skrekk på Croisetten.",
       "url": "https://www.nrk.no/filmpolitiet/filmpolitiet-sine-hoydepunkter-fra-filmfestivalen-i-cannes-1.17886037",
@@ -117,10 +130,11 @@
         },
         "description": null
       },
-      "published": "2026-05-17T06:13:19Z"
+      "published": "2026-05-17T06:13:19.000Z"
     },
     {
       "id": "1.17873593",
+      "type": "standard",
       "title": "«Teite typer i tøffe tvekamper»",
       "description": "ANMELDELSE: «Mortal Kombat II»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_mortal-kombat-ii_-1.17873593",
@@ -132,10 +146,11 @@
         },
         "description": null
       },
-      "published": "2026-05-06T16:00:00Z"
+      "published": "2026-05-06T16:00:00.000Z"
     },
     {
       "id": "1.17872137",
+      "type": "standard",
       "title": "«Spiller en frisk hovedrolle»",
       "description": "ANMELDELSE: «Dead Man's Wire»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_dead-mans-wire_-1.17872137",
@@ -147,10 +162,11 @@
         },
         "description": null
       },
-      "published": "2026-05-05T13:12:49Z"
+      "published": "2026-05-05T13:12:49.000Z"
     },
     {
       "id": "1.17865457",
+      "type": "standard",
       "title": "«Har sine sjarmerende øyeblikk»",
       "description": "ANMELDELSE: «The Devil Wears Prada 2»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-devil-wears-prada-2_-1.17865457",
@@ -162,10 +178,11 @@
         },
         "description": null
       },
-      "published": "2026-04-29T16:00:00Z"
+      "published": "2026-04-29T16:00:00.000Z"
     },
     {
       "id": "1.17862659",
+      "type": "standard",
       "title": "«Finstemt drama med sår klangbunn»",
       "description": "ANMELDELSE: «Renoir»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_renoir_-1.17862659",
@@ -177,10 +194,11 @@
         },
         "description": null
       },
-      "published": "2026-04-27T11:36:29Z"
+      "published": "2026-04-27T11:36:29.000Z"
     },
     {
       "id": "1.17853981",
+      "type": "standard",
       "title": "«Unngår det mest kontroversielle»",
       "description": "ANMELDELSE: «Michael»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_michael_-1.17853981",
@@ -192,10 +210,11 @@
         },
         "description": null
       },
-      "published": "2026-04-21T13:00:00Z"
+      "published": "2026-04-21T13:00:00.000Z"
     },
     {
       "id": "1.17851325",
+      "type": "standard",
       "title": "«Ubehagelig aktuell og relevant»",
       "description": "ANMELDELSE: «To anklagere»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_to-anklagere_-1.17851325",
@@ -207,10 +226,11 @@
         },
         "description": null
       },
-      "published": "2026-04-21T12:20:51Z"
+      "published": "2026-04-21T12:20:51.000Z"
     },
     {
       "id": "1.17846633",
+      "type": "standard",
       "title": "«For lite djevelskap»",
       "description": "ANMELDELSE: «Lee Cronin’s The Mummy»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_lee-cronin_s-the-mummy_-1.17846633",
@@ -222,10 +242,11 @@
         },
         "description": null
       },
-      "published": "2026-04-16T13:00:00Z"
+      "published": "2026-04-16T13:00:00.000Z"
     },
     {
       "id": "1.17844932",
+      "type": "standard",
       "title": "«Uforpliktende haifest»",
       "description": "ANMELDELSE: «Thrash»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_thrash_-1.17844932",
@@ -237,10 +258,11 @@
         },
         "description": null
       },
-      "published": "2026-04-13T12:55:45Z"
+      "published": "2026-04-13T12:55:45.000Z"
     },
     {
       "id": "1.17839817",
+      "type": "standard",
       "title": "«Flere ukomfortable stillheter»",
       "description": "ANMELDELSE: «Father Mother Sister Brother»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_father-mother-sister-brother_-1.17839817",
@@ -252,10 +274,11 @@
         },
         "description": null
       },
-      "published": "2026-04-09T09:42:33Z"
+      "published": "2026-04-09T09:42:33.000Z"
     },
     {
       "id": "1.17838535",
+      "type": "standard",
       "title": "«Morsom, syrlig og provoserende»",
       "description": "ANMELDELSE: «The Drama»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-drama_-1.17838535",
@@ -267,10 +290,11 @@
         },
         "description": null
       },
-      "published": "2026-04-08T11:34:11Z"
+      "published": "2026-04-08T11:34:11.000Z"
     },
     {
       "id": "1.17824621",
+      "type": "standard",
       "title": "«For trygg og konvensjonell»",
       "description": "ANMELDELSE: «How to Make a Killing»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_how-to-make-a-killing_-1.17824621",
@@ -282,10 +306,11 @@
         },
         "description": null
       },
-      "published": "2026-03-25T13:17:35Z"
+      "published": "2026-03-25T13:17:35.000Z"
     },
     {
       "id": "1.17824386",
+      "type": "standard",
       "title": "«Entusiastisk blodspruting»",
       "description": "ANMELDELSE: «They Will Kill You»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_they-will-kill-you_-1.17824386",
@@ -297,10 +322,11 @@
         },
         "description": null
       },
-      "published": "2026-03-25T11:26:13Z"
+      "published": "2026-03-25T11:26:13.000Z"
     },
     {
       "id": "1.17822802",
+      "type": "standard",
       "title": "«Stiller publikum til veggs»",
       "description": "ANMELDELSE: «Paradis»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_paradis_-1.17822802",
@@ -312,10 +338,11 @@
         },
         "description": null
       },
-      "published": "2026-03-24T13:26:04Z"
+      "published": "2026-03-24T13:26:04.000Z"
     },
     {
       "id": "1.17815840",
+      "type": "standard",
       "title": "«Fargerikt om Oslos grå sider»",
       "description": "ANMELDELSE: «Agnes mot verden»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_agnes-mot-verden_-1.17815840",
@@ -327,10 +354,11 @@
         },
         "description": null
       },
-      "published": "2026-03-19T10:47:52Z"
+      "published": "2026-03-19T10:47:52.000Z"
     },
     {
       "id": "1.17814556",
+      "type": "standard",
       "title": "«Stjerneklart sci-fi-gull»",
       "description": "ANMELDELSE: «Project Hail Mary»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_project-hail-mary_-1.17814556",
@@ -342,10 +370,11 @@
         },
         "description": null
       },
-      "published": "2026-03-18T11:33:59Z"
+      "published": "2026-03-18T11:33:59.000Z"
     },
     {
       "id": "1.17805896",
+      "type": "standard",
       "title": "«Gripende og selvransakende»",
       "description": "Anmeldelse: «Portrett av en forvirret far»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_portrett-av-en-forvirret-far_-1.17805896",
@@ -357,10 +386,11 @@
         },
         "description": null
       },
-      "published": "2026-03-12T11:01:24Z"
+      "published": "2026-03-12T11:01:24.000Z"
     },
     {
       "id": "1.17804403",
+      "type": "standard",
       "title": "«Fascinerende og følelsesladet»",
       "description": "ANMELDELSE: «The Testament of Ann Lee»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-testament-of-ann-lee_-1.17804403",
@@ -372,10 +402,11 @@
         },
         "description": null
       },
-      "published": "2026-03-11T15:07:24Z"
+      "published": "2026-03-11T15:07:24.000Z"
     },
     {
       "id": "1.17802994",
+      "type": "standard",
       "title": "«Frisk, frekk og uforutsigbar»",
       "description": "ANMELDELSE: «No Other Choice»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_no-other-choice_-1.17802994",
@@ -387,10 +418,11 @@
         },
         "description": null
       },
-      "published": "2026-03-11T08:23:09Z"
+      "published": "2026-03-11T08:23:09.000Z"
     },
     {
       "id": "1.17795462",
+      "type": "standard",
       "title": "«Hvor ble det av magien?»",
       "description": "ANMELDELSE: «Operasjon Bever»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_operasjon-bever_-1.17795462",
@@ -402,10 +434,11 @@
         },
         "description": null
       },
-      "published": "2026-03-05T09:59:49Z"
+      "published": "2026-03-05T09:59:49.000Z"
     },
     {
       "id": "1.17794610",
+      "type": "standard",
       "title": "«Byr opp til skrekkfest»",
       "description": "ANMELDELSE: «The Bride!»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-bride__-1.17794610",
@@ -417,10 +450,11 @@
         },
         "description": null
       },
-      "published": "2026-03-04T20:00:00Z"
+      "published": "2026-03-04T20:00:00.000Z"
     },
     {
       "id": "1.17793926",
+      "type": "standard",
       "title": "«Mørk, morsom og mystisk»",
       "description": "ANMELDELSE: «Pillion»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_pillion_-1.17793926",
@@ -432,10 +466,11 @@
         },
         "description": null
       },
-      "published": "2026-03-04T14:15:19Z"
+      "published": "2026-03-04T14:15:19.000Z"
     },
     {
       "id": "1.17784646",
+      "type": "standard",
       "title": "«Likegyldig og rutinepreget»",
       "description": "ANMELDELSE: «Shelter»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_shelter_-1.17784646",
@@ -447,10 +482,11 @@
         },
         "description": null
       },
-      "published": "2026-02-25T13:49:46Z"
+      "published": "2026-02-25T13:49:46.000Z"
     },
     {
       "id": "1.17782062",
+      "type": "standard",
       "title": "«Både hjertevarm og opprivende»",
       "description": "ANMELDELSE: «Min første kjærlighet»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_min-forste-kjaerlighet_-1.17782062",
@@ -462,10 +498,11 @@
         },
         "description": null
       },
-      "published": "2026-02-24T13:15:38Z"
+      "published": "2026-02-24T13:15:38.000Z"
     },
     {
       "id": "1.17781154",
+      "type": "standard",
       "title": "«Syder og koker av dramatikk»",
       "description": "ANMELDELSE: «The Secret Agent».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-secret-agent_-1.17781154",
@@ -477,10 +514,11 @@
         },
         "description": null
       },
-      "published": "2026-02-23T12:56:54Z"
+      "published": "2026-02-23T12:56:54.000Z"
     },
     {
       "id": "1.17774700",
+      "type": "standard",
       "title": "«Har evnen til å provosere»",
       "description": "ANMELDELSE: «Bare et uhell»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_bare-et-uhell_-1.17774700",
@@ -492,10 +530,11 @@
         },
         "description": null
       },
-      "published": "2026-02-18T11:07:45Z"
+      "published": "2026-02-18T11:07:45.000Z"
     },
     {
       "id": "1.17768820",
+      "type": "standard",
       "title": "«Obligatorisk for jazzelskere»",
       "description": "ANMELDELSE: «Everybody Digs Bill Evans»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_everybody-digs-bill-evans_-1.17768820",
@@ -507,10 +546,11 @@
         },
         "description": null
       },
-      "published": "2026-02-13T18:00:00Z"
+      "published": "2026-02-13T18:00:00.000Z"
     },
     {
       "id": "1.17766280",
+      "type": "standard",
       "title": "«Rimelig unik rom-com»",
       "description": "ANMELDELSE: «No Good Men»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_no-good-men_-1.17766280",
@@ -522,10 +562,11 @@
         },
         "description": null
       },
-      "published": "2026-02-12T19:15:00Z"
+      "published": "2026-02-12T19:15:00.000Z"
     },
     {
       "id": "1.17755017",
+      "type": "standard",
       "title": "«Friskt og fantasirikt kroppseventyr»",
       "description": "ANMELDELSE: «Ustoppelig»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_ustoppelig_-1.17755017",
@@ -537,10 +578,11 @@
         },
         "description": null
       },
-      "published": "2026-02-04T11:22:16Z"
+      "published": "2026-02-04T11:22:16.000Z"
     },
     {
       "id": "1.17753539",
+      "type": "standard",
       "title": "«Velgjort monsterfilm med effektive effekter»",
       "description": "ANMELDELSE: «Kraken»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_kraken_-1.17753539",
@@ -552,10 +594,11 @@
         },
         "description": null
       },
-      "published": "2026-02-03T12:01:03Z"
+      "published": "2026-02-03T12:01:03.000Z"
     },
     {
       "id": "1.17745301",
+      "type": "standard",
       "title": "«Gjør seg fortjent til tittelen»",
       "description": "ANMELDELSE: «The Smashing Machine»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-smashing-machine_-1.17745301",
@@ -567,10 +610,11 @@
         },
         "description": null
       },
-      "published": "2026-01-28T13:05:06Z"
+      "published": "2026-01-28T13:05:06.000Z"
     },
     {
       "id": "1.17743825",
+      "type": "standard",
       "title": "«Reiser interessante spørsmål»",
       "description": "ANMELDELSE: «Solomamma»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_solomamma_-1.17743825",
@@ -582,10 +626,11 @@
         },
         "description": null
       },
-      "published": "2026-01-27T14:54:14Z"
+      "published": "2026-01-27T14:54:14.000Z"
     },
     {
       "id": "1.17743615",
+      "type": "standard",
       "title": "«Best å holde seg unna Grønland»",
       "description": "ANMELDELSE: «Greenland 2: Migration»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_greenland-2_-migration_-1.17743615",
@@ -597,10 +642,11 @@
         },
         "description": null
       },
-      "published": "2026-01-26T17:17:46Z"
+      "published": "2026-01-26T17:17:46.000Z"
     },
     {
       "id": "1.17735652",
+      "type": "standard",
       "title": "«Ideen er bedre enn utførelsen»",
       "description": "ANMELDELSE: «Mercy»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_mercy_-1.17735652",
@@ -612,10 +658,11 @@
         },
         "description": null
       },
-      "published": "2026-01-21T17:00:00Z"
+      "published": "2026-01-21T17:00:00.000Z"
     },
     {
       "id": "1.17727837",
+      "type": "standard",
       "title": "«Hardkokt så det holder»",
       "description": "ANMELDELSE: «The Rip»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-rip_-1.17727837",
@@ -627,10 +674,11 @@
         },
         "description": null
       },
-      "published": "2026-01-16T04:00:00Z"
+      "published": "2026-01-16T04:00:00.000Z"
     },
     {
       "id": "1.17727020",
+      "type": "standard",
       "title": "«God, grufull og grotesk»",
       "description": "ANMELDELSE: «28 Years Later: The Bone Temple»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_28-years-later_-the-bone-temple_-1.17727020",
@@ -642,10 +690,11 @@
         },
         "description": null
       },
-      "published": "2026-01-14T09:56:23Z"
+      "published": "2026-01-14T09:56:23.000Z"
     },
     {
       "id": "1.17724366",
+      "type": "standard",
       "title": "«Teit, tullete og treffsikker»",
       "description": "Anmeldelse: «The Housemaid».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-housemaid_-1.17724366",
@@ -657,10 +706,11 @@
         },
         "description": null
       },
-      "published": "2026-01-13T14:08:27Z"
+      "published": "2026-01-13T14:08:27.000Z"
     },
     {
       "id": "1.17675349",
+      "type": "standard",
       "title": "Ti filmer vi gleder oss til",
       "description": "Dette er kinopremierene vi i Filmpolitiet har mest trua på i 2026.",
       "url": "https://www.nrk.no/filmpolitiet/2026_-filmene-vi-gleder-oss-til-1.17675349",
@@ -672,10 +722,11 @@
         },
         "description": null
       },
-      "published": "2026-01-09T16:23:57Z"
+      "published": "2026-01-09T16:23:57.000Z"
     },
     {
       "id": "1.17715770",
+      "type": "standard",
       "title": "«En fin dose hjertevarme»",
       "description": "ANMELDELSE: «Rental Family»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_rental-family_-1.17715770",
@@ -687,10 +738,11 @@
         },
         "description": null
       },
-      "published": "2026-01-06T10:51:20Z"
+      "published": "2026-01-06T10:51:20.000Z"
     },
     {
       "id": "1.17708292",
+      "type": "standard",
       "title": "«Ambisjonene er åpenbare»",
       "description": "ANMELDELSE: «Alpha»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_alpha_-1.17708292",
@@ -702,10 +754,11 @@
         },
         "description": null
       },
-      "published": "2025-12-29T15:03:26Z"
+      "published": "2025-12-29T15:03:26.000Z"
     },
     {
       "id": "1.17675345",
+      "type": "standard",
       "title": "Dette er årets beste filmar",
       "description": "Filmpolitiets favorittar frå 2025.",
       "url": "https://www.nrk.no/filmpolitiet/2025_-arets-beste-filmar-1.17675345",
@@ -717,10 +770,11 @@
         },
         "description": null
       },
-      "published": "2025-12-18T13:25:15Z"
+      "published": "2025-12-18T13:25:15.000Z"
     },
     {
       "id": "1.17695460",
+      "type": "standard",
       "title": "«Sprek og supersjarmerende»",
       "description": "ANMELDELSE: «Flåklypa: Fra Paris til pyramidene»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_flaklypa_-fra-paris-til-pyramidene_-1.17695460",
@@ -732,10 +786,11 @@
         },
         "description": null
       },
-      "published": "2025-12-17T08:44:31Z"
+      "published": "2025-12-17T08:44:31.000Z"
     },
     {
       "id": "1.17693150",
+      "type": "standard",
       "title": "«Storslagen og engasjerende»",
       "description": "ANMELDELSE: «Avatar: Fire and Ash»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_avatar_-fire-and-ash_-1.17693150",
@@ -747,10 +802,11 @@
         },
         "description": null
       },
-      "published": "2025-12-16T14:00:00Z"
+      "published": "2025-12-16T14:00:00.000Z"
     },
     {
       "id": "1.17693466",
+      "type": "standard",
       "title": "«Sterk og nydelig film»",
       "description": "ANMELDELSE: «Fremdeles her»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_fremdeles-her_-1.17693466",
@@ -762,10 +818,11 @@
         },
         "description": null
       },
-      "published": "2025-12-15T13:32:08Z"
+      "published": "2025-12-15T13:32:08.000Z"
     },
     {
       "id": "1.17690232",
+      "type": "standard",
       "title": "«Strålende krim­underholdning»",
       "description": "ANMELDELSE: «Wake Up Dead Man: A Knives Out Mystery»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_wake-up-dead-man_-a-knives-out-mystery_-1.17690232",
@@ -777,10 +834,11 @@
         },
         "description": null
       },
-      "published": "2025-12-12T12:09:06Z"
+      "published": "2025-12-12T12:09:06.000Z"
     },
     {
       "id": "1.17684166",
+      "type": "standard",
       "title": "«Nydelig opplevelse for alle som elsker film»",
       "description": "ANMELDELSE: «Nouvelle vague»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_nouvelle-vague_-1.17684166",
@@ -792,10 +850,11 @@
         },
         "description": null
       },
-      "published": "2025-12-10T11:42:59Z"
+      "published": "2025-12-10T11:42:59.000Z"
     },
     {
       "id": "1.17662765",
+      "type": "standard",
       "title": "Vinterens heteste strømmetips  ",
       "description": "Filmpolitiet gir deg ti aktuelle seertips.",
       "url": "https://www.nrk.no/filmpolitiet/ti-tips-fra-filmpolitiet_-de-heteste-filmene-og-seriene-du-kan-stromme-na-1.17662765",
@@ -807,10 +866,11 @@
         },
         "description": null
       },
-      "published": "2025-12-06T07:44:23Z"
+      "published": "2025-12-06T07:44:23.000Z"
     },
     {
       "id": "1.17676484",
+      "type": "standard",
       "title": "«En himmelsk trekant»",
       "description": "ANMELDELSE: «Eternity»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_eternity_-1.17676484",
@@ -822,10 +882,11 @@
         },
         "description": null
       },
-      "published": "2025-12-03T08:32:14Z"
+      "published": "2025-12-03T08:32:14.000Z"
     },
     {
       "id": "1.17669485",
+      "type": "standard",
       "title": "«Tettpakket trollspenning»",
       "description": "ANMELDELSE: «Troll 2»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_troll-2_-1.17669485",
@@ -837,10 +898,11 @@
         },
         "description": null
       },
-      "published": "2025-11-27T09:31:01Z"
+      "published": "2025-11-27T09:31:01.000Z"
     },
     {
       "id": "1.17657961",
+      "type": "standard",
       "title": "«Toy Story» fyller 30 år",
       "description": "Her er de ti beste Pixar-filmene",
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-pixar-filmene-1.17657961",
@@ -852,10 +914,11 @@
         },
         "description": null
       },
-      "published": "2025-11-21T23:01:00Z"
+      "published": "2025-11-21T23:01:00.000Z"
     },
     {
       "id": "1.17659765",
+      "type": "standard",
       "title": "«En virkelig vakker film»",
       "description": "ANMELDELSE: «Christy»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_christy_-1.17659765",
@@ -867,10 +930,11 @@
         },
         "description": null
       },
-      "published": "2025-11-19T15:32:48Z"
+      "published": "2025-11-19T15:32:48.000Z"
     },
     {
       "id": "1.17659432",
+      "type": "standard",
       "title": "«Det blir for enkelt og banalt»",
       "description": "ANMELDELSE: «Now You See Me: Now You Don’t»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_now-you-see-me_-now-you-don_t_-1.17659432",
@@ -882,10 +946,11 @@
         },
         "description": null
       },
-      "published": "2025-11-19T13:27:39Z"
+      "published": "2025-11-19T13:27:39.000Z"
     },
     {
       "id": "1.17657705",
+      "type": "standard",
       "title": "«Har tapt litt av fortellergleden»",
       "description": "ANMELDELSE: «Wicked: For Good»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_wicked_-for-good_-1.17657705",
@@ -897,10 +962,11 @@
         },
         "description": null
       },
-      "published": "2025-11-18T17:00:00Z"
+      "published": "2025-11-18T17:00:00.000Z"
     },
     {
       "id": "1.17650295",
+      "type": "standard",
       "title": "«Kunne ha stukket dypere»",
       "description": "ANMELDELSE: «The Running Man»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-running-man_-1.17650295",
@@ -912,10 +978,11 @@
         },
         "description": null
       },
-      "published": "2025-11-12T15:10:38Z"
+      "published": "2025-11-12T15:10:38.000Z"
     },
     {
       "id": "1.17648709",
+      "type": "standard",
       "title": "«Lett å gjette høydepunktet»",
       "description": "ANMELDELSE: «Klæbo»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_klaebo_-1.17648709",
@@ -927,10 +994,11 @@
         },
         "description": null
       },
-      "published": "2025-11-11T15:05:33Z"
+      "published": "2025-11-11T15:05:33.000Z"
     },
     {
       "id": "1.17642001",
+      "type": "standard",
       "title": "«Gnistrende god sci-fi-action»",
       "description": "ANMELDELSE: «Predator: Badlands»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_predator_-badlands_-1.17642001",
@@ -942,10 +1010,11 @@
         },
         "description": null
       },
-      "published": "2025-11-06T11:06:23Z"
+      "published": "2025-11-06T11:06:23.000Z"
     },
     {
       "id": "1.17640794",
+      "type": "standard",
       "title": "«En riktig fin eventyrstund»",
       "description": "ANMELDELSE: «Reisen mot nord»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_reisen-mot-nord_-1.17640794",
@@ -957,10 +1026,11 @@
         },
         "description": null
       },
-      "published": "2025-11-05T13:34:45Z"
+      "published": "2025-11-05T13:34:45.000Z"
     },
     {
       "id": "1.17637890",
+      "type": "standard",
       "title": "«Frisk og actionfylt jule­film med mye humor»",
       "description": "ANMELDELSE: «Hvis ingen går i fella»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_hvis-ingen-gar-i-fella_-1.17637890",
@@ -972,10 +1042,11 @@
         },
         "description": null
       },
-      "published": "2025-11-04T09:54:31Z"
+      "published": "2025-11-04T09:54:31.000Z"
     },
     {
       "id": "1.17549917",
+      "type": "standard",
       "title": "«Man brenner virkelig for disse figurene»",
       "description": "ANMELDELSE: «Unge mødre»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_unge-modre_-1.17549917",
@@ -987,10 +1058,11 @@
         },
         "description": null
       },
-      "published": "2025-11-03T12:15:38Z"
+      "published": "2025-11-03T12:15:38.000Z"
     },
     {
       "id": "1.17631263",
+      "type": "standard",
       "title": "«Saftig satire med burlesk brutalitet»",
       "description": "ANMELDELSE: «Bugonia»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_bugonia_-1.17631263",
@@ -1002,10 +1074,11 @@
         },
         "description": null
       },
-      "published": "2025-10-29T12:33:22Z"
+      "published": "2025-10-29T12:33:22.000Z"
     },
     {
       "id": "1.17629445",
+      "type": "standard",
       "title": "«Severdig om en artist som sliter»",
       "description": "ANMELDELSE: «Springsteen: Deliver Me From Nowhere»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_springsteen_-deliver-me-from-nowhere_-1.17629445",
@@ -1017,10 +1090,11 @@
         },
         "description": null
       },
-      "published": "2025-10-28T10:43:57Z"
+      "published": "2025-10-28T10:43:57.000Z"
     },
     {
       "id": "1.17623784",
+      "type": "standard",
       "title": "«Gysende god skrekkmoro»",
       "description": "ANMELDELSE: «It: Welcome to Derry»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_it_-welcome-to-derry_-pa-hbo-max.-1.17623784",
@@ -1032,10 +1106,11 @@
         },
         "description": null
       },
-      "published": "2025-10-23T11:20:03Z"
+      "published": "2025-10-23T11:20:03.000Z"
     },
     {
       "id": "1.17613563",
+      "type": "standard",
       "title": "«Det finnes bedre MeToo-filmer enn dette»",
       "description": "ANMELDELSE: «After the Hunt»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_after-the-hunt_-1.17613563",
@@ -1047,10 +1122,11 @@
         },
         "description": null
       },
-      "published": "2025-10-16T07:05:47Z"
+      "published": "2025-10-16T07:05:47.000Z"
     },
     {
       "id": "1.17612988",
+      "type": "standard",
       "title": "«Vanskelig å stille seg likegyldig»",
       "description": "ANMELDELSE: «Se meg»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_se-meg_-1.17612988",
@@ -1062,10 +1138,11 @@
         },
         "description": null
       },
-      "published": "2025-10-15T15:30:00Z"
+      "published": "2025-10-15T15:30:00.000Z"
     },
     {
       "id": "1.17610736",
+      "type": "standard",
       "title": "«Kommer til å berøre mange»",
       "description": "ANMELDELSE: «Stargate – en jule­fortell­ing»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_stargate-_-en-julefortelling_-1.17610736",
@@ -1077,10 +1154,11 @@
         },
         "description": null
       },
-      "published": "2025-10-14T11:44:47Z"
+      "published": "2025-10-14T11:44:47.000Z"
     },
     {
       "id": "1.17602794",
+      "type": "standard",
       "title": "«Enormt spennende og gripende»",
       "description": "Anmeldelse: «Trango»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_trango_-1.17602794",
@@ -1092,10 +1170,11 @@
         },
         "description": null
       },
-      "published": "2025-10-08T10:48:33Z"
+      "published": "2025-10-08T10:48:33.000Z"
     },
     {
       "id": "1.17601201",
+      "type": "standard",
       "title": "«Superstilig og strømlinjeformet»",
       "description": "ANMELDELSE: «Tron: Ares»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_tron_-ares_-1.17601201",
@@ -1107,10 +1186,11 @@
         },
         "description": null
       },
-      "published": "2025-10-07T16:00:00Z"
+      "published": "2025-10-07T16:00:00.000Z"
     },
     {
       "id": "1.17595083",
+      "type": "standard",
       "title": "«Skaper følelsen av akutt stress»",
       "description": "ANMELDELSE: «Kveldsvakt»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_kveldsvakt_-1.17595083",
@@ -1122,10 +1202,11 @@
         },
         "description": null
       },
-      "published": "2025-10-02T10:50:44Z"
+      "published": "2025-10-02T10:50:44.000Z"
     },
     {
       "id": "1.17593961",
+      "type": "standard",
       "title": "«Vanskelig å tro på historien»",
       "description": "ANMELDELSE: «The Long Walk»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-long-walk_-1.17593961",
@@ -1137,10 +1218,11 @@
         },
         "description": null
       },
-      "published": "2025-10-01T14:22:05Z"
+      "published": "2025-10-01T14:22:05.000Z"
     },
     {
       "id": "1.17593169",
+      "type": "standard",
       "title": "«Særegen og sjangeroverskridende»",
       "description": "ANMELDELSE: «Demring»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_demring_-1.17593169",
@@ -1152,10 +1234,11 @@
         },
         "description": null
       },
-      "published": "2025-10-01T08:49:28Z"
+      "published": "2025-10-01T08:49:28.000Z"
     },
     {
       "id": "1.17584348",
+      "type": "standard",
       "title": "«Smittende sjarm og fortellerglede»",
       "description": "ANMELDELSE: «Dancing Queen 2 i Hollywood»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_dancing-queen-2-i-hollywood_-1.17584348",
@@ -1167,10 +1250,11 @@
         },
         "description": null
       },
-      "published": "2025-09-24T13:32:13Z"
+      "published": "2025-09-24T13:32:13.000Z"
     },
     {
       "id": "1.17582711",
+      "type": "standard",
       "title": "«Den ene filmatiske gleden etter den andre»",
       "description": "ANMELDELSE: «One Battle After Another»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_one-battle-after-another_-1.17582711",
@@ -1182,10 +1266,11 @@
         },
         "description": null
       },
-      "published": "2025-09-23T14:18:19Z"
+      "published": "2025-09-23T14:18:19.000Z"
     },
     {
       "id": "1.17574348",
+      "type": "standard",
       "title": "«Entusiastisk fortellerglede»",
       "description": "ANMELDELSE: «Grevlingene»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_grevlingene_-1.17574348",
@@ -1197,10 +1282,11 @@
         },
         "description": null
       },
-      "published": "2025-09-17T11:20:32Z"
+      "published": "2025-09-17T11:20:32.000Z"
     },
     {
       "id": "1.17572729",
+      "type": "standard",
       "title": "Ti filmar vi gler oss til i haust",
       "description": "Atomvåpen på avvegar, nytt eventyr på Pandora, og ein legendarisk norsk racerbil er tilbake.",
       "url": "https://www.nrk.no/filmpolitiet/ti-filmar-vi-gler-oss-til-i-haust-1.17572729",
@@ -1212,10 +1298,11 @@
         },
         "description": null
       },
-      "published": "2025-09-16T13:10:47Z"
+      "published": "2025-09-16T13:10:47.000Z"
     },
     {
       "id": "1.17567322",
+      "type": "standard",
       "title": "«Slipper billig unna kontroversene»",
       "description": "ANMELDELSE: «Rebel Royals: An Unlikely Love Story» på Netflix",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_rebel-royals_-an-unlikely-love-story_-1.17567322",
@@ -1227,10 +1314,11 @@
         },
         "description": null
       },
-      "published": "2025-09-16T07:01:00Z"
+      "published": "2025-09-16T07:01:00.000Z"
     },
     {
       "id": "1.17565003",
+      "type": "standard",
       "title": "«Henrivende godt fortalt»",
       "description": "ANMELDELSE: «Totto-Chan – Den lille jenta ved vinduet»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_totto-chan-_-den-lille-jenta-ved-vinduet_-1.17565003",
@@ -1242,10 +1330,11 @@
         },
         "description": null
       },
-      "published": "2025-09-10T10:52:07Z"
+      "published": "2025-09-10T10:52:07.000Z"
     },
     {
       "id": "1.17563293",
+      "type": "standard",
       "title": "«Rabiat og rølpete komiskrekk»",
       "description": "ANMELDELSE: «The Toxic Avenger»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-toxic-avenger_-1.17563293",
@@ -1257,10 +1346,11 @@
         },
         "description": null
       },
-      "published": "2025-09-09T10:25:09Z"
+      "published": "2025-09-09T10:25:09.000Z"
     },
     {
       "id": "1.17552394",
+      "type": "standard",
       "title": "«Skaper kriblende skrekkfryd»",
       "description": "ANMELDELSE: «The Conjuring: Last Rites»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-conjuring_-last-rites_-1.17552394",
@@ -1272,10 +1362,11 @@
         },
         "description": null
       },
-      "published": "2025-09-03T16:00:00Z"
+      "published": "2025-09-03T16:00:00.000Z"
     },
     {
       "id": "1.17552107",
+      "type": "standard",
       "title": "«Holder en godkjent nerve»",
       "description": "ANMELDELSE: «Relay»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_relay_-1.17552107",
@@ -1287,10 +1378,11 @@
         },
         "description": null
       },
-      "published": "2025-09-02T14:55:33Z"
+      "published": "2025-09-02T14:55:33.000Z"
     },
     {
       "id": "1.17545816",
+      "type": "standard",
       "title": "«Krim av det røffe slaget»",
       "description": "ANMELDELSE: «Caught Stealing»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_caught-stealing_-1.17545816",
@@ -1302,10 +1394,11 @@
         },
         "description": null
       },
-      "published": "2025-08-28T12:13:00Z"
+      "published": "2025-08-28T12:13:00.000Z"
     },
     {
       "id": "1.17542155",
+      "type": "standard",
       "title": "«Det er grunn til å sperre opp øynene»",
       "description": "ANMELDELSE: «The Life of Chuck»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-life-of-chuck_-1.17542155",
@@ -1317,10 +1410,11 @@
         },
         "description": null
       },
-      "published": "2025-08-26T21:47:46Z"
+      "published": "2025-08-26T21:47:46.000Z"
     },
     {
       "id": "1.17535150",
+      "type": "standard",
       "title": "«Kjapp, syrlig og ganske morsom»",
       "description": "ANMELDELSE: «Ingen kommentar»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_ingen-kommentar_-1.17535150",
@@ -1332,10 +1426,11 @@
         },
         "description": null
       },
-      "published": "2025-08-20T13:42:38Z"
+      "published": "2025-08-20T13:42:38.000Z"
     },
     {
       "id": "1.17531086",
+      "type": "standard",
       "title": "«Har nok av spenningsmomenter»",
       "description": "ANMELDELSE: «Blücher»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_blucher_-1.17531086",
@@ -1347,10 +1442,11 @@
         },
         "description": null
       },
-      "published": "2025-08-17T17:00:00Z"
+      "published": "2025-08-17T17:00:00.000Z"
     },
     {
       "id": "1.17527430",
+      "type": "standard",
       "title": "«Litt for reservert om kjærlighet»",
       "description": "ANMELDELSE: «Materialists»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_materialists_-1.17527430",
@@ -1362,10 +1458,11 @@
         },
         "description": null
       },
-      "published": "2025-08-14T07:37:13Z"
+      "published": "2025-08-14T07:37:13.000Z"
     },
     {
       "id": "1.17526307",
+      "type": "standard",
       "title": "«Morsom action med godkjent slagkraft»",
       "description": "ANMELDELSE: «Nobody 2»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_nobody-2_-1.17526307",
@@ -1377,10 +1474,11 @@
         },
         "description": null
       },
-      "published": "2025-08-13T16:00:00Z"
+      "published": "2025-08-13T16:00:00.000Z"
     },
     {
       "id": "1.17518570",
+      "type": "standard",
       "title": "«Deilig å ikke ane hva som skal skje»",
       "description": "ANMELDELSE: «Weapons»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_weapons_-1.17518570",
@@ -1392,10 +1490,11 @@
         },
         "description": null
       },
-      "published": "2025-08-06T12:08:47Z"
+      "published": "2025-08-06T12:08:47.000Z"
     },
     {
       "id": "1.17517467",
+      "type": "standard",
       "title": "«Glattere og mer kalkulert»",
       "description": "ANMELDELSE: «Freakier Friday»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_freakier-friday_-1.17517467",
@@ -1407,10 +1506,11 @@
         },
         "description": null
       },
-      "published": "2025-08-05T16:00:00Z"
+      "published": "2025-08-05T16:00:00.000Z"
     },
     {
       "id": "1.17510402",
+      "type": "standard",
       "title": "«Veldig fransk i form og innhold»",
       "description": "ANMELDELSE: «Tre venninner»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_tre-venninner_-1.17510402",
@@ -1422,10 +1522,11 @@
         },
         "description": null
       },
-      "published": "2025-07-31T08:52:50Z"
+      "published": "2025-07-31T08:52:50.000Z"
     },
     {
       "id": "1.17509949",
+      "type": "standard",
       "title": "«Mildere og tammere kopi av originalen»",
       "description": "ANMELDELSE: «The Naked Gun»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-naked-gun_-1.17509949",
@@ -1437,10 +1538,11 @@
         },
         "description": null
       },
-      "published": "2025-07-30T13:00:00Z"
+      "published": "2025-07-30T13:00:00.000Z"
     },
     {
       "id": "1.17507917",
+      "type": "standard",
       "title": "«Gode grunner til 18-årsgrensa»",
       "description": "ANMELDELSE: «Bring Her Back»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_bring-her-back_-1.17507917",
@@ -1452,10 +1554,11 @@
         },
         "description": null
       },
-      "published": "2025-07-28T14:03:13Z"
+      "published": "2025-07-28T14:03:13.000Z"
     },
     {
       "id": "1.17505527",
+      "type": "standard",
       "title": "«Det er lov å le av teit humor»",
       "description": "ANMELDELSE: «Happy Gilmore 2»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_happy-gilmore-2_-1.17505527",
@@ -1467,10 +1570,11 @@
         },
         "description": null
       },
-      "published": "2025-07-25T14:08:52Z"
+      "published": "2025-07-25T14:08:52.000Z"
     },
     {
       "id": "1.17503768",
+      "type": "standard",
       "title": "«Biter godt fra seg når det trengs»",
       "description": "ANMELDELSE: «Stand Your Ground»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_stand-your-ground_-1.17503768",
@@ -1482,10 +1586,11 @@
         },
         "description": null
       },
-      "published": "2025-07-25T08:29:24Z"
+      "published": "2025-07-25T08:29:24.000Z"
     },
     {
       "id": "1.17500227",
+      "type": "standard",
       "title": "«Skaper varme følelser uten ord»",
       "description": "ANMELDELSE: «Gondola»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_gondola_-1.17500227",
@@ -1497,10 +1602,11 @@
         },
         "description": null
       },
-      "published": "2025-07-23T07:20:39Z"
+      "published": "2025-07-23T07:20:39.000Z"
     },
     {
       "id": "1.17501400",
+      "type": "standard",
       "title": "«Et sleivspark mot neste Avengers-film»",
       "description": "ANMELDELSE: «The Fantastic 4: First Steps»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-fantastic-4_-first-steps_-1.17501400",
@@ -1512,10 +1618,11 @@
         },
         "description": null
       },
-      "published": "2025-07-22T16:00:00Z"
+      "published": "2025-07-22T16:00:00.000Z"
     },
     {
       "id": "1.17459351",
+      "type": "standard",
       "title": "«Heftig zombieskrekk som biter hardt»",
       "description": "ANMELDELSE: «28 Years Later»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_28-years-later_-1.17459351",
@@ -1527,10 +1634,11 @@
         },
         "description": null
       },
-      "published": "2025-06-18T21:00:00Z"
+      "published": "2025-06-18T21:00:00.000Z"
     },
     {
       "id": "1.17457595",
+      "type": "standard",
       "title": "«Lekker og fargesprakende»",
       "description": "ANMELDELSE: «Elio»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_elio_-1.17457595",
@@ -1542,10 +1650,11 @@
         },
         "description": null
       },
-      "published": "2025-06-17T16:00:00Z"
+      "published": "2025-06-17T16:00:00.000Z"
     },
     {
       "id": "1.17452257",
+      "type": "standard",
       "title": "«Aldri feil med ildsprutende drager»",
       "description": "ANMELDELSE: «Dragetreneren»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_dragetreneren_-1.17452257",
@@ -1557,7 +1666,7 @@
         },
         "description": null
       },
-      "published": "2025-06-12T10:38:41Z"
+      "published": "2025-06-12T10:38:41.000Z"
     },
     {
       "id": "1.17451302",
