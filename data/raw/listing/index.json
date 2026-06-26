@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-25T05:18:30.130Z",
+  "fetchedAt": "2026-06-26T05:23:35.832Z",
   "pageCount": 2,
-  "pluggCount": 2946,
+  "pluggCount": 2947,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "anmeldelse-urchin-391450",
+      "title": "«Morsomt og dystert fra gateplan»",
+      "description": "ANMELDELSE: «Urchin»",
+      "url": "https://www.nrk.no/artikkel/anmeldelse-urchin-391450",
+      "image": null,
+      "published": "2026-06-25T09:04:13.328Z",
+      "source": "newcms"
+    },
     {
       "id": "anmeldelse-supergirl-165919",
       "title": "«En film du raskt vil glemme»",

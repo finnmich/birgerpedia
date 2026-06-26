@@ -1,5 +1,56 @@
 [
   {
+    "id": "anmeldelse-urchin-391450",
+    "url": "https://www.nrk.no/artikkel/anmeldelse-urchin-391450",
+    "type": "Movie",
+    "name": "Urchin",
+    "originalTitle": null,
+    "headline": "Morsomt og dystert fra gateplan",
+    "abstract": "Den britiske filmen \"Urchin\" med Frank Dillane i hovedrollen er en empatisk og selvsikker regidebut fra Harris Dickinson.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-06-25T09:04:13.328Z",
+    "modifiedAt": "2026-06-25T09:58:42.233Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/8TCYJ4zoODIDWi6VadBgswdOPeSQZYcRtuoBl8a2HPNQ",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-06-26",
+      "norgespremiereRaw": "26. juni 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 513
+  },
+  {
     "id": "anmeldelse-supergirl-165919",
     "url": "https://www.nrk.no/artikkel/anmeldelse-supergirl-165919",
     "type": "Movie",
