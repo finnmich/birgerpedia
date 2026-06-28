@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-06-27T05:15:20.272Z",
+  "fetchedAt": "2026-06-28T05:27:56.655Z",
   "pageCount": 2,
   "pluggCount": 2947,
   "stoppedEarly": true,
@@ -164,15 +164,12 @@
       "description": "ANMELDELSE: «Dead Man's Wire»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_dead-mans-wire_-1.17872137",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17872226",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/WRzYw8EwotxeioTSpTeCCgT82ut_Bf34C2WqgPK-XJgA.jpg",
+          "pngUrl": "https://gfx.nrk.no/WRzYw8EwotxeioTSpTeCCgOFqf9ycK1cu2WqgPK-XJgA.png"
+        },
+        "description": null
       },
       "published": "2026-05-05T13:12:49.000Z"
     },
@@ -1079,15 +1076,12 @@
       "description": "ANMELDELSE: «Bugonia»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_bugonia_-1.17631263",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:351,quality:10,format:jpeg) pngUrl:url(width:351,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Unexpected status code from Kaleido: 400"
-        ],
-        "id": "1.17631357",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/YUv5fM1voeJxu27uKiXigAR52BIl3t_B61z5J21P8olg.jpg",
+          "pngUrl": "https://gfx.nrk.no/YUv5fM1voeJxu27uKiXigAHSz53KXYl7-1z5J21P8olg.png"
+        },
+        "description": null
       },
       "published": "2025-10-29T12:33:22.000Z"
     },
