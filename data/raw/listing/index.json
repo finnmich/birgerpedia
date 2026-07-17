@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-07-16T06:09:37.566Z",
+  "fetchedAt": "2026-07-17T06:08:16.433Z",
   "pageCount": 2,
   "pluggCount": 2947,
   "stoppedEarly": true,
@@ -404,12 +404,15 @@
       "description": "ANMELDELSE: «The Testament of Ann Lee»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-testament-of-ann-lee_-1.17804403",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/EJmuoKoV8hABaKaKgQHHUAosULG5nAbE4Zp_HjTqiXPQ.jpg",
-          "pngUrl": "https://gfx.nrk.no/EJmuoKoV8hABaKaKgQHHUAjgMTL-ATtu8Zp_HjTqiXPQ.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17804461",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-03-11T15:07:24.000Z"
     },
