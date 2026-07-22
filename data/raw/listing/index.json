@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-07-21T06:21:46.747Z",
+  "fetchedAt": "2026-07-22T06:21:09.515Z",
   "pageCount": 2,
   "pluggCount": 2947,
   "stoppedEarly": true,
@@ -1380,15 +1380,12 @@
       "description": "ANMELDELSE: «Relay»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_relay_-1.17552107",
       "image": {
-        "query": "{Image{format crop{jpegUrl:url(width:351,quality:10,format:jpeg) pngUrl:url(width:351,quality:10,format:png)}description}}",
-        "errors": [
-          "Exception while fetching data (/Image/format) : Read timed out"
-        ],
-        "id": "1.17552159",
-        "modelType": "Image",
-        "message": "GraphQL execution resulted in errors",
-        "failureType": "GraphQLErrors",
-        "type": "Failure"
+        "format": "image/jpeg",
+        "crop": {
+          "jpegUrl": "https://gfx.nrk.no/zTuPxsePWRuIoKz27ZyAAwRARIYNNr3HC9s5Ab4FGQ0Q.jpg",
+          "pngUrl": "https://gfx.nrk.no/zTuPxsePWRuIoKz27ZyAAwP8OLBJRD6jC9s5Ab4FGQ0Q.png"
+        },
+        "description": null
       },
       "published": "2025-09-02T14:55:33.000Z"
     },
