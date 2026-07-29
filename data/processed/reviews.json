@@ -1,5 +1,58 @@
 [
   {
+    "id": "spider-man-brand-new-day-store-og-svimlende-actionscener-1523691",
+    "url": "https://www.nrk.no/artikkel/spider-man-brand-new-day-svimlende-actionscener-1523691",
+    "type": "Movie",
+    "name": "Spider-Man: Brand New Day",
+    "originalTitle": null,
+    "headline": "Store og svimlende actionscener",
+    "abstract": "Den nye Marvel-filmen «Spider-Man: Brand New Day» med Tom Holland og Zendaya imponerer med store og svimlende actionscener.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-07-28T13:00:00.000Z",
+    "modifiedAt": "2026-07-28T13:28:06.403Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/GnVoC27U4Q2iDMDfQeVPUwxZ-lkXVNWSHjD4Ied1iqVA",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Action",
+        "eventyr",
+        "superhelt"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-07-29",
+      "norgespremiereRaw": "29. juli 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 630
+  },
+  {
     "id": "anmeldelse-urchin-391450",
     "url": "https://www.nrk.no/artikkel/anmeldelse-urchin-391450",
     "type": "Movie",
