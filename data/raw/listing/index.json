@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-07-31T06:36:02.218Z",
+  "fetchedAt": "2026-08-01T06:19:41.013Z",
   "pageCount": 2,
   "pluggCount": 2948,
   "stoppedEarly": true,
@@ -1037,12 +1037,15 @@
       "description": "ANMELDELSE: «Reisen mot nord»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_reisen-mot-nord_-1.17640794",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/cx8XY9AoPeY6SGwDkAsBgg3JabwCasPtAFEgsNJZwDsQ.jpg",
-          "pngUrl": "https://gfx.nrk.no/cx8XY9AoPeY6SGwDkAsBggCorSQ-6x5i0FEgsNJZwDsQ.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:351,quality:10,format:jpeg) pngUrl:url(width:351,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Read timed out"
+        ],
+        "id": "1.17640857",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2025-11-05T13:34:45.000Z"
     },
