@@ -1,5 +1,57 @@
 [
   {
+    "id": "ice-cream-man-skrekken-har-en-bismak-1524085",
+    "url": "https://www.nrk.no/artikkel/ice-cream-man-skrekken-har-en-bismak-1524085",
+    "type": "Movie",
+    "name": "Ice Cream Man",
+    "originalTitle": null,
+    "headline": "Skrekken har en bismak",
+    "abstract": "Skrekkfilmen «Ice Cream Man» av regissør Eli Roth preges av humørløs horror med bloddryppende effekter.",
+    "rating": 3,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-04T12:59:02.286Z",
+    "modifiedAt": "2026-08-04T12:59:02.286Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/Gb-JtzHykQqb2zZqMLvdpgJt4SxYTsPdvY94TrBXic0A",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Skrekk",
+        "komedie"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-08-07",
+      "norgespremiereRaw": "7. august 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 436
+  },
+  {
     "id": "spider-man-brand-new-day-store-og-svimlende-actionscener-1523691",
     "url": "https://www.nrk.no/artikkel/spider-man-brand-new-day-svimlende-actionscener-1523691",
     "type": "Movie",
