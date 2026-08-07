@@ -1,5 +1,57 @@
 [
   {
+    "id": "paw-patrol-dinofilmen-forst-og-fremst-et-produkt-1524212",
+    "url": "https://www.nrk.no/artikkel/paw-patrol-dinofilmen-forst-og-fremst-et-produkt-1524212",
+    "type": "Movie",
+    "name": "Paw Patrol: Dinofilmen",
+    "originalTitle": null,
+    "headline": "Først og fremst et produkt",
+    "abstract": "De kjente valpene fra serien «Paw Patrol» møter dinosaurer på en ukjent øy i den nye animasjonsfilmen «Paw Patrol: Dinofilmen».",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-06T11:10:49.422Z",
+    "modifiedAt": "2026-08-06T11:10:49.422Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/Qf7qX8_w8i0c-oMj9Zw2aAxrceI7JmNHSZX_wdwO8_Kw",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Barnefilm",
+        "animasjon"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "6 år",
+      "norgespremiere": "2026-08-07",
+      "norgespremiereRaw": "7. august 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 491
+  },
+  {
     "id": "ice-cream-man-skrekken-har-en-bismak-1524085",
     "url": "https://www.nrk.no/artikkel/ice-cream-man-skrekken-har-en-bismak-1524085",
     "type": "Movie",

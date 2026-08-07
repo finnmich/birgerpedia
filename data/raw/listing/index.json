@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-06T06:21:47.210Z",
+  "fetchedAt": "2026-08-07T05:27:07.592Z",
   "pageCount": 2,
-  "pluggCount": 2949,
+  "pluggCount": 2950,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "paw-patrol-dinofilmen-forst-og-fremst-et-produkt-1524212",
+      "title": "«Først og fremst et produkt»",
+      "description": "ANMELDELSE: «Paw Patrol: Dinofilmen»",
+      "url": "https://www.nrk.no/artikkel/paw-patrol-dinofilmen-forst-og-fremst-et-produkt-1524212",
+      "image": null,
+      "published": "2026-08-06T11:10:49.422Z",
+      "source": "newcms"
+    },
     {
       "id": "ice-cream-man-skrekken-har-en-bismak-1524085",
       "title": "«Skrekken har en bismak»",
