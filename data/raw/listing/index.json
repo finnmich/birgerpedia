@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-07T05:27:07.592Z",
+  "fetchedAt": "2026-08-08T04:45:29.582Z",
   "pageCount": 2,
-  "pluggCount": 2950,
+  "pluggCount": 2951,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "10-filmer-vi-gleder-oss-til-i-host-1523805",
+      "title": "10 filmer vi gleder oss til i høst",
+      "description": "Det kan bli mange store opplevelser i kinomørket.",
+      "url": "https://www.nrk.no/artikkel/10-filmer-vi-gleder-oss-til-i-host-1523805",
+      "image": null,
+      "published": "2026-08-07T10:44:50Z",
+      "source": "newcms"
+    },
     {
       "id": "paw-patrol-dinofilmen-forst-og-fremst-et-produkt-1524212",
       "title": "«Først og fremst et produkt»",
