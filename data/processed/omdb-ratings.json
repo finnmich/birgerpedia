@@ -14702,5 +14702,13 @@
     "imdbVotes": null,
     "rated": null,
     "awards": null
+  },
+  "tt14173636": {
+    "rt": null,
+    "metacritic": 82,
+    "imdbRating": 7.9,
+    "imdbVotes": 23766,
+    "rated": "R",
+    "awards": "2 wins & 6 nominations total"
   }
 }

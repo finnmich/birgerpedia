@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-11T04:57:34.251Z",
+  "fetchedAt": "2026-08-12T05:22:55.927Z",
   "pageCount": 2,
-  "pluggCount": 2951,
+  "pluggCount": 2952,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "the-invite-fornoyelig-farse-1524483",
+      "title": "«Festlig å være flue på veggen»",
+      "description": "ANMELDELSE: «The Invite»",
+      "url": "https://www.nrk.no/artikkel/the-invite-fornoyelig-farse-1524483",
+      "image": null,
+      "published": "2026-08-11T12:22:51.674Z",
+      "source": "newcms"
+    },
     {
       "id": "10-filmer-vi-gleder-oss-til-i-host-1523805",
       "title": "10 filmer vi gleder oss til i høst",
