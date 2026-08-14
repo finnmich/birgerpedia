@@ -1,5 +1,58 @@
 [
   {
+    "id": "the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
+    "url": "https://www.nrk.no/artikkel/the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
+    "type": "Movie",
+    "name": "The End of Oak Street",
+    "originalTitle": null,
+    "headline": "En skygge av bedre filmer",
+    "abstract": "Sci-fi-thrilleren «The End of Oak Street» av regissør David Robert Mitchell er produsert av J.J. Abrams og har Anne Hathaway og Ewan McGregor i hovedrollene.",
+    "rating": 3,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-12T15:00:00.000Z",
+    "modifiedAt": "2026-08-12T15:00:00.000Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/tOWyYHLCxS2y6vkl_cNEQwEoCciyuQSxaARnqhyo0Ibg",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Eventyr",
+        "thriller",
+        "sci-fi"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-08-14",
+      "norgespremiereRaw": "14. august 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 470
+  },
+  {
     "id": "the-invite-fornoyelig-farse-1524483",
     "url": "https://www.nrk.no/artikkel/the-invite-fornoyelig-farse-1524483",
     "type": "Movie",

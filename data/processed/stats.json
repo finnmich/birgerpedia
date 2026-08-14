@@ -1,16 +1,16 @@
 {
-  "builtAt": "2026-08-13T05:27:04.744Z",
-  "total": 1928,
+  "builtAt": "2026-08-14T05:24:18.240Z",
+  "total": 1929,
   "droppedNonBirgerOrInvalid": 1,
   "byType": {
-    "Movie": 1879,
+    "Movie": 1880,
     "TVSeries": 31,
     "Game": 18
   },
   "byRating": {
     "1": 7,
     "2": 62,
-    "3": 306,
+    "3": 307,
     "4": 821,
     "5": 657,
     "6": 72,
@@ -19,7 +19,7 @@
   "byPlatform": {
     "United International Pictures": 192,
     "SF Studios": 148,
-    "Kino": 118,
+    "Kino": 119,
     "Norsk Filmdistribusjon": 111,
     "Another World Entertainment": 97,
     "Arthaus": 88,

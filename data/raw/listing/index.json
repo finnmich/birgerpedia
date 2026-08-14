@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-13T05:27:03.004Z",
+  "fetchedAt": "2026-08-14T05:24:17.800Z",
   "pageCount": 2,
-  "pluggCount": 2952,
+  "pluggCount": 2953,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
+      "title": "«En skygge av bedre filmer»",
+      "description": "ANMELDELSE: «The End of Oak Street»",
+      "url": "https://www.nrk.no/artikkel/the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
+      "image": null,
+      "published": "2026-08-12T15:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "the-invite-fornoyelig-farse-1524483",
       "title": "«Festlig å være flue på veggen»",
