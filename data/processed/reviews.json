@@ -110603,7 +110603,7 @@
   {
     "id": "1.6881878",
     "url": "https://www.nrk.no/kultur/anmeldelse_-lego-indiana-jones-2-1.6881878",
-    "type": null,
+    "type": "Game",
     "name": "Lego Indiana Jones 2",
     "originalTitle": null,
     "headline": "Lego Indiana Jones 2",
@@ -110621,7 +110621,7 @@
     "image": "https://gfx.nrk.no/9UkM9e7nBQGsogku7ReQrADSJevlWBy4l5rRFWcQtHng.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -116018,7 +116018,7 @@
   {
     "id": "1.6521613",
     "url": "https://www.nrk.no/kultur/anmeldelse_-burnout-paradise-_tub_-1.6521613",
-    "type": null,
+    "type": "Game",
     "name": "Burnout Paradise (TUB)",
     "originalTitle": null,
     "headline": "Burnout Paradise (TUB)",
@@ -116036,7 +116036,7 @@
     "image": "https://gfx.nrk.no/14c9Dp_enGFRYh3g-Dsz7QwfckTt2exJcH1nfyHk9wCQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118492,7 +118492,7 @@
   {
     "id": "1.6360781",
     "url": "https://www.nrk.no/kultur/yes-man-_4_-1.6360781",
-    "type": null,
+    "type": "Movie",
     "name": "Yes Man",
     "originalTitle": null,
     "headline": "Yes Man",
@@ -118510,7 +118510,7 @@
     "image": "https://gfx.nrk.no/86vEJVtYCtBTQYHhgTR56wX0ZtrP8Fab66xBA3llc1jw.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118541,7 +118541,7 @@
   {
     "id": "1.6357339",
     "url": "https://www.nrk.no/kultur/klassen-_5_-1.6357339",
-    "type": null,
+    "type": "Movie",
     "name": "Klassen",
     "originalTitle": null,
     "headline": "Klassen",
@@ -118559,7 +118559,7 @@
     "image": "https://gfx.nrk.no/5ENPOL_uHfwvRhM9tTe2mQGeV-0bP2KA6vCiLGX4g5Tw.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118590,7 +118590,7 @@
   {
     "id": "1.6357379",
     "url": "https://www.nrk.no/kultur/the-boy-in-the-striped-pyjamas-_3_-1.6357379",
-    "type": null,
+    "type": "Movie",
     "name": "The Boy in the Striped Pyjamas",
     "originalTitle": null,
     "headline": "The Boy in the Striped Pyjamas",
@@ -118608,7 +118608,7 @@
     "image": "https://gfx.nrk.no/YqCetmb6W0xsu2TIAohCEgR2wjCkbWhtoRk0WPfBdhLQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118639,7 +118639,7 @@
   {
     "id": "1.6357387",
     "url": "https://www.nrk.no/kultur/en-julefortelling-_3_-1.6357387",
-    "type": null,
+    "type": "Movie",
     "name": "En julefortelling",
     "originalTitle": null,
     "headline": "En julefortelling",
@@ -118657,7 +118657,7 @@
     "image": "https://gfx.nrk.no/geso6zIUBCk_Wiy18lNs9wiDcftZYMzbn-kIQ-iBOmsQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118739,7 +118739,7 @@
   {
     "id": "1.6347805",
     "url": "https://www.nrk.no/kultur/the-women-_2_-1.6347805",
-    "type": null,
+    "type": "Movie",
     "name": "The Women",
     "originalTitle": null,
     "headline": "The Women",
@@ -118757,7 +118757,7 @@
     "image": "https://gfx.nrk.no/eNlYGR6a5WKCP4zadCfgSAqymDaPACCJuD5ywv9BPpiQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118892,7 +118892,7 @@
   {
     "id": "1.6338173",
     "url": "https://www.nrk.no/kultur/zack-and-miri-make-a-porno-_4_-1.6338173",
-    "type": null,
+    "type": "Movie",
     "name": "Zack and Miri make a porno",
     "originalTitle": null,
     "headline": "Zack and Miri make a porno",
@@ -118910,7 +118910,7 @@
     "image": "https://gfx.nrk.no/ynaatmnTKulyMs3pgCev0w5XrPsTDS17sygpRTvDgfvQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -118941,7 +118941,7 @@
   {
     "id": "1.6338148",
     "url": "https://www.nrk.no/kultur/poor-boy_s-game-_3_-1.6338148",
-    "type": null,
+    "type": "Movie",
     "name": "Poor Boy’s Game",
     "originalTitle": null,
     "headline": "Poor Boy’s Game",
@@ -118959,7 +118959,7 @@
     "image": "https://gfx.nrk.no/-FIZ72haRKpyhUa1R-4VqAr6nphUB-5b92K8be4AY54w.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119042,7 +119042,7 @@
   {
     "id": "1.6327493",
     "url": "https://www.nrk.no/kultur/spurvenes-sang-_4_-1.6327493",
-    "type": null,
+    "type": "Movie",
     "name": "Spurvenes sang",
     "originalTitle": null,
     "headline": "Spurvenes sang",
@@ -119060,7 +119060,7 @@
     "image": "https://gfx.nrk.no/pNVAF2DEQLUSbQ3nda7ROgjLpsMKZqUdgy6n8dnqIcaA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119091,7 +119091,7 @@
   {
     "id": "1.6325554",
     "url": "https://www.nrk.no/kultur/anmeldelse_-motogp-08-1.6325554",
-    "type": null,
+    "type": "Game",
     "name": "MotoGP 08",
     "originalTitle": null,
     "headline": "MotoGP 08",
@@ -119109,7 +119109,7 @@
     "image": "https://gfx.nrk.no/h_KGFhSuJS8ciSx7FxHhvwWPgtLorOeq31VCJJUcSzqQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119140,7 +119140,7 @@
   {
     "id": "1.6327463",
     "url": "https://www.nrk.no/kultur/w.-_5_-1.6327463",
-    "type": null,
+    "type": "Movie",
     "name": "W.",
     "originalTitle": null,
     "headline": "W.",
@@ -119158,7 +119158,7 @@
     "image": "https://gfx.nrk.no/1SqfzOXmcEXwHkJVgG5Ddw_1gLEZrk70eJVJTbPZTskg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119240,7 +119240,7 @@
   {
     "id": "1.6321694",
     "url": "https://www.nrk.no/kultur/anmeldelse---scene-it_-filmtoppen-1.6321694",
-    "type": null,
+    "type": "Game",
     "name": "Scene it! Filmtoppen",
     "originalTitle": null,
     "headline": "Scene it! Filmtoppen",
@@ -119258,7 +119258,7 @@
     "image": "https://gfx.nrk.no/L0ZlPGiFRRfeusnaPfuijwbc045WKXCuuqP8I8kAG5aQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119448,7 +119448,7 @@
   {
     "id": "1.6317328",
     "url": "https://www.nrk.no/kultur/madagaskar-2-_4_-1.6317328",
-    "type": null,
+    "type": "Movie",
     "name": "Madagaskar 2",
     "originalTitle": null,
     "headline": "Madagaskar 2",
@@ -119466,7 +119466,7 @@
     "image": "https://gfx.nrk.no/lViknMVFr9YF9ldiq7zZMAHwNREv49ktPYuf8-rNLDIg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119497,7 +119497,7 @@
   {
     "id": "1.6317343",
     "url": "https://www.nrk.no/kultur/journey-to-the-center-of...-_4_-1.6317343",
-    "type": null,
+    "type": "Movie",
     "name": "Journey to the Center of...",
     "originalTitle": null,
     "headline": "Journey to the Center of...",
@@ -119515,7 +119515,7 @@
     "image": "https://gfx.nrk.no/Jmwsrfwv5oRwn1SIn5R37wI1gIcdtY6FddZrozfL3geg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119546,7 +119546,7 @@
   {
     "id": "1.6317353",
     "url": "https://www.nrk.no/kultur/body-of-lies-_4_-1.6317353",
-    "type": null,
+    "type": "Movie",
     "name": "Body of lies",
     "originalTitle": null,
     "headline": "Body of lies",
@@ -119564,7 +119564,7 @@
     "image": "https://gfx.nrk.no/A3Ioztb4tguIWbYulptZMw_hYhRoTYultxUWGiPA8HQA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119648,7 +119648,7 @@
   {
     "id": "1.6314541",
     "url": "https://www.nrk.no/kultur/anmeldelse_-quantum-of-solace-1.6314541",
-    "type": null,
+    "type": "Game",
     "name": "Quantum of Solace",
     "originalTitle": null,
     "headline": "Quantum of Solace",
@@ -119666,7 +119666,7 @@
     "image": "https://gfx.nrk.no/Oxh_KQRUAibxhHwLTpOZ2g0ZFA_uAzmybNgDz3WHXWPg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119800,7 +119800,7 @@
   {
     "id": "1.6306352",
     "url": "https://www.nrk.no/kultur/the-wackness-_4_-1.6306352",
-    "type": null,
+    "type": "Movie",
     "name": "The Wackness",
     "originalTitle": null,
     "headline": "The Wackness",
@@ -119818,7 +119818,7 @@
     "image": "https://gfx.nrk.no/Zc2bo-6WT_3R1o-7aCRZ2wHufSOOIy_Feca2zp5Y-M8Q.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119849,7 +119849,7 @@
   {
     "id": "1.6306334",
     "url": "https://www.nrk.no/kultur/netter-i-rodanthe-_3_-1.6306334",
-    "type": null,
+    "type": "Movie",
     "name": "Netter i Rodanthe",
     "originalTitle": null,
     "headline": "Netter i Rodanthe",
@@ -119867,7 +119867,7 @@
     "image": "https://gfx.nrk.no/61zkTY-oWHVlqBeGhmVMBgwWDKEvnlaiXUzc3_oRwRWg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119898,7 +119898,7 @@
   {
     "id": "1.6306328",
     "url": "https://www.nrk.no/kultur/saw-v-_4_-1.6306328",
-    "type": null,
+    "type": "Movie",
     "name": "Saw V",
     "originalTitle": null,
     "headline": "Saw V",
@@ -119916,7 +119916,7 @@
     "image": "https://gfx.nrk.no/lSNlYbAo9AdaTrNinSTdEwZ-yk2XsbfXpl7NMY25eUpQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -119947,7 +119947,7 @@
   {
     "id": "1.6299971",
     "url": "https://www.nrk.no/kultur/anmeldelse_-monopoly-1.6299971",
-    "type": null,
+    "type": "Game",
     "name": "Monopoly",
     "originalTitle": null,
     "headline": "Monopoly",
@@ -119965,7 +119965,7 @@
     "image": "https://gfx.nrk.no/ANtJ3qZuGGDp5ocb7uP-jgp7yV0ujf9rFRTtaZ5C02CQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120156,7 +120156,7 @@
   {
     "id": "1.6297702",
     "url": "https://www.nrk.no/kultur/baby-mama-_3_-1.6297702",
-    "type": null,
+    "type": "Movie",
     "name": "Baby Mama",
     "originalTitle": null,
     "headline": "Baby Mama",
@@ -120174,7 +120174,7 @@
     "image": "https://gfx.nrk.no/XxIt_O55wh0LprfkDmJClQCkhnQY1nyor5at1--EjYpA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120205,7 +120205,7 @@
   {
     "id": "1.6297690",
     "url": "https://www.nrk.no/kultur/son-of-rambow-_5_-1.6297690",
-    "type": null,
+    "type": "Movie",
     "name": "Son of Rambow",
     "originalTitle": null,
     "headline": "Son of Rambow",
@@ -120223,7 +120223,7 @@
     "image": "https://gfx.nrk.no/HygrfTIEYbm15WACO3lDmw2N88QXzA7qfEoElz9mYWtQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120463,7 +120463,7 @@
   {
     "id": "1.6287544",
     "url": "https://www.nrk.no/kultur/the-strangers-_4_-1.6287544",
-    "type": null,
+    "type": "Movie",
     "name": "The Strangers",
     "originalTitle": null,
     "headline": "The Strangers",
@@ -120481,7 +120481,7 @@
     "image": "https://gfx.nrk.no/MMCopoY1p0lV83K3UJcHXQNMGT0-QPg_6Ac64GWOyfhg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120512,7 +120512,7 @@
   {
     "id": "1.6287721",
     "url": "https://www.nrk.no/kultur/gjensyn-med-brideshead-_4_-1.6287721",
-    "type": null,
+    "type": "Movie",
     "name": "Gjensyn med Brideshead",
     "originalTitle": null,
     "headline": "Gjensyn med Brideshead",
@@ -120530,7 +120530,7 @@
     "image": "https://gfx.nrk.no/sZ3X2SzIjJ7fH9mCIOH2dQbg1UchwxZvOUR4e-ys5Psg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120561,7 +120561,7 @@
   {
     "id": "1.6287413",
     "url": "https://www.nrk.no/kultur/kurt-blir-grusom-_4_-1.6287413",
-    "type": null,
+    "type": "Movie",
     "name": "Kurt blir grusom",
     "originalTitle": null,
     "headline": "Kurt blir grusom",
@@ -120579,7 +120579,7 @@
     "image": "https://gfx.nrk.no/ZAziyo87h8FdTr-D62Axiw9O_W8xFcx2sWhAzdQX_VRg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120870,7 +120870,7 @@
   {
     "id": "1.6279086",
     "url": "https://www.nrk.no/kultur/high-school-musical-3-_4_-1.6279086",
-    "type": null,
+    "type": "Movie",
     "name": "High School Musical 3",
     "originalTitle": null,
     "headline": "High School Musical 3",
@@ -120888,7 +120888,7 @@
     "image": "https://gfx.nrk.no/h0ytR8Q9bhFkIe_OvC-WgwNPMAfdzpW314PxsEtJujew.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120919,7 +120919,7 @@
   {
     "id": "1.6279049",
     "url": "https://www.nrk.no/kultur/la-den-rette-komme-inn-_5_-1.6279049",
-    "type": null,
+    "type": "Movie",
     "name": "La den rette komme inn",
     "originalTitle": null,
     "headline": "La den rette komme inn",
@@ -120937,7 +120937,7 @@
     "image": "https://gfx.nrk.no/4oeIaSe5ZGTsrgXTh8DVwgWlI1KwTDT83JCL7fcExrNA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -120968,7 +120968,7 @@
   {
     "id": "1.6268702",
     "url": "https://www.nrk.no/kultur/maria-larssons-evige-oyeblikk-_5_-1.6268702",
-    "type": null,
+    "type": "Movie",
     "name": "Maria Larssons evige øyeblikk",
     "originalTitle": null,
     "headline": "Maria Larssons evige øyeblikk",
@@ -120986,7 +120986,7 @@
     "image": "https://gfx.nrk.no/fNx-npDGvyN98Hk7qmNgtgNInw_cf_qB92AmrYzmgZzA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121068,7 +121068,7 @@
   {
     "id": "1.6268594",
     "url": "https://www.nrk.no/kultur/burn-after-reading-_4_-1.6268594",
-    "type": null,
+    "type": "Movie",
     "name": "Burn after reading",
     "originalTitle": null,
     "headline": "Burn after reading",
@@ -121086,7 +121086,7 @@
     "image": "https://gfx.nrk.no/_QZrFWcujJ5k3qvR16RY2gQUo9Vk3p9F4_ZkDGTp21xA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121273,7 +121273,7 @@
   {
     "id": "1.6253477",
     "url": "https://www.nrk.no/kultur/fritt-vilt-ii-_4_-1.6253477",
-    "type": null,
+    "type": "Movie",
     "name": "Fritt vilt II",
     "originalTitle": null,
     "headline": "Fritt vilt II",
@@ -121291,7 +121291,7 @@
     "image": "https://gfx.nrk.no/3nIJBOiDZzFR592toWK-wg2-OejMGQGr6byhU6TUY97Q.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121529,7 +121529,7 @@
   {
     "id": "1.6244547",
     "url": "https://www.nrk.no/kultur/provetid-_4_-1.6244547",
-    "type": null,
+    "type": "Movie",
     "name": "Prøvetid",
     "originalTitle": null,
     "headline": "Prøvetid",
@@ -121547,7 +121547,7 @@
     "image": "https://gfx.nrk.no/kNuS-t_NC2GLRdPyfh2FugHXtyGUNYV62ca-noT9Z86A.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121578,7 +121578,7 @@
   {
     "id": "1.6244560",
     "url": "https://www.nrk.no/kultur/flammen-_-citronen-_5_-1.6244560",
-    "type": null,
+    "type": "Movie",
     "name": "Flammen & Citronen",
     "originalTitle": null,
     "headline": "Flammen & Citronen",
@@ -121596,7 +121596,7 @@
     "image": "https://gfx.nrk.no/ric0Zg24uAiTxN8PkqTSIAPFiR2wAQcUqN8w_BpUlNMg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121627,7 +121627,7 @@
   {
     "id": "1.6244569",
     "url": "https://www.nrk.no/kultur/vicky-cristina-barcelona-_5_-1.6244569",
-    "type": null,
+    "type": "Movie",
     "name": "Vicky Cristina Barcelona",
     "originalTitle": null,
     "headline": "Vicky Cristina Barcelona",
@@ -121645,7 +121645,7 @@
     "image": "https://gfx.nrk.no/PytA5AVYEsAMsJpPXMgX1wWkF1W2PY_YHVrhm2JWo0mg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121676,7 +121676,7 @@
   {
     "id": "1.6244576",
     "url": "https://www.nrk.no/kultur/righteous-kill-_3_-1.6244576",
-    "type": null,
+    "type": "Movie",
     "name": "Righteous Kill",
     "originalTitle": null,
     "headline": "Righteous Kill",
@@ -121694,7 +121694,7 @@
     "image": "https://gfx.nrk.no/tz-HaWvdG9SMecclZQkY7g1o7sc4oKGE2Ln5wGfsKpUw.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -121983,7 +121983,7 @@
   {
     "id": "1.6226950",
     "url": "https://www.nrk.no/kultur/nims-hemmelige-oy-_4_-1.6226950",
-    "type": null,
+    "type": "Movie",
     "name": "Nims hemmelige øy",
     "originalTitle": null,
     "headline": "Nims hemmelige øy",
@@ -122001,7 +122001,7 @@
     "image": "https://gfx.nrk.no/bP3OPM0XaI7V96WcACzDZQkphBAVE9cY__Ls27Nu8i6w.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122085,7 +122085,7 @@
   {
     "id": "1.6225071",
     "url": "https://www.nrk.no/kultur/ikke-kroll-med-zohan_-_4_-1.6225071",
-    "type": null,
+    "type": "Movie",
     "name": "Ikke krøll med Zohan!",
     "originalTitle": null,
     "headline": "Ikke krøll med Zohan!",
@@ -122103,7 +122103,7 @@
     "image": "https://gfx.nrk.no/qN8BEJbRgu0mPtp9UgwYEguOUDNt7BJMyD0Buc_MXkZA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122134,7 +122134,7 @@
   {
     "id": "1.6225051",
     "url": "https://www.nrk.no/kultur/wild-child-_4_-1.6225051",
-    "type": null,
+    "type": "Movie",
     "name": "Wild Child",
     "originalTitle": null,
     "headline": "Wild Child",
@@ -122152,7 +122152,7 @@
     "image": "https://gfx.nrk.no/QT1ePnANsmM8hYTJpWRJ6A2-DMqTXMuVuoEvrMwFSH0A.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122285,7 +122285,7 @@
   {
     "id": "1.6212763",
     "url": "https://www.nrk.no/kultur/wanted-_4_-1.6212763",
-    "type": null,
+    "type": "Movie",
     "name": "Wanted",
     "originalTitle": null,
     "headline": "Wanted",
@@ -122303,7 +122303,7 @@
     "image": "https://gfx.nrk.no/OirNvePEJIV6gZwhWfBIsgli0gGD0OVInpn3d68NyF_A.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122334,7 +122334,7 @@
   {
     "id": "1.6216032",
     "url": "https://www.nrk.no/kultur/de-gales-hus-_3_-1.6216032",
-    "type": null,
+    "type": "Movie",
     "name": "De gales hus",
     "originalTitle": null,
     "headline": "De gales hus",
@@ -122352,7 +122352,7 @@
     "image": "https://gfx.nrk.no/JIEbdq5fJ4rqECz51SATxwGC6diiKyxXMwYBe_z8hK7Q.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122589,7 +122589,7 @@
   {
     "id": "1.6206273",
     "url": "https://www.nrk.no/kultur/mongol-_4_-1.6206273",
-    "type": null,
+    "type": "Movie",
     "name": "Mongol",
     "originalTitle": null,
     "headline": "Mongol",
@@ -122607,7 +122607,7 @@
     "image": "https://gfx.nrk.no/nUfmbFmQtZMNxXXiPHuqZQhFfV3EVqyEJF9OpVWePSHA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122638,7 +122638,7 @@
   {
     "id": "1.6206311",
     "url": "https://www.nrk.no/kultur/get-smart-_3_-1.6206311",
-    "type": null,
+    "type": "Movie",
     "name": "Get Smart",
     "originalTitle": null,
     "headline": "Get Smart",
@@ -122656,7 +122656,7 @@
     "image": "https://gfx.nrk.no/upz89Cqkn_Hge70WEHgEOAavjDCUmhspQxgi6MlMYABw.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122687,7 +122687,7 @@
   {
     "id": "1.6206343",
     "url": "https://www.nrk.no/kultur/far-jag-lov-_4_-1.6206343",
-    "type": null,
+    "type": "Movie",
     "name": "Får jag lov",
     "originalTitle": null,
     "headline": "Får jag lov",
@@ -122705,7 +122705,7 @@
     "image": "https://gfx.nrk.no/BAMUZOgVzO2aTy3Mp3O_Gw5gBE0XsIZ-ql1t2oK3L2-w.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122947,7 +122947,7 @@
   {
     "id": "1.6196698",
     "url": "https://www.nrk.no/kultur/towelhead-_4_-1.6196698",
-    "type": null,
+    "type": "Movie",
     "name": "Towelhead",
     "originalTitle": null,
     "headline": "Towelhead",
@@ -122965,7 +122965,7 @@
     "image": "https://gfx.nrk.no/kHyF5enkCZUMKhNXYQhdAATwCiciidFNKebmKlnHzQOA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -122996,7 +122996,7 @@
   {
     "id": "1.6195245",
     "url": "https://www.nrk.no/kultur/wall-e-_6_-1.6195245",
-    "type": null,
+    "type": "Movie",
     "name": "WALL-E",
     "originalTitle": null,
     "headline": "WALL-E",
@@ -123014,7 +123014,7 @@
     "image": "https://gfx.nrk.no/mzJO0Pg5LgVpwottQBYZWgvN466KU6wzZ7PwMnBlGaig.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123201,7 +123201,7 @@
   {
     "id": "1.6182018",
     "url": "https://www.nrk.no/kultur/den-siste-revejakta-_4_-1.6182018",
-    "type": null,
+    "type": "Movie",
     "name": "Den siste revejakta",
     "originalTitle": null,
     "headline": "Den siste revejakta",
@@ -123219,7 +123219,7 @@
     "image": "https://gfx.nrk.no/njyIjiSV8ewD5ukZ5KFmNQqJ_ABWB8R89TaSYVp5VXaA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123301,7 +123301,7 @@
   {
     "id": "1.6175344",
     "url": "https://www.nrk.no/kultur/the-love-guru-_1_-1.6175344",
-    "type": null,
+    "type": "Movie",
     "name": "The Love Guru",
     "originalTitle": null,
     "headline": "The Love Guru",
@@ -123319,7 +123319,7 @@
     "image": "https://gfx.nrk.no/dBETkH0hQtfKdJ6J9QMEpQ3mSBrSZwKDjyQW3eCysZOg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123350,7 +123350,7 @@
   {
     "id": "1.6176151",
     "url": "https://www.nrk.no/kultur/star-wars_-the-clone-wars-_4_-1.6176151",
-    "type": null,
+    "type": "Movie",
     "name": "Star Wars: The Clone Wars",
     "originalTitle": null,
     "headline": "Star Wars: The Clone Wars",
@@ -123368,7 +123368,7 @@
     "image": "https://gfx.nrk.no/A6oCez6v70Es-4K91gwjbgkn4dPE6DKhqbIH39GNmG4g.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123399,7 +123399,7 @@
   {
     "id": "1.6167176",
     "url": "https://www.nrk.no/kultur/hancock-_3_-1.6167176",
-    "type": null,
+    "type": "Movie",
     "name": "Hancock",
     "originalTitle": null,
     "headline": "Hancock",
@@ -123417,7 +123417,7 @@
     "image": "https://gfx.nrk.no/z3hPDZPWWWSqsAwjgu4t2ARIw9kiITI08-ftnnIkfC0g.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123709,7 +123709,7 @@
   {
     "id": "1.6134202",
     "url": "https://www.nrk.no/kultur/the-mark-of-cain-_5_-1.6134202",
-    "type": null,
+    "type": "Movie",
     "name": "The Mark of Cain",
     "originalTitle": null,
     "headline": "The Mark of Cain",
@@ -123727,7 +123727,7 @@
     "image": "https://gfx.nrk.no/NXsXhCzo-LsHuQ3oqGvxSwChzWMhLv4ZH_N1K_yuH87Q.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123758,7 +123758,7 @@
   {
     "id": "1.6133217",
     "url": "https://www.nrk.no/kultur/the-bank-job-_4_-1.6133217",
-    "type": null,
+    "type": "Movie",
     "name": "The Bank Job",
     "originalTitle": null,
     "headline": "The Bank Job",
@@ -123776,7 +123776,7 @@
     "image": "https://gfx.nrk.no/RTe0tYqv2s789QePEel97AmqN76aTPn-q6Rl3iAPlMTg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123807,7 +123807,7 @@
   {
     "id": "1.6133155",
     "url": "https://www.nrk.no/kultur/the-mist-_4_-1.6133155",
-    "type": null,
+    "type": "Movie",
     "name": "The Mist",
     "originalTitle": null,
     "headline": "The Mist",
@@ -123825,7 +123825,7 @@
     "image": "https://gfx.nrk.no/JFOFzCk9BpQH3ebc_Y6L5goioqZbN6WsaFTU0oB_LVVQ.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -123856,7 +123856,7 @@
   {
     "id": "1.6132352",
     "url": "https://www.nrk.no/kultur/mamma-mia_-_4_-1.6132352",
-    "type": null,
+    "type": "Movie",
     "name": "Mamma Mia!",
     "originalTitle": null,
     "headline": "Mamma Mia!",
@@ -123874,7 +123874,7 @@
     "image": "https://gfx.nrk.no/tlJsNHoOhEMf2UHTHT8YzA8L3Y0fmhFhRqs9PVpJWATw.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -124217,7 +124217,7 @@
   {
     "id": "1.6115174",
     "url": "https://www.nrk.no/kultur/dumpet-av-sarah-marshall-_5_-1.6115174",
-    "type": null,
+    "type": "Movie",
     "name": "Dumpet av Sarah Marshall",
     "originalTitle": null,
     "headline": "Dumpet av Sarah Marshall",
@@ -124235,7 +124235,7 @@
     "image": "https://gfx.nrk.no/SMr7O3LDtOKA0wBlklHkbAZwlucBvbyBIC4IQRZwULdA.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -124523,7 +124523,7 @@
   {
     "id": "1.5818160",
     "url": "https://www.nrk.no/kultur/en-ekte-mann-_3_-1.5818160",
-    "type": null,
+    "type": "Movie",
     "name": "En ekte mann",
     "originalTitle": null,
     "headline": "En ekte mann",
@@ -124541,7 +124541,7 @@
     "image": "https://gfx.nrk.no/tVeW7yRvw8vmihHzTekoSQEIr7dPkPMyk5xQLkp5pTGg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -124624,7 +124624,7 @@
   {
     "id": "1.5711889",
     "url": "https://www.nrk.no/kultur/indiana-jones-og-krystallhode..._6_-1.5711889",
-    "type": null,
+    "type": "Movie",
     "name": "Indiana Jones og Krystallhode...",
     "originalTitle": null,
     "headline": "Indiana Jones og Krystallhode...",
@@ -124642,7 +124642,7 @@
     "image": "https://gfx.nrk.no/U8J5ICJjxsUw6GGB5osA3Q8LaU0S8-lk0curli_eD15Q.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -127903,7 +127903,7 @@
   {
     "id": "1.4323054",
     "url": "https://www.nrk.no/kultur/spillanmeldelse-timeshift-1.4323054",
-    "type": null,
+    "type": "Game",
     "name": "Timeshift",
     "originalTitle": null,
     "headline": "Timeshift",
@@ -127921,7 +127921,7 @@
     "image": "https://gfx.nrk.no/wVL2_Veb109i3G6N4grhOASRsaRlSOxPn-q8Reipejsg.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -129922,7 +129922,7 @@
   {
     "id": "1.3634194",
     "url": "https://www.nrk.no/kultur/spillanmeldelse-warhawk-1.3634194",
-    "type": null,
+    "type": "Game",
     "name": "Warhawk",
     "originalTitle": null,
     "headline": "Warhawk",
@@ -129940,7 +129940,7 @@
     "image": "https://gfx.nrk.no/RRGLEHu9eZ1L6f3SVyFBUgkAedRew2T-GlhgyTqzusSw.jpg",
     "section": "kultur_og_underholdning",
     "platform": null,
-    "reviewType": null,
+    "reviewType": "Spill",
     "factbox": {
       "tittel": null,
       "originaltittel": null,

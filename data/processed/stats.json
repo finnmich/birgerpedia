@@ -1,12 +1,11 @@
 {
-  "builtAt": "2026-08-16T19:07:42.703Z",
+  "builtAt": "2026-08-16T20:12:11.022Z",
   "total": 2609,
   "droppedNonBirgerOrInvalid": 2,
   "byType": {
-    "Movie": 2494,
-    "∅": 58,
+    "Movie": 2544,
     "TVSeries": 32,
-    "Game": 18,
+    "Game": 26,
     "MusicEvent": 7
   },
   "byRating": {
