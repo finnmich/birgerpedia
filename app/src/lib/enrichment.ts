@@ -20,12 +20,21 @@ const PRIMARY = resolve(process.cwd(), 'src', '_data', 'enrichment.json');
 const FALLBACK = resolve(process.cwd(), '..', 'data', 'processed', 'tmdb-enrichment.json');
 
 let _map: Record<string, Enrichment> | null = null;
-function load() {
+function load(): Record<string, Enrichment> {
   if (_map) return _map;
   for (const p of [PRIMARY, FALLBACK]) {
     try {
-      _map = JSON.parse(readFileSync(p, 'utf8'));
-      return _map;
+      // JSON.parse is typed `any`, so a file containing a bare `null` (or a
+      // number, or an array) used to sail straight through and get returned
+      // as the map — every later `load()[id]` would then throw and take the
+      // build down. Check the shape before accepting it, and fall through to
+      // the next candidate path if it isn't an object.
+      const parsed: unknown = JSON.parse(readFileSync(p, 'utf8'));
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        _map = parsed as Record<string, Enrichment>;
+        return _map;
+      }
+      console.error(`[enrichment] ${p} did not contain a JSON object — ignoring`);
     } catch { /* try next */ }
   }
   console.error('[enrichment] no enrichment data found at PRIMARY or FALLBACK');

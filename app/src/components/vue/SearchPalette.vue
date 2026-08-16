@@ -38,7 +38,25 @@ interface CategoryDoc {
   href: string;
 }
 
+// Teleport has to stay disabled until we're mounted. Astro's Vue renderer
+// drops Vue's SSR teleport payload, so the server emits bare
+// `<!--teleport start--><!--teleport end-->` anchors and nothing inside
+// <body>. On hydration Vue then looks for the teleported content among
+// document.body's children, finds the layout's `<a class="skip">` sitting
+// there instead, and reports "Hydration node mismatch: rendered on server:
+// a.skip / expected on client: Symbol(v-cmt)" — on every page, because the
+// palette lives in the shared Page layout. Rendering in place until mounted
+// makes the server and first client render agree; flipping it afterwards
+// moves the (still-empty, `open` is false) node to body as intended.
+const mounted = ref(false);
 const open = ref(false);
+
+// A Teleport root can't receive fallthrough attributes, so Astro's scoped
+// `data-astro-cid-*` triggers "Extraneous non-props attributes were passed
+// to component". Page.astro has no scoped rule targeting the palette, so the
+// attribute has no work to do — opt out rather than add a wrapper element to
+// every page purely to park it somewhere.
+defineOptions({ inheritAttrs: false });
 const loadingReviews = ref(false);
 const reviewsLoaded = ref(false);
 const peopleLoaded = ref(false);
@@ -64,6 +82,7 @@ let lastFocused: HTMLElement | null = null;
 // ---- mounting / shortcuts ----
 
 onMounted(() => {
+  mounted.value = true;
   window.addEventListener('keydown', onKeydown);
   document.addEventListener('vmx:open-search', show as EventListener);
 });
@@ -324,7 +343,7 @@ const KIND_LABEL: Record<string, string> = {
 </script>
 
 <template>
-  <Teleport to="body">
+  <Teleport to="body" :disabled="!mounted">
     <Transition name="vmx-fade">
       <div v-if="open" class="vmx-search-overlay" @mousedown.self="close" role="dialog" aria-modal="true" aria-label="Søk i Birgerpedia">
         <div ref="modalRef" class="vmx-search-modal" @mousedown.stop @keydown="onTabTrap">
