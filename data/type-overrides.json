@@ -1,0 +1,296 @@
+{
+  "note": "Verified review types for pre-2009 NRK articles whose pages carry no schema.org itemReviewed, so parse-article cannot derive one. Each entry was classified by reading Birger own review text (he consistently writes «filmen» or «spillet»), cross-checked against the TMDB match where one exists. Applied by build-dataset.mjs. Only add an id here after actually reading the article.",
+  "verifiedAt": "2026-08-16",
+  "types": {
+    "1.6881878": {
+      "type": "Game",
+      "name": "Lego Indiana Jones 2",
+      "basis": "body: «LEGO-spill på konsoll»"
+    },
+    "1.6521613": {
+      "type": "Game",
+      "name": "Burnout Paradise (TUB)",
+      "basis": "body: «Burnout-serien»; racing-spill, ingen filmomtale"
+    },
+    "1.6360781": {
+      "type": "Movie",
+      "name": "Yes Man",
+      "basis": "body reads as a film review; TMDB film match 10201"
+    },
+    "1.6357339": {
+      "type": "Movie",
+      "name": "Klassen",
+      "basis": "body reads as a film review; TMDB film match 8841"
+    },
+    "1.6357379": {
+      "type": "Movie",
+      "name": "The Boy in the Striped Pyjamas",
+      "basis": "body reads as a film review; TMDB film match 14574"
+    },
+    "1.6357387": {
+      "type": "Movie",
+      "name": "En julefortelling",
+      "basis": "body reads as a film review; TMDB film match 13459"
+    },
+    "1.6347805": {
+      "type": "Movie",
+      "name": "The Women",
+      "basis": "body reads as a film review; TMDB film match 13972"
+    },
+    "1.6338173": {
+      "type": "Movie",
+      "name": "Zack and Miri make a porno",
+      "basis": "body reads as a film review; TMDB film match 10358"
+    },
+    "1.6338148": {
+      "type": "Movie",
+      "name": "Poor Boy’s Game",
+      "basis": "body reads as a film review; TMDB film match 15020"
+    },
+    "1.6327493": {
+      "type": "Movie",
+      "name": "Spurvenes sang",
+      "basis": "body reads as a film review"
+    },
+    "1.6325554": {
+      "type": "Game",
+      "name": "MotoGP 08",
+      "basis": "body: «å kjøre motorsykkel i dataspill»"
+    },
+    "1.6327463": {
+      "type": "Movie",
+      "name": "W.",
+      "basis": "body reads as a film review; TMDB film match 10523"
+    },
+    "1.6321694": {
+      "type": "Game",
+      "name": "Scene it! Filmtoppen",
+      "basis": "body: «quizspill» på «Xbox 360»"
+    },
+    "1.6317328": {
+      "type": "Movie",
+      "name": "Madagaskar 2",
+      "basis": "body reads as a film review; TMDB film match 10527"
+    },
+    "1.6317343": {
+      "type": "Movie",
+      "name": "Journey to the Center of...",
+      "basis": "body reads as a film review; TMDB film match 88751"
+    },
+    "1.6317353": {
+      "type": "Movie",
+      "name": "Body of lies",
+      "basis": "body reads as a film review; TMDB film match 12113"
+    },
+    "1.6314541": {
+      "type": "Game",
+      "name": "Quantum of Solace",
+      "basis": "body: «Nå kan du være agent 007 i dataspillet Quantum of Solace» — spillet, ikke Bond-filmen"
+    },
+    "1.6306352": {
+      "type": "Movie",
+      "name": "The Wackness",
+      "basis": "body reads as a film review; TMDB film match 13990"
+    },
+    "1.6306334": {
+      "type": "Movie",
+      "name": "Netter i Rodanthe",
+      "basis": "body reads as a film review"
+    },
+    "1.6306328": {
+      "type": "Movie",
+      "name": "Saw V",
+      "basis": "body reads as a film review; TMDB film match 11917"
+    },
+    "1.6299971": {
+      "type": "Game",
+      "name": "Monopoly",
+      "basis": "body: «spille dette på tv-skjermen i stedet for … et brett på et bord»"
+    },
+    "1.6297702": {
+      "type": "Movie",
+      "name": "Baby Mama",
+      "basis": "body reads as a film review; TMDB film match 8780"
+    },
+    "1.6297690": {
+      "type": "Movie",
+      "name": "Son of Rambow",
+      "basis": "body reads as a film review; TMDB film match 13258"
+    },
+    "1.6287544": {
+      "type": "Movie",
+      "name": "The Strangers",
+      "basis": "body reads as a film review; TMDB film match 10665"
+    },
+    "1.6287721": {
+      "type": "Movie",
+      "name": "Gjensyn med Brideshead",
+      "basis": "body reads as a film review"
+    },
+    "1.6287413": {
+      "type": "Movie",
+      "name": "Kurt blir grusom",
+      "basis": "body reads as a film review; TMDB film match 16002"
+    },
+    "1.6279086": {
+      "type": "Movie",
+      "name": "High School Musical 3",
+      "basis": "body reads as a film review; TMDB film match 11887"
+    },
+    "1.6279049": {
+      "type": "Movie",
+      "name": "La den rette komme inn",
+      "basis": "body reads as a film review; TMDB film match 13310"
+    },
+    "1.6268702": {
+      "type": "Movie",
+      "name": "Maria Larssons evige øyeblikk",
+      "basis": "body reads as a film review; TMDB film match 17077"
+    },
+    "1.6268594": {
+      "type": "Movie",
+      "name": "Burn after reading",
+      "basis": "body reads as a film review; TMDB film match 4944"
+    },
+    "1.6253477": {
+      "type": "Movie",
+      "name": "Fritt vilt II",
+      "basis": "body reads as a film review; TMDB film match 15440"
+    },
+    "1.6244547": {
+      "type": "Movie",
+      "name": "Prøvetid",
+      "basis": "body reads as a film review; TMDB film match 523909"
+    },
+    "1.6244560": {
+      "type": "Movie",
+      "name": "Flammen & Citronen",
+      "basis": "body reads as a film review; TMDB film match 8883"
+    },
+    "1.6244569": {
+      "type": "Movie",
+      "name": "Vicky Cristina Barcelona",
+      "basis": "body reads as a film review; TMDB film match 5038"
+    },
+    "1.6244576": {
+      "type": "Movie",
+      "name": "Righteous Kill",
+      "basis": "body reads as a film review; TMDB film match 13389"
+    },
+    "1.6226950": {
+      "type": "Movie",
+      "name": "Nims hemmelige øy",
+      "basis": "body reads as a film review; TMDB film match 10488"
+    },
+    "1.6225071": {
+      "type": "Movie",
+      "name": "Ikke krøll med Zohan!",
+      "basis": "body reads as a film review; TMDB film match 10661"
+    },
+    "1.6225051": {
+      "type": "Movie",
+      "name": "Wild Child",
+      "basis": "body reads as a film review; TMDB film match 13971"
+    },
+    "1.6212763": {
+      "type": "Movie",
+      "name": "Wanted",
+      "basis": "body reads as a film review; TMDB film match 8909"
+    },
+    "1.6216032": {
+      "type": "Movie",
+      "name": "De gales hus",
+      "basis": "body reads as a film review; TMDB film match 14982"
+    },
+    "1.6206273": {
+      "type": "Movie",
+      "name": "Mongol",
+      "basis": "body reads as a film review; TMDB film match 12246"
+    },
+    "1.6206311": {
+      "type": "Movie",
+      "name": "Get Smart",
+      "basis": "body reads as a film review; TMDB film match 11665"
+    },
+    "1.6206343": {
+      "type": "Movie",
+      "name": "Får jag lov",
+      "basis": "body reads as a film review; TMDB film match 1256157"
+    },
+    "1.6196698": {
+      "type": "Movie",
+      "name": "Towelhead",
+      "basis": "body reads as a film review; TMDB film match 10190"
+    },
+    "1.6195245": {
+      "type": "Movie",
+      "name": "WALL-E",
+      "basis": "body reads as a film review; TMDB film match 10681"
+    },
+    "1.6182018": {
+      "type": "Movie",
+      "name": "Den siste revejakta",
+      "basis": "body reads as a film review; TMDB film match 13774"
+    },
+    "1.6175344": {
+      "type": "Movie",
+      "name": "The Love Guru",
+      "basis": "body reads as a film review; TMDB film match 12177"
+    },
+    "1.6176151": {
+      "type": "Movie",
+      "name": "Star Wars: The Clone Wars",
+      "basis": "body reads as a film review; TMDB film match 12180"
+    },
+    "1.6167176": {
+      "type": "Movie",
+      "name": "Hancock",
+      "basis": "body reads as a film review; TMDB film match 8960"
+    },
+    "1.6134202": {
+      "type": "Movie",
+      "name": "The Mark of Cain",
+      "basis": "body reads as a film review; TMDB film match 14531"
+    },
+    "1.6133217": {
+      "type": "Movie",
+      "name": "The Bank Job",
+      "basis": "body reads as a film review; TMDB film match 8848"
+    },
+    "1.6133155": {
+      "type": "Movie",
+      "name": "The Mist",
+      "basis": "body reads as a film review; TMDB film match 5876"
+    },
+    "1.6132352": {
+      "type": "Movie",
+      "name": "Mamma Mia!",
+      "basis": "body reads as a film review; TMDB film match 11631"
+    },
+    "1.6115174": {
+      "type": "Movie",
+      "name": "Dumpet av Sarah Marshall",
+      "basis": "body reads as a film review; TMDB film match 9870"
+    },
+    "1.5818160": {
+      "type": "Movie",
+      "name": "En ekte mann",
+      "basis": "body reads as a film review; TMDB film match 10761"
+    },
+    "1.5711889": {
+      "type": "Movie",
+      "name": "Indiana Jones og Krystallhode...",
+      "basis": "body reads as a film review"
+    },
+    "1.4323054": {
+      "type": "Game",
+      "name": "Timeshift",
+      "basis": "body: «Spillet starter med en forvirrende sekvens»"
+    },
+    "1.3634194": {
+      "type": "Game",
+      "name": "Warhawk",
+      "basis": "body: «Du kjemper mot opptil 32 andre spillere online»"
+    }
+  }
+}

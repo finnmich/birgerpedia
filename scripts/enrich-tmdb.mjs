@@ -80,12 +80,23 @@ async function main() {
   // TMDB allows ~50 req/s but we keep it gentle.
   const limiter = new RateLimiter({ minIntervalMs: 250 });
 
-  let hit = 0, miss = 0, cached = 0, knownDigest = 0, errors = 0;
+  let hit = 0, miss = 0, cached = 0, knownDigest = 0, errors = 0, games = 0;
   for (let i = 0; i < targets.length; i++) {
     const r = targets[i];
     const out = resolve(ENRICH_DIR, `${r.id}.json`);
     if (!refresh && await fileExists(out)) { cached++; continue; }
     if (!refresh && knownInSnapshot.has(r.id)) { knownDigest++; continue; }
+
+    // TMDB indexes films and TV, not games. Searching it for a game review
+    // doesn't fail cleanly — it returns a confident-looking wrong film, so
+    // «DiRT3» matched "Crusty Demons of Dirt 3" and «Timeshift» matched a
+    // 2015 drama called "Campus Code", each dragging a bogus poster, cast
+    // and runtime onto the review page. Record a deliberate skip instead.
+    if (r.type === 'Game' || r.type === 'VideoGame') {
+      games++;
+      await atomicWriteJson(out, { reviewId: r.id, name: r.name, miss: true, reason: 'game-not-on-tmdb' });
+      continue;
+    }
 
     const year = r.publishedAt?.slice(0, 4);
     const cleanName = decodeEntities(r.name);
@@ -126,9 +137,9 @@ async function main() {
       providersFetchedAt: detail?.['watch/providers'] ? enrichedAt : null,
     });
     hit++;
-    if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
+    if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} games=${games} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
   }
-  console.log(`\n[enrich] done. hit=${hit} miss=${miss} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
+  console.log(`\n[enrich] done. hit=${hit} miss=${miss} games=${games} (skipped, not on TMDB) cached=${cached} knownDigest=${knownDigest} err=${errors}`);
 }
 
 async function searchTmdb(query, year, wantTV, limiter) {

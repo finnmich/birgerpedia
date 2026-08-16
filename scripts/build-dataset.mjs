@@ -26,8 +26,16 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES_DIR = resolve(ROOT, 'data/raw/articles');
 const OUT_DIR = resolve(ROOT, 'data/processed');
 const REVIEWS_OUT = resolve(OUT_DIR, 'reviews.json');
+// Hand-verified types for pre-2009 articles whose pages carry no
+// schema.org itemReviewed for the parser to read one off. See the note in
+// the file itself — entries are added only after reading the review.
+const TYPE_OVERRIDES = resolve(ROOT, 'data/type-overrides.json');
 
 const BIRGER_ID = '18.264';
+
+// Mirrors reviewTypeFromItemType in parse-article.mjs, so an overridden
+// type and the label rendered next to it can't drift apart.
+const REVIEW_TYPE_LABEL = { Movie: 'Film', TVSeries: 'Serie', Game: 'Spill', VideoGame: 'Spill' };
 
 function slim(r) {
   return {
@@ -85,6 +93,20 @@ async function main() {
     merged++;
   }
 
+  // Apply the verified type overrides last, so they land on records from
+  // either source (freshly parsed or carried over from the digest).
+  let overridden = 0;
+  try {
+    const { types } = JSON.parse(await readFile(TYPE_OVERRIDES, 'utf8'));
+    for (const [id, o] of Object.entries(types ?? {})) {
+      const r = byId.get(id);
+      if (!r || !o?.type || r.type === o.type) continue;
+      r.type = o.type;
+      r.reviewType ??= REVIEW_TYPE_LABEL[o.type] ?? null;
+      overridden++;
+    }
+  } catch { /* no override file — every type comes from the markup */ }
+
   const records = [...byId.values()]
     .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
 
@@ -93,7 +115,8 @@ async function main() {
 
   console.log(
     `[build] baseline ${baselineCount} + merged ${merged} ` +
-    `(dropped ${droppedNotBirger} non-Birger, ${droppedInvalid} invalid) ` +
+    `(dropped ${droppedNotBirger} non-Birger, ${droppedInvalid} invalid, ` +
+    `${overridden} types from verified overrides) ` +
     `→ ${records.length} reviews.`,
   );
   // Reassign so the legacy stats block below keeps working unchanged.
