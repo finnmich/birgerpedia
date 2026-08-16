@@ -84,6 +84,22 @@ jobs:
         working-directory: app
         run: npm ci
 
+      # ---------- static checks ----------
+      # `astro check` type-checks .astro, .vue and .ts together. Plain `tsc`
+      # can't see .astro files at all, which is how two real errors in
+      # src/lib/enrichment.ts went unnoticed indefinitely. Needs nothing but
+      # the checkout — it runs `astro sync` itself — so it's safe on every
+      # event, and it runs before the crawl so a code regression fails fast
+      # instead of after we've hit four external APIs.
+      # ASTRO_SITE is required here, not just for the build: `astro check`
+      # loads astro.config.mjs, which throws by design when CI=true and the
+      # variable is unset.
+      - name: Typecheck
+        working-directory: app
+        env:
+          ASTRO_SITE: ${{ vars.ASTRO_SITE || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: npm run check
+
       # ---------- crawl ----------
       # All crawl/enrich steps are skipped on `push` — code-only deploys
       # reuse whatever data already lives in the checkout. The daily cron
@@ -108,6 +124,14 @@ jobs:
           # If something goes very wrong (e.g. NRK changes the URL shape)
           # we don't want one corrupt review to fail the workflow.
           NODE_OPTIONS: --max-old-space-size=2048
+
+      # Parser smoke test, against the HTML we just crawled rather than a
+      # fixture. Its input (data/raw/articles) is gitignored and lives only
+      # in the Actions cache, and it exits 2 on an empty directory — so it
+      # has to carry the same `!= 'push'` gate as the cache restore above.
+      - name: 2b) Parser smoke test
+        if: github.event_name != 'push'
+        run: npm run smoke
 
       - name: 3) Rebuild slim dataset
         if: github.event_name != 'push'

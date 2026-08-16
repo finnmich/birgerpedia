@@ -1,0 +1,66 @@
+# Pull-request checks.
+#
+# daily.yml only triggers on schedule, workflow_dispatch and push-to-main, so
+# until now nothing ran against a branch — Dependabot PRs in particular would
+# have arrived with no signal at all. This is deliberately a separate
+# workflow rather than a `pull_request:` trigger on daily.yml: the crawl,
+# enrich and commit-back steps there are gated on `github.event_name !=
+# 'push'`, which is *true* for pull_request, so adding that trigger would
+# have PRs hitting NRK/TMDB/IMDb/OMDb and pushing data commits to main.
+#
+# No crawl, no deploy, no secrets — just prove the branch type-checks and
+# builds from the committed data.
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'          # keep in step with daily.yml
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install app deps
+        working-directory: app
+        run: npm ci
+
+      # ASTRO_SITE is required here too: `astro check` loads astro.config.mjs,
+      # which throws by design when CI=true and the variable is unset.
+      - name: Typecheck
+        working-directory: app
+        env:
+          ASTRO_SITE: ${{ vars.ASTRO_SITE || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: npm run check
+
+      # The build's prebuild step (sync-data.mjs) falls back to the committed
+      # data/processed/tmdb-enrichment.json snapshot when the per-review
+      # enrichment cache isn't present — which is exactly the situation on a
+      # branch. daily.yml's push-triggered runs already exercise this path
+      # (they skip the cache restore too), so a PR build needs no cache.
+      #
+      # `npm run smoke` is deliberately absent: it parses data/raw/articles,
+      # which is cache-only, and exits 2 on an empty directory. It runs in
+      # daily.yml where the cache is restored.
+      - name: Build
+        working-directory: app
+        env:
+          ASTRO_SITE: ${{ vars.ASTRO_SITE || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
+        run: npm run build
