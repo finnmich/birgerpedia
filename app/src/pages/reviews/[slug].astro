@@ -48,7 +48,12 @@ export async function getStaticPaths() {
 interface Props { review: ReviewIndexEntry; }
 const { review: r } = Astro.props;
 
-const idx = reviewIndex.indexOf(r);
+// Derive the position from `no` rather than indexOf: it's O(1) instead of a
+// linear scan on each of the ~1.9k pages, and it doesn't depend on the props
+// object still being reference-identical to its entry in reviewIndex — if
+// that ever stopped holding, indexOf would quietly return -1 and take
+// prev/next with it.
+const idx = reviewIndex.length - r.no;
 const prev = idx > 0 ? reviewIndex[idx - 1] : null;
 const next = idx < reviewIndex.length - 1 ? reviewIndex[idx + 1] : null;
 
@@ -129,7 +134,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
       <nav class="crumbs h-eyebrow" aria-label="brødsmuler">
         <a href={u('/reviews')}>Indeksen</a>
         <span class="sep">/</span>
-        <span>№ {String(reviewIndex.length - idx).padStart(4, '0')}</span>
+        <span>№ {String(r.no).padStart(4, '0')}</span>
       </nav>
 
       <div class="r-grid">

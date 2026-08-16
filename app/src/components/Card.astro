@@ -8,10 +8,9 @@ import type { ReviewIndexEntry } from '../lib/types';
 interface Props {
   r: ReviewIndexEntry;
   variant?: 'compact' | 'editorial' | 'wide';
-  index?: number;
   showImage?: boolean;
 }
-const { r, variant = 'compact', index, showImage = true } = Astro.props;
+const { r, variant = 'compact', showImage = true } = Astro.props;
 
 const slug = r.slug ?? reviewSlug(r.name, r.id);
 const cls = `card card--${variant}`;
@@ -29,11 +28,11 @@ const tail = r.factbox?.skuespillere?.slice(0, 3).join(', ') ?? '';
 
   <div class="body">
     <div class="row meta-row">
-      <span class="t-meta idx">
-        {index != null
-          ? `№ ${String(index).padStart(4, '0')}`
-          : (r.id?.split('.')[1] ?? '').slice(-4)}
-      </span>
+      {/* Was the last 4 digits of the NRK article id when no `index` was
+          passed — arbitrary, and empty for new-CMS reviews whose ids carry
+          no dot. `r.no` is the same chronological number the index list and
+          the breadcrumb show. */}
+      <span class="t-meta idx">№ {String(r.no).padStart(4, '0')}</span>
       <span class="dot" aria-hidden="true">·</span>
       <span class="t-meta year">{r.year}</span>
       {r.type && r.type !== 'Movie' && (

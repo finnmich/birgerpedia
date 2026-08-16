@@ -59,6 +59,7 @@ export interface Review {
 export interface ReviewIndexEntry extends Review {
   year: number;                          // derived
   decade: number;                        // derived
+  no: number;                            // chronological review number, oldest = 1
   slug: string;                          // url slug
   searchHaystack: string;                // lowercased concat for client search
 }

@@ -321,7 +321,20 @@ function trimReview(r, enr) {
 // ----- 2b. Slim per-record list (deferred from step 1) -----
 // Built after the enrichment aggregate so trimReview can backfill
 // new-CMS factbox gaps (regi/skuespillere/lengde) from TMDB.
-const slim = dedupeResult.kept.map((r) => trimReview(r, enrichment[r.id]));
+// Chronological review number, mirroring src/lib/data.ts: sort a copy
+// newest-first, then count from the oldest (№ 1) up to the newest. Built as
+// an id→no map so the emitted array keeps its existing order, and so the
+// client never has to derive the number from a row's position — that's what
+// made the index list disagree with the review pages.
+const chronoNo = new Map(
+  [...dedupeResult.kept]
+    .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))
+    .map((r, i, arr) => [r.id, arr.length - i]),
+);
+const slim = dedupeResult.kept.map((r) => ({
+  ...trimReview(r, enrichment[r.id]),
+  no: chronoNo.get(r.id) ?? 0,
+}));
 await writeFile(resolve(PUB, 'reviews.json'), JSON.stringify(slim));
 console.log(`[sync] reviews.json (slim) — ${slim.length} records (dropped ${dedupeResult.droppedIds.size} same-day dupes), ${kb(JSON.stringify(slim).length)}`);
 

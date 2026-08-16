@@ -76,7 +76,7 @@ export const reviews: (Review & { _stableSlug: string })[] = _allReviews
   .filter((r) => !_droppedSet.has(r.id))
   .map(decodeReview);
 
-function entryFor(r: Review): ReviewIndexEntry {
+function entryFor(r: Review): Omit<ReviewIndexEntry, 'no'> {
   const year = Number(r.publishedAt?.slice(0, 4)) || 0;
   const decade = year ? Math.floor(year / 10) * 10 : 0;
   const haystackParts: string[] = [
@@ -98,10 +98,17 @@ function entryFor(r: Review): ReviewIndexEntry {
   };
 }
 
+// Sorted newest-first, then stamped with a stable chronological number: the
+// oldest review is № 1, the newest is № <total>. Assigning it here — once,
+// off the canonical order — is what lets every surface (index list, cards,
+// breadcrumb) print the same number for a given review, independent of
+// whatever filtering or sorting the reader has applied on the client.
+// scripts/sync-data.mjs mirrors this for the slim client-side dataset.
 export const reviewIndex: ReviewIndexEntry[] = reviews
   .filter((r) => r && r.id && r.name)
   .map(entryFor)
-  .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
+  .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))
+  .map((r, i, arr) => ({ ...r, no: arr.length - i }));
 
 export function findBySlug(slug: string): ReviewIndexEntry | undefined {
   return reviewIndex.find((r) => r.slug === slug);

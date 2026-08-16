@@ -11,6 +11,7 @@ interface Review {
   image: string | null; platform: string | null;
   factbox: any;
   year: number; decade: number; slug: string;
+  no: number;                  // chronological review number, oldest = 1
 }
 
 const reviews = ref<Review[]>([]);
@@ -38,13 +39,17 @@ let mini: MiniSearch | null = null;
 onMounted(async () => {
   const res = await fetch(u('/data/reviews.json'));
   const raw: any[] = await res.json();
-  reviews.value = raw.map((r) => {
+  reviews.value = raw.map((r, i) => {
     const year = Number(r.publishedAt?.slice(0, 4)) || 0;
     return {
       ...r,
       year,
       decade: year ? Math.floor(year / 10) * 10 : 0,
       slug: r.slug ?? slugify(r.name, r.id),
+      // sync-data.mjs stamps `no`. The fallback only matters for a browser
+      // still holding a reviews.json cached from before that field existed —
+      // the file ships newest-first, so position gives the same answer.
+      no: r.no ?? raw.length - i,
     };
   });
   buildSearch();
@@ -533,7 +538,10 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
       <ol v-if="loaded && visible.length" :class="['list', `list--${view}`]">
         <li v-for="r in visible" :key="r.id" class="item">
           <a :href="u(`/reviews/${r.slug}`)" class="row">
-            <span class="idx t-mono">№ {{ String(filtered.indexOf(r) + 1).padStart(4, '0') }}</span>
+            <!-- r.no, not the row's position: the number has to mean "Birgers
+                 n-te anmeldelse" and stay put when the reader filters or
+                 re-sorts. (It was also an O(n²) indexOf per render.) -->
+            <span class="idx t-mono">№ {{ String(r.no).padStart(4, '0') }}</span>
             <span class="title">
               <span class="title-text" v-html="highlight(r.name)"></span>
               <span v-if="r.originalTitle && r.originalTitle !== r.name" class="orig italic">«<span v-html="highlight(r.originalTitle)"></span>»</span>
