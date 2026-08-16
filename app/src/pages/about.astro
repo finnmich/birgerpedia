@@ -1,6 +1,11 @@
 ---
 import Page from '../layouts/Page.astro';
 import { SUMMARY } from '../lib/data';
+
+// Read the major off Astro itself rather than hardcoding it — this line
+// said "Astro 5" for a while after the site had moved to 7. `Astro.generator`
+// is the same string Astro puts in the <meta name="generator"> tag.
+const astroMajor = Astro.generator.match(/\d+/)?.[0] ?? '';
 ---
 
 <Page
@@ -59,7 +64,7 @@ import { SUMMARY } from '../lib/data';
       <ul class="tech t-mono">
         <li><span>Datainnsamling</span><span>Node.js, fetch, ingen avhengigheter</span></li>
         <li><span>Berikelse</span><span>TMDB v3 søk + detaljer</span></li>
-        <li><span>Frontend</span><span>Astro 5 med Vue 3-øyer</span></li>
+        <li><span>Frontend</span><span>Astro {astroMajor} med Vue 3-øyer</span></li>
         <li><span>Søk</span><span>MiniSearch (ren klient)</span></li>
         <li><span>Stil</span><span>Tailwind 4 + egen CSS</span></li>
         <li><span>Skrift</span><span>Fraunces · Newsreader · JetBrains Mono</span></li>

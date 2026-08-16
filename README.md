@@ -94,7 +94,7 @@ data/raw/        # original NRK responses (gitignored)
   listing/       #   author-API JSON pages + index.json
   articles/      #   one HTML + parsed JSON per review, by NRK content ID
 data/processed/  # the published dataset (reviews.json, stats.json, enrichment/)
-app/             # Astro 5 + Vue 3 + Tailwind 4 static site
+app/             # Astro 7 + Vue 3 + Tailwind 4 static site
 PLAN.md          # design + recon notes + progress
 ```
 
