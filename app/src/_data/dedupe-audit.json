@@ -54,5 +54,467 @@
         "headline": "Arctic"
       }
     ]
+  },
+  {
+    "tmdbId": "35056",
+    "day": "2010-04-22",
+    "kept": {
+      "id": "1.17237336",
+      "headline": "Date Night"
+    },
+    "dropped": [
+      {
+        "id": "1.17253353",
+        "headline": "Date Night"
+      }
+    ]
+  },
+  {
+    "tmdbId": "12155",
+    "day": "2010-03-04",
+    "kept": {
+      "id": "1.17237402",
+      "headline": "Alice In Wonderland"
+    },
+    "dropped": [
+      {
+        "id": "1.17253333",
+        "headline": "Alice In Wonderland"
+      }
+    ]
+  },
+  {
+    "tmdbId": "33511",
+    "day": "2010-02-25",
+    "kept": {
+      "id": "1.17237407",
+      "headline": "Nowhere Boy"
+    },
+    "dropped": [
+      {
+        "id": "1.17253330",
+        "headline": "Nowhere Boy"
+      }
+    ]
+  },
+  {
+    "tmdbId": "69246",
+    "day": "2010-02-25",
+    "kept": {
+      "id": "1.17237408",
+      "headline": "Asfaltenglene"
+    },
+    "dropped": [
+      {
+        "id": "1.17253329",
+        "headline": "Asfaltenglene"
+      }
+    ]
+  },
+  {
+    "tmdbId": "24469",
+    "day": "2010-02-18",
+    "kept": {
+      "id": "1.17237428",
+      "headline": "Fish Tank"
+    },
+    "dropped": [
+      {
+        "id": "1.17253327",
+        "headline": "Fish Tank"
+      }
+    ]
+  },
+  {
+    "tmdbId": "10198",
+    "day": "2010-02-18",
+    "kept": {
+      "id": "1.17237429",
+      "headline": "Prinsessen og frosken"
+    },
+    "dropped": [
+      {
+        "id": "1.17253326",
+        "headline": "Prinsessen og frosken"
+      }
+    ]
+  },
+  {
+    "tmdbId": "11324",
+    "day": "2010-02-18",
+    "kept": {
+      "id": "1.17237431",
+      "headline": "Shutter Island"
+    },
+    "dropped": [
+      {
+        "id": "1.17253325",
+        "headline": "Shutter Island"
+      }
+    ]
+  },
+  {
+    "tmdbId": "17431",
+    "day": "2010-02-11",
+    "kept": {
+      "id": "1.17237439",
+      "headline": "Moon"
+    },
+    "dropped": [
+      {
+        "id": "1.17253322",
+        "headline": "Moon"
+      }
+    ]
+  },
+  {
+    "tmdbId": "30250",
+    "day": "2010-01-28",
+    "kept": {
+      "id": "1.17237458",
+      "headline": "Cold Souls"
+    },
+    "dropped": [
+      {
+        "id": "1.17253318",
+        "headline": "Cold Souls"
+      }
+    ]
+  },
+  {
+    "tmdbId": "106456",
+    "day": "2010-01-28",
+    "kept": {
+      "id": "1.17237459",
+      "headline": "Olsenbanden Jr. Mestertyvens skatt"
+    },
+    "dropped": [
+      {
+        "id": "1.17253317",
+        "headline": "Olsenbanden Jr Mestertyvens skatt"
+      }
+    ]
+  },
+  {
+    "tmdbId": "22897",
+    "day": "2009-12-25",
+    "kept": {
+      "id": "1.17237491",
+      "headline": "It’s Complicated"
+    },
+    "dropped": [
+      {
+        "id": "1.17253312",
+        "headline": "It's Complicated"
+      }
+    ]
+  },
+  {
+    "tmdbId": "8054",
+    "day": "2009-12-22",
+    "kept": {
+      "id": "1.17237493",
+      "headline": "The Imaginarium of Doctor Parnassus"
+    },
+    "dropped": [
+      {
+        "id": "1.17253311",
+        "headline": "The Imaginarium of Doctor Parnassus"
+      }
+    ]
+  },
+  {
+    "tmdbId": "12572",
+    "day": "2009-12-22",
+    "kept": {
+      "id": "1.17237494",
+      "headline": "New York, I Love You"
+    },
+    "dropped": [
+      {
+        "id": "1.17253310",
+        "headline": "New York, I Love You"
+      }
+    ]
+  },
+  {
+    "tmdbId": "18162",
+    "day": "2009-11-05",
+    "kept": {
+      "id": "1.17237539",
+      "headline": "Land Of The Lost"
+    },
+    "dropped": [
+      {
+        "id": "1.17253302",
+        "headline": "Land Of The Lost"
+      }
+    ]
+  },
+  {
+    "tmdbId": "20829",
+    "day": "2009-10-22",
+    "kept": {
+      "id": "1.17237560",
+      "headline": "Funny People"
+    },
+    "dropped": [
+      {
+        "id": "1.17253300",
+        "headline": "Funny People"
+      }
+    ]
+  },
+  {
+    "tmdbId": "19908",
+    "day": "2009-10-22",
+    "kept": {
+      "id": "1.17237561",
+      "headline": "Zombieland"
+    },
+    "dropped": [
+      {
+        "id": "1.17253299",
+        "headline": "Zombieland"
+      }
+    ]
+  },
+  {
+    "tmdbId": "19959",
+    "day": "2009-09-30",
+    "kept": {
+      "id": "1.17237579",
+      "headline": "Surrogates"
+    },
+    "dropped": [
+      {
+        "id": "1.17253294",
+        "headline": "Surrogates"
+      }
+    ]
+  },
+  {
+    "tmdbId": "19255",
+    "day": "2009-09-30",
+    "kept": {
+      "id": "1.17237581",
+      "headline": "Away we go"
+    },
+    "dropped": [
+      {
+        "id": "1.17253293",
+        "headline": "Away we go"
+      }
+    ]
+  },
+  {
+    "tmdbId": "12162",
+    "day": "2009-09-24",
+    "kept": {
+      "id": "1.17237590",
+      "headline": "The Hurt Locker"
+    },
+    "dropped": [
+      {
+        "id": "1.17253289",
+        "headline": "The Hurt Locker"
+      }
+    ]
+  },
+  {
+    "tmdbId": "26584",
+    "day": "2009-02-05",
+    "kept": {
+      "id": "1.17237960",
+      "headline": "Nord"
+    },
+    "dropped": [
+      {
+        "id": "1.17237961",
+        "headline": "Nord"
+      }
+    ]
+  },
+  {
+    "tmdbId": "13972",
+    "day": "2008-12-11",
+    "kept": {
+      "id": "1.17238008",
+      "headline": "The Women"
+    },
+    "dropped": [
+      {
+        "id": "1.6347805",
+        "headline": "The Women"
+      }
+    ]
+  },
+  {
+    "tmdbId": "15020",
+    "day": "2008-12-04",
+    "kept": {
+      "id": "1.17238012",
+      "headline": "Poor Boy´s Game"
+    },
+    "dropped": [
+      {
+        "id": "1.6338148",
+        "headline": "Poor Boy’s Game"
+      }
+    ]
+  },
+  {
+    "tmdbId": "12113",
+    "day": "2008-11-20",
+    "kept": {
+      "id": "1.17238029",
+      "headline": "Body of Lies"
+    },
+    "dropped": [
+      {
+        "id": "1.6317353",
+        "headline": "Body of lies"
+      }
+    ]
+  },
+  {
+    "tmdbId": "8780",
+    "day": "2008-11-06",
+    "kept": {
+      "id": "1.17238040",
+      "headline": "Baby Mama"
+    },
+    "dropped": [
+      {
+        "id": "1.6297702",
+        "headline": "Baby Mama"
+      }
+    ]
+  },
+  {
+    "tmdbId": "13258",
+    "day": "2008-11-06",
+    "kept": {
+      "id": "1.17238042",
+      "headline": "Son of Rambow"
+    },
+    "dropped": [
+      {
+        "id": "1.6297690",
+        "headline": "Son of Rambow"
+      }
+    ]
+  },
+  {
+    "tmdbId": "16002",
+    "day": "2008-10-30",
+    "kept": {
+      "id": "1.17238050",
+      "headline": "Kurt blir grusom"
+    },
+    "dropped": [
+      {
+        "id": "1.6287413",
+        "headline": "Kurt blir grusom"
+      }
+    ]
+  },
+  {
+    "tmdbId": "13310",
+    "day": "2008-10-24",
+    "kept": {
+      "id": "1.17238058",
+      "headline": "La den rette komme inn"
+    },
+    "dropped": [
+      {
+        "id": "1.6279049",
+        "headline": "La den rette komme inn"
+      }
+    ]
+  },
+  {
+    "tmdbId": "11887",
+    "day": "2008-10-24",
+    "kept": {
+      "id": "1.17238059",
+      "headline": "High School Musical 3"
+    },
+    "dropped": [
+      {
+        "id": "1.6279086",
+        "headline": "High School Musical 3"
+      }
+    ]
+  },
+  {
+    "tmdbId": "17077",
+    "day": "2008-10-17",
+    "kept": {
+      "id": "1.17238067",
+      "headline": "Maria Larssons evige øyeblikk"
+    },
+    "dropped": [
+      {
+        "id": "1.6268702",
+        "headline": "Maria Larssons evige øyeblikk"
+      }
+    ]
+  },
+  {
+    "tmdbId": "15440",
+    "day": "2008-10-09",
+    "kept": {
+      "id": "1.17238079",
+      "headline": "Fritt vilt II"
+    },
+    "dropped": [
+      {
+        "id": "1.6253477",
+        "headline": "Fritt vilt II"
+      }
+    ]
+  },
+  {
+    "tmdbId": "1256157",
+    "day": "2008-09-04",
+    "kept": {
+      "id": "1.17238121",
+      "headline": "Får jag lov – till den sista dansen"
+    },
+    "dropped": [
+      {
+        "id": "1.6206343",
+        "headline": "Får jag lov"
+      }
+    ]
+  },
+  {
+    "tmdbId": "12177",
+    "day": "2008-08-14",
+    "kept": {
+      "id": "1.17238145",
+      "headline": "The Love Guru"
+    },
+    "dropped": [
+      {
+        "id": "1.6175344",
+        "headline": "The Love Guru"
+      }
+    ]
+  },
+  {
+    "tmdbId": "11631",
+    "day": "2008-07-09",
+    "kept": {
+      "id": "1.17238180",
+      "headline": "Mamma Mia!"
+    },
+    "dropped": [
+      {
+        "id": "1.6132352",
+        "headline": "Mamma Mia!"
+      }
+    ]
   }
 ]

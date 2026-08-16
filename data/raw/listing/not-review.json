@@ -1,0 +1,1374 @@
+{
+  "updatedAt": "2026-08-16T19:10:28.040Z",
+  "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
+  "ids": {
+    "10-filmer-vi-gleder-oss-til-i-host-1523805": {
+      "url": "https://www.nrk.no/artikkel/10-filmer-vi-gleder-oss-til-i-host-1523805",
+      "checkedAt": "2026-08-16T18:58:24.809Z"
+    },
+    "1.17890800": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-2026-1.17890800",
+      "checkedAt": "2026-08-16T18:58:25.746Z"
+    },
+    "1.17886037": {
+      "url": "https://www.nrk.no/filmpolitiet/filmpolitiet-sine-hoydepunkter-fra-filmfestivalen-i-cannes-1.17886037",
+      "checkedAt": "2026-08-16T18:58:26.713Z"
+    },
+    "1.17675349": {
+      "url": "https://www.nrk.no/filmpolitiet/2026_-filmene-vi-gleder-oss-til-1.17675349",
+      "checkedAt": "2026-08-16T18:58:27.712Z"
+    },
+    "1.17675345": {
+      "url": "https://www.nrk.no/filmpolitiet/2025_-arets-beste-filmar-1.17675345",
+      "checkedAt": "2026-08-16T18:58:28.715Z"
+    },
+    "1.17662765": {
+      "url": "https://www.nrk.no/filmpolitiet/ti-tips-fra-filmpolitiet_-de-heteste-filmene-og-seriene-du-kan-stromme-na-1.17662765",
+      "checkedAt": "2026-08-16T18:58:29.718Z"
+    },
+    "1.17657961": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-beste-pixar-filmene-1.17657961",
+      "checkedAt": "2026-08-16T18:58:30.717Z"
+    },
+    "1.17572729": {
+      "url": "https://www.nrk.no/filmpolitiet/ti-filmar-vi-gler-oss-til-i-haust-1.17572729",
+      "checkedAt": "2026-08-16T18:58:31.715Z"
+    },
+    "1.17422405": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17422405",
+      "checkedAt": "2026-08-16T18:58:32.715Z"
+    },
+    "1.17309149": {
+      "url": "https://www.nrk.no/filmpolitiet/de-beste-filmene-fra-berlinalen-1.17309149",
+      "checkedAt": "2026-08-16T18:58:33.710Z"
+    },
+    "1.17227593": {
+      "url": "https://www.nrk.no/filmpolitiet/2025_-filmene-vi-gleder-oss-til-1.17227593",
+      "checkedAt": "2026-08-16T18:58:34.731Z"
+    },
+    "1.17227736": {
+      "url": "https://www.nrk.no/filmpolitiet/2024_-arets-beste-filmer-1.17227736",
+      "checkedAt": "2026-08-16T18:58:35.710Z"
+    },
+    "1.17227747": {
+      "url": "https://www.nrk.no/filmpolitiet/anbefaling_-de-10-beste-julefilmene-1.17227747",
+      "checkedAt": "2026-08-16T18:58:36.713Z"
+    },
+    "1.17227822": {
+      "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-host-1.17227822",
+      "checkedAt": "2026-08-16T18:58:37.715Z"
+    },
+    "1.17227867": {
+      "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-sommer-1.17227867",
+      "checkedAt": "2026-08-16T18:58:38.711Z"
+    },
+    "1.17227900": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17227900",
+      "checkedAt": "2026-08-16T18:58:40.052Z"
+    },
+    "1.17227971": {
+      "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17227971",
+      "checkedAt": "2026-08-16T18:58:40.708Z"
+    },
+    "1.17227986": {
+      "url": "https://www.nrk.no/filmpolitiet/de-beste-filmene-pa-berlinalen-1.17227986",
+      "checkedAt": "2026-08-16T18:58:41.719Z"
+    },
+    "1.17227993": {
+      "url": "https://www.nrk.no/filmpolitiet/_vant_-helga-pa-berlinalen-1.17227993",
+      "checkedAt": "2026-08-16T18:58:42.715Z"
+    },
+    "1.17228028": {
+      "url": "https://www.nrk.no/filmpolitiet/2024_-filmene-vi-gleder-oss-til-1.17228028",
+      "checkedAt": "2026-08-16T18:58:43.716Z"
+    },
+    "1.17228042": {
+      "url": "https://www.nrk.no/filmpolitiet/2023_-arets-beste-filmer-1.17228042",
+      "checkedAt": "2026-08-16T18:58:44.717Z"
+    },
+    "1.17228050": {
+      "url": "https://www.nrk.no/filmpolitiet/arets-nye-julefilmer-1.17228050",
+      "checkedAt": "2026-08-16T18:58:45.715Z"
+    },
+    "1.17228117": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-disney-klassikere-1.17228117",
+      "checkedAt": "2026-08-16T18:58:46.713Z"
+    },
+    "1.17228144": {
+      "url": "https://www.nrk.no/filmpolitiet/vant-gulloven-i-venezia-1.17228144",
+      "checkedAt": "2026-08-16T18:58:47.713Z"
+    },
+    "1.17228331": {
+      "url": "https://www.nrk.no/filmpolitiet/10-oscar-filmer-du-bor-se-1.17228331",
+      "checkedAt": "2026-08-16T19:10:23.584Z"
+    },
+    "1.17228405": {
+      "url": "https://www.nrk.no/filmpolitiet/2023_-filmene-vi-gleder-oss-til-1.17228405",
+      "checkedAt": "2026-08-16T19:10:24.466Z"
+    },
+    "1.17228417": {
+      "url": "https://www.nrk.no/filmpolitiet/2022_-arets-beste-filmer-1.17228417",
+      "checkedAt": "2026-08-16T19:10:25.473Z"
+    },
+    "1.17228521": {
+      "url": "https://www.nrk.no/filmpolitiet/5-emmy-serier-du-bor-sjekke-ut-1.17228521",
+      "checkedAt": "2026-08-16T18:37:43.558Z"
+    },
+    "1.17228642": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-mest-spennende-cannes-filmene-1.17228642",
+      "checkedAt": "2026-08-16T18:37:44.427Z"
+    },
+    "1.17228719": {
+      "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17228719",
+      "checkedAt": "2026-08-16T18:37:45.426Z"
+    },
+    "1.15841416": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-dette-kan-du-oppleve-pa-scener-og-kino-no-1.15841416",
+      "checkedAt": "2026-08-16T18:37:47.894Z"
+    },
+    "1.15814981": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-ni-tips-til-kultur-med-rasisme-som-tema-1.15814981",
+      "checkedAt": "2026-08-16T18:37:47.954Z"
+    },
+    "1.17228792": {
+      "url": "https://www.nrk.no/filmpolitiet/2022_-seriene-vi-gleder-oss-til-1.17228792",
+      "checkedAt": "2026-08-16T18:37:48.950Z"
+    },
+    "1.15726046": {
+      "url": "https://www.nrk.no/kultur/original-eller-nyinnspilling_-hvilken-film-er-best_-1.15726046",
+      "checkedAt": "2026-08-16T18:37:49.993Z"
+    },
+    "1.17228793": {
+      "url": "https://www.nrk.no/filmpolitiet/2022_-filmene-vi-gleder-oss-til-1.17228793",
+      "checkedAt": "2026-08-16T18:37:50.953Z"
+    },
+    "1.17228800": {
+      "url": "https://www.nrk.no/filmpolitiet/2021_-arets-beste-filmer-1.17228800",
+      "checkedAt": "2026-08-16T18:37:51.960Z"
+    },
+    "1.17228801": {
+      "url": "https://www.nrk.no/filmpolitiet/2021_-arets-beste-tv-serier-1.17228801",
+      "checkedAt": "2026-08-16T18:37:52.957Z"
+    },
+    "1.17228865": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-serier-vi-gleder-oss-til-i-host-1.17228865",
+      "checkedAt": "2026-08-16T18:37:54.093Z"
+    },
+    "1.15638196": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-filmar-og-boker-om-11.-september-angrepa-1.15638196",
+      "checkedAt": "2026-08-16T18:37:54.955Z"
+    },
+    "1.17228898": {
+      "url": "https://www.nrk.no/filmpolitiet/den-storste-filmen-i-venezia-er-litt-norsk-1.17228898",
+      "checkedAt": "2026-08-16T18:37:55.959Z"
+    },
+    "1.15492356": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-10-filmar-og-tv-seriar-om-idrett-1.15492356",
+      "checkedAt": "2026-08-16T18:37:56.964Z"
+    },
+    "1.15499438": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-22.-juli-filmer-og--serier-1.15499438",
+      "checkedAt": "2026-08-16T18:37:57.957Z"
+    },
+    "1.15479692": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-franske-kulturtips-1.15479692",
+      "checkedAt": "2026-08-16T18:37:59.027Z"
+    },
+    "1.15485518": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-amerikanske-kulturtips-til-4.-juli-1.15485518",
+      "checkedAt": "2026-08-16T18:38:00.622Z"
+    },
+    "1.17228942": {
+      "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-sommer-1.17228942",
+      "checkedAt": "2026-08-16T18:38:00.954Z"
+    },
+    "1.15479647": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-20-danske-og-svenske-kulturtips-1.15479647",
+      "checkedAt": "2026-08-16T18:38:04.629Z"
+    },
+    "1.17228997": {
+      "url": "https://www.nrk.no/filmpolitiet/mangfoldet-var-arets-storste-oscar-vinner-1.17228997",
+      "checkedAt": "2026-08-16T18:38:04.907Z"
+    },
+    "1.17229001": {
+      "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17229001",
+      "checkedAt": "2026-08-16T18:38:05.705Z"
+    },
+    "1.15397956": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-ni-filmtips-som-kan-samle-hele-familien-foran-tv-en-1.15397956",
+      "checkedAt": "2026-08-16T18:38:06.708Z"
+    },
+    "1.17229048": {
+      "url": "https://www.nrk.no/filmpolitiet/10-strommetips-til-golden-globe-helga-1.17229048",
+      "checkedAt": "2026-08-16T18:38:07.709Z"
+    },
+    "1.17229102": {
+      "url": "https://www.nrk.no/filmpolitiet/2021_-filmene-vi-gleder-oss-til-1.17229102",
+      "checkedAt": "2026-08-16T18:38:08.859Z"
+    },
+    "1.17229103": {
+      "url": "https://www.nrk.no/filmpolitiet/2021_-seriene-vi-gleder-oss-til-1.17229103",
+      "checkedAt": "2026-08-16T18:38:09.704Z"
+    },
+    "1.17229107": {
+      "url": "https://www.nrk.no/filmpolitiet/2020_-arets-beste-filmer-1.17229107",
+      "checkedAt": "2026-08-16T18:38:10.709Z"
+    },
+    "1.17229145": {
+      "url": "https://www.nrk.no/filmpolitiet/ti-grunner-til-at-vi-elsker-_alene-hjemme_-1.17229145",
+      "checkedAt": "2026-08-16T18:38:11.713Z"
+    },
+    "1.15208249": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-14-filmer-og-serier-for-enhver-smak-til-halloween-1.15208249",
+      "checkedAt": "2026-08-16T18:38:12.776Z"
+    },
+    "1.17229189": {
+      "url": "https://www.nrk.no/filmpolitiet/8-emmy-serier-du-bor-sjekke-ut-1.17229189",
+      "checkedAt": "2026-08-16T18:38:13.704Z"
+    },
+    "1.17229202": {
+      "url": "https://www.nrk.no/filmpolitiet/14-serier-vi-gleder-oss-til-i-host-1.17229202",
+      "checkedAt": "2026-08-16T18:38:14.708Z"
+    },
+    "1.15072455": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-15-tips-til-serier-og-filmer-om-skoleliv-1.15072455",
+      "checkedAt": "2026-08-16T18:38:15.706Z"
+    },
+    "1.15073802": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-9-tips-til-boker_-filmar-og-spel-som-gir-feriestemning-1.15073802",
+      "checkedAt": "2026-08-16T18:38:16.713Z"
+    },
+    "1.15058825": {
+      "url": "https://www.nrk.no/kultur/anbefaling_-13-tips-til-filmsommeren-1.15058825",
+      "checkedAt": "2026-08-16T18:38:17.712Z"
+    },
+    "1.17229285": {
+      "url": "https://www.nrk.no/filmpolitiet/_-vil-vise-mitt-sanne-jeg-1.17229285",
+      "checkedAt": "2026-08-16T18:38:18.855Z"
+    },
+    "1.14965955": {
+      "url": "https://www.nrk.no/kultur/underholdning-for-enhver-smak-_-over-200-anbefalinger-1.14965955",
+      "checkedAt": "2026-08-16T18:38:19.732Z"
+    },
+    "1.17229295": {
+      "url": "https://www.nrk.no/filmpolitiet/9-filmtips-til-deg-som-savner-hytta-1.17229295",
+      "checkedAt": "2026-08-16T18:38:20.712Z"
+    },
+    "1.17229297": {
+      "url": "https://www.nrk.no/filmpolitiet/filmpolitiets-store-paskeguide-1.17229297",
+      "checkedAt": "2026-08-16T18:38:21.716Z"
+    },
+    "1.17229339": {
+      "url": "https://www.nrk.no/filmpolitiet/fullforte-sin-avdode-venns-film-1.17229339",
+      "checkedAt": "2026-08-16T18:38:22.885Z"
+    },
+    "1.17229340": {
+      "url": "https://www.nrk.no/filmpolitiet/best-pa-berlinalen-sa-langt-1.17229340",
+      "checkedAt": "2026-08-16T18:38:23.710Z"
+    },
+    "1.17229342": {
+      "url": "https://www.nrk.no/filmpolitiet/kan-dette-bli-en-ny-_parasitt_-suksess_-1.17229342",
+      "checkedAt": "2026-08-16T18:38:24.706Z"
+    },
+    "1.17229346": {
+      "url": "https://www.nrk.no/filmpolitiet/_-fansen-far-ikke-nok-oppmerksomhet-1.17229346",
+      "checkedAt": "2026-08-16T18:38:25.707Z"
+    },
+    "1.17229365": {
+      "url": "https://www.nrk.no/filmpolitiet/5-oscar-filmer-du-bor-se-1.17229365",
+      "checkedAt": "2026-08-16T18:38:26.710Z"
+    },
+    "1.17229401": {
+      "url": "https://www.nrk.no/filmpolitiet/2020_-filmene-vi-gleder-oss-til-1.17229401",
+      "checkedAt": "2026-08-16T18:38:27.706Z"
+    },
+    "1.17229402": {
+      "url": "https://www.nrk.no/filmpolitiet/2020_-seriene-vi-gleder-oss-til-1.17229402",
+      "checkedAt": "2026-08-16T18:38:28.879Z"
+    },
+    "1.17229403": {
+      "url": "https://www.nrk.no/filmpolitiet/2019_-arets-beste-filmer-1.17229403",
+      "checkedAt": "2026-08-16T18:38:29.707Z"
+    },
+    "1.17229413": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-filmer-fra-2010-tallet-1.17229413",
+      "checkedAt": "2026-08-16T18:38:30.703Z"
+    },
+    "1.17229419": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-beste-julefilmene-1.17229419",
+      "checkedAt": "2026-08-16T18:38:31.709Z"
+    },
+    "1.14771608": {
+      "url": "https://www.nrk.no/kultur/jeff-lynne-om-sitt-nye-album-_from-out-of-nowhere_.-1.14771608",
+      "checkedAt": "2026-08-16T18:38:33.182Z"
+    },
+    "1.17229442": {
+      "url": "https://www.nrk.no/filmpolitiet/_-kroppen-min-blir-aldri-den-samme-etter-denne-filmen-1.17229442",
+      "checkedAt": "2026-08-16T18:38:33.894Z"
+    },
+    "1.17229461": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-kan-ga-en-kule-varmt_-1.17229461",
+      "checkedAt": "2026-08-16T18:38:34.706Z"
+    },
+    "1.17229486": {
+      "url": "https://www.nrk.no/filmpolitiet/_-rambos-kamp-kan-aldri-vinnes-1.17229486",
+      "checkedAt": "2026-08-16T18:38:35.709Z"
+    },
+    "1.17229501": {
+      "url": "https://www.nrk.no/filmpolitiet/_-denne-rollen-kom-til-rett-tid_-1.17229501",
+      "checkedAt": "2026-08-16T18:38:36.704Z"
+    },
+    "1.17229507": {
+      "url": "https://www.nrk.no/filmpolitiet/brad-pitt-er-astronaut-i-venezia-1.17229507",
+      "checkedAt": "2026-08-16T18:38:37.710Z"
+    },
+    "1.17229567": {
+      "url": "https://www.nrk.no/filmpolitiet/12-serier-vi-gleder-oss-til-i-sommer-1.17229567",
+      "checkedAt": "2026-08-16T18:38:38.714Z"
+    },
+    "1.17229573": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-heller-vaere-rocky-enn-rambo_-1.17229573",
+      "checkedAt": "2026-08-16T18:38:39.709Z"
+    },
+    "1.17229574": {
+      "url": "https://www.nrk.no/filmpolitiet/de-beste-cannes-filmene-1.17229574",
+      "checkedAt": "2026-08-16T18:38:40.966Z"
+    },
+    "1.17229578": {
+      "url": "https://www.nrk.no/filmpolitiet/_-befriende-a-jobbe-med-de-beste-av-de-beste-1.17229578",
+      "checkedAt": "2026-08-16T18:38:41.726Z"
+    },
+    "1.17229590": {
+      "url": "https://www.nrk.no/filmpolitiet/de-fem-storste-cannes-filmene-1.17229590",
+      "checkedAt": "2026-08-16T18:38:42.713Z"
+    },
+    "1.17229693": {
+      "url": "https://www.nrk.no/filmpolitiet/2019_-filmene-vi-gleder-oss-til-1.17229693",
+      "checkedAt": "2026-08-16T18:38:43.710Z"
+    },
+    "1.17229694": {
+      "url": "https://www.nrk.no/filmpolitiet/2019_-seriene-vi-gleder-oss-til-1.17229694",
+      "checkedAt": "2026-08-16T18:38:44.712Z"
+    },
+    "1.17229700": {
+      "url": "https://www.nrk.no/filmpolitiet/2018_-arets-beste-filmer-1.17229700",
+      "checkedAt": "2026-08-16T18:38:45.708Z"
+    },
+    "1.17229901": {
+      "url": "https://www.nrk.no/filmpolitiet/kvinnene-hevder-seg-i-cannes-1.17229901",
+      "checkedAt": "2026-08-16T18:38:46.949Z"
+    },
+    "1.17229902": {
+      "url": "https://www.nrk.no/filmpolitiet/nolan-feirer-kubrick-i-cannes-1.17229902",
+      "checkedAt": "2026-08-16T18:38:47.713Z"
+    },
+    "1.17229904": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-lengter-etter-a-gjore-drama-1.17229904",
+      "checkedAt": "2026-08-16T18:38:48.896Z"
+    },
+    "1.17229905": {
+      "url": "https://www.nrk.no/filmpolitiet/svenskene-imponerer-i-cannes-1.17229905",
+      "checkedAt": "2026-08-16T18:38:49.871Z"
+    },
+    "1.17229910": {
+      "url": "https://www.nrk.no/filmpolitiet/ble-forsokt-lurt-til-a-gjore-nakenscene-1.17229910",
+      "checkedAt": "2026-08-16T18:38:50.717Z"
+    },
+    "1.17229912": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-fokuserer-pa-det-vi-har-til-felles-1.17229912",
+      "checkedAt": "2026-08-16T18:38:51.720Z"
+    },
+    "1.17229916": {
+      "url": "https://www.nrk.no/filmpolitiet/_-gullpalmen-ma-ga-til-en-film-som-har-alt-1.17229916",
+      "checkedAt": "2026-08-16T18:38:52.717Z"
+    },
+    "1.17229917": {
+      "url": "https://www.nrk.no/filmpolitiet/hva-vil-von-trier-si_-1.17229917",
+      "checkedAt": "2026-08-16T18:38:53.847Z"
+    },
+    "1.17229931": {
+      "url": "https://www.nrk.no/filmpolitiet/_-hadde-ikke-forestilt-meg-a-ha-sann-flaks-1.17229931",
+      "checkedAt": "2026-08-16T18:38:54.711Z"
+    },
+    "1.17230008": {
+      "url": "https://www.nrk.no/filmpolitiet/_-har-forsokt-a-gjore-et-aerlig-portrett-1.17230008",
+      "checkedAt": "2026-08-16T18:38:55.703Z"
+    },
+    "1.17230015": {
+      "url": "https://www.nrk.no/filmpolitiet/_-sier-alltid-ja-til-wes-anderson-1.17230015",
+      "checkedAt": "2026-08-16T18:38:56.711Z"
+    },
+    "1.17230068": {
+      "url": "https://www.nrk.no/filmpolitiet/gratulerer-med-dagen-til-oss_-1.17230068",
+      "checkedAt": "2026-08-16T18:38:57.840Z"
+    },
+    "1.17230081": {
+      "url": "https://www.nrk.no/filmpolitiet/2018_-filmene-vi-gleder-oss-til-1.17230081",
+      "checkedAt": "2026-08-16T18:38:59.380Z"
+    },
+    "1.17230091": {
+      "url": "https://www.nrk.no/filmpolitiet/2017_-arets-beste-filmer-1.17230091",
+      "checkedAt": "2026-08-16T18:38:59.711Z"
+    },
+    "1.17230096": {
+      "url": "https://www.nrk.no/filmpolitiet/_-klyp-meg_-skjer-dette-virkelig_-1.17230096",
+      "checkedAt": "2026-08-16T18:39:01.658Z"
+    },
+    "1.17230101": {
+      "url": "https://www.nrk.no/filmpolitiet/_-skal-vi-skrike-av-lykke_-1.17230101",
+      "checkedAt": "2026-08-16T18:39:01.873Z"
+    },
+    "1.17230154": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-ante-ikke-hvordan-man-skulle-holde-en-pistol-1.17230154",
+      "checkedAt": "2026-08-16T18:39:02.833Z"
+    },
+    "1.17230198": {
+      "url": "https://www.nrk.no/filmpolitiet/er-boka-alltid-best_-1.17230198",
+      "checkedAt": "2026-08-16T18:39:03.830Z"
+    },
+    "1.13717685": {
+      "url": "https://www.nrk.no/kultur/snomannen-regissor-svarer-pa-kritikk-om-_umenneskelig_-innspilling-1.13717685",
+      "checkedAt": "2026-08-16T18:39:05.355Z"
+    },
+    "1.17230221": {
+      "url": "https://www.nrk.no/filmpolitiet/harrison-ford-likte-ikke-blade-runners-lykkelige-slutt-1.17230221",
+      "checkedAt": "2026-08-16T18:39:05.715Z"
+    },
+    "1.17230222": {
+      "url": "https://www.nrk.no/filmpolitiet/ville-ha-ridley-scotts-velsignelse-1.17230222",
+      "checkedAt": "2026-08-16T18:39:06.715Z"
+    },
+    "1.17230298": {
+      "url": "https://www.nrk.no/filmpolitiet/de-5-beste-haugesund-filmene-1.17230298",
+      "checkedAt": "2026-08-16T18:39:07.711Z"
+    },
+    "1.17230468": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-aldri-statt-i-skyggen-av-menn-1.17230468",
+      "checkedAt": "2026-08-16T18:39:08.823Z"
+    },
+    "1.17230477": {
+      "url": "https://www.nrk.no/filmpolitiet/_-ingen-kjente-meg-igjen_-1.17230477",
+      "checkedAt": "2026-08-16T18:39:09.883Z"
+    },
+    "1.17230479": {
+      "url": "https://www.nrk.no/filmpolitiet/de-fem-beste-cannes-filmene-1.17230479",
+      "checkedAt": "2026-08-16T18:39:10.712Z"
+    },
+    "1.17230484": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-er-interessert-i-kvinnelige-figurer-1.17230484",
+      "checkedAt": "2026-08-16T18:39:11.717Z"
+    },
+    "1.17230485": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-forsoker-a-velge-filmer-som-folk-ikke-har-sett-for-1.17230485",
+      "checkedAt": "2026-08-16T18:39:12.713Z"
+    },
+    "1.17230486": {
+      "url": "https://www.nrk.no/filmpolitiet/_-barna-ser-ikke-filmene-mine-1.17230486",
+      "checkedAt": "2026-08-16T18:39:13.870Z"
+    },
+    "1.17230489": {
+      "url": "https://www.nrk.no/filmpolitiet/_-fikk-meg-til-a-innse-hvor-uvitende-jeg-er-1.17230489",
+      "checkedAt": "2026-08-16T18:39:14.804Z"
+    },
+    "1.17230490": {
+      "url": "https://www.nrk.no/filmpolitiet/_-ser-meg-selv-i-rubens-filmer-1.17230490",
+      "checkedAt": "2026-08-16T18:39:15.881Z"
+    },
+    "1.17230493": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-matte-lage-denne-filmen_-1.17230493",
+      "checkedAt": "2026-08-16T18:39:16.859Z"
+    },
+    "1.17230494": {
+      "url": "https://www.nrk.no/filmpolitiet/skandalevisning-i-cannes-1.17230494",
+      "checkedAt": "2026-08-16T18:39:17.804Z"
+    },
+    "1.13523419": {
+      "url": "https://www.nrk.no/kultur/netflix_-premierefilm-buet-ut-under-filmfestivalen-i-cannes-1.13523419",
+      "checkedAt": "2026-08-16T18:39:18.723Z"
+    },
+    "1.17230497": {
+      "url": "https://www.nrk.no/filmpolitiet/russisk-suksess-i-cannes-1.17230497",
+      "checkedAt": "2026-08-16T18:39:19.904Z"
+    },
+    "1.17230504": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-en-liste-over-de-jeg-ikke-liker-1.17230504",
+      "checkedAt": "2026-08-16T18:39:20.805Z"
+    },
+    "1.17230506": {
+      "url": "https://www.nrk.no/filmpolitiet/firedobbel-nicole-kidman-i-cannes-1.17230506",
+      "checkedAt": "2026-08-16T18:39:21.801Z"
+    },
+    "1.17230509": {
+      "url": "https://www.nrk.no/filmpolitiet/_-han-er-et-spesielt-beist_-1.17230509",
+      "checkedAt": "2026-08-16T18:39:22.707Z"
+    },
+    "1.17230540": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-banker-i-bordet-1.17230540",
+      "checkedAt": "2026-08-16T18:39:23.882Z"
+    },
+    "1.17230630": {
+      "url": "https://www.nrk.no/filmpolitiet/_-dette-er-ikke-min-familie-1.17230630",
+      "checkedAt": "2026-08-16T18:39:24.714Z"
+    },
+    "1.17230645": {
+      "url": "https://www.nrk.no/filmpolitiet/_la-la-land_-blir-beste-film-1.17230645",
+      "checkedAt": "2026-08-16T18:39:25.877Z"
+    },
+    "1.17230676": {
+      "url": "https://www.nrk.no/filmpolitiet/forelsket-seg-i-alene-hjemme-1.17230676",
+      "checkedAt": "2026-08-16T18:39:26.916Z"
+    },
+    "1.17230677": {
+      "url": "https://www.nrk.no/filmpolitiet/_-var-redd-for-a-bli-slaktet-1.17230677",
+      "checkedAt": "2026-08-16T18:39:27.712Z"
+    },
+    "1.17230680": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-rive-ned-murer-1.17230680",
+      "checkedAt": "2026-08-16T18:39:28.865Z"
+    },
+    "1.17230683": {
+      "url": "https://www.nrk.no/filmpolitiet/politisk-ladet-apning-i-berlin-1.17230683",
+      "checkedAt": "2026-08-16T18:39:29.889Z"
+    },
+    "1.17230710": {
+      "url": "https://www.nrk.no/filmpolitiet/godt-norsk-pa-tiff-1.17230710",
+      "checkedAt": "2026-08-16T18:39:30.706Z"
+    },
+    "1.17230726": {
+      "url": "https://www.nrk.no/filmpolitiet/disse-vinner-golden-globe-i-natt-1.17230726",
+      "checkedAt": "2026-08-16T18:39:31.710Z"
+    },
+    "1.17230742": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-filmene-vi-gleder-oss-til-i-2017-1.17230742",
+      "checkedAt": "2026-08-16T18:39:33.357Z"
+    },
+    "1.17230748": {
+      "url": "https://www.nrk.no/filmpolitiet/2016_-arets-beste-filmer-1.17230748",
+      "checkedAt": "2026-08-16T18:39:34.022Z"
+    },
+    "1.17230818": {
+      "url": "https://www.nrk.no/filmpolitiet/_-dorene-i-hollywood-er-apnet-videre-na-1.17230818",
+      "checkedAt": "2026-08-16T18:39:34.707Z"
+    },
+    "1.17230913": {
+      "url": "https://www.nrk.no/filmpolitiet/6-filmer-som-redder-verden.-litt.-1.17230913",
+      "checkedAt": "2026-08-16T18:39:35.707Z"
+    },
+    "1.17230988": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-elsker-a-fortelle-historier-1.17230988",
+      "checkedAt": "2026-08-16T18:39:36.707Z"
+    },
+    "1.17231004": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-apenbart-gjort-noe-riktig-1.17231004",
+      "checkedAt": "2026-08-16T18:39:37.708Z"
+    },
+    "1.17231024": {
+      "url": "https://www.nrk.no/filmpolitiet/ingen-pris-til-den-beste-filmen-1.17231024",
+      "checkedAt": "2026-08-16T18:39:38.709Z"
+    },
+    "1.17231025": {
+      "url": "https://www.nrk.no/filmpolitiet/dromte-om-a-vaere-16-arig-jente-1.17231025",
+      "checkedAt": "2026-08-16T18:39:39.709Z"
+    },
+    "1.17231031": {
+      "url": "https://www.nrk.no/filmpolitiet/var-pa-syre-i-flere-filmklipp-1.17231031",
+      "checkedAt": "2026-08-16T18:39:40.707Z"
+    },
+    "1.17231034": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-handler-om-a-ta-sjanser-1.17231034",
+      "checkedAt": "2026-08-16T18:39:41.727Z"
+    },
+    "1.17231037": {
+      "url": "https://www.nrk.no/filmpolitiet/_-dette-er-ikke-typen-film-man-gjor-veldig-mye-research-for-1.17231037",
+      "checkedAt": "2026-08-16T18:39:43.549Z"
+    },
+    "1.17231039": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-er-mye-mere-glam_-1.17231039",
+      "checkedAt": "2026-08-16T18:39:43.904Z"
+    },
+    "1.17231040": {
+      "url": "https://www.nrk.no/filmpolitiet/disse-kan-vinne-gullpalmen-1.17231040",
+      "checkedAt": "2026-08-16T18:39:44.828Z"
+    },
+    "1.17231042": {
+      "url": "https://www.nrk.no/filmpolitiet/_-han-er-sin-egen-sjanger_-1.17231042",
+      "checkedAt": "2026-08-16T18:39:45.819Z"
+    },
+    "1.17231044": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-lage-filmer-resten-av-livet_-1.17231044",
+      "checkedAt": "2026-08-16T18:39:46.803Z"
+    },
+    "1.17231046": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-burde-gjore-deg-sint_-1.17231046",
+      "checkedAt": "2026-08-16T18:39:47.714Z"
+    },
+    "1.17231050": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-blir-ikke-en-president-trump_-1.17231050",
+      "checkedAt": "2026-08-16T18:39:48.705Z"
+    },
+    "1.17231057": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-ikke-konkurrere-1.17231057",
+      "checkedAt": "2026-08-16T18:39:49.814Z"
+    },
+    "1.17231060": {
+      "url": "https://www.nrk.no/filmpolitiet/festival-for-gamle-menn-1.17231060",
+      "checkedAt": "2026-08-16T18:39:50.714Z"
+    },
+    "1.17231124": {
+      "url": "https://www.nrk.no/filmpolitiet/filmpolitiets-tv-paske-1.17231124",
+      "checkedAt": "2026-08-16T18:39:52.070Z"
+    },
+    "1.17231156": {
+      "url": "https://www.nrk.no/filmpolitiet/endelig-oscar-til-leo-1.17231156",
+      "checkedAt": "2026-08-16T18:39:53.681Z"
+    },
+    "1.17231157": {
+      "url": "https://www.nrk.no/filmpolitiet/disse-vinner-oscar-i-ar-1.17231157",
+      "checkedAt": "2026-08-16T18:39:53.931Z"
+    },
+    "1.17231251": {
+      "url": "https://www.nrk.no/filmpolitiet/disse-vinner-golden-globe-i-natt-1.17231251",
+      "checkedAt": "2026-08-16T18:39:55.576Z"
+    },
+    "1.17231261": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-filmene-vi-gleder-oss-til-i-2016-1.17231261",
+      "checkedAt": "2026-08-16T18:39:56.020Z"
+    },
+    "1.17231374": {
+      "url": "https://www.nrk.no/filmpolitiet/_star-wars_-har-blitt-myte-1.17231374",
+      "checkedAt": "2026-08-16T18:39:56.845Z"
+    },
+    "1.17231406": {
+      "url": "https://www.nrk.no/filmpolitiet/_-han-er-en-stor-regissor_-1.17231406",
+      "checkedAt": "2026-08-16T18:39:57.729Z"
+    },
+    "1.17231439": {
+      "url": "https://www.nrk.no/filmpolitiet/flyktninger-pa-film-1.17231439",
+      "checkedAt": "2026-08-16T18:40:00.594Z"
+    },
+    "1.17231462": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmer-om-diktatur-1.17231462",
+      "checkedAt": "2026-08-16T18:40:00.657Z"
+    },
+    "1.17231621": {
+      "url": "https://www.nrk.no/filmpolitiet/er-dette-arets-gullpalme-vinner_-1.17231621",
+      "checkedAt": "2026-08-16T18:40:01.652Z"
+    },
+    "1.17231626": {
+      "url": "https://www.nrk.no/filmpolitiet/fikk-ideen-til-sin-nye-film-hjemme-1.17231626",
+      "checkedAt": "2026-08-16T18:40:02.650Z"
+    },
+    "1.17231630": {
+      "url": "https://www.nrk.no/filmpolitiet/blir-gjenkjent-som-batmans-butler-1.17231630",
+      "checkedAt": "2026-08-16T18:40:03.653Z"
+    },
+    "1.17231639": {
+      "url": "https://www.nrk.no/filmpolitiet/_-seksualitet-er-en-privatsak-1.17231639",
+      "checkedAt": "2026-08-16T18:40:04.663Z"
+    },
+    "1.17231640": {
+      "url": "https://www.nrk.no/filmpolitiet/ville-ikke-kommentere-buingen-1.17231640",
+      "checkedAt": "2026-08-16T18:40:05.768Z"
+    },
+    "1.17231641": {
+      "url": "https://www.nrk.no/filmpolitiet/_-filmens-fremtid-er-pa-tv-1.17231641",
+      "checkedAt": "2026-08-16T18:40:06.655Z"
+    },
+    "1.17231642": {
+      "url": "https://www.nrk.no/filmpolitiet/dette-er-triers-sterkeste-konkurrenter-1.17231642",
+      "checkedAt": "2026-08-16T18:40:07.662Z"
+    },
+    "1.17231643": {
+      "url": "https://www.nrk.no/filmpolitiet/_-teateret-forandret-livet-mitt_-1.17231643",
+      "checkedAt": "2026-08-16T18:40:08.654Z"
+    },
+    "1.17231647": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-hadde-vaert-fint-a-ha-et-manus_-1.17231647",
+      "checkedAt": "2026-08-16T18:40:09.800Z"
+    },
+    "1.17231648": {
+      "url": "https://www.nrk.no/filmpolitiet/kontroversiell-sexdokumentar-i-cannes-1.17231648",
+      "checkedAt": "2026-08-16T18:40:10.654Z"
+    },
+    "1.17231650": {
+      "url": "https://www.nrk.no/filmpolitiet/_-vi-er-ikke-filmkritikere_-1.17231650",
+      "checkedAt": "2026-08-16T18:40:11.657Z"
+    },
+    "1.17231653": {
+      "url": "https://www.nrk.no/filmpolitiet/7-cannes-filmer-a-se-opp-for-1.17231653",
+      "checkedAt": "2026-08-16T18:40:12.666Z"
+    },
+    "1.17231743": {
+      "url": "https://www.nrk.no/filmpolitiet/verdens-toffeste-actionhelt_-1.17231743",
+      "checkedAt": "2026-08-16T18:40:13.648Z"
+    },
+    "1.17231933": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-2015-filmene-vi-gleder-oss-mest-til-1.17231933",
+      "checkedAt": "2026-08-16T18:40:14.652Z"
+    },
+    "1.17231950": {
+      "url": "https://www.nrk.no/filmpolitiet/2014_-arets-beste-filmer-1.17231950",
+      "checkedAt": "2026-08-16T18:40:17.589Z"
+    },
+    "1.17231978": {
+      "url": "https://www.nrk.no/filmpolitiet/her-er-de-forste-bildene-fra-_star-wars_-the-force-awakens_-1.17231978",
+      "checkedAt": "2026-08-16T18:40:17.852Z"
+    },
+    "1.17232157": {
+      "url": "https://www.nrk.no/filmpolitiet/_-sunt-med-norsk-skepsis-i-dette-oppstyret-1.17232157",
+      "checkedAt": "2026-08-16T18:40:19.633Z"
+    },
+    "1.17232159": {
+      "url": "https://www.nrk.no/filmpolitiet/_-fortjener-oscar-for-ullmann-film_-1.17232159",
+      "checkedAt": "2026-08-16T18:40:20.633Z"
+    },
+    "1.11919444": {
+      "url": "https://www.nrk.no/kultur/vennlig-mottagelse-av-norske-filmer-1.11919444",
+      "checkedAt": "2026-08-16T18:40:22.242Z"
+    },
+    "1.17232161": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-far-briste-eller-baere_-1.17232161",
+      "checkedAt": "2026-08-16T18:40:22.642Z"
+    },
+    "1.17232163": {
+      "url": "https://www.nrk.no/filmpolitiet/_-det-er-ikke-en-selvbiografisk-film_-1.17232163",
+      "checkedAt": "2026-08-16T18:40:23.638Z"
+    },
+    "1.17232263": {
+      "url": "https://www.nrk.no/filmpolitiet/_--filmen-matte-bli-voldelig_-1.17232263",
+      "checkedAt": "2026-08-16T18:40:24.989Z"
+    },
+    "1.17232395": {
+      "url": "https://www.nrk.no/filmpolitiet/kortfilmpris_-_-vant-vi_-er-det-sant_-1.17232395",
+      "checkedAt": "2026-08-16T18:40:25.630Z"
+    },
+    "1.17232472": {
+      "url": "https://www.nrk.no/filmpolitiet/_-blir-like-romantisk-som-dr.-zhivago-og-tatt-av-vinden_-1.17232472",
+      "checkedAt": "2026-08-16T18:40:26.635Z"
+    },
+    "1.17232478": {
+      "url": "https://www.nrk.no/filmpolitiet/_-humoren-nadde-frem-1.17232478",
+      "checkedAt": "2026-08-16T18:40:27.636Z"
+    },
+    "1.17232486": {
+      "url": "https://www.nrk.no/filmpolitiet/_-vi-gjor-krav-pa-westernsjangeren_-1.17232486",
+      "checkedAt": "2026-08-16T18:40:28.634Z"
+    },
+    "1.17232487": {
+      "url": "https://www.nrk.no/filmpolitiet/_-responsen-var-overveldende_-1.17232487",
+      "checkedAt": "2026-08-16T18:40:29.634Z"
+    },
+    "1.17232490": {
+      "url": "https://www.nrk.no/filmpolitiet/inntok-cannes-med-tanks-1.17232490",
+      "checkedAt": "2026-08-16T18:40:30.636Z"
+    },
+    "1.17232492": {
+      "url": "https://www.nrk.no/filmpolitiet/_-vi-reiste-til-svalbard-for-a-finne-inspirasjon_-1.17232492",
+      "checkedAt": "2026-08-16T18:40:31.636Z"
+    },
+    "1.17232493": {
+      "url": "https://www.nrk.no/filmpolitiet/80-talls-stjerne_-_-skuffet-over-meg-selv_-1.17232493",
+      "checkedAt": "2026-08-16T18:40:32.743Z"
+    },
+    "1.17232504": {
+      "url": "https://www.nrk.no/filmpolitiet/tok-malekurs-i-tre-ar-for-innspillingen-1.17232504",
+      "checkedAt": "2026-08-16T18:40:34.635Z"
+    },
+    "1.17232517": {
+      "url": "https://www.nrk.no/filmpolitiet/som-skapt-for-cannes_-1.17232517",
+      "checkedAt": "2026-08-16T18:40:36.640Z"
+    },
+    "1.17232548": {
+      "url": "https://www.nrk.no/filmpolitiet/her-er-star-wars-skuespillerne_-1.17232548",
+      "checkedAt": "2026-08-16T18:40:37.637Z"
+    },
+    "1.17232551": {
+      "url": "https://www.nrk.no/filmpolitiet/dor-han-solo-i-neste-star-wars_-1.17232551",
+      "checkedAt": "2026-08-16T18:40:38.640Z"
+    },
+    "1.17232831": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-martin-scorsese-1.17232831",
+      "checkedAt": "2026-08-16T18:40:39.636Z"
+    },
+    "1.17232887": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-hukommelsestap-1.17232887",
+      "checkedAt": "2026-08-16T18:40:41.154Z"
+    },
+    "1.17232899": {
+      "url": "https://www.nrk.no/filmpolitiet/2013_-arets-beste-tv-serier-1.17232899",
+      "checkedAt": "2026-08-16T18:40:42.100Z"
+    },
+    "1.17232907": {
+      "url": "https://www.nrk.no/filmpolitiet/2013_-arets-beste-filmer-1.17232907",
+      "checkedAt": "2026-08-16T18:40:42.639Z"
+    },
+    "1.17232940": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-skodespelarar-som-speler-seg-sjolv-1.17232940",
+      "checkedAt": "2026-08-16T18:40:43.638Z"
+    },
+    "1.17232955": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-arnold_-1.17232955",
+      "checkedAt": "2026-08-16T18:40:45.009Z"
+    },
+    "1.17233001": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-krigsdokumentarer-1.17233001",
+      "checkedAt": "2026-08-16T18:40:45.651Z"
+    },
+    "1.17233023": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-lgbt-filmer-1.17233023",
+      "checkedAt": "2026-08-16T18:40:46.652Z"
+    },
+    "1.11345522": {
+      "url": "https://www.nrk.no/trondelag/flaklypa-i-trondersk-regi-1.11345522",
+      "checkedAt": "2026-08-16T18:40:47.869Z"
+    },
+    "1.17233054": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-hard-science-fiction-1.17233054",
+      "checkedAt": "2026-08-16T18:40:48.634Z"
+    },
+    "1.17233082": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-pirater-i-popkulturen-1.17233082",
+      "checkedAt": "2026-08-16T18:40:49.876Z"
+    },
+    "1.17233104": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmer-pa-havet-1.17233104",
+      "checkedAt": "2026-08-16T18:40:50.635Z"
+    },
+    "1.17233135": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-varmende-hostfilmer-1.17233135",
+      "checkedAt": "2026-08-16T18:40:51.902Z"
+    },
+    "1.17233163": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-eventyrere-1.17233163",
+      "checkedAt": "2026-08-16T18:40:53.777Z"
+    },
+    "1.17233186": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-heistfilmer-1.17233186",
+      "checkedAt": "2026-08-16T18:40:53.826Z"
+    },
+    "1.17233277": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-hayao-miyazaki-1.17233277",
+      "checkedAt": "2026-08-16T18:40:54.840Z"
+    },
+    "1.17233321": {
+      "url": "https://www.nrk.no/filmpolitiet/_-harald-er-en-stor-unge_-1.17233321",
+      "checkedAt": "2026-08-16T18:40:55.834Z"
+    },
+    "1.17233346": {
+      "url": "https://www.nrk.no/filmpolitiet/_dod-sno-2_-far-amerikanske-forsterkninger-1.17233346",
+      "checkedAt": "2026-08-16T18:40:56.831Z"
+    },
+    "1.17233360": {
+      "url": "https://www.nrk.no/filmpolitiet/_som-du-ser-meg_-ble-beste-norske-kinofilm-1.17233360",
+      "checkedAt": "2026-08-16T18:40:57.829Z"
+    },
+    "1.17233392": {
+      "url": "https://www.nrk.no/filmpolitiet/_-den-eneste-med-moralen-i-behold_-1.17233392",
+      "checkedAt": "2026-08-16T18:58:49.069Z"
+    },
+    "1.17233435": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-ferie-pa-film-1.17233435",
+      "checkedAt": "2026-08-16T18:40:58.831Z"
+    },
+    "1.17233617": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-postapokalyptiske-filmer-1.17233617",
+      "checkedAt": "2026-08-16T18:40:59.826Z"
+    },
+    "1.17233628": {
+      "url": "https://www.nrk.no/filmpolitiet/festen-1.17233628",
+      "checkedAt": "2026-08-16T18:41:00.829Z"
+    },
+    "1.17233661": {
+      "url": "https://www.nrk.no/filmpolitiet/dette-er-de-beste-cannes-filmene_-1.17233661",
+      "checkedAt": "2026-08-16T18:41:02.010Z"
+    },
+    "1.17233669": {
+      "url": "https://www.nrk.no/filmpolitiet/dod-sno-zombier-fenger-cannes-1.17233669",
+      "checkedAt": "2026-08-16T18:41:03.409Z"
+    },
+    "1.17233670": {
+      "url": "https://www.nrk.no/filmpolitiet/skal-lage-norsk-black-metal-thriller-1.17233670",
+      "checkedAt": "2026-08-16T18:41:03.924Z"
+    },
+    "1.17233676": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-er-den-moderne-h.c.-andersen_-1.17233676",
+      "checkedAt": "2026-08-16T18:41:05.218Z"
+    },
+    "1.17233679": {
+      "url": "https://www.nrk.no/filmpolitiet/_-endelig_-sporsmalet-jeg-har-ventet-pa_-1.17233679",
+      "checkedAt": "2026-08-16T18:41:05.993Z"
+    },
+    "1.17233681": {
+      "url": "https://www.nrk.no/filmpolitiet/_-vi-ler-hele-tiden_-1.17233681",
+      "checkedAt": "2026-08-16T18:41:06.829Z"
+    },
+    "1.17233684": {
+      "url": "https://www.nrk.no/filmpolitiet/_-dette-er-min-mest-personlige-film-1.17233684",
+      "checkedAt": "2026-08-16T18:41:07.992Z"
+    },
+    "1.11032890": {
+      "url": "https://www.nrk.no/tromsogfinnmark/dette-ble-for-mye-for-fransk-politi-1.11032890",
+      "checkedAt": "2026-08-16T18:41:08.885Z"
+    },
+    "1.17233690": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-forsoker-ikke-a-romme-fra-harry-potter_-1.17233690",
+      "checkedAt": "2026-08-16T18:41:09.841Z"
+    },
+    "1.17233695": {
+      "url": "https://www.nrk.no/filmpolitiet/oppdaget-sin-neste-film-pa-tog-i-sibir-1.17233695",
+      "checkedAt": "2026-08-16T18:41:10.923Z"
+    },
+    "1.17233699": {
+      "url": "https://www.nrk.no/filmpolitiet/den-rode-loperen-er-klar-for-leo_-1.17233699",
+      "checkedAt": "2026-08-16T18:41:11.978Z"
+    },
+    "1.17233730": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-levande-bilar-1.17233730",
+      "checkedAt": "2026-08-16T18:41:12.833Z"
+    },
+    "1.17233795": {
+      "url": "https://www.nrk.no/filmpolitiet/her-er-arets-cannes-filmer_-1.17233795",
+      "checkedAt": "2026-08-16T18:41:13.826Z"
+    },
+    "1.17233812": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-zombiefilmer-1.17233812",
+      "checkedAt": "2026-08-16T18:41:14.833Z"
+    },
+    "1.17233921": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-disneyfilmer-vi-vil-se-i-nye-versjoner-1.17233921",
+      "checkedAt": "2026-08-16T18:41:15.955Z"
+    },
+    "1.17233969": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-tom-hanks-1.17233969",
+      "checkedAt": "2026-08-16T18:41:16.870Z"
+    },
+    "1.17233995": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-arnold-oneliners-1.17233995",
+      "checkedAt": "2026-08-16T18:41:17.903Z"
+    },
+    "1.17234025": {
+      "url": "https://www.nrk.no/filmpolitiet/disse-filmene-vinner-oscar_-1.17234025",
+      "checkedAt": "2026-08-16T18:41:18.834Z"
+    },
+    "1.17234169": {
+      "url": "https://www.nrk.no/filmpolitiet/vil-endre-svenskenes-nasjonale-identitet-1.17234169",
+      "checkedAt": "2026-08-16T18:41:19.829Z"
+    },
+    "1.17234172": {
+      "url": "https://www.nrk.no/filmpolitiet/_-aeresdrap-fra-et-annet-perspektiv-1.17234172",
+      "checkedAt": "2026-08-16T18:41:20.922Z"
+    },
+    "1.17234203": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-tom-cruise-1.17234203",
+      "checkedAt": "2026-08-16T18:41:22.391Z"
+    },
+    "1.17234405": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-gangsterfilmer-1.17234405",
+      "checkedAt": "2026-08-16T18:41:22.828Z"
+    },
+    "1.17234573": {
+      "url": "https://www.nrk.no/filmpolitiet/se-traileren-til-tommy-wirkolas-hollywood-film_-1.17234573",
+      "checkedAt": "2026-08-16T18:41:23.830Z"
+    },
+    "1.17234594": {
+      "url": "https://www.nrk.no/filmpolitiet/hva-kan-disse-kjekkasene-fa-til-sammen_-1.17234594",
+      "checkedAt": "2026-08-16T18:41:25.139Z"
+    },
+    "1.17234616": {
+      "url": "https://www.nrk.no/filmpolitiet/tony-scott-kjedet-meg-aldri_-1.17234616",
+      "checkedAt": "2026-08-16T18:41:25.833Z"
+    },
+    "1.17234625": {
+      "url": "https://www.nrk.no/filmpolitiet/overraskende-amanda-vinner-1.17234625",
+      "checkedAt": "2026-08-16T18:41:26.829Z"
+    },
+    "1.17234630": {
+      "url": "https://www.nrk.no/filmpolitiet/hvem-vinner-amandaprisene_-1.17234630",
+      "checkedAt": "2026-08-16T18:41:27.972Z"
+    },
+    "1.17234640": {
+      "url": "https://www.nrk.no/filmpolitiet/dette-er-hostens-storste-filmer_-1.17234640",
+      "checkedAt": "2026-08-16T18:41:28.827Z"
+    },
+    "1.17234764": {
+      "url": "https://www.nrk.no/filmpolitiet/kinosommeren-1982_-the-thing-1.17234764",
+      "checkedAt": "2026-08-16T18:41:29.832Z"
+    },
+    "1.17234839": {
+      "url": "https://www.nrk.no/filmpolitiet/kvartfinale-a_-wolverine-vs-hulken_-1.17234839",
+      "checkedAt": "2026-08-16T18:41:30.831Z"
+    },
+    "1.17234869": {
+      "url": "https://www.nrk.no/filmpolitiet/retur-for-ett-av-historiens-beste-filmpar_-1.17234869",
+      "checkedAt": "2026-08-16T18:41:31.860Z"
+    },
+    "1.17234949": {
+      "url": "https://www.nrk.no/filmpolitiet/de-beste-og-verste-cannes-filmene-1.17234949",
+      "checkedAt": "2026-08-16T18:41:32.828Z"
+    },
+    "1.17234954": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-elsker-a-skremme-meg-selv_-1.17234954",
+      "checkedAt": "2026-08-16T18:41:33.826Z"
+    },
+    "1.17234959": {
+      "url": "https://www.nrk.no/filmpolitiet/vil-heller-spille-morder-enn-rasist-1.17234959",
+      "checkedAt": "2026-08-16T18:41:34.994Z"
+    },
+    "1.17234962": {
+      "url": "https://www.nrk.no/filmpolitiet/cannes-filmene-som-lurer-deg_-1.17234962",
+      "checkedAt": "2026-08-16T18:41:35.830Z"
+    },
+    "1.17234969": {
+      "url": "https://www.nrk.no/filmpolitiet/cannes-film-inspirert-av-bjugn-saken-1.17234969",
+      "checkedAt": "2026-08-16T18:41:36.826Z"
+    },
+    "1.17234974": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-liker-brutalitet_-1.17234974",
+      "checkedAt": "2026-08-16T18:41:37.974Z"
+    },
+    "1.17235140": {
+      "url": "https://www.nrk.no/filmpolitiet/kanonskrell-for-triers-oslo-film_-1.17235140",
+      "checkedAt": "2026-08-16T18:41:39.143Z"
+    },
+    "1.17235220": {
+      "url": "https://www.nrk.no/filmpolitiet/_-scorsese-er-cinema_-1.17235220",
+      "checkedAt": "2026-08-16T18:41:39.958Z"
+    },
+    "1.17235236": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-oscarskandaler-1.17235236",
+      "checkedAt": "2026-08-16T18:41:40.830Z"
+    },
+    "1.17235350": {
+      "url": "https://www.nrk.no/filmpolitiet/det-blir-gamlekaras-oscar-kveld_-1.17235350",
+      "checkedAt": "2026-08-16T18:41:53.204Z"
+    },
+    "1.17235391": {
+      "url": "https://www.nrk.no/filmpolitiet/kan-fransk-stumfilm-vinne-oscar_-1.17235391",
+      "checkedAt": "2026-08-16T18:41:59.826Z"
+    },
+    "1.17235416": {
+      "url": "https://www.nrk.no/filmpolitiet/2011_-arets-beste-filmer-1.17235416",
+      "checkedAt": "2026-08-16T18:42:01.858Z"
+    },
+    "1.17235432": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-10_-julefilmer-1.17235432",
+      "checkedAt": "2026-08-16T18:42:02.834Z"
+    },
+    "1.17235500": {
+      "url": "https://www.nrk.no/filmpolitiet/scorsese-filmer-harry-hole_-1.17235500",
+      "checkedAt": "2026-08-16T18:42:04.141Z"
+    },
+    "1.17235609": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmsjaforer-1.17235609",
+      "checkedAt": "2026-08-16T18:42:04.829Z"
+    },
+    "1.17235697": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-star-wars-scener-1.17235697",
+      "checkedAt": "2026-08-16T18:42:05.936Z"
+    },
+    "1.17235781": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-ninjafilm-1.17235781",
+      "checkedAt": "2026-08-16T18:42:06.827Z"
+    },
+    "1.17235783": {
+      "url": "https://www.nrk.no/filmpolitiet/limbo-i-amandarus_-1.17235783",
+      "checkedAt": "2026-08-16T18:42:07.837Z"
+    },
+    "1.17235784": {
+      "url": "https://www.nrk.no/filmpolitiet/slik-var-amanda-festen_-1.17235784",
+      "checkedAt": "2026-08-16T18:42:08.976Z"
+    },
+    "1.17235844": {
+      "url": "https://www.nrk.no/filmpolitiet/se-mot-stjernene_-1.17235844",
+      "checkedAt": "2026-08-16T18:42:09.985Z"
+    },
+    "1.17235857": {
+      "url": "https://www.nrk.no/filmpolitiet/filmen-om-utoya-_-en-utenkelig-tanke_-1.17235857",
+      "checkedAt": "2026-08-16T18:42:11.015Z"
+    },
+    "1.17235867": {
+      "url": "https://www.nrk.no/filmpolitiet/kan-film-gi-deg-hap_-1.17235867",
+      "checkedAt": "2026-08-16T18:42:11.833Z"
+    },
+    "1.17235974": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmlaerere-1.17235974",
+      "checkedAt": "2026-08-16T18:42:12.831Z"
+    },
+    "1.17236059": {
+      "url": "https://www.nrk.no/filmpolitiet/filmpolitiets-kortfilmpris-2011-1.17236059",
+      "checkedAt": "2026-08-16T18:42:13.954Z"
+    },
+    "1.17236087": {
+      "url": "https://www.nrk.no/filmpolitiet/slik-fester-nordmenn-i-cannes-1.17236087",
+      "checkedAt": "2026-08-16T18:42:14.831Z"
+    },
+    "1.17236088": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-hadde-problemer-med-gud-1.17236088",
+      "checkedAt": "2026-08-16T18:42:15.825Z"
+    },
+    "1.17236091": {
+      "url": "https://www.nrk.no/filmpolitiet/jo-nesbo-bestemmer_-1.17236091",
+      "checkedAt": "2026-08-16T18:42:16.921Z"
+    },
+    "1.17236095": {
+      "url": "https://www.nrk.no/filmpolitiet/_-kritikere-skremmer-meg_-1.17236095",
+      "checkedAt": "2026-08-16T18:42:17.931Z"
+    },
+    "1.17236100": {
+      "url": "https://www.nrk.no/filmpolitiet/emily-browning-imponerer-i-cannes-1.17236100",
+      "checkedAt": "2026-08-16T18:42:18.824Z"
+    },
+    "1.17236107": {
+      "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-store-forventninger_-1.17236107",
+      "checkedAt": "2026-08-16T18:42:19.827Z"
+    },
+    "1.17236209": {
+      "url": "https://www.nrk.no/filmpolitiet/kanon-for-limbo-1.17236209",
+      "checkedAt": "2026-08-16T18:42:21.831Z"
+    },
+    "1.17236352": {
+      "url": "https://www.nrk.no/filmpolitiet/kortfilmkonkurransen-stjerneskudd-2011-1.17236352",
+      "checkedAt": "2026-08-16T18:42:37.953Z"
+    },
+    "1.17236353": {
+      "url": "https://www.nrk.no/filmpolitiet/pameldingskjema-stjerneskudd-2011-1.17236353",
+      "checkedAt": "2026-08-16T18:42:38.898Z"
+    },
+    "1.17236460": {
+      "url": "https://www.nrk.no/filmpolitiet/samarbeider-med-hollywood-legende-1.17236460",
+      "checkedAt": "2026-08-16T18:42:52.075Z"
+    },
+    "1.17236462": {
+      "url": "https://www.nrk.no/filmpolitiet/hjelp_-jeg-er-oscar-nominert_-1.17236462",
+      "checkedAt": "2026-08-16T18:42:53.834Z"
+    },
+    "1.17236482": {
+      "url": "https://www.nrk.no/filmpolitiet/nakensjokk-pa-tiff_-1.17236482",
+      "checkedAt": "2026-08-16T18:42:55.825Z"
+    },
+    "1.17236491": {
+      "url": "https://www.nrk.no/filmpolitiet/_-i_ll-be-back_-1.17236491",
+      "checkedAt": "2026-08-16T18:42:57.832Z"
+    },
+    "1.17236544": {
+      "url": "https://www.nrk.no/filmpolitiet/de-10-beste_-basta_-1.17236544",
+      "checkedAt": "2026-08-16T18:43:10.827Z"
+    },
+    "1.17236548": {
+      "url": "https://www.nrk.no/filmpolitiet/rockeulven-fra-ostblokken-1.17236548",
+      "checkedAt": "2026-08-16T18:43:11.826Z"
+    },
+    "1.17236565": {
+      "url": "https://www.nrk.no/filmpolitiet/de-beste-filmgavene-1.17236565",
+      "checkedAt": "2026-08-16T18:43:14.829Z"
+    },
+    "1.17236694": {
+      "url": "https://www.nrk.no/filmpolitiet/noomi-mot-alien_-1.17236694",
+      "checkedAt": "2026-08-16T18:43:35.831Z"
+    },
+    "1.17236716": {
+      "url": "https://www.nrk.no/filmpolitiet/pa-fest-med-jonas-1.17236716",
+      "checkedAt": "2026-08-16T18:43:40.830Z"
+    },
+    "1.17236721": {
+      "url": "https://www.nrk.no/filmpolitiet/_-speed-er-bra-for-deg-1.17236721",
+      "checkedAt": "2026-08-16T18:43:42.936Z"
+    },
+    "1.17236723": {
+      "url": "https://www.nrk.no/filmpolitiet/dolph-lundgren-og-finanskrisa-1.17236723",
+      "checkedAt": "2026-08-16T18:43:44.824Z"
+    },
+    "1.17236742": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-slashere-1.17236742",
+      "checkedAt": "2026-08-16T18:43:47.832Z"
+    },
+    "1.17236840": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-george-clooney-1.17236840",
+      "checkedAt": "2026-08-16T18:44:00.985Z"
+    },
+    "1.17236877": {
+      "url": "https://www.nrk.no/filmpolitiet/_-hans-og-grete_-1.17236877",
+      "checkedAt": "2026-08-16T18:44:05.825Z"
+    },
+    "1.17236911": {
+      "url": "https://www.nrk.no/filmpolitiet/baz-pa-blu-ray-1.17236911",
+      "checkedAt": "2026-08-16T18:44:09.931Z"
+    },
+    "1.17236938": {
+      "url": "https://www.nrk.no/filmpolitiet/stjerne-i-sikte-1.17236938",
+      "checkedAt": "2026-08-16T18:44:13.828Z"
+    },
+    "1.17236946": {
+      "url": "https://www.nrk.no/filmpolitiet/disse-vant-amanda_-1.17236946",
+      "checkedAt": "2026-08-16T18:44:15.828Z"
+    },
+    "1.17236995": {
+      "url": "https://www.nrk.no/filmpolitiet/cera-kommer_-1.17236995",
+      "checkedAt": "2026-08-16T18:44:17.831Z"
+    },
+    "1.17237006": {
+      "url": "https://www.nrk.no/filmpolitiet/john-carter_-1.17237006",
+      "checkedAt": "2026-08-16T18:44:20.358Z"
+    },
+    "1.17237011": {
+      "url": "https://www.nrk.no/filmpolitiet/legenden-jackie-chan-1.17237011",
+      "checkedAt": "2026-08-16T18:44:20.995Z"
+    },
+    "1.17237013": {
+      "url": "https://www.nrk.no/filmpolitiet/tom-cruise-rir-igjen_-1.17237013",
+      "checkedAt": "2026-08-16T18:44:21.828Z"
+    },
+    "1.17237015": {
+      "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmvapen-1.17237015",
+      "checkedAt": "2026-08-16T18:44:23.941Z"
+    },
+    "1.17237023": {
+      "url": "https://www.nrk.no/filmpolitiet/forbuden-film-1.17237023",
+      "checkedAt": "2026-08-16T18:44:26.827Z"
+    },
+    "1.17237032": {
+      "url": "https://www.nrk.no/filmpolitiet/predatorene-er-tilbake_-1.17237032",
+      "checkedAt": "2026-08-16T18:44:28.933Z"
+    },
+    "1.17237199": {
+      "url": "https://www.nrk.no/filmpolitiet/steven-seagal-1.17237199",
+      "checkedAt": "2026-08-16T18:44:38.832Z"
+    },
+    "1.17237224": {
+      "url": "https://www.nrk.no/filmpolitiet/zwart-suksess_-1.17237224",
+      "checkedAt": "2026-08-16T18:44:41.910Z"
+    },
+    "1.17237242": {
+      "url": "https://www.nrk.no/filmpolitiet/del-toro-har-det-vondt-1.17237242",
+      "checkedAt": "2026-08-16T18:44:43.828Z"
+    },
+    "1.17237243": {
+      "url": "https://www.nrk.no/filmpolitiet/vampyrer_-aliens-og-cruise-1.17237243",
+      "checkedAt": "2026-08-16T18:44:44.830Z"
+    },
+    "1.17237246": {
+      "url": "https://www.nrk.no/filmpolitiet/snehvit-blir-slem_-1.17237246",
+      "checkedAt": "2026-08-16T18:44:45.835Z"
+    },
+    "1.17237249": {
+      "url": "https://www.nrk.no/filmpolitiet/arne-treholt-som-ninja_-1.17237249",
+      "checkedAt": "2026-08-16T18:44:46.918Z"
+    },
+    "1.17237264": {
+      "url": "https://www.nrk.no/filmpolitiet/hobbiten-i-trobbel_-1.17237264",
+      "checkedAt": "2026-08-16T18:44:50.828Z"
+    },
+    "1.17237313": {
+      "url": "https://www.nrk.no/filmpolitiet/_-fra-sverd-til-maskingevaer_-1.17237313",
+      "checkedAt": "2026-08-16T18:44:54.829Z"
+    },
+    "1.17237394": {
+      "url": "https://www.nrk.no/filmpolitiet/hvem-vinner-oscar-prisene_-1.17237394",
+      "checkedAt": "2026-08-16T18:45:18.936Z"
+    },
+    "1.6957422": {
+      "url": "https://www.nrk.no/trondelag/kjendisfilm-apner-kosmorama-1.6957422",
+      "checkedAt": "2026-08-16T18:45:40.130Z"
+    },
+    "1.17237487": {
+      "url": "https://www.nrk.no/filmpolitiet/gled-deg_-1.17237487",
+      "checkedAt": "2026-08-16T18:45:49.825Z"
+    },
+    "1.17253308": {
+      "url": "https://www.nrk.no/filmpolitiet/rockeulver-fra-ostblokken-1.17253308",
+      "checkedAt": "2026-08-16T18:45:55.918Z"
+    },
+    "1.17237605": {
+      "url": "https://www.nrk.no/filmpolitiet/filmpolitiet-minnes-patrick-swayze-1.17237605",
+      "checkedAt": "2026-08-16T18:46:32.945Z"
+    },
+    "1.6741723": {
+      "url": "https://www.nrk.no/kultur/her-er-amanda-vinnerne-1.6741723",
+      "checkedAt": "2026-08-16T18:46:40.297Z"
+    },
+    "1.17253265": {
+      "url": "https://www.nrk.no/filmpolitiet/pass-opp-for-dildoen_-1.17253265",
+      "checkedAt": "2026-08-16T18:46:50.904Z"
+    },
+    "1.17253259": {
+      "url": "https://www.nrk.no/filmpolitiet/historien-stinker-1.17253259",
+      "checkedAt": "2026-08-16T18:46:58.897Z"
+    },
+    "1.6589267": {
+      "url": "https://www.nrk.no/tromsogfinnmark/will-ferrell-i-ny-wirkola-film-1.6589267",
+      "checkedAt": "2026-08-16T18:47:18.879Z"
+    },
+    "1.6251174": {
+      "url": "https://www.nrk.no/kultur/racingspillet-pure-1.6251174",
+      "checkedAt": "2026-08-16T18:49:27.597Z"
+    },
+    "1.6221164": {
+      "url": "https://www.nrk.no/kultur/tryneknusing-i-facebreaker-1.6221164",
+      "checkedAt": "2026-08-16T18:49:45.917Z"
+    },
+    "1.6185376": {
+      "url": "https://www.nrk.no/kultur/arn-_-riket-ved-veiens...-4_-1.6185376",
+      "checkedAt": "2026-08-16T18:50:05.525Z"
+    },
+    "1.6179705": {
+      "url": "https://www.nrk.no/kultur/amanda-prisene-utdelt_-1.6179705",
+      "checkedAt": "2026-08-16T18:50:08.471Z"
+    },
+    "1.6179590": {
+      "url": "https://www.nrk.no/kultur/klart-for-amanda_-1.6179590",
+      "checkedAt": "2026-08-16T18:50:09.587Z"
+    },
+    "1.5290201": {
+      "url": "https://www.nrk.no/kultur/gran-turismo-5-prologue-for-fansen-1.5290201",
+      "checkedAt": "2026-08-16T18:50:57.142Z"
+    },
+    "1.4225940": {
+      "url": "https://www.nrk.no/kultur/lavt-gir-for-prostreet-1.4225940",
+      "checkedAt": "2026-08-16T18:51:47.866Z"
+    },
+    "1.3706304": {
+      "url": "https://www.nrk.no/kultur/project-gotham-racing-4-1.3706304",
+      "checkedAt": "2026-08-16T18:52:18.373Z"
+    },
+    "1.3625791": {
+      "url": "https://www.nrk.no/kultur/medal-of-honor_-airborne-1.3625791",
+      "checkedAt": "2026-08-16T18:52:22.195Z"
+    },
+    "1.3240804": {
+      "url": "https://www.nrk.no/kultur/filmregissorer-krever-opprydding-1.3240804",
+      "checkedAt": "2026-08-16T18:52:36.990Z"
+    },
+    "1.2626505": {
+      "url": "https://www.nrk.no/kultur/graw-2-1.2626505",
+      "checkedAt": "2026-08-16T18:52:52.202Z"
+    },
+    "1.2624052": {
+      "url": "https://www.nrk.no/kultur/gears-of-war-1.2624052",
+      "checkedAt": "2026-08-16T18:52:53.367Z"
+    },
+    "1.2402607": {
+      "url": "https://www.nrk.no/kultur/crackdown-1.2402607",
+      "checkedAt": "2026-08-16T18:52:58.202Z"
+    },
+    "1.2361410": {
+      "url": "https://www.nrk.no/kultur/harry-potter-og-fangen-fra-azkaban-1.2361410",
+      "checkedAt": "2026-08-16T18:52:58.945Z"
+    },
+    "1.2361638": {
+      "url": "https://www.nrk.no/kultur/harry-potter-og-ildbegeret-1.2361638",
+      "checkedAt": "2026-08-16T18:52:59.982Z"
+    },
+    "1.2360447": {
+      "url": "https://www.nrk.no/kultur/harry-potter-og-mysteriekammeret-1.2360447",
+      "checkedAt": "2026-08-16T18:53:00.863Z"
+    },
+    "1.2360842": {
+      "url": "https://www.nrk.no/kultur/harry-potter-og-de-vises-stein-1.2360842",
+      "checkedAt": "2026-08-16T18:53:01.864Z"
+    },
+    "1.1509267": {
+      "url": "https://www.nrk.no/kultur/call-of-duty-3-1.1509267",
+      "checkedAt": "2026-08-16T18:53:07.871Z"
+    }
+  }
+}
