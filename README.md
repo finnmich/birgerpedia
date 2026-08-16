@@ -3,8 +3,8 @@
 > previously *Vestmodex* — renamed 2026-05-11 for a friendlier door.
 
 A homage oppslagsverk of every film, TV, and game review by **Birger Vestmo**,
-NRK Filmpolitiet's veteran critic. **1,914 reviews, 2007–2026,
-95.9% TMDB-enriched.**
+NRK Filmpolitiet's veteran critic. **2,572 reviews, 2001–2026,
+95.6% TMDB-enriched.**
 
 See [`PLAN.md`](./PLAN.md) for the full design, recon and crawl-ethics notes.
 
@@ -15,7 +15,7 @@ See [`PLAN.md`](./PLAN.md) for the full design, recon and crawl-ethics notes.
 ```bash
 npm install                                      # nothing required, but installs nothing too
 npm run crawl:listing                            # ~1 min: pages of Birger's NRK author feed
-npm run crawl:articles                           # ~32 min: every /anmeldelse_-_/ article (resumable)
+npm run crawl:articles                           # ~50 min cold: every listed article (resumable)
 npm run build:dataset                            # produces data/processed/reviews.json
 TMDB_API_KEY=… node scripts/enrich-tmdb.mjs      # ~8 min: TMDB cast/crew/posters
 ```
@@ -91,8 +91,9 @@ Same daily workflow keeps committing to main; CF picks up automatically.
 ```
 scripts/         # crawlers, parser, dataset builder, TMDB enrichment (Node ESM)
 data/raw/        # original NRK responses (gitignored)
-  listing/       #   author-API JSON pages + index.json
-  articles/      #   one HTML + parsed JSON per review, by NRK content ID
+  listing/       #   author-API JSON pages + index.json + not-review.json
+  articles/      #   one HTML per listed article, plus parsed JSON for the
+                 #   ones that are reviews, by NRK content ID
 data/processed/  # the published dataset (reviews.json, stats.json, enrichment/)
 app/             # Astro 7 + Vue 3 + Tailwind 4 static site
 PLAN.md          # design + recon notes + progress

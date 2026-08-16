@@ -52,10 +52,10 @@ const NORWEGIAN_MONTHS = {
 };
 
 export function parseArticle(html, { url, id } = {}) {
-  const ld = extractReviewJsonLd(html);
+  const meta = extractMetaTags(html);
+  const ld = extractReviewJsonLd(html) ?? extractLegacyReview(html, meta, url);
   if (!ld) return null; // not a review article
 
-  const meta = extractMetaTags(html);
   const reviewInfo = extractReviewInfo(html);
   const factbox = extractFactbox(html);
   const newcms = extractNewCmsMeta(html);
@@ -82,7 +82,10 @@ export function parseArticle(html, { url, id } = {}) {
     section: meta['article:section'] ?? null,
 
     type: itemReviewed['@type'] ?? null,         // Movie | TVSeries | VideoGame | …
-    name: stripQuotes(reviewInfo.titleLine ?? itemReviewed.name ?? ld.headline ?? null),
+    name: stripRatingSuffix(
+      stripQuotes(reviewInfo.titleLine ?? itemReviewed.name ?? ld.headline ?? null),
+      rating,
+    ),
     originalTitle: stripQuotes(reviewInfo.originalTitleLine ?? newcms.originalTitle ?? null),
     headline: ld.headline ?? null,
     abstract: ld.abstract ?? meta['og:title'] ?? null,
@@ -141,8 +144,9 @@ export function parseArticle(html, { url, id } = {}) {
 
 // ---------- helpers ----------
 
-function extractReviewJsonLd(html) {
-  // Pull every <script type="application/ld+json">…</script> blob, find the Review.
+function findJsonLd(html, isWanted) {
+  // Pull every <script type="application/ld+json">…</script> blob, return
+  // the first node the predicate accepts.
   const re = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = re.exec(html))) {
@@ -153,10 +157,63 @@ function extractReviewJsonLd(html) {
     const arr = Array.isArray(json) ? json : [json];
     for (const node of arr) {
       const t = node?.['@type'];
-      if (t === 'Review' || (Array.isArray(t) && t.includes('Review'))) {
-        return node;
-      }
+      const types = Array.isArray(t) ? t : [t];
+      if (isWanted(types)) return node;
     }
+  }
+  return null;
+}
+
+function extractReviewJsonLd(html) {
+  return findJsonLd(html, (types) => types.includes('Review'));
+}
+
+// Pre-2009 NRK articles predate schema.org Review markup: their JSON-LD
+// says plain "Article" and carries no reviewRating, so the check above
+// rejects them and ~60 of Birger's earliest reviews never reach the dex.
+//
+// The terningkast does survive, in two independent NRK-authored places —
+// the og:title suffix ("Klassen (5)") and the URL slug
+// ("…/klassen-_5_-1.6357339"). We require both and require them to agree,
+// which makes this corroboration rather than a guess; across the whole
+// corpus every article carrying both has them matching.
+//
+// Pages NRK itself labelled "Anmeldelse: …" in both title and slug are
+// admitted without a rating. They're unambiguously reviews — the dice
+// just didn't survive the migration — and landing in the dex unrated
+// beats not landing at all.
+//
+// Returns a synthetic Review node so the rest of parseArticle, which
+// reads datePublished / author / image / abstract off the same object,
+// works unchanged.
+function extractLegacyReview(html, meta, url) {
+  const node = findJsonLd(html, (types) =>
+    types.some((t) => t === 'Article' || t === 'NewsArticle' || t === 'ReportageNewsArticle'));
+  if (!node) return null;
+
+  const title = meta['og:title'] ?? '';
+  const href = meta['og:url'] ?? url ?? '';
+
+  const fromTitle = /\(([1-6])\)\s*$/.exec(title)?.[1];
+  const fromSlug = /_([1-6])_-\d+\.\d+$/.exec(href)?.[1];
+  if (fromTitle && fromTitle === fromSlug) {
+    return {
+      ...node,
+      '@type': 'Review',
+      headline: title.replace(/\s*\([1-6]\)\s*$/, '').trim() || node.headline,
+      reviewRating: { ratingValue: Number(fromTitle), bestRating: 6 },
+      legacyRatingSource: 'og-title+slug',
+    };
+  }
+
+  if (/^\s*(spill)?anmeldelse\b\s*[-:–]?\s+/i.test(title) && /\/(spill)?anmeldelse[-_]/i.test(href)) {
+    return {
+      ...node,
+      '@type': 'Review',
+      headline: title.replace(/^\s*(spill)?anmeldelse\b\s*[-:–]?\s+/i, '').trim() || node.headline,
+      reviewRating: null,
+      legacyRatingSource: 'anmeldelse-label',
+    };
   }
   return null;
 }
@@ -195,8 +252,17 @@ function extractReviewInfo(html) {
     premiereLine: null, platformLine: null,
     reviewType: null,
   };
-  const rt = /<span\s+class="review-type">\s*([^<]+?)\s*<\/span>/i.exec(html);
-  if (rt) out.reviewType = rt[1].trim();
+  // The article's own review-type span sits immediately before its
+  // review-info block. Related-article plug widgets further down the page
+  // carry the same markup for *their* subject, so an unscoped search
+  // hands a film review the genre of whatever was in the sidebar — and on
+  // legacy pages, which have no review-info block at all, every candidate
+  // is a sidebar plug. Only accept a span that precedes the block.
+  const blockStart = html.search(/<div\s+class="review-info">/i);
+  if (blockStart >= 0) {
+    const rt = /<span\s+class="review-type">\s*([^<]+?)\s*<\/span>/i.exec(html.slice(0, blockStart));
+    if (rt) out.reviewType = rt[1].trim();
+  }
 
   const block = grabReviewInfoBlock(html);
   if (!block) return out;
@@ -412,6 +478,18 @@ function parseDate(s) {
 }
 
 function stripTags(s) { return String(s).replace(/<[^>]+>/g, ''); }
+
+// NRK sometimes appends the terningkast to the article title itself
+// ("Wild Child (4)", "Pinocchio (Blu-ray) (6)"). Drop it when it matches
+// the rating we already parsed — that equality check is what keeps a film
+// genuinely titled "… (4)" intact. The die renders separately, and left in
+// place the suffix leaks into slugs, search, and TMDB queries.
+function stripRatingSuffix(name, rating) {
+  if (!name || rating == null) return name ?? null;
+  const m = /^(.*?)\s*\((\d)\)\s*$/.exec(name);
+  if (!m || Number(m[2]) !== rating) return name;
+  return m[1].trim() || name;
+}
 
 function stripQuotes(s) {
   if (!s) return s ?? null;

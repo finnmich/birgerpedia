@@ -551,8 +551,10 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
               <span>{{ r.year }}</span>
               <span v-if="r.factbox?.regi || r.factbox?.serieskaper" class="sep">·</span>
               <span v-if="r.factbox?.regi || r.factbox?.serieskaper" v-html="highlight(r.factbox.regi ?? r.factbox.serieskaper)"></span>
-              <span v-if="r.type !== 'Movie'" class="sep">·</span>
-              <span v-if="r.type !== 'Movie'" class="tag">{{ r.type === 'TVSeries' ? 'serie' : r.type === 'Game' ? 'spill' : r.type }}</span>
+              <!-- Pre-2009 reviews carry no schema.org itemReviewed, so type
+                   is null — render nothing rather than a dangling separator. -->
+              <span v-if="r.type && r.type !== 'Movie'" class="sep">·</span>
+              <span v-if="r.type && r.type !== 'Movie'" class="tag">{{ r.type === 'TVSeries' ? 'serie' : r.type === 'Game' ? 'spill' : r.type }}</span>
             </span>
             <Die :value="r.rating" :size="36" :rotate="-2" />
           </a>

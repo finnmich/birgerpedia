@@ -117,6 +117,12 @@ jobs:
         if: github.event_name != 'push'
         run: node scripts/crawl-newcms.mjs
 
+      # Fetches every listing plug it hasn't classified yet, and lets the
+      # parser's Review JSON-LD check decide what's a review — URL shape
+      # can't, NRK has used half a dozen slug conventions since 2001.
+      # Plugs already in reviews.json or not-review.json are skipped, so
+      # the steady-state cost is the handful of genuinely new articles
+      # plus the 25-a-day non-review re-check rotation.
       - name: 2) Fetch new article HTML
         if: github.event_name != 'push'
         run: node scripts/crawl-articles.mjs
@@ -206,7 +212,8 @@ jobs:
                    data/processed/omdb-ratings.json \
                    data/processed/tmdb-enrichment.json \
                    data/raw/listing/index.json \
-                   data/raw/listing/newcms-seen.json
+                   data/raw/listing/newcms-seen.json \
+                   data/raw/listing/not-review.json
           if git diff --staged --quiet; then
             echo "No data changes today."
           else
