@@ -118,8 +118,8 @@ if (p.asEditor)          subtitleRoles.push(`${p.asEditor} som klipper`);
       </div>
     </header>
 
+    <!-- ============== BEST / WORST ============== -->
     {p.best && p.worst && p.best.review.id !== p.worst.review.id && (
-      <!-- ============== BEST / WORST ============== -->
       <section class="bookends">
         <a class="bookend" href={u(`/reviews/${p.best.review.slug}`)}>
           <div class="bookend-label h-eyebrow">Birgers favoritt</div>

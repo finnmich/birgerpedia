@@ -51,4 +51,13 @@ export default defineConfig({
   prefetch: { defaultStrategy: 'hover', prefetchAll: false },
 
   build: { inlineStylesheets: 'auto' },
+
+  // Astro 7 changed the default to 'jsx', which strips whitespace using JSX
+  // rules. That silently eats the significant space between adjacent inline
+  // elements — our label/value pairs render as "LandUnited States of America",
+  // "4,00snittkast", "Birger4/ 6". `true` keeps the HTML-aware compression
+  // Astro used through v6: still minified, but whitespace that the browser
+  // would render is preserved. Revisit only alongside a CSS pass that gives
+  // those pairs explicit spacing.
+  compressHTML: true,
 });

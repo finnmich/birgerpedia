@@ -155,12 +155,9 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                 <span class="lab">Regi</span>
                 <span class="val">
                   {personLinks(r.factbox.regi).map((p, i) => (
-                    <>
-                      {i > 0 && <span class="comma">, </span>}
-                      {p.exists
-                        ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
-                        : <span>{p.name}</span>}
-                    </>
+                    <>{i > 0 && <span class="comma">, </span>}{p.exists
+                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                      : <span>{p.name}</span>}</>
                   ))}
                 </span>
               </li>
@@ -170,12 +167,9 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                 <span class="lab">Serieskaper</span>
                 <span class="val">
                   {personLinks(r.factbox.serieskaper).map((p, i) => (
-                    <>
-                      {i > 0 && <span class="comma">, </span>}
-                      {p.exists
-                        ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
-                        : <span>{p.name}</span>}
-                    </>
+                    <>{i > 0 && <span class="comma">, </span>}{p.exists
+                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                      : <span>{p.name}</span>}</>
                   ))}
                 </span>
               </li>
@@ -188,10 +182,7 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
                     const slug = slugify(name);
                     const exists = eligibleSlugs.has(slug);
                     return (
-                      <>
-                        {i > 0 && <span class="comma">, </span>}
-                        {exists ? <a href={u(`/people/${slug}`)}>{name}</a> : <span>{name}</span>}
-                      </>
+                      <>{i > 0 && <span class="comma">, </span>}{exists ? <a href={u(`/people/${slug}`)}>{name}</a> : <span>{name}</span>}</>
                     );
                   })}
                 </span>
@@ -252,10 +243,10 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
       </div>
     </header>
 
+    <!-- ============================================
+         HVA SIER VERDEN — cross-source rating comparison
+         ============================================ -->
     {hasAnyExternal && (
-      <!-- ============================================
-           HVA SIER VERDEN — cross-source rating comparison
-           ============================================ -->
       <section class="verdicts" aria-label="Andre meninger om dette verket">
         <header class="verdicts-head">
           <div class="h-eyebrow">Hva sier verden?</div>
@@ -346,10 +337,10 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
       </a>
     </section>
 
+    <!-- ============================================
+         Hvor kan du se den? — TMDB watch providers (NO locale)
+         ============================================ -->
     {hasWatchOptions && (
-      <!-- ============================================
-           Hvor kan du se den? — TMDB watch providers (NO locale)
-           ============================================ -->
       <section class="watch" aria-labelledby="watch-title">
         <header class="watch-head">
           <div class="h-eyebrow">Tilgjengelig i Norge</div>
@@ -396,10 +387,10 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
       </section>
     )}
 
+    <!-- ============================================
+         ENRICHED METADATA
+         ============================================ -->
     {tmdb && (
-      <!-- ============================================
-           ENRICHED METADATA
-           ============================================ -->
       <section class="tmdb">
         <header class="tmdb-head">
           <div class="tmdb-head-text">
@@ -473,12 +464,9 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
               <span class="lab">Foto</span>
               <span class="val">
                 {personLinks(tmdb.crew.dop).map((p, i) => (
-                  <>
-                    {i > 0 && <span class="comma">, </span>}
-                    {p.exists
-                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
-                      : <span>{p.name}</span>}
-                  </>
+                  <>{i > 0 && <span class="comma">, </span>}{p.exists
+                    ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                    : <span>{p.name}</span>}</>
                 ))}
               </span>
             </li>
@@ -488,12 +476,9 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
               <span class="lab">Musikk</span>
               <span class="val">
                 {personLinks(tmdb.crew.composer).map((p, i) => (
-                  <>
-                    {i > 0 && <span class="comma">, </span>}
-                    {p.exists
-                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
-                      : <span>{p.name}</span>}
-                  </>
+                  <>{i > 0 && <span class="comma">, </span>}{p.exists
+                    ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                    : <span>{p.name}</span>}</>
                 ))}
               </span>
             </li>
@@ -503,12 +488,9 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
               <span class="lab">Klipp</span>
               <span class="val">
                 {personLinks(tmdb.crew.editor).map((p, i) => (
-                  <>
-                    {i > 0 && <span class="comma">, </span>}
-                    {p.exists
-                      ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
-                      : <span>{p.name}</span>}
-                  </>
+                  <>{i > 0 && <span class="comma">, </span>}{p.exists
+                    ? <a href={u(`/people/${p.slug}`)}>{p.name}</a>
+                    : <span>{p.name}</span>}</>
                 ))}
               </span>
             </li>

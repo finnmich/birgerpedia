@@ -9,3 +9,6 @@ public/data/external-ratings.json
 public/data/people.json
 src/_data/enrichment.json
 .DS_Store
+
+# Single source of truth for the dep tree is package-lock.json (CI runs `npm ci`).
+bun.lock

@@ -13,8 +13,7 @@
     "enrich:omdb": "node scripts/fetch-omdb.mjs",
     "smoke": "node scripts/test-parser.mjs"
   },
-  "dependencies": {},
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12.0"
   }
 }
