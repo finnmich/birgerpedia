@@ -1,0 +1,72 @@
+# Automated dependency updates.
+#
+# Added after a single maintenance pass had to move the site two Astro
+# majors (5.18 -> 7.2) and clear 11 advisories, 8 of them high-severity
+# Astro XSS. None of that was urgent individually; it accumulated because
+# nothing was watching. Weekly PRs keep the delta small enough to review.
+#
+# Note: this file configures *version* updates only. Dependabot security
+# alerts and security updates are a repository setting
+# (Settings -> Code security), not something this file can switch on.
+
+version: 2
+
+updates:
+  # ---------------------------------------------------------------- npm
+  # Only app/ has dependencies — the root package.json is scripts-only and
+  # its crawlers deliberately run on Node built-ins with zero packages.
+  - package-ecosystem: npm
+    directory: /app
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: Europe/Oslo
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore(deps)
+      prefix-development: chore(deps-dev)
+
+    groups:
+      # Roll routine upgrades into one PR so the weekly noise is a single
+      # review. Majors are deliberately excluded — they get their own PR,
+      # because that is exactly the class of change that needs the build
+      # diffed page-by-page rather than a green checkmark.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+    ignore:
+      # TypeScript 7 (the Go rewrite) ships without a stable programmatic
+      # API, so the Volar-based template checkers behind Astro and Vue
+      # cannot run on it — @astrojs/check declares this itself with
+      # `typescript: ^5.0.0 || ^6.0.0`. Revisit when 7.1 restores the API;
+      # until then a major bump here silently breaks editor type-checking
+      # for every .astro and .vue file.
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
+
+      # @types/node tracks the Node runtime, not "newest wins".
+      # DefinitelyTyped publishes parallel majors for exactly this reason,
+      # and CI runs Node 24 (Active LTS). Bump this by hand when the
+      # workflow's node-version moves.
+      - dependency-name: "@types/node"
+        update-types: [version-update:semver-major]
+
+  # ----------------------------------------------------- github actions
+  # Always directory `/` — this ecosystem reads .github/workflows.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: Europe/Oslo
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns:
+          - "*"
