@@ -1,6 +1,6 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-17T04:31:02.817Z",
+  "fetchedAt": "2026-08-18T04:24:15.192Z",
   "pageCount": 2,
   "pluggCount": 2953,
   "stoppedEarly": true,
@@ -570,12 +570,15 @@
       "description": "ANMELDELSE: «The Secret Agent».",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_the-secret-agent_-1.17781154",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pg_A_nyqBaGPAu6o8q4kWNbA.jpg",
-          "pngUrl": "https://gfx.nrk.no/-jfluB1NM5WPDPipnm60pgfoWiel8sVuwu6o8q4kWNbA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Connect to https://kaleido.nrk.no:443 failed: Connect timed out"
+        ],
+        "id": "1.17781189",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2026-02-23T12:56:54.000Z"
     },
@@ -858,12 +861,15 @@
       "description": "ANMELDELSE: «Avatar: Fire and Ash»",
       "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-_avatar_-fire-and-ash_-1.17693150",
       "image": {
-        "format": "image/jpeg",
-        "crop": {
-          "jpegUrl": "https://gfx.nrk.no/f08cSwwKwpi0CVL2cuQqYgOkldL_syPUwPWxtRcnUSWA.jpg",
-          "pngUrl": "https://gfx.nrk.no/f08cSwwKwpi0CVL2cuQqYghOX3y4mcWxUPWxtRcnUSWA.png"
-        },
-        "description": null
+        "query": "{Image{format crop{jpegUrl:url(width:545,quality:10,format:jpeg) pngUrl:url(width:545,quality:10,format:png)}description}}",
+        "errors": [
+          "Exception while fetching data (/Image/format) : Connect to https://kaleido.nrk.no:443 failed: Connect timed out"
+        ],
+        "id": "1.17693248",
+        "modelType": "Image",
+        "message": "GraphQL execution resulted in errors",
+        "failureType": "GraphQLErrors",
+        "type": "Failure"
       },
       "published": "2025-12-16T14:00:00.000Z"
     },
