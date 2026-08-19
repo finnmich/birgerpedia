@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T04:24:42.164Z",
+  "updatedAt": "2026-08-19T04:26:21.255Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -312,103 +312,103 @@
     },
     "1.17229486": {
       "url": "https://www.nrk.no/filmpolitiet/_-rambos-kamp-kan-aldri-vinnes-1.17229486",
-      "checkedAt": "2026-08-16T18:38:35.709Z"
+      "checkedAt": "2026-08-19T04:25:57.473Z"
     },
     "1.17229501": {
       "url": "https://www.nrk.no/filmpolitiet/_-denne-rollen-kom-til-rett-tid_-1.17229501",
-      "checkedAt": "2026-08-16T18:38:36.704Z"
+      "checkedAt": "2026-08-19T04:25:58.127Z"
     },
     "1.17229507": {
       "url": "https://www.nrk.no/filmpolitiet/brad-pitt-er-astronaut-i-venezia-1.17229507",
-      "checkedAt": "2026-08-16T18:38:37.710Z"
+      "checkedAt": "2026-08-19T04:25:59.120Z"
     },
     "1.17229567": {
       "url": "https://www.nrk.no/filmpolitiet/12-serier-vi-gleder-oss-til-i-sommer-1.17229567",
-      "checkedAt": "2026-08-16T18:38:38.714Z"
+      "checkedAt": "2026-08-19T04:26:00.100Z"
     },
     "1.17229573": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-heller-vaere-rocky-enn-rambo_-1.17229573",
-      "checkedAt": "2026-08-16T18:38:39.709Z"
+      "checkedAt": "2026-08-19T04:26:01.103Z"
     },
     "1.17229574": {
       "url": "https://www.nrk.no/filmpolitiet/de-beste-cannes-filmene-1.17229574",
-      "checkedAt": "2026-08-16T18:38:40.966Z"
+      "checkedAt": "2026-08-19T04:26:02.297Z"
     },
     "1.17229578": {
       "url": "https://www.nrk.no/filmpolitiet/_-befriende-a-jobbe-med-de-beste-av-de-beste-1.17229578",
-      "checkedAt": "2026-08-16T18:38:41.726Z"
+      "checkedAt": "2026-08-19T04:26:03.255Z"
     },
     "1.17229590": {
       "url": "https://www.nrk.no/filmpolitiet/de-fem-storste-cannes-filmene-1.17229590",
-      "checkedAt": "2026-08-16T18:38:42.713Z"
+      "checkedAt": "2026-08-19T04:26:04.225Z"
     },
     "1.17229693": {
       "url": "https://www.nrk.no/filmpolitiet/2019_-filmene-vi-gleder-oss-til-1.17229693",
-      "checkedAt": "2026-08-16T18:38:43.710Z"
+      "checkedAt": "2026-08-19T04:26:05.121Z"
     },
     "1.17229694": {
       "url": "https://www.nrk.no/filmpolitiet/2019_-seriene-vi-gleder-oss-til-1.17229694",
-      "checkedAt": "2026-08-16T18:38:44.712Z"
+      "checkedAt": "2026-08-19T04:26:06.129Z"
     },
     "1.17229700": {
       "url": "https://www.nrk.no/filmpolitiet/2018_-arets-beste-filmer-1.17229700",
-      "checkedAt": "2026-08-16T18:38:45.708Z"
+      "checkedAt": "2026-08-19T04:26:07.124Z"
     },
     "1.17229901": {
       "url": "https://www.nrk.no/filmpolitiet/kvinnene-hevder-seg-i-cannes-1.17229901",
-      "checkedAt": "2026-08-16T18:38:46.949Z"
+      "checkedAt": "2026-08-19T04:26:08.111Z"
     },
     "1.17229902": {
       "url": "https://www.nrk.no/filmpolitiet/nolan-feirer-kubrick-i-cannes-1.17229902",
-      "checkedAt": "2026-08-16T18:38:47.713Z"
+      "checkedAt": "2026-08-19T04:26:09.101Z"
     },
     "1.17229904": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-lengter-etter-a-gjore-drama-1.17229904",
-      "checkedAt": "2026-08-16T18:38:48.896Z"
+      "checkedAt": "2026-08-19T04:26:10.264Z"
     },
     "1.17229905": {
       "url": "https://www.nrk.no/filmpolitiet/svenskene-imponerer-i-cannes-1.17229905",
-      "checkedAt": "2026-08-16T18:38:49.871Z"
+      "checkedAt": "2026-08-19T04:26:11.241Z"
     },
     "1.17229910": {
       "url": "https://www.nrk.no/filmpolitiet/ble-forsokt-lurt-til-a-gjore-nakenscene-1.17229910",
-      "checkedAt": "2026-08-16T18:38:50.717Z"
+      "checkedAt": "2026-08-19T04:26:12.226Z"
     },
     "1.17229912": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-fokuserer-pa-det-vi-har-til-felles-1.17229912",
-      "checkedAt": "2026-08-16T18:38:51.720Z"
+      "checkedAt": "2026-08-19T04:26:13.176Z"
     },
     "1.17229916": {
       "url": "https://www.nrk.no/filmpolitiet/_-gullpalmen-ma-ga-til-en-film-som-har-alt-1.17229916",
-      "checkedAt": "2026-08-16T18:38:52.717Z"
+      "checkedAt": "2026-08-19T04:26:14.221Z"
     },
     "1.17229917": {
       "url": "https://www.nrk.no/filmpolitiet/hva-vil-von-trier-si_-1.17229917",
-      "checkedAt": "2026-08-16T18:38:53.847Z"
+      "checkedAt": "2026-08-19T04:26:15.212Z"
     },
     "1.17229931": {
       "url": "https://www.nrk.no/filmpolitiet/_-hadde-ikke-forestilt-meg-a-ha-sann-flaks-1.17229931",
-      "checkedAt": "2026-08-16T18:38:54.711Z"
+      "checkedAt": "2026-08-19T04:26:16.193Z"
     },
     "1.17230008": {
       "url": "https://www.nrk.no/filmpolitiet/_-har-forsokt-a-gjore-et-aerlig-portrett-1.17230008",
-      "checkedAt": "2026-08-16T18:38:55.703Z"
+      "checkedAt": "2026-08-19T04:26:17.093Z"
     },
     "1.17230015": {
       "url": "https://www.nrk.no/filmpolitiet/_-sier-alltid-ja-til-wes-anderson-1.17230015",
-      "checkedAt": "2026-08-16T18:38:56.711Z"
+      "checkedAt": "2026-08-19T04:26:18.246Z"
     },
     "1.17230068": {
       "url": "https://www.nrk.no/filmpolitiet/gratulerer-med-dagen-til-oss_-1.17230068",
-      "checkedAt": "2026-08-16T18:38:57.840Z"
+      "checkedAt": "2026-08-19T04:26:19.091Z"
     },
     "1.17230081": {
       "url": "https://www.nrk.no/filmpolitiet/2018_-filmene-vi-gleder-oss-til-1.17230081",
-      "checkedAt": "2026-08-16T18:38:59.380Z"
+      "checkedAt": "2026-08-19T04:26:20.160Z"
     },
     "1.17230091": {
       "url": "https://www.nrk.no/filmpolitiet/2017_-arets-beste-filmer-1.17230091",
-      "checkedAt": "2026-08-16T18:38:59.711Z"
+      "checkedAt": "2026-08-19T04:26:21.107Z"
     },
     "1.17230096": {
       "url": "https://www.nrk.no/filmpolitiet/_-klyp-meg_-skjer-dette-virkelig_-1.17230096",
