@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-20T04:25:59.651Z",
+  "fetchedAt": "2026-08-21T04:27:35.725Z",
   "pageCount": 2,
-  "pluggCount": 2953,
+  "pluggCount": 2954,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "insidious-out-of-the-further-noen-grufulle-gys-1526168",
+      "title": "«Noen grufulle gys»",
+      "description": "ANMELDELSE: «Insidious: Out of the Further»",
+      "url": "https://www.nrk.no/artikkel/insidious-out-of-the-further-noen-grufulle-gys-1526168",
+      "image": null,
+      "published": "2026-08-19T16:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
       "title": "«En skygge av bedre filmer»",

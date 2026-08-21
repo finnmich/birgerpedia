@@ -1,5 +1,56 @@
 [
   {
+    "id": "insidious-out-of-the-further-noen-grufulle-gys-1526168",
+    "url": "https://www.nrk.no/artikkel/insidious-out-of-the-further-noen-grufulle-gys-1526168",
+    "type": "Movie",
+    "name": "Insidious: Out of the Further",
+    "originalTitle": null,
+    "headline": "Noen grufulle gys",
+    "abstract": "Skrekkfilmen «Insidious: Out of the Further» av regissør Jacob Chase med Amelia Eve, Brandon Perea, Island Austin og Lin Shaye er en av de bedre i serien.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-19T16:00:00.000Z",
+    "modifiedAt": "2026-08-19T16:00:00.000Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/L9kECU476U7umXenSWoVmACkqCuUhf2s_BqzGKdHmX2w",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Skrekk"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-08-21",
+      "norgespremiereRaw": "21. august 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 513
+  },
+  {
     "id": "the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
     "url": "https://www.nrk.no/artikkel/the-end-of-oak-street-en-skygge-av-bedre-filmer-1524498",
     "type": "Movie",
