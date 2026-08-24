@@ -1,5 +1,56 @@
 [
   {
+    "id": "kjarast-lodder-store-dyp-1526396",
+    "url": "https://www.nrk.no/artikkel/kjarast-lodder-store-dyp-1526396",
+    "type": "Movie",
+    "name": "Kjærast",
+    "originalTitle": null,
+    "headline": "Lodder store dyp",
+    "abstract": "Filmen «Kjærast» av Erik Poppe omfavner manusforfatter Jon Fosse sin unike stil.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-23T17:50:00.000Z",
+    "modifiedAt": "2026-08-23T18:22:31.547Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/joudne55ReAYM-Q_S72qlAyhFzSOdLycjv-aXa1-prIA",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "9 år",
+      "norgespremiere": "2026-09-18",
+      "norgespremiereRaw": "18. september 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 771
+  },
+  {
     "id": "insidious-out-of-the-further-noen-grufulle-gys-1526168",
     "url": "https://www.nrk.no/artikkel/insidious-out-of-the-further-noen-grufulle-gys-1526168",
     "type": "Movie",

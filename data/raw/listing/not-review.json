@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T04:27:13.174Z",
+  "updatedAt": "2026-08-24T04:35:14.098Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -812,55 +812,55 @@
     },
     "1.17233001": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-krigsdokumentarer-1.17233001",
-      "checkedAt": "2026-08-16T18:40:45.651Z"
+      "checkedAt": "2026-08-24T04:34:50.072Z"
     },
     "1.17233023": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-lgbt-filmer-1.17233023",
-      "checkedAt": "2026-08-16T18:40:46.652Z"
+      "checkedAt": "2026-08-24T04:34:51.016Z"
     },
     "1.11345522": {
       "url": "https://www.nrk.no/trondelag/flaklypa-i-trondersk-regi-1.11345522",
-      "checkedAt": "2026-08-16T18:40:47.869Z"
+      "checkedAt": "2026-08-24T04:34:52.196Z"
     },
     "1.17233054": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-hard-science-fiction-1.17233054",
-      "checkedAt": "2026-08-16T18:40:48.634Z"
+      "checkedAt": "2026-08-24T04:34:53.023Z"
     },
     "1.17233082": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-pirater-i-popkulturen-1.17233082",
-      "checkedAt": "2026-08-16T18:40:49.876Z"
+      "checkedAt": "2026-08-24T04:34:54.015Z"
     },
     "1.17233104": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmer-pa-havet-1.17233104",
-      "checkedAt": "2026-08-16T18:40:50.635Z"
+      "checkedAt": "2026-08-24T04:34:55.014Z"
     },
     "1.17233135": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-varmende-hostfilmer-1.17233135",
-      "checkedAt": "2026-08-16T18:40:51.902Z"
+      "checkedAt": "2026-08-24T04:34:56.027Z"
     },
     "1.17233163": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-eventyrere-1.17233163",
-      "checkedAt": "2026-08-16T18:40:53.777Z"
+      "checkedAt": "2026-08-24T04:34:57.014Z"
     },
     "1.17233186": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-heistfilmer-1.17233186",
-      "checkedAt": "2026-08-16T18:40:53.826Z"
+      "checkedAt": "2026-08-24T04:34:58.016Z"
     },
     "1.17233277": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-hayao-miyazaki-1.17233277",
-      "checkedAt": "2026-08-16T18:40:54.840Z"
+      "checkedAt": "2026-08-24T04:34:59.022Z"
     },
     "1.17233321": {
       "url": "https://www.nrk.no/filmpolitiet/_-harald-er-en-stor-unge_-1.17233321",
-      "checkedAt": "2026-08-16T18:40:55.834Z"
+      "checkedAt": "2026-08-24T04:35:00.249Z"
     },
     "1.17233346": {
       "url": "https://www.nrk.no/filmpolitiet/_dod-sno-2_-far-amerikanske-forsterkninger-1.17233346",
-      "checkedAt": "2026-08-16T18:40:56.831Z"
+      "checkedAt": "2026-08-24T04:35:01.007Z"
     },
     "1.17233360": {
       "url": "https://www.nrk.no/filmpolitiet/_som-du-ser-meg_-ble-beste-norske-kinofilm-1.17233360",
-      "checkedAt": "2026-08-16T18:40:57.829Z"
+      "checkedAt": "2026-08-24T04:35:02.033Z"
     },
     "1.17233392": {
       "url": "https://www.nrk.no/filmpolitiet/_-den-eneste-med-moralen-i-behold_-1.17233392",
@@ -868,51 +868,51 @@
     },
     "1.17233435": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-ferie-pa-film-1.17233435",
-      "checkedAt": "2026-08-16T18:40:58.831Z"
+      "checkedAt": "2026-08-24T04:35:03.498Z"
     },
     "1.17233617": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-postapokalyptiske-filmer-1.17233617",
-      "checkedAt": "2026-08-16T18:40:59.826Z"
+      "checkedAt": "2026-08-24T04:35:04.015Z"
     },
     "1.17233628": {
       "url": "https://www.nrk.no/filmpolitiet/festen-1.17233628",
-      "checkedAt": "2026-08-16T18:41:00.829Z"
+      "checkedAt": "2026-08-24T04:35:05.004Z"
     },
     "1.17233661": {
       "url": "https://www.nrk.no/filmpolitiet/dette-er-de-beste-cannes-filmene_-1.17233661",
-      "checkedAt": "2026-08-16T18:41:02.010Z"
+      "checkedAt": "2026-08-24T04:35:06.241Z"
     },
     "1.17233669": {
       "url": "https://www.nrk.no/filmpolitiet/dod-sno-zombier-fenger-cannes-1.17233669",
-      "checkedAt": "2026-08-16T18:41:03.409Z"
+      "checkedAt": "2026-08-24T04:35:07.375Z"
     },
     "1.17233670": {
       "url": "https://www.nrk.no/filmpolitiet/skal-lage-norsk-black-metal-thriller-1.17233670",
-      "checkedAt": "2026-08-16T18:41:03.924Z"
+      "checkedAt": "2026-08-24T04:35:08.141Z"
     },
     "1.17233676": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-er-den-moderne-h.c.-andersen_-1.17233676",
-      "checkedAt": "2026-08-16T18:41:05.218Z"
+      "checkedAt": "2026-08-24T04:35:09.185Z"
     },
     "1.17233679": {
       "url": "https://www.nrk.no/filmpolitiet/_-endelig_-sporsmalet-jeg-har-ventet-pa_-1.17233679",
-      "checkedAt": "2026-08-16T18:41:05.993Z"
+      "checkedAt": "2026-08-24T04:35:10.203Z"
     },
     "1.17233681": {
       "url": "https://www.nrk.no/filmpolitiet/_-vi-ler-hele-tiden_-1.17233681",
-      "checkedAt": "2026-08-16T18:41:06.829Z"
+      "checkedAt": "2026-08-24T04:35:11.036Z"
     },
     "1.17233684": {
       "url": "https://www.nrk.no/filmpolitiet/_-dette-er-min-mest-personlige-film-1.17233684",
-      "checkedAt": "2026-08-16T18:41:07.992Z"
+      "checkedAt": "2026-08-24T04:35:12.011Z"
     },
     "1.11032890": {
       "url": "https://www.nrk.no/tromsogfinnmark/dette-ble-for-mye-for-fransk-politi-1.11032890",
-      "checkedAt": "2026-08-16T18:41:08.885Z"
+      "checkedAt": "2026-08-24T04:35:13.065Z"
     },
     "1.17233690": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-forsoker-ikke-a-romme-fra-harry-potter_-1.17233690",
-      "checkedAt": "2026-08-16T18:41:09.841Z"
+      "checkedAt": "2026-08-24T04:35:14.046Z"
     },
     "1.17233695": {
       "url": "https://www.nrk.no/filmpolitiet/oppdaget-sin-neste-film-pa-tog-i-sibir-1.17233695",

@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-23T04:26:46.910Z",
+  "fetchedAt": "2026-08-24T04:34:49.429Z",
   "pageCount": 2,
-  "pluggCount": 2954,
+  "pluggCount": 2955,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "kjarast-lodder-store-dyp-1526396",
+      "title": "«Lodder store dyp»",
+      "description": "ANMELDELSE: «Kjærast»",
+      "url": "https://www.nrk.no/artikkel/kjarast-lodder-store-dyp-1526396",
+      "image": null,
+      "published": "2026-08-23T17:50:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "insidious-out-of-the-further-noen-grufulle-gys-1526168",
       "title": "«Noen grufulle gys»",
