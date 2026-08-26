@@ -4,6 +4,7 @@ import Card from '../components/Card.astro';
 import Die from '../components/Die.astro';
 import Stamp from '../components/Stamp.astro';
 import HeroDie from '../components/vue/HeroDie.vue';
+import LatestDie from '../components/vue/LatestDie.vue';
 import Histogram from '../components/vue/Histogram.vue';
 import {
   reviewIndex,
@@ -13,11 +14,26 @@ import {
   SUMMARY,
 } from '../lib/data';
 import { reviewSlug, slugify } from '../lib/slug';
-import { sanitizeQuotes } from '../lib/format';
+import { formatNorwegianDate, sanitizeQuotes } from '../lib/format';
 import { eligibleSlugs } from '../lib/people';
 import { u } from '../lib/url';
 
 const recent = reviewIndex.slice(0, 8);
+
+// The hero's headline act. reviewIndex is sorted newest-first, so [0] is the
+// most recent review. Everything the card needs is resolved here so the
+// component SSRs complete — hydration only replays the die roll.
+const newest = reviewIndex[0];
+const latestPlug = {
+  name: sanitizeQuotes(newest.name),
+  rating: newest.rating,
+  slug: newest.slug,
+  headline: newest.headline ? sanitizeQuotes(newest.headline) : null,
+  regi: newest.factbox?.regi ?? newest.factbox?.serieskaper ?? null,
+  date: formatNorwegianDate(newest.publishedAt),
+  dateISO: newest.publishedAt,
+  no: newest.no,
+};
 const histogram = ratingHistogram(reviewIndex);
 const perfectSix = reviewIndex.filter((r) => r.rating === 6);
 const sixSpotlight = perfectSix.slice(0, 3);
@@ -102,8 +118,26 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
       </div>
 
       <div class="hero-side">
-        <HeroDie client:idle reviews={heroPool} initialIdx={initialIdx} />
+        <LatestDie client:idle review={latestPlug} />
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       LATEST  +  ARCHIVE GLIMPSE
+       ============================================ -->
+  <section class="latest reveal">
+    <header class="section-head">
+      <div class="h-eyebrow">Sist innsendt</div>
+      <h2 class="section-title h-headline">
+        De ferskeste anmeldelsene
+      </h2>
+    </header>
+
+    <div class="cards">
+      {recent.map((r, i) => (
+        <Card r={r} variant="compact" />
+      ))}
     </div>
   </section>
 
@@ -195,21 +229,21 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
   </section>
 
   <!-- ============================================
-       LATEST  +  ARCHIVE GLIMPSE
+       RANDOM ROLL — the roulette, relocated below the fold
        ============================================ -->
-  <section class="latest reveal">
+  <section class="roulette reveal" id="tilfeldig">
     <header class="section-head">
-      <div class="h-eyebrow">Sist innsendt</div>
+      <div class="h-eyebrow">Terningen bestemmer</div>
       <h2 class="section-title h-headline">
-        De ferskeste anmeldelsene
+        La arkivet <em>velge for deg</em>
       </h2>
+      <p class="section-lede">
+        {SUMMARY.total.toLocaleString('nb-NO')} anmeldelser å grave i. Slå en terning
+        og se hvor du havner — trykk «Slå igjen» så mange ganger du vil.
+      </p>
     </header>
 
-    <div class="cards">
-      {recent.map((r, i) => (
-        <Card r={r} variant="compact" />
-      ))}
-    </div>
+    <HeroDie client:visible reviews={heroPool} initialIdx={initialIdx} kicker={null} />
   </section>
 
   <!-- ============================================
@@ -423,6 +457,15 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
   line-height: 1.55;
 }
 
+/* -------- LATEST -------- */
+.latest { margin-block: clamp(3rem, 6vw, 6rem); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+
 /* -------- HISTOGRAM section -------- */
 .histo {
   margin-block: clamp(3rem, 6vw, 6rem);
@@ -514,14 +557,12 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
   .six-grid { grid-template-columns: 1fr; }
 }
 
-/* -------- LATEST -------- */
-.latest { margin-block: clamp(3rem, 6vw, 6rem); }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+/* -------- ROULETTE (random roll, moved out of the hero) -------- */
+.roulette {
+  margin-block: clamp(3rem, 6vw, 6rem);
+  padding-block: 2rem;
+  border-top: 1px solid var(--color-line-dark);
 }
-@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
 
 /* -------- TAXA -------- */
 .taxa {

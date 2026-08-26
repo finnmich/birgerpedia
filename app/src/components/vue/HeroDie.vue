@@ -12,8 +12,14 @@ interface Plug {
 interface Props {
   reviews: Plug[];
   initialIdx?: number;        // server-picked, so SSR shows something
+  /** Label above the title. Pass `null` where an enclosing section header
+   *  already says the same thing. */
+  kicker?: string | null;
 }
-const props = withDefaults(defineProps<Props>(), { initialIdx: 0 });
+const props = withDefaults(defineProps<Props>(), {
+  initialIdx: 0,
+  kicker: 'Et tilfeldig kast',
+});
 
 // Start with no fixed pick — the die rolls on hydration and the card
 // fades in only when it lands on a review. SSR renders the rolling die
@@ -69,7 +75,7 @@ function pickRandom() {
 
     <Transition name="fade" mode="out-in">
       <a v-if="showDetail && current()" key="card" :href="u(`/reviews/${current().slug}`)" class="card-summary anim-fade-in">
-        <span class="kicker">Et tilfeldig kast</span>
+        <span v-if="kicker" class="kicker">{{ kicker }}</span>
         <h2 class="title">{{ current().name }}</h2>
         <div v-if="current().headline" class="head italic">«{{ current().headline }}»</div>
         <div class="meta t-mono">
@@ -81,7 +87,7 @@ function pickRandom() {
         </div>
       </a>
       <div v-else key="skel" class="card-summary card-summary--skel" aria-hidden="true">
-        <span class="kicker">Et tilfeldig kast</span>
+        <span v-if="kicker" class="kicker">{{ kicker }}</span>
         <span class="skel-group skel-title">
           <span class="skel skel-line-full"></span>
           <span class="skel skel-line-short"></span>
