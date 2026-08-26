@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-25T04:28:28.778Z",
+  "fetchedAt": "2026-08-26T04:29:44.437Z",
   "pageCount": 2,
-  "pluggCount": 2955,
+  "pluggCount": 2956,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
+      "title": "«Tenner et håp om at noe kan læres»",
+      "description": "ANMELDELSE: «Drapet på Benjamin Hermansen»",
+      "url": "https://www.nrk.no/artikkel/drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
+      "image": null,
+      "published": "2026-08-25T10:04:35.349Z",
+      "source": "newcms"
+    },
     {
       "id": "kjarast-lodder-store-dyp-1526396",
       "title": "«Lodder store dyp»",

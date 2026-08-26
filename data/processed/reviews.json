@@ -1,5 +1,56 @@
 [
   {
+    "id": "drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
+    "url": "https://www.nrk.no/artikkel/drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
+    "type": "Movie",
+    "name": "Drapet på Benjamin Hermansen",
+    "originalTitle": null,
+    "headline": "Tenner et håp om at noe kan læres",
+    "abstract": "Kinofilmen «Drapet på Benjamin Hermansen» av regissør Ingvild Søderlind har en sterk historie og solide hovedroller.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-25T10:04:35.349Z",
+    "modifiedAt": "2026-08-25T10:10:07.442Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/EP2YMd-Q2H3Y1NfAifaqOgu3OjUluQ9q5zE_M7fUAAGg",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-10-02",
+      "norgespremiereRaw": "2. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 775
+  },
+  {
     "id": "kjarast-lodder-store-dyp-1526396",
     "url": "https://www.nrk.no/artikkel/kjarast-lodder-store-dyp-1526396",
     "type": "Movie",
