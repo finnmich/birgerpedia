@@ -1,5 +1,57 @@
 [
   {
+    "id": "the-dog-stars-middels-engasjerende-postapokalypse-1526614",
+    "url": "https://www.nrk.no/artikkel/the-dog-stars-middels-engasjerende-postapokalypse-1526614",
+    "type": "Movie",
+    "name": "The Dog Stars",
+    "originalTitle": null,
+    "headline": "Middels engasjerende postapokalypse",
+    "abstract": "«The Dog Stars» av regissør Ridley Scott med Jacob Elordi, Josh Brolin, Margaret Qualley, Guy Pearce og Allison Janney er en middels engasjerende postapokalypse.",
+    "rating": 3,
+    "ratingMax": 6,
+    "publishedAt": "2026-08-26T18:56:04.374Z",
+    "modifiedAt": "2026-08-26T18:56:04.374Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/05lTtAA0r1085QxeLgIECgFsD7-0e0XIDidIzNoQgMrw",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Thriller",
+        "drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-08-28",
+      "norgespremiereRaw": "28. august 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 640
+  },
+  {
     "id": "drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
     "url": "https://www.nrk.no/artikkel/drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
     "type": "Movie",

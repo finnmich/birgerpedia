@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-08-26T04:29:44.437Z",
+  "fetchedAt": "2026-08-27T14:51:46.305Z",
   "pageCount": 2,
-  "pluggCount": 2956,
+  "pluggCount": 2957,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "the-dog-stars-middels-engasjerende-postapokalypse-1526614",
+      "title": "«Middels engasjerende postapokalypse»",
+      "description": "ANMELDELSE: «The Dog Stars»",
+      "url": "https://www.nrk.no/artikkel/the-dog-stars-middels-engasjerende-postapokalypse-1526614",
+      "image": null,
+      "published": "2026-08-26T18:56:04.374Z",
+      "source": "newcms"
+    },
     {
       "id": "drapet-pa-benjamin-hermansen-tenner-et-hap-om-at-noe-kan-lares-1526450",
       "title": "«Tenner et håp om at noe kan læres»",
