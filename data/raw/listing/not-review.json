@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T10:34:11.363Z",
+  "updatedAt": "2026-08-30T09:33:53.547Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -48,99 +48,99 @@
     },
     "1.17227736": {
       "url": "https://www.nrk.no/filmpolitiet/2024_-arets-beste-filmer-1.17227736",
-      "checkedAt": "2026-08-16T18:58:35.710Z"
+      "checkedAt": "2026-08-30T09:33:28.363Z"
     },
     "1.17227747": {
       "url": "https://www.nrk.no/filmpolitiet/anbefaling_-de-10-beste-julefilmene-1.17227747",
-      "checkedAt": "2026-08-16T18:58:36.713Z"
+      "checkedAt": "2026-08-30T09:33:29.325Z"
     },
     "1.17227822": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-host-1.17227822",
-      "checkedAt": "2026-08-16T18:58:37.715Z"
+      "checkedAt": "2026-08-30T09:33:30.304Z"
     },
     "1.17227867": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-sommer-1.17227867",
-      "checkedAt": "2026-08-16T18:58:38.711Z"
+      "checkedAt": "2026-08-30T09:33:31.303Z"
     },
     "1.17227900": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17227900",
-      "checkedAt": "2026-08-16T18:58:40.052Z"
+      "checkedAt": "2026-08-30T09:33:32.303Z"
     },
     "1.17227971": {
       "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17227971",
-      "checkedAt": "2026-08-16T18:58:40.708Z"
+      "checkedAt": "2026-08-30T09:33:33.319Z"
     },
     "1.17227986": {
       "url": "https://www.nrk.no/filmpolitiet/de-beste-filmene-pa-berlinalen-1.17227986",
-      "checkedAt": "2026-08-16T18:58:41.719Z"
+      "checkedAt": "2026-08-30T09:33:34.483Z"
     },
     "1.17227993": {
       "url": "https://www.nrk.no/filmpolitiet/_vant_-helga-pa-berlinalen-1.17227993",
-      "checkedAt": "2026-08-16T18:58:42.715Z"
+      "checkedAt": "2026-08-30T09:33:35.538Z"
     },
     "1.17228028": {
       "url": "https://www.nrk.no/filmpolitiet/2024_-filmene-vi-gleder-oss-til-1.17228028",
-      "checkedAt": "2026-08-16T18:58:43.716Z"
+      "checkedAt": "2026-08-30T09:33:36.324Z"
     },
     "1.17228042": {
       "url": "https://www.nrk.no/filmpolitiet/2023_-arets-beste-filmer-1.17228042",
-      "checkedAt": "2026-08-16T18:58:44.717Z"
+      "checkedAt": "2026-08-30T09:33:37.316Z"
     },
     "1.17228050": {
       "url": "https://www.nrk.no/filmpolitiet/arets-nye-julefilmer-1.17228050",
-      "checkedAt": "2026-08-16T18:58:45.715Z"
+      "checkedAt": "2026-08-30T09:33:38.345Z"
     },
     "1.17228117": {
       "url": "https://www.nrk.no/filmpolitiet/topp-10_-disney-klassikere-1.17228117",
-      "checkedAt": "2026-08-16T18:58:46.713Z"
+      "checkedAt": "2026-08-30T09:33:39.280Z"
     },
     "1.17228144": {
       "url": "https://www.nrk.no/filmpolitiet/vant-gulloven-i-venezia-1.17228144",
-      "checkedAt": "2026-08-16T18:58:47.713Z"
+      "checkedAt": "2026-08-30T09:33:40.335Z"
     },
     "1.17228331": {
       "url": "https://www.nrk.no/filmpolitiet/10-oscar-filmer-du-bor-se-1.17228331",
-      "checkedAt": "2026-08-16T19:10:23.584Z"
+      "checkedAt": "2026-08-30T09:33:41.301Z"
     },
     "1.17228405": {
       "url": "https://www.nrk.no/filmpolitiet/2023_-filmene-vi-gleder-oss-til-1.17228405",
-      "checkedAt": "2026-08-16T19:10:24.466Z"
+      "checkedAt": "2026-08-30T09:33:42.281Z"
     },
     "1.17228417": {
       "url": "https://www.nrk.no/filmpolitiet/2022_-arets-beste-filmer-1.17228417",
-      "checkedAt": "2026-08-16T19:10:25.473Z"
+      "checkedAt": "2026-08-30T09:33:43.305Z"
     },
     "1.17228521": {
       "url": "https://www.nrk.no/filmpolitiet/5-emmy-serier-du-bor-sjekke-ut-1.17228521",
-      "checkedAt": "2026-08-17T04:31:04.970Z"
+      "checkedAt": "2026-08-30T09:33:44.306Z"
     },
     "1.17228642": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-mest-spennende-cannes-filmene-1.17228642",
-      "checkedAt": "2026-08-17T04:31:05.712Z"
+      "checkedAt": "2026-08-30T09:33:45.278Z"
     },
     "1.17228719": {
       "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17228719",
-      "checkedAt": "2026-08-17T04:31:06.864Z"
+      "checkedAt": "2026-08-30T09:33:46.302Z"
     },
     "1.15841416": {
       "url": "https://www.nrk.no/kultur/anbefaling_-dette-kan-du-oppleve-pa-scener-og-kino-no-1.15841416",
-      "checkedAt": "2026-08-17T04:31:09.251Z"
+      "checkedAt": "2026-08-30T09:33:47.496Z"
     },
     "1.15814981": {
       "url": "https://www.nrk.no/kultur/anbefaling_-ni-tips-til-kultur-med-rasisme-som-tema-1.15814981",
-      "checkedAt": "2026-08-17T04:31:10.778Z"
+      "checkedAt": "2026-08-30T09:33:48.866Z"
     },
     "1.17228792": {
       "url": "https://www.nrk.no/filmpolitiet/2022_-seriene-vi-gleder-oss-til-1.17228792",
-      "checkedAt": "2026-08-17T04:31:10.935Z"
+      "checkedAt": "2026-08-30T09:33:49.286Z"
     },
     "1.15726046": {
       "url": "https://www.nrk.no/kultur/original-eller-nyinnspilling_-hvilken-film-er-best_-1.15726046",
-      "checkedAt": "2026-08-17T04:31:11.996Z"
+      "checkedAt": "2026-08-30T09:33:52.224Z"
     },
     "1.17228793": {
       "url": "https://www.nrk.no/filmpolitiet/2022_-filmene-vi-gleder-oss-til-1.17228793",
-      "checkedAt": "2026-08-17T04:31:12.926Z"
+      "checkedAt": "2026-08-30T09:33:52.511Z"
     },
     "1.17228800": {
       "url": "https://www.nrk.no/filmpolitiet/2021_-arets-beste-filmer-1.17228800",
@@ -864,7 +864,7 @@
     },
     "1.17233392": {
       "url": "https://www.nrk.no/filmpolitiet/_-den-eneste-med-moralen-i-behold_-1.17233392",
-      "checkedAt": "2026-08-16T18:58:49.069Z"
+      "checkedAt": "2026-08-30T09:33:53.353Z"
     },
     "1.17233435": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-ferie-pa-film-1.17233435",
