@@ -1,10 +1,28 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-01T08:59:08.575Z",
+  "fetchedAt": "2026-09-02T08:13:11.952Z",
   "pageCount": 2,
-  "pluggCount": 2957,
+  "pluggCount": 2959,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "by-any-means-beinhard-hevnefilm-1527020",
+      "title": "«Beinhard hevnefilm»",
+      "description": "ANMELDELSE: «By Any Means»",
+      "url": "https://www.nrk.no/artikkel/by-any-means-beinhard-hevnefilm-1527020",
+      "image": null,
+      "published": "2026-09-01T14:01:57.011Z",
+      "source": "newcms"
+    },
+    {
+      "id": "harila-nadelose-fjell-viser-bade-gledene-sorgene-og-provelsene-1527006",
+      "title": "«Viser både gledene, sorgene og prøvelsene»",
+      "description": "ANMELDELSE: «Harila - Nådeløse fjell»",
+      "url": "https://www.nrk.no/artikkel/harila-nadelose-fjell-viser-bade-gledene-sorgene-og-provelsene-1527006",
+      "image": null,
+      "published": "2026-09-01T12:30:24.780Z",
+      "source": "newcms"
+    },
     {
       "id": "the-dog-stars-middels-engasjerende-postapokalypse-1526614",
       "title": "«Middels engasjerende postapokalypse»",
