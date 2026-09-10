@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-09T08:26:59.835Z",
+  "fetchedAt": "2026-09-10T08:29:17.901Z",
   "pageCount": 2,
-  "pluggCount": 2959,
+  "pluggCount": 2960,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "en-nasjon-i-sjakk-toff-thriller-med-kjente-trekk-1527471",
+      "title": "«Tøff thriller med kjente trekk»",
+      "description": "ANMELDELSE: «En nasjon i sjakk»",
+      "url": "https://www.nrk.no/artikkel/en-nasjon-i-sjakk-toff-thriller-med-kjente-trekk-1527471",
+      "image": null,
+      "published": "2026-09-09T11:11:02.746Z",
+      "source": "newcms"
+    },
     {
       "id": "by-any-means-beinhard-hevnefilm-1527020",
       "title": "«Beinhard hevnefilm»",

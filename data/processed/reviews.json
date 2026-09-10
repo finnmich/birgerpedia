@@ -1,5 +1,57 @@
 [
   {
+    "id": "en-nasjon-i-sjakk-toff-thriller-med-kjente-trekk-1527471",
+    "url": "https://www.nrk.no/artikkel/en-nasjon-i-sjakk-toff-thriller-med-kjente-trekk-1527471",
+    "type": "Movie",
+    "name": "En nasjon i sjakk",
+    "originalTitle": null,
+    "headline": "Tøff thriller med kjente trekk",
+    "abstract": "Actionthrilleren «En nasjon i sjakk» av John Andreas Andersen med blant andre Pål Sverre Valheim Hagen, Jon Øigarden, Maria Bonnevie, Tobias Santelmann, Jonas Hoff Oftebro, Emil Olafsson, Nina Owing og Torstein Bae er en tøff thriller med noen uventede trekk.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-09-09T11:11:02.746Z",
+    "modifiedAt": "2026-09-09T11:11:02.746Z",
+    "author": {
+      "id": "18.264",
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-18.264",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/FVJVQ8Xl845GawnUfCdfsAwO3_9nK5GKO_lTcSnSeEsA",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Action",
+        "thriller"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-09-11",
+      "norgespremiereRaw": "11. september 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 806
+  },
+  {
     "id": "by-any-means-beinhard-hevnefilm-1527020",
     "url": "https://www.nrk.no/artikkel/by-any-means-beinhard-hevnefilm-1527020",
     "type": "Movie",

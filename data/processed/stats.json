@@ -1,9 +1,9 @@
 {
-  "builtAt": "2026-09-09T08:27:26.459Z",
-  "total": 2615,
+  "builtAt": "2026-09-10T08:29:42.963Z",
+  "total": 2616,
   "droppedNonBirgerOrInvalid": 2,
   "byType": {
-    "Movie": 2550,
+    "Movie": 2551,
     "TVSeries": 32,
     "Game": 26,
     "MusicEvent": 7
@@ -12,7 +12,7 @@
     "1": 16,
     "2": 91,
     "3": 425,
-    "4": 1099,
+    "4": 1100,
     "5": 847,
     "6": 116,
     "∅": 21
@@ -20,8 +20,8 @@
   "byPlatform": {
     "2008": 2,
     "United International Pictures": 216,
+    "∅": 148,
     "SF Studios": 148,
-    "∅": 147,
     "Kino": 125,
     "Norsk Filmdistribusjon": 116,
     "Arthaus": 99,
