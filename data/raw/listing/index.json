@@ -1,10 +1,37 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-10T08:29:17.901Z",
+  "fetchedAt": "2026-09-19T17:33:20.521Z",
   "pageCount": 2,
-  "pluggCount": 2960,
+  "pluggCount": 2963,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "resident-evil-vekker-frydefull-vemmelse-1528021",
+      "title": "Vekker frydefull vemmelse",
+      "description": "Skrekkfilmen «Resident Evil» av Zach Cregger, regissøren bak «Weapons», vekker frydefull vemmelse med Austin Abrams i hovedrollen.",
+      "url": "https://www.nrk.no/artikkel/resident-evil-vekker-frydefull-vemmelse-1528021",
+      "image": null,
+      "published": "2026-09-17T06:52:20.341Z",
+      "source": "newcms"
+    },
+    {
+      "id": "tilbake-til-tottori-opploftende-og-livsbejaende-1527915",
+      "title": "Oppløftende og livsbejaende",
+      "description": "Oppfølgereen «Tilbake til Tottori» av Arild Østin Ommundsen og Silje Salomonsen med Vega Østin og Billie Østin i hovedrollene er en oppløftende og livsbejaende ungdomsfilm.",
+      "url": "https://www.nrk.no/artikkel/tilbake-til-tottori-opploftende-og-livsbejaende-1527915",
+      "image": null,
+      "published": "2026-09-15T13:57:47.800Z",
+      "source": "newcms"
+    },
+    {
+      "id": "coyote-vs-acme-per-ulv-pa-saken-hyllest-til-herlig-animasjon-1527502",
+      "title": "«Hyllest til herlig animasjonsunivers»",
+      "description": "ANMELDELSE: «Coyote vs. Acme - Per Ulv på saken»",
+      "url": "https://www.nrk.no/artikkel/coyote-vs-acme-per-ulv-pa-saken-hyllest-til-herlig-animasjon-1527502",
+      "image": null,
+      "published": "2026-09-10T10:08:29.000Z",
+      "source": "newcms"
+    },
     {
       "id": "en-nasjon-i-sjakk-toff-thriller-med-kjente-trekk-1527471",
       "title": "«Tøff thriller med kjente trekk»",
