@@ -110,9 +110,11 @@ jobs:
         run: node scripts/crawl-listing.mjs
 
       # The legacy author API above froze when NRK migrated Filmpolitiet to
-      # a new CMS (newest item 2026-05-22). New articles only surface on the
-      # front page / toppsaker.rss — this step discovers them, verifies the
-      # byline, and merges Birger's into the listing index.
+      # a new CMS (newest item 2026-05-22) and started returning 404 on
+      # 2026-09-11; step 1 now no-ops on that as long as an index exists.
+      # New articles only surface on the front page / toppsaker.rss — this
+      # step discovers them, verifies the byline, and merges Birger's into
+      # the listing index.
       - name: 1b) Discover new-CMS articles
         if: github.event_name != 'push'
         run: node scripts/crawl-newcms.mjs

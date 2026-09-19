@@ -74,9 +74,16 @@ export async function politeFetch(url, { limiter, retries = 4, headers = {}, red
         await sleep(backoff);
         continue;
       }
-      if (!res.ok) throw new Error(`HTTP ${res.status} for ${scrub(url)}`);
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} for ${scrub(url)}`);
+        err.status = res.status;
+        throw err;
+      }
       return res;
     } catch (err) {
+      // 404/410 are definitive — retrying a missing resource just burns a
+      // minute of backoff. Callers can branch on `err.status`.
+      if (err.status === 404 || err.status === 410) throw err;
       lastErr = err;
       const backoff = Math.min(60_000, 2_000 * 2 ** attempt);
       console.warn(`  [err] ${scrub(url)}: ${scrub(err.message)} — backing off ${backoff}ms`);

@@ -63,7 +63,21 @@ async function main() {
     const url = `${BASE}?count=${PAGE_SIZE}${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`;
     console.log(`[listing] page ${pageNum}: ${url}`);
 
-    const res = await politeFetch(url, { limiter, headers: { Accept: 'application/json' } });
+    let res;
+    try {
+      res = await politeFetch(url, { limiter, headers: { Accept: 'application/json' } });
+    } catch (err) {
+      // NRK retired this endpoint outright on 2026-09-11 (it had been frozen
+      // since the CMS migration in May). With a prior index there's nothing
+      // to lose: leave it untouched and let crawl-newcms.mjs do discovery.
+      // Without one (or with --full) we can't build an index, so still fail.
+      const gone = err.status === 404 || err.status === 410;
+      if (gone && pageNum === 1 && known.size) {
+        console.warn(`[listing] legacy author API is gone (HTTP ${err.status}) — keeping existing index of ${known.size} plugs.`);
+        return;
+      }
+      throw err;
+    }
     const body = await res.json();
     const plugs = body.plugs ?? [];
     cursor = typeof body.cursor === 'string' ? body.cursor : null;
