@@ -30,6 +30,10 @@ const REVIEWS_OUT = resolve(OUT_DIR, 'reviews.json');
 // schema.org itemReviewed for the parser to read one off. See the note in
 // the file itself — entries are added only after reading the review.
 const TYPE_OVERRIDES = resolve(ROOT, 'data/type-overrides.json');
+// Birger's 2000–2006 reviews, recovered from the Wayback Machine by
+// scripts/legacy/. They predate the author API and most are gone from
+// nrk.no entirely, so this committed file is their only source.
+const LEGACY_REVIEWS = resolve(OUT_DIR, 'legacy-reviews.json');
 
 const BIRGER_ID = '18.264';
 
@@ -93,6 +97,16 @@ async function main() {
     merged++;
   }
 
+  // Legacy records replace their previous selves wholesale and any that
+  // build-legacy.mjs no longer emits (e.g. newly recognised as a duplicate
+  // of a migrated review) are dropped, so the file stays authoritative.
+  let legacy = 0;
+  try {
+    const records = JSON.parse(await readFile(LEGACY_REVIEWS, 'utf8'));
+    for (const id of [...byId.keys()]) if (String(id).startsWith('wb.')) byId.delete(id);
+    for (const r of records) { byId.set(r.id, r); legacy++; }
+  } catch { /* no legacy import on this checkout */ }
+
   // Apply the verified type overrides last, so they land on records from
   // either source (freshly parsed or carried over from the digest).
   let overridden = 0;
@@ -114,7 +128,7 @@ async function main() {
   await atomicWrite(resolve(OUT_DIR, 'reviews.ndjson'), records.map((r) => JSON.stringify(r)).join('\n') + '\n');
 
   console.log(
-    `[build] baseline ${baselineCount} + merged ${merged} ` +
+    `[build] baseline ${baselineCount} + merged ${merged} + legacy ${legacy} ` +
     `(dropped ${droppedNotBirger} non-Birger, ${droppedInvalid} invalid, ` +
     `${overridden} types from verified overrides) ` +
     `→ ${records.length} reviews.`,

@@ -1,0 +1,13 @@
+{
+  "note": "Film titles for pre-2007 P3 reviews whose headline never names the film and where build-legacy.mjs's quote-evidence rules can't recover it. Keyed by old nrk.no article id. Each entry was set after reading the review's ingress; `basis` quotes the evidence. Only add an id here after actually reading the page.",
+  "verifiedAt": "2026-09-21",
+  "names": {
+    "1352421": { "name": "Den fabelaktige Amélie fra Montmartre", "basis": "headline «Fabelaktig Amélie!»; ingress: «årets mest oppløftende … film, \"Den fabelaktige Amélie fra Montmartre\"»" },
+    "1710453": { "name": "Storytelling", "basis": "headline «Forvirrende historier»; ingress: «Vi forstår kanskje hva Storytelling handler om … Todd Solondz»" },
+    "1855209": { "name": "Star Wars: Episode II – Klonene angriper", "basis": "headline «Ikke den beste Star Wars»; ingress: «Episode II er mer underholdende og morsom enn Episode I var»" },
+    "1957613": { "name": "Spider-Man", "basis": "headline «Popcorn-Spider-Man»; ingress: «Filmen om Spiderman forteller to ting»" },
+    "2076236": { "name": "Austin Powers in Goldmember", "basis": "headline «Oh, yeah, baby! Austin Powers tilbake!»; ingress names ”Austin Powers in Goldmember”" },
+    "2076461": { "name": "Heaven", "basis": "headline «Himmelsk film - dårlig moral»; ingress: «Tom Tykwer sin \"Heaven\" er vakker, poetisk og sterk»" },
+    "2245576": { "name": "Istid", "basis": "headline «DVD | Varm \"Istid»; DVD review of Ice Age" }
+  }
+}

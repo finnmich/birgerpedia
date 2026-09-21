@@ -102,6 +102,78 @@ Older articles (pre-Astro era, identifiable by absence of `<astro-island>` and
 the presence of `class="review-rating"`) have richer JSON-LD but sparser
 factboxes — we'll fall back to JSON-LD + body text in those cases.
 
+### 3. The Wayback Machine — everything before 2007 (`scripts/legacy/`)
+
+The author API only ever listed articles that carry Birger's author *entity*.
+His 2000–2006 reviews don't: they were written in an older CMS where the
+byline is plain text or a `mailto:`. That's why the dex had 5–12 reviews a
+year before 2007 and 100+ after — the ~50 early ones we did have are the few
+NRK hand-migrated to p3.no (sequential ids `1.172384xx`).
+
+Where they lived (all 404 on nrk.no today):
+
+| Section | Years | Notes |
+|---|---|---|
+| `nrk.no/p3/filmpolitiet/` | 1998–2000 | RealAudio clips of the radio reviews, no text or score — not imported |
+| `nrk.no/magasin/upunkt/film/` | 2000–2002 | P3's "Upunkt" web magazine |
+| `nrk.no/programmer/radio/filmpolitiet/<id>.html` | 2001–2007 | the P3 programme site; ~70 % Birger. **Not migrated** — no live page exists, these link to the Archive |
+| `nrk.no/film/filmanmeldelser/<id>.html` | 2000–2005 | NRK-wide review section, shared with P1/P2 critics; ~25 % Birger |
+
+Pipeline (`npm run legacy:index → legacy:fetch → legacy:build → build:dataset`):
+
+- **index** — CDX listing of every capture under those prefixes →
+  `data/raw/legacy/wayback-index.json` (committed). archive.org's CDX goes
+  "Temporarily Offline" several times a day *with HTTP 200*; the script
+  merges, so just re-run it.
+- **fetch** — raw bytes (`/web/<ts>id_/<url>`) → `data/raw/legacy/wayback/`
+  (gitignored, ~60 MB). One request per 2 s; archive.org takes 6–8 s to answer
+  each, so the full cache is a ~4 h unattended run. Resumable.
+- **build** — `parse-legacy.mjs` reads the four class hooks the template kept
+  through every redesign (`oart` title, `in` ingress, `brt` body, `ad`
+  dateline). Output: `data/processed/legacy-reviews.json` (committed; merged
+  by `build-dataset.mjs` on every run) and `legacy-audit.json` listing
+  everything *not* imported and why.
+
+**The terningkast is an image, never text.** Three strip families, all still
+served by `img.nrk.no`, each encoding the score in the image id:
+
+| Strip | Used | Ids → score |
+|---|---|---|
+| six-box meter, 123×11 jpeg | P3 2001–03 | `50442`–`50446` → 0–4, `50448` → 5, `50456` → 6 (the ids between are unrelated photos; each strip was checked by eye / pixel sampling) |
+| stars, 160×26 animated gif | 2002–05 | `37109`–`37115` → 0–6 (one frame per star) |
+| popcorn, 180×30 gif | P3 2004–06 | `409740` → 1, `409742`–`409746` → 2–6; *learned* at build time from pages that also say "(N)" in the title (must agree ≥ 95 %) |
+
+Every source present on a page must agree or the page is skipped as a
+conflict. Independent check (`npm run legacy:test`): wherever a legacy review
+duplicates one of the NRK-migrated ones, the strip rating must equal NRK's own
+schema.org rating.
+
+**Names.** The film section titled reviews with the film's name, but P3 wrote
+headlines («Zoolander: Intern spøk», «Idiotisk Mr. Deeds», «DVD: Near Dark»).
+`deriveName()` separates title from verdict using what the review text puts
+in quotes; the headline is kept in `headline`. The handful no rule can decode
+(«Bittersøte Tenenbaums» was solvable, «Himmelsk film» → *Heaven* wasn't) live
+in `data/legacy-name-overrides.json`, hand-verified like `type-overrides.json`.
+
+**Duplicates.** The old sections cross-published (same article under two or
+three paths) and ~40 reviews overlap with the NRK-migrated ones already in the
+dex: same film within 45 days = same review, existing record wins.
+
+Ids are `wb.<old nrk id>` → `/reviews/<slug>-<old id>`. Not matching `^\d+\.`
+is deliberate: it lets the site backfill cast/runtime from TMDB.
+
+**Live links.** Film-section reviews were migrated to
+`/kultur/<slug>-1.5xxxxx`, unlisted anywhere. `resolve-live.mjs` finds them
+without downloading pages: `https://www.nrk.no/1.<id>` 301s to the canonical
+URL (so a HEAD reveals the slug), and ids in that block follow publication
+order, so a review's date predicts its id. One confirming GET per match
+(same date, and Birger credited in the ingress or a byline — colleagues
+reviewed the same films under the same slug the same week, and their pages
+mention him too, but only in a related-link `title=""`). This
+is the one place we touch ids we weren't linked to — HEAD-only, 1 req/s,
+identifying UA, bounded radius around a predicted id. Reviews with no live
+page link to the Internet Archive, and the review page says so.
+
 ---
 
 ## Data model (target)

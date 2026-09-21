@@ -47,6 +47,8 @@ export async function getStaticPaths() {
 
 interface Props { review: ReviewIndexEntry; }
 const { review: r } = Astro.props;
+// Pre-2007 reviews recovered from the Wayback Machine whose nrk.no page is gone.
+const archivedOnly = r.url.startsWith('https://web.archive.org/');
 
 // Derive the position from `no` rather than indexOf: it's O(1) instead of a
 // linear scan on each of the ~1.9k pages, and it doesn't depend on the props
@@ -332,13 +334,20 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
     <section class="cta-card">
       <div class="cta-text">
         <div class="h-kicker">Hele anmeldelsen</div>
-        <p>
-          Birger Vestmo skriver for NRK Filmpolitiet. Anmeldelsens fulle tekst,
-          bilder, og eventuelle traileres ligger der den hører hjemme — hos NRK.
-        </p>
+        {archivedOnly ? (
+          <p>
+            Denne anmeldelsen fra {r.publishedAt?.slice(0, 4)} finnes ikke lenger hos NRK. Teksten
+            er bevart av Internet Archive, slik den sto på nrk.no den gangen.
+          </p>
+        ) : (
+          <p>
+            Birger Vestmo skriver for NRK Filmpolitiet. Anmeldelsens fulle tekst,
+            bilder, og eventuelle traileres ligger der den hører hjemme — hos NRK.
+          </p>
+        )}
       </div>
       <a class="btn btn-stamp" href={r.url} target="_blank" rel="noopener">
-        Les hos NRK ↗
+        {archivedOnly ? 'Les i Internet Archive ↗' : 'Les hos NRK ↗'}
       </a>
     </section>
 

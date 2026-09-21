@@ -1,0 +1,3927 @@
+{
+  "builtAt": "2026-09-21T20:54:29.008Z",
+  "popcorn": {
+    "409740": 1,
+    "409742": 2,
+    "409743": 3,
+    "409744": 4,
+    "409745": 5,
+    "409746": 6
+  },
+  "notBirger": [
+    {
+      "key": "film/filmanmeldelser/1017818.html",
+      "title": "Dracula 2001",
+      "publishedAt": "2001-05-11",
+      "by": "Brita Møystad Engseth"
+    },
+    {
+      "key": "film/filmanmeldelser/1030895.html",
+      "title": "\"Mumien vender tilbake\"",
+      "publishedAt": "2001-05-18",
+      "by": "Einar Guldvog Staaalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1060726.html",
+      "title": "\"Memento\"",
+      "publishedAt": "2001-06-01",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1060791.html",
+      "title": "Fascinerende thriller",
+      "publishedAt": "2001-06-01",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1061151.html",
+      "title": "Forutsigbar metervare",
+      "publishedAt": "2001-06-01",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1062238.html",
+      "title": "\"Fanget i Mørket\"",
+      "publishedAt": "2001-06-01",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1074255.html",
+      "title": "\"Fast Food, Fast Woman\"",
+      "publishedAt": "2001-06-08",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1074540.html",
+      "title": "Exit Wounds",
+      "publishedAt": "2001-06-08",
+      "by": "Ivar Winter"
+    },
+    {
+      "key": "film/filmanmeldelser/1105013.html",
+      "title": "Antitrust",
+      "publishedAt": "2001-06-22",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1114164.html",
+      "title": "Lara Croft: Tomb Raider",
+      "publishedAt": "2001-06-27",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1117795.html",
+      "title": "One Night At McCool's",
+      "publishedAt": "2001-06-28",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1121919.html",
+      "title": "Girlfight",
+      "publishedAt": "2001-06-29",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1131425.html",
+      "title": "Pearl Harbor",
+      "publishedAt": "2001-07-04",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1135396.html",
+      "title": "Better than sex",
+      "publishedAt": "2001-07-06",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1136972.html",
+      "title": "One Night At McCool's",
+      "publishedAt": "2001-07-06",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1150925.html",
+      "title": "Dr. Dolittle II",
+      "publishedAt": "2001-07-13",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1151266.html",
+      "title": "Requiem for a dream",
+      "publishedAt": "2001-07-13",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1163549.html",
+      "title": "Bridget Jones Dagbok",
+      "publishedAt": "2001-07-20",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1203000.html",
+      "title": "Uneasy Riders",
+      "publishedAt": "2001-08-10",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1205453.html",
+      "title": "Planet of the Apes",
+      "publishedAt": "2001-08-10",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1220527.html",
+      "title": "Blow",
+      "publishedAt": "2001-08-17",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1237408.html",
+      "title": "Scary Movie 2",
+      "publishedAt": "2001-08-24",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1242921.html",
+      "title": "Ikingut",
+      "publishedAt": "2001-08-27",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1243116.html",
+      "title": "State and Main",
+      "publishedAt": "2001-08-27",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1243469.html",
+      "title": "Stanley Kubrick: A Life in Pictures",
+      "publishedAt": "2001-08-27",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1244227.html",
+      "title": "Det største i verden",
+      "publishedAt": "2001-08-28",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1245184.html",
+      "title": "Det største i verden (Pål Bang-Hansen)",
+      "publishedAt": "2001-08-28",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1248465.html",
+      "title": "A Knight's Tale",
+      "publishedAt": "2001-08-29",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1249117.html",
+      "title": "Den fabelaktige Amelie fra Montmartre",
+      "publishedAt": "2001-08-30",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1253572.html",
+      "title": "State and Main",
+      "publishedAt": "2001-08-31",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1255131.html",
+      "title": "Bryllupet",
+      "publishedAt": "2001-08-31",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1255359.html",
+      "title": "Så hvit som en snø",
+      "publishedAt": "2001-08-31",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1271716.html",
+      "title": "Swordfish",
+      "publishedAt": "2001-09-07",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1272345.html",
+      "title": "Animal Farm",
+      "publishedAt": "2001-09-07",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1288145.html",
+      "title": "Øyenstikker",
+      "publishedAt": "2001-09-14",
+      "by": "Einar Guldvog"
+    },
+    {
+      "key": "film/filmanmeldelser/1288430.html",
+      "title": "Øyenstikker",
+      "publishedAt": "2001-09-13",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1288457.html",
+      "title": "Øyenstikker",
+      "publishedAt": "2001-09-14",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1304177.html",
+      "title": "Når mennene kommer hjem",
+      "publishedAt": "2001-09-21",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1320337.html",
+      "title": "Osmosis Jones",
+      "publishedAt": "2001-09-28",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1320556.html",
+      "title": "Osmosis Jones",
+      "publishedAt": "2001-09-28",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1337503.html",
+      "title": "Late Night Shopping",
+      "publishedAt": "2001-10-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1337582.html",
+      "title": "A Knight’s Tale",
+      "publishedAt": "2001-10-05",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1353276.html",
+      "title": "Den fabelaktige Amélie fra Montmartre",
+      "publishedAt": "2001-10-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1354540.html",
+      "title": "A.I. Kunstig Intellingens",
+      "publishedAt": "2001-10-12",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1370570.html",
+      "title": "The Score",
+      "publishedAt": "2001-10-19",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1370749.html",
+      "title": "The Score",
+      "publishedAt": "2001-10-19",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1388014.html",
+      "title": "Apocalypse nå! Redux",
+      "publishedAt": "2001-10-26",
+      "by": "Einar Guldvog"
+    },
+    {
+      "key": "film/filmanmeldelser/1388480.html",
+      "title": "Apokalypse Nå! Redux",
+      "publishedAt": "2001-10-26",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1405672.html",
+      "title": "Baby Boy",
+      "publishedAt": "2001-11-02",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1426344.html",
+      "title": "Training Day",
+      "publishedAt": "2001-11-09",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1442168.html",
+      "title": "Crazy/Beautiful",
+      "publishedAt": "2001-11-16",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1449802.html",
+      "title": "Harry i hundre",
+      "publishedAt": "2001-11-22",
+      "by": "Mikkel Bratt Silset"
+    },
+    {
+      "key": "film/filmanmeldelser/1456837.html",
+      "title": "En reise til Kandahar",
+      "publishedAt": "2001-11-22",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1458319.html",
+      "title": "The Anniversary Party",
+      "publishedAt": "2001-11-23",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1476072.html",
+      "title": "Bandits",
+      "publishedAt": "2001-11-30",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1516336.html",
+      "title": "Ringenes Herre: Ringens brorskap",
+      "publishedAt": "2001-12-18",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1519209.html",
+      "title": "Monsoon Wedding",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1519312.html",
+      "title": "Serendipity",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1519418.html",
+      "title": "Brød og tulipaner",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1522586.html",
+      "title": "Prinsesse på prøve",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1522706.html",
+      "title": "Shallow Hal",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1522759.html",
+      "title": "Det nye landet",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1522820.html",
+      "title": "Stardom",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1522921.html",
+      "title": "Mennene i mitt liv",
+      "publishedAt": "2001-12-20",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1528488.html",
+      "title": "Slogans",
+      "publishedAt": "2001-12-21",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1528608.html",
+      "title": "Shallow Hal",
+      "publishedAt": "2001-12-21",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1562789.html",
+      "title": "Spy Game",
+      "publishedAt": "2002-01-11",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1578595.html",
+      "title": "Å seile sin egen sjø",
+      "publishedAt": "2002-01-18",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1598967.html",
+      "title": "Benken",
+      "publishedAt": "2002-01-25",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1616518.html",
+      "title": "K-PAX",
+      "publishedAt": "2002-02-01",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1617225.html",
+      "title": "Kuppet",
+      "publishedAt": "2002-02-01",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1633406.html",
+      "title": "Ingenmannsland",
+      "publishedAt": "2002-02-08",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1653731.html",
+      "title": "Glasskår",
+      "publishedAt": "2002-02-15",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1653882.html",
+      "title": "Ocean's Eleven",
+      "publishedAt": "2002-02-15",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1654119.html",
+      "title": "Glasskår",
+      "publishedAt": "2002-02-15",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1654208.html",
+      "title": "Ocean's Eleven",
+      "publishedAt": "2002-02-15",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1654773.html",
+      "title": "The Deep End",
+      "publishedAt": "2002-02-15",
+      "by": "Mikal Olsen"
+    },
+    {
+      "key": "film/filmanmeldelser/1670206.html",
+      "title": "Alt om min far",
+      "publishedAt": "2002-02-22",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1671433.html",
+      "title": "Alt om min far",
+      "publishedAt": "2002-02-22",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1672124.html",
+      "title": "Sprengeren",
+      "publishedAt": "2002-02-22",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1687249.html",
+      "title": "Et vakkert sinn",
+      "publishedAt": "2002-03-01",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1703634.html",
+      "title": "Eksperimentet",
+      "publishedAt": "2002-03-08",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1704231.html",
+      "title": "Jeg er Dina",
+      "publishedAt": "2002-03-08",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1704438.html",
+      "title": "Jeg er Dina",
+      "publishedAt": "2002-03-08",
+      "by": "Kristin Vold"
+    },
+    {
+      "key": "film/filmanmeldelser/1721558.html",
+      "title": "Gosford Park",
+      "publishedAt": "2002-03-15",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1722444.html",
+      "title": "The Royal Tenenbaums",
+      "publishedAt": "2002-03-15",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1739276.html",
+      "title": "Bully",
+      "publishedAt": "2002-03-22",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1739359.html",
+      "title": "Tyven Tyven",
+      "publishedAt": "2002-03-22",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1739525.html",
+      "title": "I soverommet",
+      "publishedAt": "2002-03-22",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1740993.html",
+      "title": "Iris",
+      "publishedAt": "2002-03-22",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/1747296.html",
+      "title": "Way of the gun",
+      "publishedAt": "2002-03-26",
+      "by": "Mikal Olsen"
+    },
+    {
+      "key": "film/filmanmeldelser/1747724.html",
+      "title": "Mullholland Drive",
+      "publishedAt": "2002-03-26",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/1749908.html",
+      "title": "Black Hawk Down",
+      "publishedAt": "2002-03-27",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/175708.html",
+      "title": "Tigergutt",
+      "publishedAt": "2000-09-14",
+      "by": "Brita Møystad Engseth"
+    },
+    {
+      "key": "film/filmanmeldelser/1762161.html",
+      "title": "Heftig og begeistret - På sangens vinger",
+      "publishedAt": "2002-04-05",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/1762433.html",
+      "title": "Heftig og begeistret - På sangens vinger",
+      "publishedAt": "2002-04-05",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1762758.html",
+      "title": "Time Machine",
+      "publishedAt": "2002-04-05",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1779640.html",
+      "title": "The man who wasn't there",
+      "publishedAt": "2002-04-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1780948.html",
+      "title": "Sexy Beast",
+      "publishedAt": "2002-04-12",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/1796470.html",
+      "title": "The Curse of the Jade Scorpion",
+      "publishedAt": "2002-04-19",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1796809.html",
+      "title": "The Curse of the Jade Scorpion",
+      "publishedAt": "2002-04-19",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1811708.html",
+      "title": "Skorpionenes konge",
+      "publishedAt": "2002-04-26",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1813638.html",
+      "title": "Bella Martha",
+      "publishedAt": "2002-04-26",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1828835.html",
+      "title": "We Were Soldiers",
+      "publishedAt": "2002-05-03",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1828857.html",
+      "title": "Charlotte Gray",
+      "publishedAt": "2002-05-03",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1829011.html",
+      "title": "We were soldiers",
+      "publishedAt": "2002-05-03",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1841988.html",
+      "title": "Siste runde",
+      "publishedAt": "2002-05-10",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1843868.html",
+      "title": "Resident Evil",
+      "publishedAt": "2002-05-10",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1844652.html",
+      "title": "The Musketeer",
+      "publishedAt": "2002-05-10",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1855594.html",
+      "title": "Star Wars Episode II – Klonene Angriper",
+      "publishedAt": "2002-05-15",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1889323.html",
+      "title": "Monster's Ball",
+      "publishedAt": "2002-05-31",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1890503.html",
+      "title": "The Mothman - Dødens Budbringer",
+      "publishedAt": "2002-05-31",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1904852.html",
+      "title": "Folk flest bor i Kina",
+      "publishedAt": "2002-06-07",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1921156.html",
+      "title": "Blade II",
+      "publishedAt": "2002-06-14",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1923329.html",
+      "title": "\"The Iron Ladies\"",
+      "publishedAt": "2002-06-14",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/1938200.html",
+      "title": "Og mora di også",
+      "publishedAt": "2002-06-20",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1959259.html",
+      "title": "Midt imellom",
+      "publishedAt": "2002-06-28",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1959290.html",
+      "title": "Spider-Man",
+      "publishedAt": "2002-06-28",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/1973227.html",
+      "title": "Gutter er gutter",
+      "publishedAt": "2002-07-05",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/197459.html",
+      "title": "Happy, Texas",
+      "publishedAt": "2000-09-20",
+      "by": "Brita Møystad Engseth"
+    },
+    {
+      "key": "film/filmanmeldelser/1988541.html",
+      "title": "Battle Royale",
+      "publishedAt": "2002-07-12",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/1988692.html",
+      "title": "Grusom og viktig",
+      "publishedAt": "2002-07-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2000844.html",
+      "title": "Murder by numbers",
+      "publishedAt": "2002-07-19",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2013427.html",
+      "title": "Men In Black II",
+      "publishedAt": "2002-07-26",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2028352.html",
+      "title": "Det absolutte mareritt",
+      "publishedAt": "2002-08-02",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2042841.html",
+      "title": "The Sweetest Thing",
+      "publishedAt": "2002-08-09",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2044682.html",
+      "title": "Windtalkers",
+      "publishedAt": "2002-08-09",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2060087.html",
+      "title": "24 Hour Party People",
+      "publishedAt": "2002-08-16",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2060451.html",
+      "title": "Bad Company",
+      "publishedAt": "2002-08-16",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2064983.html",
+      "title": "Musikk for bryllup og begravelser",
+      "publishedAt": "2002-08-19",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2067403.html",
+      "title": "Vektløs",
+      "publishedAt": "2002-08-20",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2074596.html",
+      "title": "Smilet i øyet",
+      "publishedAt": "2002-08-22",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2078233.html",
+      "title": "Mannen uten minne",
+      "publishedAt": "2002-08-23",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2078288.html",
+      "title": "Mannen uten minne",
+      "publishedAt": "2002-08-23",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2079354.html",
+      "title": "Dirigentens valg",
+      "publishedAt": "2002-11-01",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2094068.html",
+      "title": "Minority Report",
+      "publishedAt": "2002-08-29",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2097885.html",
+      "title": "Lagaan- det var en gang i India",
+      "publishedAt": "2002-08-30",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2108165.html",
+      "title": "Minority Report",
+      "publishedAt": "2002-09-04",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2114155.html",
+      "title": "High Crimes",
+      "publishedAt": "2002-09-06",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2132885.html",
+      "title": "Hvem var Jason Bourne?",
+      "publishedAt": "2002-09-13",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2150140.html",
+      "title": "Lilja 4-ever",
+      "publishedAt": "2002-09-20",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2156627.html",
+      "title": "Lilja 4 ever",
+      "publishedAt": "2002-09-23",
+      "by": "Torunn P. Westerfjell"
+    },
+    {
+      "key": "film/filmanmeldelser/216497.html",
+      "title": "Ensomme hjerter",
+      "publishedAt": "2000-09-25",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2167980.html",
+      "title": "Ginger Snaps",
+      "publishedAt": "2002-09-27",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2168116.html",
+      "title": "Enough",
+      "publishedAt": "2002-09-27",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2187901.html",
+      "title": "Road to Perdition",
+      "publishedAt": "2002-10-04",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2204301.html",
+      "title": "Alle elsker Alice",
+      "publishedAt": "2002-10-11",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2223130.html",
+      "title": "Himmelfall",
+      "publishedAt": "2002-10-18",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2223857.html",
+      "title": "Ya-Ya-jentenes hemmelige nedtegnelser",
+      "publishedAt": "2002-10-18",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2239366.html",
+      "title": "K-19",
+      "publishedAt": "2002-10-24",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2241313.html",
+      "title": "Velkommen hjem",
+      "publishedAt": "2002-10-24",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/2264636.html",
+      "title": "Den røde drage",
+      "publishedAt": "2002-11-01",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2272099.html",
+      "title": "Den røde drage",
+      "publishedAt": "2002-11-04",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2284426.html",
+      "title": "Pauline og Paulette",
+      "publishedAt": "2002-11-08",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2286242.html",
+      "title": "I Dødvinkelen",
+      "publishedAt": "2002-11-08",
+      "by": "Svanhild Sveinsdotter Grov"
+    },
+    {
+      "key": "film/filmanmeldelser/2294836.html",
+      "title": "Han elsker meg...han elsker meg ikke",
+      "publishedAt": "2002-11-15",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2298592.html",
+      "title": "Rabbit-Proof Fence",
+      "publishedAt": "2002-11-15",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/2302858.html",
+      "title": "Blodspor",
+      "publishedAt": "2002-11-15",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2303024.html",
+      "title": "Full Frontal",
+      "publishedAt": "2002-11-15",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/2322280.html",
+      "title": "Harry Potter og Mysteriekammeret",
+      "publishedAt": "2002-11-21",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2345651.html",
+      "title": "Anam",
+      "publishedAt": "2002-11-29",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2363478.html",
+      "title": "Julenissen",
+      "publishedAt": "2002-12-05",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2364949.html",
+      "title": "One hour photo",
+      "publishedAt": "2002-12-06",
+      "by": "Guldvog Staalelsen"
+    },
+    {
+      "key": "film/filmanmeldelser/2394333.html",
+      "title": "Ringenes Herre: To Tårn",
+      "publishedAt": "2002-12-17",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2403809.html",
+      "title": "Pelle Politibil",
+      "publishedAt": "2002-12-20",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2404403.html",
+      "title": "Jet Lag",
+      "publishedAt": "2002-12-20",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2404700.html",
+      "title": "Elsker deg for evig",
+      "publishedAt": "2002-12-20",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2410209.html",
+      "title": "Gud griper inn",
+      "publishedAt": "2002-12-24",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/241809.html",
+      "title": "En dag i september",
+      "publishedAt": "2000-09-29",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/243207.html",
+      "title": "Titan A.E.",
+      "publishedAt": "2000-09-29",
+      "by": "Leon Mathisen"
+    },
+    {
+      "key": "film/filmanmeldelser/2441377.html",
+      "title": "The Four Feathers",
+      "publishedAt": "2003-01-10",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2455530.html",
+      "title": "Salmer fra kjøkkenet",
+      "publishedAt": "2003-01-16",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2457640.html",
+      "title": "Salmer fra kjøkkenet",
+      "publishedAt": "2003-01-16",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2457935.html",
+      "title": "Hvem er Earnest?",
+      "publishedAt": "2003-01-16",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2460624.html",
+      "title": "Gangs of New York",
+      "publishedAt": "2003-01-17",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/2460929.html",
+      "title": "Hvem er Earnest?",
+      "publishedAt": "2003-01-17",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2479623.html",
+      "title": "8 Mile",
+      "publishedAt": "2003-01-24",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2511099.html",
+      "title": "Ni dronninger",
+      "publishedAt": "2003-02-05",
+      "by": "Pål Bang Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2516595.html",
+      "title": "Olsenbanden Jr. går under vann",
+      "publishedAt": "2003-02-06",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2522872.html",
+      "title": "Jonny Vang",
+      "publishedAt": "2003-02-10",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2610172.html",
+      "title": "Hva angår Schmidt",
+      "publishedAt": "2003-03-14",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/2611225.html",
+      "title": "Sunshine State",
+      "publishedAt": "2003-03-14",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2618281.html",
+      "title": "Sunshine State",
+      "publishedAt": "2003-03-18",
+      "by": "Pål Bang-Hansen"
+    },
+    {
+      "key": "film/filmanmeldelser/2628939.html",
+      "title": "Welcome To Collinwood",
+      "publishedAt": "2003-03-21",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2661447.html",
+      "title": "Daredevil",
+      "publishedAt": "2003-04-04",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2684352.html",
+      "title": "Havet",
+      "publishedAt": "2003-04-11",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/2685464.html",
+      "title": "11. september",
+      "publishedAt": "2003-04-11",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2686890.html",
+      "title": "The Quiet American",
+      "publishedAt": "2003-04-11",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/2703305.html",
+      "title": "Aileen Woruos: The Life and Death of a Serial Killer",
+      "publishedAt": "2003-04-22",
+      "by": "Svanhild Sveinsdotter Grov"
+    },
+    {
+      "key": "film/filmanmeldelser/2708947.html",
+      "title": "Dreamcatcher",
+      "publishedAt": "2003-04-24",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2763359.html",
+      "title": "Napoleons nye klær",
+      "publishedAt": "2003-05-16",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2794212.html",
+      "title": "Final Destination 2",
+      "publishedAt": "2003-05-30",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "film/filmanmeldelser/2794648.html",
+      "title": "Intacto",
+      "publishedAt": "2003-05-30",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "film/filmanmeldelser/2794926.html",
+      "title": "The Hot Chick",
+      "publishedAt": "2003-05-28",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "film/filmanmeldelser/2795126.html",
+      "title": "Små Hemmeligheter",
+      "publishedAt": "2003-05-30",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "film/filmanmeldelser/2852140.html",
+      "title": "Fugler i flukt",
+      "publishedAt": "2003-06-20",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2864896.html",
+      "title": "Sanger fra andre etasje",
+      "publishedAt": "2003-06-24",
+      "by": "Guttorm Andreasen"
+    },
+    {
+      "key": "film/filmanmeldelser/2876074.html",
+      "title": "Agent Cody Banks",
+      "publishedAt": "2003-06-27",
+      "by": "Ingrid Sande Larsen"
+    },
+    {
+      "key": "film/filmanmeldelser/2907605.html",
+      "title": "Hulken",
+      "publishedAt": "2003-07-11",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2935602.html",
+      "title": "Blottet for lidenskap",
+      "publishedAt": "2003-07-24",
+      "by": "Marius Saasen Strand"
+    },
+    {
+      "key": "film/filmanmeldelser/2936701.html",
+      "title": "Laurel Canyon",
+      "publishedAt": "2003-07-25",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2953880.html",
+      "title": "Lovlig blond 2",
+      "publishedAt": "2003-08-01",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2969408.html",
+      "title": "Terminator 3: Rise Of The Machines",
+      "publishedAt": "2003-08-08",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/2991010.html",
+      "title": "United",
+      "publishedAt": "2003-08-18",
+      "by": "Einar Guldvog"
+    },
+    {
+      "key": "film/filmanmeldelser/2994396.html",
+      "title": "Lille frøken Norge",
+      "publishedAt": "2003-08-19",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3003683.html",
+      "title": "Buddy",
+      "publishedAt": "2003-08-22",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3026232.html",
+      "title": "Pirates of the Caribbean",
+      "publishedAt": "2003-08-29",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3050973.html",
+      "title": "Dogville",
+      "publishedAt": "2003-09-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3073458.html",
+      "title": "Good Bye Lenin",
+      "publishedAt": "2003-09-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3096618.html",
+      "title": "Mot Moskva",
+      "publishedAt": "2003-09-19",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3111314.html",
+      "title": "Kvinnen i mitt liv",
+      "publishedAt": "2003-09-24",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3200221.html",
+      "title": "Fia og klovnene",
+      "publishedAt": "2003-10-24",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3201955.html",
+      "title": "Intolerable Cruelty",
+      "publishedAt": "2003-10-24",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3202632.html",
+      "title": "Kalenderpikene",
+      "publishedAt": "2003-10-24",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "film/filmanmeldelser/3202871.html",
+      "title": "Barbarenes Invasjon",
+      "publishedAt": "2003-10-24",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "film/filmanmeldelser/3218266.html",
+      "title": "Mystic River",
+      "publishedAt": "2003-10-30",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3230727.html",
+      "title": "Matrix Revolutions",
+      "publishedAt": "2003-11-04",
+      "by": "Svanhild Sveinsdotter Grov"
+    },
+    {
+      "key": "film/filmanmeldelser/3242100.html",
+      "title": "Helt plutselig",
+      "publishedAt": "2003-11-07",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3262288.html",
+      "title": "The Shape of Things",
+      "publishedAt": "2003-11-14",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3263227.html",
+      "title": "Strandet i Irak",
+      "publishedAt": "2003-11-14",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3321864.html",
+      "title": "Ringenes Herre: Atter en konge",
+      "publishedAt": "2003-12-04",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/3329.html",
+      "title": "Voksne mennesker",
+      "publishedAt": "2000-02-03",
+      "by": "Lisa Strindberg"
+    },
+    {
+      "key": "film/filmanmeldelser/3331.html",
+      "title": "Løgneren Jakob",
+      "publishedAt": "2000-10-13",
+      "by": "Lisa Strindberg"
+    },
+    {
+      "key": "film/filmanmeldelser/3332.html",
+      "title": "Det begynner i dag",
+      "publishedAt": "2000-10-13",
+      "by": "Lisa Strindberg"
+    },
+    {
+      "key": "film/filmanmeldelser/334509.html",
+      "title": "Tilsammans",
+      "publishedAt": "2000-10-20",
+      "by": "Einar Guldvog Staalelsen"
+    },
+    {
+      "key": "film/filmanmeldelser/3350.html",
+      "title": "Jeanne d'Arc",
+      "publishedAt": "2000-10-13",
+      "by": "Brita Møystad"
+    },
+    {
+      "key": "film/filmanmeldelser/3373083.html",
+      "title": "Kaptein Sabeltann",
+      "publishedAt": "2003-12-19",
+      "by": "Kalle Løchen"
+    },
+    {
+      "key": "film/filmanmeldelser/3394781.html",
+      "title": "Hekta på deg",
+      "publishedAt": "2004-01-02",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3412345.html",
+      "title": "Scary Movie 3",
+      "publishedAt": "2004-01-09",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3430097.html",
+      "title": "På hau' i havet",
+      "publishedAt": "2004-01-15",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3432050.html",
+      "title": "Bare Bea",
+      "publishedAt": "2004-01-16",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3474253.html",
+      "title": "Mannen som elsket Haugesund",
+      "publishedAt": "2004-01-30",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3493923.html",
+      "title": "Olsenbanden jr. på Rock'ern",
+      "publishedAt": "2004-02-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3494128.html",
+      "title": "Lost in translation",
+      "publishedAt": "2004-02-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3504078.html",
+      "title": "The Beautiful Country",
+      "publishedAt": "2004-02-09",
+      "by": "Damien Nguyen, Ling Bai, Nick Nolte, Tim Roth"
+    },
+    {
+      "key": "film/filmanmeldelser/3542312.html",
+      "title": "The Missing",
+      "publishedAt": "2004-02-20",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3562234.html",
+      "title": "Cold Mountain",
+      "publishedAt": "2004-02-26",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/3580799.html",
+      "title": "\"21 gram\"",
+      "publishedAt": "2004-03-04",
+      "by": "Helen De Bellis, Eline Lindhjem"
+    },
+    {
+      "key": "film/filmanmeldelser/3585441.html",
+      "title": "I sin datters hus",
+      "publishedAt": "2004-03-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3603003.html",
+      "title": "Falske spor",
+      "publishedAt": "2004-03-11",
+      "by": "Helen De Bellis"
+    },
+    {
+      "key": "film/filmanmeldelser/3607787.html",
+      "title": "Mandager i solen",
+      "publishedAt": "2004-03-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3607876.html",
+      "title": "Balzac og den lille kinesiske syersken",
+      "publishedAt": "2004-03-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3625256.html",
+      "title": "Young Adam",
+      "publishedAt": "2004-03-18",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "film/filmanmeldelser/3625570.html",
+      "title": "Out of Time",
+      "publishedAt": "2004-03-18",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "film/filmanmeldelser/3625917.html",
+      "title": "Dusinet fullt",
+      "publishedAt": "2004-03-18",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "film/filmanmeldelser/3666924.html",
+      "title": "Pike med perleøredobb",
+      "publishedAt": "2004-04-01",
+      "by": "Helen De Bellis"
+    },
+    {
+      "key": "film/filmanmeldelser/3719141.html",
+      "title": "School of rock",
+      "publishedAt": "2004-04-23",
+      "by": "NRK-anmelder Birger"
+    },
+    {
+      "key": "film/filmanmeldelser/3756059.html",
+      "title": "Van Helsing",
+      "publishedAt": "2004-05-06",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3761219.html",
+      "title": "Tur & retur",
+      "publishedAt": "2004-05-07",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3834349.html",
+      "title": "Den gode, den onde og den grusomme",
+      "publishedAt": "2004-06-04",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "film/filmanmeldelser/386977.html",
+      "title": "Blair Witch 2",
+      "publishedAt": "2000-11-02",
+      "by": "Brita Møystad"
+    },
+    {
+      "key": "film/filmanmeldelser/3873216.html",
+      "title": "Lars von Triers fem benspænd",
+      "publishedAt": "2004-06-18",
+      "by": "Anne Hoff"
+    },
+    {
+      "key": "film/filmanmeldelser/3907108.html",
+      "title": "Miffo",
+      "publishedAt": "2004-07-02",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/3977492.html",
+      "title": "Salto, salmiakk og kaffe",
+      "publishedAt": "2004-08-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/421115.html",
+      "title": "Menneskelige ressurser",
+      "publishedAt": "2000-11-10",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/450689.html",
+      "title": "101 Reykjavik",
+      "publishedAt": "2000-11-17",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "film/filmanmeldelser/705660.html",
+      "title": "Heftig og begeistret",
+      "publishedAt": "2001-01-18",
+      "by": "Einar Guldvog Staalelsen"
+    },
+    {
+      "key": "film/filmanmeldelser/712872.html",
+      "title": "Vertical Limit",
+      "publishedAt": "2001-01-19",
+      "by": "Brita Møystad Engseth"
+    },
+    {
+      "key": "film/filmanmeldelser/804261.html",
+      "title": "Klønete lefling med ungdom",
+      "publishedAt": "2001-02-09",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/838304.html",
+      "title": "Hannibal",
+      "publishedAt": "2001-02-23",
+      "by": "Brita Møystad Engseth"
+    },
+    {
+      "key": "film/filmanmeldelser/856248.html",
+      "title": "Amatørene",
+      "publishedAt": "2001-03-02",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "film/filmanmeldelser/891729.html",
+      "title": "Elling",
+      "publishedAt": "2001-03-16",
+      "by": "Einar Guldvåg Staalelsen"
+    },
+    {
+      "key": "film/filmanmeldelser/927346.html",
+      "title": "En sang for Martin",
+      "publishedAt": "2001-03-30",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "filmpolitiet/4758555.html",
+      "title": "Den beste kortfilmen",
+      "publishedAt": "2005-05-25",
+      "by": "Tip Top"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1668932.html",
+      "title": "The Others - Nicole er redd",
+      "publishedAt": "2002-02-21",
+      "by": "Briger Vestmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1673024.html",
+      "title": "Et rotterace",
+      "publishedAt": "2002-02-22",
+      "by": "Briger Vestmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1673251.html",
+      "title": "Uspennende sjøfartsnytt",
+      "publishedAt": "2002-02-22",
+      "by": "Briger Vestmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1768057.html",
+      "title": "Dinner Rush: Sulten tørst?",
+      "publishedAt": "2002-04-08",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1826566.html",
+      "title": "I am Sam: Tilbakestående Sam",
+      "publishedAt": "2002-05-02",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1828828.html",
+      "title": "We were soldiers: Brennende soldater",
+      "publishedAt": "2002-05-03",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1830282.html",
+      "title": "The Majestic: Tufsete femtitall",
+      "publishedAt": "2002-05-03",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1854675.html",
+      "title": "Star Wars - Episode II: Hypnotiserende klone-kaos",
+      "publishedAt": "2002-05-15",
+      "by": "Håvard Ellingsen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1938873.html",
+      "title": "Og mora di også: På vei etter sex",
+      "publishedAt": "2002-06-20",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2577164.html",
+      "title": "En helg på kino",
+      "publishedAt": "2003-02-28",
+      "by": "Chicago Ulvesommer"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3474253.html",
+      "title": "Mannen som elsket Haugesund",
+      "publishedAt": "2004-01-30",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3504078.html",
+      "title": "The Beautiful Country",
+      "publishedAt": "2004-02-09",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3603003.html",
+      "title": "Falske spor",
+      "publishedAt": "2004-03-11",
+      "by": "Helen De Bellis"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3607876.html",
+      "title": "Balzac og den lille kinesiske syersken",
+      "publishedAt": "2004-03-12",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3625256.html",
+      "title": "Young Adam",
+      "publishedAt": "2004-03-18",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3625570.html",
+      "title": "Out of Time (30)",
+      "publishedAt": "2004-03-18",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3625917.html",
+      "title": "Dusinet fullt",
+      "publishedAt": "2004-03-18",
+      "by": "Ragnhild H. Simenstad"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3666924.html",
+      "title": "Pike med perleøredobb",
+      "publishedAt": "2004-04-01",
+      "by": "Helen De Bellis"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3719141.html",
+      "title": "School of rock",
+      "publishedAt": "2004-04-23",
+      "by": "NRK-anmelder Birger"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3834349.html",
+      "title": "Den gode, den onde og den grusomme",
+      "publishedAt": "2004-06-04",
+      "by": "Ivar Winther"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3907108.html",
+      "title": "Miffo",
+      "publishedAt": "2004-07-02",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3977492.html",
+      "title": "Salto, salmiakk og kaffe",
+      "publishedAt": "2004-08-05",
+      "by": "Einar Guldvog Staalesen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4136315.html",
+      "title": "Kvinnen i mitt liv",
+      "publishedAt": "2004-10-01",
+      "by": "Birger Westmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4368395.html",
+      "title": "National Treasure",
+      "publishedAt": "2004-12-22",
+      "by": "Birger Vstmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5111878.html",
+      "title": "DVD Ong-bak",
+      "publishedAt": "2005-10-04",
+      "by": "Av Birger Vestmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5115306.html",
+      "title": "Izzat",
+      "publishedAt": "2005-10-05",
+      "by": "Av Birger Vestmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5115634.html",
+      "title": "Forhekset",
+      "publishedAt": "2005-10-05",
+      "by": "Av Birger Vestmo"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5472291.html",
+      "title": "Skjult",
+      "publishedAt": "2006-02-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5472948.html",
+      "title": "Casanova",
+      "publishedAt": "2006-02-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5472995.html",
+      "title": "Mrs Henderson Presents",
+      "publishedAt": "2006-02-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5473022.html",
+      "title": "Match point",
+      "publishedAt": "2006-02-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5489089.html",
+      "title": "En høyst uvanlig mann",
+      "publishedAt": "2006-02-16",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5489382.html",
+      "title": "Geisha",
+      "publishedAt": "2006-02-16",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5489462.html",
+      "title": "Nanny McPhee",
+      "publishedAt": "2006-02-16",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5506981.html",
+      "title": "Paradis nå",
+      "publishedAt": "2006-02-23",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5507151.html",
+      "title": "Good night, and good luck",
+      "publishedAt": "2006-02-23",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5507267.html",
+      "title": "Sophie Scholls siste dager",
+      "publishedAt": "2006-02-23",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5507399.html",
+      "title": "Gymnaslærer Pedersen",
+      "publishedAt": "2006-02-23",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5527175.html",
+      "title": "Fjorten suger",
+      "publishedAt": "2006-03-02",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5527484.html",
+      "title": "Rent",
+      "publishedAt": "2006-03-02",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5527557.html",
+      "title": "Capote",
+      "publishedAt": "2006-03-02",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5545282.html",
+      "title": "Wallander: Mastermind",
+      "publishedAt": "2006-03-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5545363.html",
+      "title": "Nære og kjære",
+      "publishedAt": "2006-03-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5545491.html",
+      "title": "Den rosa panteren",
+      "publishedAt": "2006-03-10",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5545501.html",
+      "title": "Syriana",
+      "publishedAt": "2006-03-09",
+      "by": "Grete Strøm"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5576132.html",
+      "title": "Get rich or die tryin’",
+      "publishedAt": "2006-03-23",
+      "by": "Rune Munkebye"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5626585.html",
+      "title": "Slipp Jimmy Fri",
+      "publishedAt": "2006-04-20",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5626876.html",
+      "title": "Grizzly Man",
+      "publishedAt": "2006-04-20",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5641205.html",
+      "title": "Tristan",
+      "publishedAt": "2006-04-27",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5641625.html",
+      "title": "Basic Instinct 2",
+      "publishedAt": "2006-04-27",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5653349.html",
+      "title": "Den beste av mødre",
+      "publishedAt": "2006-05-04",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5669297.html",
+      "title": "Grbavica",
+      "publishedAt": "2006-05-11",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5669327.html",
+      "title": "Africa United",
+      "publishedAt": "2006-05-11",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5690719.html",
+      "title": "Den brysomme mannen",
+      "publishedAt": "2006-05-24",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5713661.html",
+      "title": "The Fast and the Furious: Tokyo Drift",
+      "publishedAt": "2006-06-15",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5718384.html",
+      "title": "Vinneren er kåret",
+      "publishedAt": "2006-06-19",
+      "by": "Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5720555.html",
+      "title": "Brokeback Mountain (DVD)",
+      "publishedAt": "2006-06-21",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5728269.html",
+      "title": "Poseidon",
+      "publishedAt": "2006-06-29",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5733598.html",
+      "title": "Asterix og Vikingene",
+      "publishedAt": "2006-07-05",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5734168.html",
+      "title": "Storm",
+      "publishedAt": "2006-07-06",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5738384.html",
+      "title": "Pirates of the Carribean",
+      "publishedAt": "2006-07-13",
+      "by": "Siril Heyerdahl, Solveig Hareide"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5744493.html",
+      "title": "Superman Returns",
+      "publishedAt": "2006-07-30",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5749625.html",
+      "title": "Huset ved vannet",
+      "publishedAt": "2006-08-10",
+      "by": "Siril Heyerdahl"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5753526.html",
+      "title": "Nacho Libre",
+      "publishedAt": "2006-08-17",
+      "by": "Siril Heyerdahl, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5754092.html",
+      "title": "Just My Luck",
+      "publishedAt": "2006-08-18",
+      "by": "Siril Heyerdahl, Solveig Hareide"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5769278.html",
+      "title": "Thank you for smoking",
+      "publishedAt": "2006-09-08",
+      "by": "Karen Moe Møllerop, Solveig Hareide"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5769381.html",
+      "title": "En ubehagelig sannhet",
+      "publishedAt": "2006-09-08",
+      "by": "Karen Moe Møllerop, Solveig Hareide"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5774115.html",
+      "title": "Sønner",
+      "publishedAt": "2006-09-15",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5774216.html",
+      "title": "Monsterhuset",
+      "publishedAt": "2006-09-15",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5778167.html",
+      "title": "Over hekken",
+      "publishedAt": "2006-09-21",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5781844.html",
+      "title": "Heartbreak hotel",
+      "publishedAt": "2006-09-28",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5782966.html",
+      "title": "Oliver Twist",
+      "publishedAt": "2006-09-28",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5788117.html",
+      "title": "De andres liv",
+      "publishedAt": "2006-10-05",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5788162.html",
+      "title": "The Devil Wears Prada",
+      "publishedAt": "2006-10-05",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5792885.html",
+      "title": "Fritt vilt",
+      "publishedAt": "2006-10-12",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5793084.html",
+      "title": "Paris je t’aime",
+      "publishedAt": "2006-10-13",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5796471.html",
+      "title": "Scoop",
+      "publishedAt": "2006-10-19",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5796991.html",
+      "title": "The Guardian",
+      "publishedAt": "2006-10-19",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5800406.html",
+      "title": "Ole Bull - Himmelstormeren",
+      "publishedAt": "2006-10-26",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5803803.html",
+      "title": "The Grudge 2",
+      "publishedAt": "2006-11-01",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5807623.html",
+      "title": "En soap",
+      "publishedAt": "2006-11-10",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5807876.html",
+      "title": "The Queen",
+      "publishedAt": "2006-11-10",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5810600.html",
+      "title": "Borat",
+      "publishedAt": "2006-11-17",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5810654.html",
+      "title": "Babel",
+      "publishedAt": "2006-11-17",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5817493.html",
+      "title": "Menneskenes barn",
+      "publishedAt": "2006-12-06",
+      "by": "Karen Moe Møllerop, Lars Andersen"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5819947.html",
+      "title": "The Holiday",
+      "publishedAt": "2006-12-14",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5822683.html",
+      "title": "Shortbus",
+      "publishedAt": "2006-12-21",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5822694.html",
+      "title": "Stranger than fiction",
+      "publishedAt": "2006-12-21",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5822702.html",
+      "title": "Deja Vu",
+      "publishedAt": "2006-12-21",
+      "by": "Karen Moe Møllerop"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5829199.html",
+      "title": "Parfymen – Historien om en morder",
+      "publishedAt": "2007-01-19",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5829240.html",
+      "title": "Vinterland",
+      "publishedAt": "2007-01-19",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5831317.html",
+      "title": "Apocalypto",
+      "publishedAt": "2007-01-26",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5831327.html",
+      "title": "Breaking and Entering",
+      "publishedAt": "2007-01-26",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5833246.html",
+      "title": "The Last King of Scotland",
+      "publishedAt": "2007-02-02",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5836250.html",
+      "title": "Natt på museet",
+      "publishedAt": "2007-02-15",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5836257.html",
+      "title": "Hannibal Rising",
+      "publishedAt": "2007-02-15",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842476.html",
+      "title": "Brev frå Iwo Jima",
+      "publishedAt": "2007-03-20",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842484.html",
+      "title": "USA mot Al-Arian",
+      "publishedAt": "2007-03-20",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842495.html",
+      "title": "Blodsbånd",
+      "publishedAt": "2007-03-20",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842503.html",
+      "title": "Norbit",
+      "publishedAt": "2007-03-20",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842527.html",
+      "title": "The Fountain",
+      "publishedAt": "2007-03-20",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842531.html",
+      "title": "Alpha Dog",
+      "publishedAt": "2007-03-20",
+      "by": "Torfinn Borkhus"
+    },
+    {
+      "key": "film/filmanmeldelser/820796.html",
+      "title": "\"Thomas in love\"",
+      "publishedAt": "2001-02-16",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "magasin/upunkt/film/1496267.html",
+      "title": "Hva mener de andre om filmen?",
+      "publishedAt": "2001-12-10",
+      "by": "Cinema Confidential"
+    },
+    {
+      "key": "magasin/upunkt/film/2104722.html",
+      "title": "Arnold er tilbake",
+      "publishedAt": "2002-09-03",
+      "by": "Morten Skogly"
+    },
+    {
+      "key": "magasin/upunkt/film/2423019.html",
+      "title": "Himmelfall til topps!",
+      "publishedAt": "2003-01-03",
+      "by": "Anmeldelse Himmelfall"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1673024.html",
+      "title": "Et rotterace",
+      "publishedAt": "2002-02-22",
+      "by": "Briger Vestmo"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1762161.html",
+      "title": "Heftig og begeistret - På sangens vinger",
+      "publishedAt": "2002-04-05",
+      "by": "Mikal Olsen Lerøen"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1768057.html",
+      "title": "Dinner Rush: Sulten tørst?",
+      "publishedAt": "2002-04-08",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1826566.html",
+      "title": "I am Sam: Tilbakestående Sam",
+      "publishedAt": "2002-05-02",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1854675.html",
+      "title": "Star Wars - Episode II: Hypnotiserende klone-kaos",
+      "publishedAt": "2002-05-15",
+      "by": "Håvard Ellingsen"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1938873.html",
+      "title": "Og mora di også: På vei etter sex",
+      "publishedAt": "2002-06-20",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1506793.html",
+      "title": "Falske Ringenes Herre-filmer i omløp",
+      "publishedAt": "2001-12-13",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1559622.html",
+      "title": "Spekulerer i Oscar-gull",
+      "publishedAt": "2002-01-10",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1585034.html",
+      "title": "Mer rullende porno",
+      "publishedAt": "2002-01-22",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1592696.html",
+      "title": "Endelig Indiana Jones!",
+      "publishedAt": "2002-01-23",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1932066.html",
+      "title": "Mora di har premiere",
+      "publishedAt": "2002-06-18",
+      "by": "Njål Engesæth"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1982066.html",
+      "title": "Transformers til filmen",
+      "publishedAt": "2002-07-09",
+      "by": "Tor-Erling T. Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2084066.html",
+      "title": "MacGyver løs på kino!",
+      "publishedAt": "2002-08-26",
+      "by": "Tor-Erling Thømt Ruud"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/913973.html",
+      "title": "Gladiatoren erobret Oscar-showet",
+      "publishedAt": "2001-03-26",
+      "by": "Ken Håkegård"
+    }
+  ],
+  "noByline": [
+    {
+      "key": "film/filmanmeldelser/1405824.html",
+      "title": "Atlantis",
+      "publishedAt": "2001-11-02"
+    },
+    {
+      "key": "film/filmanmeldelser/1457276.html",
+      "title": "Harry Potter og de vises stein",
+      "publishedAt": "2001-11-22"
+    },
+    {
+      "key": "film/filmanmeldelser/2322477.html",
+      "title": "Harry Potter og Mysteriekammeret",
+      "publishedAt": "2002-11-21"
+    },
+    {
+      "key": "film/filmanmeldelser/2324060.html",
+      "title": "Diktatoren",
+      "publishedAt": "2002-11-22"
+    },
+    {
+      "key": "film/filmanmeldelser/2324655.html",
+      "title": "Sex og Lucia",
+      "publishedAt": "2002-11-22"
+    },
+    {
+      "key": "film/filmanmeldelser/2344479.html",
+      "title": "Anam",
+      "publishedAt": "2002-11-29"
+    },
+    {
+      "key": "film/filmanmeldelser/2997755.html",
+      "title": "Prozac Nation",
+      "publishedAt": "2003-08-20"
+    },
+    {
+      "key": "film/filmanmeldelser/3429535.html",
+      "title": "Ned Kelly med patos",
+      "publishedAt": "2004-01-15"
+    },
+    {
+      "key": "film/filmanmeldelser/3472732.html",
+      "title": "Cowboy-Costner",
+      "publishedAt": "2004-01-29"
+    },
+    {
+      "key": "film/filmanmeldelser/3515677.html",
+      "title": "Når du minst venter det",
+      "publishedAt": "2004-02-12"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4337071.html",
+      "title": "Birth",
+      "publishedAt": "2004-12-09"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4577218.html",
+      "title": "Uno (DVD)",
+      "publishedAt": "2005-03-10"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5159710.html",
+      "title": "The constant gardener",
+      "publishedAt": "2005-10-20"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5282431.html",
+      "title": "Serenity",
+      "publishedAt": "2005-12-01"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5303195.html",
+      "title": "Bad News Bears",
+      "publishedAt": "2005-12-08"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5653612.html",
+      "title": "Veien til Guantanamo",
+      "publishedAt": "2006-05-04"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5812786.html",
+      "title": "Lonely hearts killers",
+      "publishedAt": "2006-11-23"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5812927.html",
+      "title": "Knallhardt",
+      "publishedAt": "2006-11-23"
+    }
+  ],
+  "unratedP3": [
+    {
+      "key": "programmer/radio/filmpolitiet/1268974.html",
+      "title": "Animal Farm: Voksen politisk satire",
+      "publishedAt": "2001-09-06"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1407210.html",
+      "title": "Atlantis - en forsvunnet verden",
+      "publishedAt": "2001-11-02"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1407226.html",
+      "title": "Baby boy",
+      "publishedAt": "2001-11-02"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1407258.html",
+      "title": "Don’t say a word",
+      "publishedAt": "2001-11-02"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1421673.html",
+      "title": "Pianolærerinnen: Ekkel og kjedelig",
+      "publishedAt": "2001-11-09"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1440175.html",
+      "title": "The fast and the furious: En tråbil",
+      "publishedAt": "2001-11-15"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2244303.html",
+      "title": "The safety of objects",
+      "publishedAt": "2002-10-25"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2440388.html",
+      "title": "Bowling for Columbine",
+      "publishedAt": "2003-01-10"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2476357.html",
+      "title": "8 mile",
+      "publishedAt": "2003-01-23"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4153285.html",
+      "title": "The Lost Boys (DVD)",
+      "publishedAt": "2004-10-21"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4153311.html",
+      "title": "Aladdin (DVD)",
+      "publishedAt": "2004-10-21"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4277670.html",
+      "title": "Christine (DVD)",
+      "publishedAt": "2004-11-19"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5343498.html",
+      "title": "20 på topp i 2005",
+      "publishedAt": "2005-12-22"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5705804.html",
+      "title": "Blade Runner: Final Cut",
+      "publishedAt": "2006-06-09"
+    },
+    {
+      "key": "magasin/upunkt/film/2104086.html",
+      "title": "Endelig Disney",
+      "publishedAt": "2002-09-03"
+    },
+    {
+      "key": "magasin/upunkt/film/2127093.html",
+      "title": "Seriøs Adam Sandler",
+      "publishedAt": "2002-09-11"
+    },
+    {
+      "key": "magasin/upunkt/film/2133081.html",
+      "title": "Fredag den 13. Uhu!",
+      "publishedAt": "2002-09-13"
+    },
+    {
+      "key": "magasin/upunkt/film/2140500.html",
+      "title": "Et tegn i premieretiden",
+      "publishedAt": "2002-09-17"
+    },
+    {
+      "key": "magasin/upunkt/film/2318292.html",
+      "title": "Hva vil komme?",
+      "publishedAt": "2002-11-20"
+    },
+    {
+      "key": "magasin/upunkt/film/2422153.html",
+      "title": "Oppfølgeråret 2003",
+      "publishedAt": "2003-01-03"
+    },
+    {
+      "key": "magasin/upunkt/film/2440388.html",
+      "title": "Bowling for Columbine",
+      "publishedAt": "2003-01-10"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2244303.html",
+      "title": "The safety of objects",
+      "publishedAt": "2002-10-25"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1500867.html",
+      "title": "En teit og morsom premiere",
+      "publishedAt": "2001-12-11"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1590324.html",
+      "title": "Amerikansk selvdigging",
+      "publishedAt": "2002-01-22"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1682397.html",
+      "title": "Geniale premierer",
+      "publishedAt": "2002-02-27"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1699355.html",
+      "title": "Nordens dyreste pupper",
+      "publishedAt": "2002-03-06"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1787307.html",
+      "title": "To kule fyrer",
+      "publishedAt": "2002-04-16"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1810646.html",
+      "title": "Kjerringfilm og sverdfilm",
+      "publishedAt": "2002-04-25"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1837004.html",
+      "title": "Arnold is back",
+      "publishedAt": "2002-05-07"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1847880.html",
+      "title": "Miami Vice til filmen",
+      "publishedAt": "2002-05-13"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1848228.html",
+      "title": "Matrix-godbiter på nettet",
+      "publishedAt": "2002-05-13"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1850602.html",
+      "title": "Kulere Star Wars",
+      "publishedAt": "2002-05-14"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1887050.html",
+      "title": "Indiana Jones i 2005",
+      "publishedAt": "2002-05-30"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/1897732.html",
+      "title": "Folk flest går på kino",
+      "publishedAt": "2002-06-04"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2051670.html",
+      "title": "Bad party filmhelg",
+      "publishedAt": "2002-08-13"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2068813.html",
+      "title": "Superfredag på kino",
+      "publishedAt": "2002-08-20"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2090586.html",
+      "title": "Drømmepremierer",
+      "publishedAt": "2002-08-28"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2177195.html",
+      "title": "Tom Hanks dreper for penger",
+      "publishedAt": "2002-10-01"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2233086.html",
+      "title": "Helgens premierer",
+      "publishedAt": "2002-10-22"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2281066.html",
+      "title": "Helg på kino",
+      "publishedAt": "2002-11-07"
+    },
+    {
+      "key": "magasin/upunkt/film/filmnytt/2293301.html",
+      "title": "Nydelige premierer",
+      "publishedAt": "2002-11-12"
+    }
+  ],
+  "conflicts": [
+    {
+      "key": "programmer/radio/filmpolitiet/3602515.html",
+      "title": "Big fish",
+      "publishedAt": "2004-03-11",
+      "found": {
+        "title": 5,
+        "star": 4,
+        "popcorn": null,
+        "meter": null
+      }
+    }
+  ],
+  "dupOfExisting": [
+    {
+      "key": "film/filmanmeldelser/3281423.html",
+      "name": "Love Actually",
+      "publishedAt": "2003-11-20",
+      "rating": 5,
+      "existing": "1.17238443",
+      "existingRating": 5
+    },
+    {
+      "key": "film/filmanmeldelser/3718810.html",
+      "name": "Kill Bill Vol. 2",
+      "publishedAt": "2004-04-23",
+      "rating": 6,
+      "existing": "1.17238440",
+      "existingRating": 6
+    },
+    {
+      "key": "film/filmanmeldelser/3814951.html",
+      "name": "The Day After Tomorrow",
+      "publishedAt": "2004-05-27",
+      "rating": 4,
+      "existing": "1.17238439",
+      "existingRating": 4
+    },
+    {
+      "key": "film/filmanmeldelser/3196855.html",
+      "name": "Kill Bill Volume 1",
+      "publishedAt": "2003-10-23",
+      "rating": 6,
+      "existing": "1.534840",
+      "existingRating": 6
+    },
+    {
+      "key": "film/filmanmeldelser/2555240.html",
+      "name": "Villmark",
+      "publishedAt": "2003-02-21",
+      "rating": 4,
+      "existing": "1.17238452",
+      "existingRating": 4
+    },
+    {
+      "key": "film/filmanmeldelser/3473355.html",
+      "name": "Trillingene fra Belleville",
+      "publishedAt": "2004-01-29",
+      "rating": 5,
+      "existing": "1.17238442",
+      "existingRating": 5
+    },
+    {
+      "key": "film/filmanmeldelser/2476829.html",
+      "name": "Chihiro og heksene",
+      "publishedAt": "2003-01-23",
+      "rating": 6,
+      "existing": "1.17238453",
+      "existingRating": 6
+    },
+    {
+      "key": "film/filmanmeldelser/2814152.html",
+      "name": "Irreversibel",
+      "publishedAt": "2003-06-06",
+      "rating": 4,
+      "existing": "1.17238448",
+      "existingRating": 4
+    },
+    {
+      "key": "film/filmanmeldelser/2682317.html",
+      "name": "Svidd neger",
+      "publishedAt": "2003-04-11",
+      "rating": 3,
+      "existing": "1.17238449",
+      "existingRating": 3
+    },
+    {
+      "key": "film/filmanmeldelser/2590309.html",
+      "name": "Catch Me If You Can",
+      "publishedAt": "2003-03-07",
+      "rating": 5,
+      "existing": "1.17238451",
+      "existingRating": 5
+    },
+    {
+      "key": "film/filmanmeldelser/2616570.html",
+      "name": "Jackass - The Movie",
+      "publishedAt": "2003-03-17",
+      "rating": 5,
+      "existing": "1.17238450",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3718810.html",
+      "name": "Kill Bill Vol. 2",
+      "publishedAt": "2004-04-23",
+      "rating": 6,
+      "existing": "1.17238440",
+      "existingRating": 6
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5812678.html",
+      "name": "Casino Royale",
+      "publishedAt": "2006-11-23",
+      "rating": 5,
+      "existing": "1.17238412",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3814951.html",
+      "name": "The Day After Tomorrow",
+      "publishedAt": "2004-05-27",
+      "rating": 4,
+      "existing": "1.17238439",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4113883.html",
+      "name": "Resident Evil: Apocalypse",
+      "publishedAt": "2004-09-24",
+      "rating": 1,
+      "existing": "1.17238434",
+      "existingRating": 1
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5804253.html",
+      "name": "Jackass Number Two",
+      "publishedAt": "2006-11-02",
+      "rating": 5,
+      "existing": "1.17238413",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5831304.html",
+      "name": "Blood Diamond",
+      "publishedAt": "2007-01-26",
+      "rating": 5,
+      "existing": "1.17238409",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5834767.html",
+      "name": "Den frie vilje",
+      "publishedAt": "2007-02-08",
+      "rating": 6,
+      "existing": "1.17238403",
+      "existingRating": 6
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5835928.html",
+      "name": "Mars & Venus",
+      "publishedAt": "2007-02-14",
+      "rating": 4,
+      "existing": "1.17238401",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842490.html",
+      "name": "Dreamgirls",
+      "publishedAt": "2007-03-20",
+      "rating": 3,
+      "existing": "1.17238396",
+      "existingRating": 3
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842509.html",
+      "name": "Music and lyrics",
+      "publishedAt": "2007-03-20",
+      "rating": 4,
+      "existing": "1.17238393",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1759454.html",
+      "name": "Mulholland Drive",
+      "publishedAt": "2002-04-04",
+      "rating": 6,
+      "existing": "1.17238459",
+      "existingRating": 6
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5160052.html",
+      "name": "A history of violence",
+      "publishedAt": "2005-10-20",
+      "rating": 5,
+      "existing": "1.17238424",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5804468.html",
+      "name": "The Departed",
+      "publishedAt": "2006-11-02",
+      "rating": 5,
+      "existing": "1.17238414",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5824651.html",
+      "name": "Pans labyrint",
+      "publishedAt": "2007-01-03",
+      "rating": 6,
+      "existing": "1.17238411",
+      "existingRating": 6
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5834756.html",
+      "name": "Smokin’ Aces",
+      "publishedAt": "2007-02-08",
+      "rating": 3,
+      "existing": "1.17238404",
+      "existingRating": 3
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1318040.html",
+      "name": "Moulin Rouge",
+      "publishedAt": "2001-09-27",
+      "rating": 6,
+      "existing": "1.17238465",
+      "existingRating": 6
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4509633.html",
+      "name": "Sideways",
+      "publishedAt": "2005-02-14",
+      "rating": 5,
+      "existing": "1.17238429",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5115762.html",
+      "name": "The 40 year old virgin",
+      "publishedAt": "2005-10-05",
+      "rating": 4,
+      "existing": "1.17238425",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2590309.html",
+      "name": "Catch Me If You Can",
+      "publishedAt": "2003-03-07",
+      "rating": 5,
+      "existing": "1.17238451",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4563077.html",
+      "name": "Hotel Rwanda",
+      "publishedAt": "2005-03-04",
+      "rating": 5,
+      "existing": "1.17238427",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5836293.html",
+      "name": "Arthur og minimoyene",
+      "publishedAt": "2007-02-15",
+      "rating": 4,
+      "existing": "1.17238398",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5768771.html",
+      "name": "Reprise",
+      "publishedAt": "2006-09-07",
+      "rating": 5,
+      "existing": "1.17238417",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5834762.html",
+      "name": "Jakten på lykke",
+      "publishedAt": "2007-02-08",
+      "rating": 4,
+      "existing": "1.17238405",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5391394.html",
+      "name": "Stolthet og fordom",
+      "publishedAt": "2006-01-12",
+      "rating": 5,
+      "existing": "1.17238422",
+      "existingRating": 5
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1508376.html",
+      "name": "Zoolander",
+      "publishedAt": "2001-12-13",
+      "rating": 3,
+      "existing": "1.17238461",
+      "existingRating": 3
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1508376.html",
+      "name": "Zoolander",
+      "publishedAt": "2001-12-13",
+      "rating": 3,
+      "existing": "1.17238461",
+      "existingRating": 3
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1634643.html",
+      "name": "Monsterbedriften",
+      "publishedAt": "2002-02-08",
+      "rating": 6,
+      "existing": "1.17238460",
+      "existingRating": 6
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/4484117.html",
+      "name": "Lemony Snicket: En serie uheldige hendelser",
+      "publishedAt": "2005-02-04",
+      "rating": 4,
+      "existing": "1.17238430",
+      "existingRating": 4
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/5842522.html",
+      "name": "Inga tårar",
+      "publishedAt": "2007-03-20",
+      "rating": 2,
+      "existing": "1.17238394",
+      "existingRating": 2
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1355957.html",
+      "name": "Lovlig blond",
+      "publishedAt": "2001-10-12",
+      "rating": 3,
+      "existing": "1.17238463",
+      "existingRating": 3
+    }
+  ],
+  "dupWithinLegacy": [
+    {
+      "key": "programmer/radio/filmpolitiet/3647042.html",
+      "name": "The passion of the Christ",
+      "publishedAt": "2004-03-25",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3647042.html"
+    },
+    {
+      "key": "magasin/upunkt/film/2286201.html",
+      "name": "Ringenes herre - Ringens brorskap",
+      "publishedAt": "2002-11-08",
+      "rating": 6,
+      "keptKey": "programmer/radio/filmpolitiet/2286201.html"
+    },
+    {
+      "key": "magasin/upunkt/film/2189322.html",
+      "name": "Near Dark",
+      "publishedAt": "2002-10-04",
+      "rating": 6,
+      "keptKey": "programmer/radio/filmpolitiet/2189322.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2495798.html",
+      "name": "Die Another Day",
+      "publishedAt": "2003-01-30",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/2495798.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3977840.html",
+      "name": "I, Robot",
+      "publishedAt": "2004-08-05",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3977840.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3846121.html",
+      "name": "Fangen fra Azkaban",
+      "publishedAt": "2004-06-08",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3846121.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3538935.html",
+      "name": "Min bror bjørnen",
+      "publishedAt": "2004-02-19",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3538935.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2115371.html",
+      "name": "Pearl Harbor",
+      "publishedAt": "2002-09-06",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2115371.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3538236.html",
+      "name": "Hva sier man til en kvinne?",
+      "publishedAt": "2004-02-19",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3538236.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2496251.html",
+      "name": "Bowling for Columbine",
+      "publishedAt": "2003-01-30",
+      "rating": 6,
+      "keptKey": "film/filmanmeldelser/2496251.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3666454.html",
+      "name": "Den som frykter ulven",
+      "publishedAt": "2004-04-01",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3666454.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3538074.html",
+      "name": "Mitt liv uten meg",
+      "publishedAt": "2004-02-19",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3538074.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3870080.html",
+      "name": "Honey",
+      "publishedAt": "2004-06-17",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3870080.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3978927.html",
+      "name": "Life of Brian",
+      "publishedAt": "2004-08-05",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3978927.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2628455.html",
+      "name": "Svimlende hjerter/Punch-Drunk Love",
+      "publishedAt": "2003-03-21",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2628455.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3666812.html",
+      "name": "50 first dates",
+      "publishedAt": "2004-04-01",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3666812.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3667178.html",
+      "name": "Øye for kjærlighet",
+      "publishedAt": "2004-04-01",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3667178.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3718998.html",
+      "name": "Osama",
+      "publishedAt": "2004-04-23",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3718998.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2167037.html",
+      "name": "Karlsson på taket",
+      "publishedAt": "2002-09-26",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2167037.html"
+    },
+    {
+      "key": "magasin/upunkt/film/2245576.html",
+      "name": "Istid",
+      "publishedAt": "2002-10-25",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2245576.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2347817.html",
+      "name": "Star Trek II – The wrath of Khan",
+      "publishedAt": "2002-11-29",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2347817.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2573630.html",
+      "name": "Ulvesommer",
+      "publishedAt": "2003-02-28",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2573630.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3562508.html",
+      "name": "Welcome to the jungle",
+      "publishedAt": "2004-02-26",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3562508.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2626613.html",
+      "name": "Solaris",
+      "publishedAt": "2003-03-21",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2626613.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2205654.html",
+      "name": "Amadeus Director's Cut",
+      "publishedAt": "2002-10-11",
+      "rating": 6,
+      "keptKey": "programmer/radio/filmpolitiet/2205654.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3697690.html",
+      "name": "Runaway jury",
+      "publishedAt": "2004-04-15",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3697690.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2740482.html",
+      "name": "It’s all about love",
+      "publishedAt": "2003-05-07",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2739063.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3741448.html",
+      "name": "The Prince and me",
+      "publishedAt": "2004-04-30",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3741448.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2709607.html",
+      "name": "Spider",
+      "publishedAt": "2003-04-25",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/2709607.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1957613.html",
+      "name": "Spider-Man",
+      "publishedAt": "2002-06-27",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/1957613.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1855209.html",
+      "name": "Star Wars: Episode II – Klonene angriper",
+      "publishedAt": "2002-05-15",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/1855209.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3666634.html",
+      "name": "Historien om den gråtende kamel",
+      "publishedAt": "2004-04-01",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3666634.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2040545.html",
+      "name": "Windtalkers",
+      "publishedAt": "2002-08-08",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2040545.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3602396.html",
+      "name": "Trusselen",
+      "publishedAt": "2004-03-11",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3602396.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1736323.html",
+      "name": "Pappa og Lisa på rømmen",
+      "publishedAt": "2002-03-21",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1736323.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2188924.html",
+      "name": "Road to Perdition",
+      "publishedAt": "2002-10-04",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2188924.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3561840.html",
+      "name": "Monster",
+      "publishedAt": "2004-02-26",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3561840.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2130127.html",
+      "name": "Mr. Deeds",
+      "publishedAt": "2002-09-12",
+      "rating": 2,
+      "keptKey": "programmer/radio/filmpolitiet/2130127.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1269528.html",
+      "name": "Swordfish",
+      "publishedAt": "2001-09-06",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/1269528.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2301346.html",
+      "name": "Ildens herskere",
+      "publishedAt": "2002-11-14",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/2302821.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3538709.html",
+      "name": "Paycheck",
+      "publishedAt": "2004-02-19",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3538709.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2225109.html",
+      "name": "Himmelfall",
+      "publishedAt": "2002-10-18",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2225109.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2301346.html",
+      "name": "Ildens herskere",
+      "publishedAt": "2002-11-14",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/2302821.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3887993.html",
+      "name": "13 snart 30",
+      "publishedAt": "2004-06-24",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3887993.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3978819.html",
+      "name": "Jersey Girl",
+      "publishedAt": "2004-08-05",
+      "rating": 2,
+      "keptKey": "film/filmanmeldelser/3978819.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3781576.html",
+      "name": "Sylvia",
+      "publishedAt": "2004-05-13",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3781576.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2323849.html",
+      "name": "Harry Potter og mysteriekammeret",
+      "publishedAt": "2002-11-22",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2323887.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2323849.html",
+      "name": "Harry Potter og mysteriekammeret",
+      "publishedAt": "2002-11-22",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2323887.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3582266.html",
+      "name": "Spøkelseshuset",
+      "publishedAt": "2004-03-04",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3582266.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3697713.html",
+      "name": "Starsky & Hutch",
+      "publishedAt": "2004-04-15",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3697713.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1622738.html",
+      "name": "Vanilla Sky",
+      "publishedAt": "2002-02-04",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1622738.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2570657.html",
+      "name": "Chicago",
+      "publishedAt": "2003-02-28",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2570657.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2285632.html",
+      "name": "Mitt store fete greske bryllup",
+      "publishedAt": "2002-11-08",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2285165.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2285632.html",
+      "name": "Mitt store fete greske bryllup",
+      "publishedAt": "2002-11-08",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2285165.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2058605.html",
+      "name": "24 hour party people",
+      "publishedAt": "2002-08-15",
+      "rating": 6,
+      "keptKey": "programmer/radio/filmpolitiet/2058605.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2206737.html",
+      "name": "Alle elsker Alice",
+      "publishedAt": "2002-10-11",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2206737.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2302198.html",
+      "name": "Rabbit-proof fence",
+      "publishedAt": "2002-11-14",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2302198.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2114606.html",
+      "name": "High Crimes",
+      "publishedAt": "2002-09-06",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2114606.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2206077.html",
+      "name": "Skru’n som Beckham",
+      "publishedAt": "2002-10-11",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2206077.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3869996.html",
+      "name": "Secret window",
+      "publishedAt": "2004-06-17",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3869996.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2151301.html",
+      "name": "Lilja 4-ever",
+      "publishedAt": "2002-09-20",
+      "rating": 6,
+      "keptKey": "programmer/radio/filmpolitiet/2151301.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3516486.html",
+      "name": "Elsk meg om du tør",
+      "publishedAt": "2004-02-12",
+      "rating": 6,
+      "keptKey": "film/filmanmeldelser/3516486.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3582486.html",
+      "name": "Og så kom Polly",
+      "publishedAt": "2004-03-04",
+      "rating": 1,
+      "keptKey": "film/filmanmeldelser/3582486.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3834398.html",
+      "name": "Gothika",
+      "publishedAt": "2004-06-04",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3834398.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3780650.html",
+      "name": "Troja",
+      "publishedAt": "2004-05-13",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3780650.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1887290.html",
+      "name": "The mothman - Dødens budbringer",
+      "publishedAt": "2002-05-30",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1887290.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3697632.html",
+      "name": "Hun, han og henne",
+      "publishedAt": "2004-04-15",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3697632.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3966449.html",
+      "name": "The Stepford Wives",
+      "publishedAt": "2004-07-30",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3966449.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3602649.html",
+      "name": "Tradra – i går ble jeg tater",
+      "publishedAt": "2004-03-11",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3602649.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2590875.html",
+      "name": "Morvern Callar",
+      "publishedAt": "2003-03-07",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/2590875.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2097014.html",
+      "name": "Lagaan",
+      "publishedAt": "2002-08-30",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2097014.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2265303.html",
+      "name": "Spider-man",
+      "publishedAt": "2002-11-01",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2265303.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3602930.html",
+      "name": "Spy Kids 3-D: Game Over",
+      "publishedAt": "2004-03-11",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3602930.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2043510.html",
+      "name": "The sweetest thing",
+      "publishedAt": "2002-08-09",
+      "rating": 2,
+      "keptKey": "programmer/radio/filmpolitiet/2043510.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3667112.html",
+      "name": "Katten",
+      "publishedAt": "2004-04-01",
+      "rating": 2,
+      "keptKey": "film/filmanmeldelser/3667112.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3495094.html",
+      "name": "Mamma, pappa, barn",
+      "publishedAt": "2004-02-05",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3495094.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2202944.html",
+      "name": "xXx",
+      "publishedAt": "2002-10-10",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2202944.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3887163.html",
+      "name": "Dawn of the dead",
+      "publishedAt": "2004-06-24",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3887163.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2076461.html",
+      "name": "Heaven",
+      "publishedAt": "2002-08-22",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2076461.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2173312.html",
+      "name": "Frailty",
+      "publishedAt": "2002-09-30",
+      "rating": 5,
+      "keptKey": "magasin/upunkt/film/2173312.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2130513.html",
+      "name": "Jason Bourne",
+      "publishedAt": "2002-09-12",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2130513.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2325018.html",
+      "name": "Sex og Lucia",
+      "publishedAt": "2002-11-22",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2325018.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3887178.html",
+      "name": "The Ladykillers",
+      "publishedAt": "2004-06-24",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3887178.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2243836.html",
+      "name": "Velkommen hjem",
+      "publishedAt": "2002-10-25",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2243836.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2093140.html",
+      "name": "Minority Report",
+      "publishedAt": "2002-08-29",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2093140.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1807328.html",
+      "name": "The last castle",
+      "publishedAt": "2002-04-24",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/1807328.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3697586.html",
+      "name": "Ulvetid",
+      "publishedAt": "2004-04-15",
+      "rating": 2,
+      "keptKey": "film/filmanmeldelser/3697586.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3741274.html",
+      "name": "Taking lives",
+      "publishedAt": "2004-04-30",
+      "rating": 2,
+      "keptKey": "film/filmanmeldelser/3741274.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3966532.html",
+      "name": "Livet med Helen",
+      "publishedAt": "2004-07-30",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/3966532.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2168278.html",
+      "name": "Enough",
+      "publishedAt": "2002-09-27",
+      "rating": 2,
+      "keptKey": "programmer/radio/filmpolitiet/2168278.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2346975.html",
+      "name": "John Q",
+      "publishedAt": "2002-11-29",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/2346202.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2346975.html",
+      "name": "John Q",
+      "publishedAt": "2002-11-29",
+      "rating": 3,
+      "keptKey": "film/filmanmeldelser/2346202.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2265105.html",
+      "name": "Grabben i graven bredvid",
+      "publishedAt": "2002-11-01",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2265105.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2285943.html",
+      "name": "På kollisjonskurs",
+      "publishedAt": "2002-11-08",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/2285826.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2285943.html",
+      "name": "På kollisjonskurs",
+      "publishedAt": "2002-11-08",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/2285826.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3646529.html",
+      "name": "Leo",
+      "publishedAt": "2004-03-25",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3646529.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1743430.html",
+      "name": "Istid",
+      "publishedAt": "2002-03-25",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/1743430.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2060692.html",
+      "name": "Bad Company",
+      "publishedAt": "2002-08-16",
+      "rating": 2,
+      "keptKey": "programmer/radio/filmpolitiet/2060692.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1890064.html",
+      "name": "40 dager og 40 netter",
+      "publishedAt": "2002-05-31",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/1890064.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3870056.html",
+      "name": "Cody Banks 2",
+      "publishedAt": "2004-06-17",
+      "rating": 1,
+      "keptKey": "film/filmanmeldelser/3870056.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3486783.html",
+      "name": "The Dreamers",
+      "publishedAt": "2004-02-05",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3486783.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3741011.html",
+      "name": "Carandiru",
+      "publishedAt": "2004-04-30",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3741011.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1492351.html",
+      "name": "Joy ride",
+      "publishedAt": "2001-12-07",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1492351.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2301984.html",
+      "name": "Ali G in da house",
+      "publishedAt": "2002-11-14",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2301984.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2076280.html",
+      "name": "Insomnia",
+      "publishedAt": "2002-08-22",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2076280.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1779677.html",
+      "name": "Showtime",
+      "publishedAt": "2002-04-12",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/1779677.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3516840.html",
+      "name": "Motorsagmassakren",
+      "publishedAt": "2004-02-12",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3516840.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2264458.html",
+      "name": "Vinger av glass",
+      "publishedAt": "2002-11-01",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2264458.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3888156.html",
+      "name": "Hop",
+      "publishedAt": "2004-06-24",
+      "rating": 2,
+      "keptKey": "film/filmanmeldelser/3888156.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2112098.html",
+      "name": "Snakk til henne",
+      "publishedAt": "2002-09-05",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2112098.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2224509.html",
+      "name": "Jimmy Neutron",
+      "publishedAt": "2002-10-18",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2224509.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3645368.html",
+      "name": "Scooby Doo 2",
+      "publishedAt": "2004-03-25",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3645368.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2240432.html",
+      "name": "K-19",
+      "publishedAt": "2002-10-24",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2240432.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1920748.html",
+      "name": "Blade II",
+      "publishedAt": "2002-06-13",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1920748.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1807204.html",
+      "name": "Curse of the jade scorpion",
+      "publishedAt": "2002-04-24",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/1807204.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2286041.html",
+      "name": "Kaos",
+      "publishedAt": "2002-11-08",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2285533.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2152630.html",
+      "name": "Hollywood ending",
+      "publishedAt": "2002-09-20",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2152630.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2286041.html",
+      "name": "Kaos",
+      "publishedAt": "2002-11-08",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2285533.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2304566.html",
+      "name": "Han elsker meg...han elsker meg ikke",
+      "publishedAt": "2002-11-15",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2304566.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2112191.html",
+      "name": "Lilo & Stitch",
+      "publishedAt": "2002-09-05",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2112191.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2592834.html",
+      "name": "Et virkelig menneske",
+      "publishedAt": "2003-03-07",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/2592834.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2114463.html",
+      "name": "Smilet i øyet",
+      "publishedAt": "2002-09-06",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2114463.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2075729.html",
+      "name": "Vektløs",
+      "publishedAt": "2002-08-22",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2075729.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2152096.html",
+      "name": "Signs",
+      "publishedAt": "2002-09-20",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2152096.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2152001.html",
+      "name": "Atanarjuat - han som løper",
+      "publishedAt": "2002-09-20",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2152001.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3562356.html",
+      "name": "Smala Sussie",
+      "publishedAt": "2004-02-26",
+      "rating": 4,
+      "keptKey": "film/filmanmeldelser/3562356.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2094452.html",
+      "name": "Kroppen min",
+      "publishedAt": "2002-08-29",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2094452.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2202500.html",
+      "name": "Klassefesten",
+      "publishedAt": "2002-10-10",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2202500.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1490148.html",
+      "name": "Glitter",
+      "publishedAt": "2001-12-06",
+      "rating": 1,
+      "keptKey": "programmer/radio/filmpolitiet/1490148.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/2740560.html",
+      "name": "Hvordan bli dumpet på 10 dager",
+      "publishedAt": "2003-05-07",
+      "rating": 1,
+      "keptKey": "film/filmanmeldelser/2738980.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2076236.html",
+      "name": "Austin Powers in Goldmember",
+      "publishedAt": "2002-08-22",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/2076236.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/1204829.html",
+      "name": "Familiehemmeligheter",
+      "publishedAt": "2001-08-10",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1169269.html"
+    },
+    {
+      "key": "magasin/upunkt/film/1169269.html",
+      "name": "Familiehemmeligheter",
+      "publishedAt": "2001-08-10",
+      "rating": 5,
+      "keptKey": "programmer/radio/filmpolitiet/1169269.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/1964378.html",
+      "name": "Midt i mellom",
+      "publishedAt": "2002-07-01",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/1964378.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2324804.html",
+      "name": "Diktatoren",
+      "publishedAt": "2002-11-22",
+      "rating": 4,
+      "keptKey": "programmer/radio/filmpolitiet/2324804.html"
+    },
+    {
+      "key": "magasin/upunkt/film/anmeldelser/2244467.html",
+      "name": "Guruen",
+      "publishedAt": "2002-10-25",
+      "rating": 3,
+      "keptKey": "programmer/radio/filmpolitiet/2244467.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3473855.html",
+      "name": "Shattered Glass",
+      "publishedAt": "2004-01-29",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3473855.html"
+    },
+    {
+      "key": "programmer/radio/filmpolitiet/3473700.html",
+      "name": "En kärlekshistoria",
+      "publishedAt": "2004-01-29",
+      "rating": 5,
+      "keptKey": "film/filmanmeldelser/3473700.html"
+    }
+  ]
+}

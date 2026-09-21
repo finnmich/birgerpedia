@@ -1,26 +1,26 @@
 {
-  "builtAt": "2026-09-21T09:24:15.357Z",
-  "total": 2619,
+  "builtAt": "2026-09-21T20:54:29.379Z",
+  "total": 3238,
   "droppedNonBirgerOrInvalid": 2,
   "byType": {
-    "Movie": 2554,
+    "Movie": 3173,
     "TVSeries": 32,
     "Game": 26,
     "MusicEvent": 7
   },
   "byRating": {
-    "1": 16,
-    "2": 91,
-    "3": 425,
-    "4": 1102,
-    "5": 848,
-    "6": 116,
-    "∅": 21
+    "1": 28,
+    "2": 134,
+    "3": 522,
+    "4": 1334,
+    "5": 1033,
+    "6": 163,
+    "∅": 24
   },
   "byPlatform": {
     "2008": 2,
+    "∅": 707,
     "United International Pictures": 216,
-    "∅": 151,
     "SF Studios": 148,
     "Kino": 125,
     "Norsk Filmdistribusjon": 116,
@@ -32,6 +32,7 @@
     "Nordisk Film Distribusjon": 76,
     "Netflix": 64,
     "Twentieth Century Fox Norway": 63,
+    "DVD": 63,
     "The Walt Disney Company": 57,
     "The Walt Disney Company Nordic": 52,
     "Tour de Force": 46,
@@ -446,19 +447,19 @@
     "Columbia TriStar": 1
   },
   "byYearTop10": {
-    "2001": 5,
-    "2002": 7,
-    "2003": 12,
-    "2004": 10,
-    "2005": 6,
-    "2006": 9,
-    "2007": 106,
+    "2000": 6,
+    "2001": 56,
+    "2002": 124,
+    "2003": 110,
+    "2004": 112,
+    "2005": 156,
+    "2006": 94,
+    "2007": 116,
     "2008": 181,
-    "2009": 164,
-    "2010": 152
+    "2009": 164
   },
   "yearRange": {
-    "earliest": "2001",
+    "earliest": "2000",
     "latest": "2026"
   }
 }

@@ -35,6 +35,18 @@ export interface Factbox {
   spillselskap?: string | null;
 }
 
+// Present only on the 2000–2006 reviews recovered from the Wayback Machine
+// (scripts/legacy/). `Review.url` is the live nrk.no page when one still
+// exists and is otherwise the same link as `archiveUrl`.
+export interface LegacySource {
+  source: 'wayback';
+  path: string;                          // old nrk.no path, e.g. film/filmanmeldelser/2496251.html
+  archiveUrl: string;
+  coAuthors: string[];
+  bylineFrom: 'av' | 'signature' | 'ingress';
+  ratingFrom: string[];                  // which rating strips/suffixes agreed
+}
+
 export interface Review {
   id: string;
   url: string;
@@ -54,6 +66,7 @@ export interface Review {
   reviewType: string | null;             // Film | Serie | Spill
   factbox: Factbox;
   wordCount: number;
+  legacy?: LegacySource;
 }
 
 export interface ReviewIndexEntry extends Review {

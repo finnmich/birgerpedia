@@ -11,7 +11,12 @@
     "enrich:tmdb": "node scripts/enrich-tmdb.mjs",
     "enrich:imdb": "node scripts/fetch-imdb-ratings.mjs",
     "enrich:omdb": "node scripts/fetch-omdb.mjs",
-    "smoke": "node scripts/test-parser.mjs"
+    "smoke": "node scripts/test-parser.mjs",
+    "legacy:index": "node scripts/legacy/wayback-index.mjs",
+    "legacy:fetch": "node scripts/legacy/wayback-fetch.mjs",
+    "legacy:build": "node scripts/legacy/build-legacy.mjs",
+    "legacy:live": "node scripts/legacy/resolve-live.mjs",
+    "legacy:test": "node scripts/legacy/test-legacy.mjs"
   },
   "engines": {
     "node": ">=22.12.0"

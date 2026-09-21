@@ -5,6 +5,10 @@ data/raw/articles/
 data/raw/listing/page-*.json
 data/raw/imdb-ratings.tsv.gz
 data/raw/omdb/
+# Archived pre-2007 review pages (scripts/legacy/) — ~60 MB of HTML. The index
+# and manifest beside it are small and tracked, so the cache is reproducible.
+data/raw/legacy/wayback/
+data/raw/legacy/*.log
 
 # Per-review enrichment JSONs — ~1900 files, also lives in Actions cache.
 # The slim public/data/* digests are what gets committed.
