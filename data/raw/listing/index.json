@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-19T17:33:20.521Z",
+  "fetchedAt": "2026-09-23T08:54:42.739Z",
   "pageCount": 2,
-  "pluggCount": 2963,
+  "pluggCount": 2964,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "butterfly-lekende-film-som-dyrker-det-smale-1528370",
+      "title": "Lekende film som dyrker det smale",
+      "description": "«Butterfly» av Itonje Søimer Guttormsen med Renate Reinsve, Helene Bjørneby og Lillian Müller er et Syden-drama utenom det vanlige fra Gran Canaria.",
+      "url": "https://www.nrk.no/artikkel/butterfly-lekende-film-som-dyrker-det-smale-1528370",
+      "image": null,
+      "published": "2026-09-22T12:15:24.896Z",
+      "source": "newcms"
+    },
     {
       "id": "resident-evil-vekker-frydefull-vemmelse-1528021",
       "title": "Vekker frydefull vemmelse",

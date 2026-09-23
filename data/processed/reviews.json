@@ -1,5 +1,56 @@
 [
   {
+    "id": "butterfly-lekende-film-som-dyrker-det-smale-1528370",
+    "url": "https://www.nrk.no/artikkel/butterfly-lekende-film-som-dyrker-det-smale-1528370",
+    "type": "Movie",
+    "name": "Butterfly",
+    "originalTitle": null,
+    "headline": "Lekende film som dyrker det smale",
+    "abstract": "«Butterfly» av Itonje Søimer Guttormsen med Renate Reinsve, Helene Bjørneby og Lillian Müller er et Syden-drama utenom det vanlige fra Gran Canaria.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-09-22T12:15:24.896Z",
+    "modifiedAt": "2026-09-22T13:13:28.723Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/lrNUNlBzeCx35rgHzQn0kQfnCovnCfZghANIWPrOnMJw",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "9 år",
+      "norgespremiere": "2026-09-25",
+      "norgespremiereRaw": "25. september 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 650
+  },
+  {
     "id": "resident-evil-vekker-frydefull-vemmelse-1528021",
     "url": "https://www.nrk.no/artikkel/resident-evil-vekker-frydefull-vemmelse-1528021",
     "type": "Movie",
