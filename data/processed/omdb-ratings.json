@@ -23294,5 +23294,13 @@
     "imdbVotes": null,
     "rated": null,
     "awards": null
+  },
+  "tt7526136": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 7.5,
+    "imdbVotes": 542,
+    "rated": "PG-13",
+    "awards": null
   }
 }

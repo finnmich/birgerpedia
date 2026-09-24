@@ -1,5 +1,58 @@
 [
   {
+    "id": "heart-of-the-beast-forrykende-villmarksthriller-1528443",
+    "url": "https://www.nrk.no/artikkel/heart-of-the-beast-forrykende-villmarksthriller-1528443",
+    "type": "Movie",
+    "name": "Heart of the Beast",
+    "originalTitle": null,
+    "headline": "Forrykende villmarksthriller",
+    "abstract": "«Heart of the Beast» av regissør David Ayer er en forrykende villmarksthriller fra Alaska med nydelig samspill mellom Brad Pitt og en schäferhund.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-09-23T10:54:58.280Z",
+    "modifiedAt": "2026-09-23T10:54:58.280Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/tVtGQRz6BMdiYqyn93KdUwCTRaiEWC9tCAtwxasSzj_g",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Action",
+        "thriller",
+        "drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "9 år",
+      "norgespremiere": "2026-09-25",
+      "norgespremiereRaw": "25. september 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 652
+  },
+  {
     "id": "butterfly-lekende-film-som-dyrker-det-smale-1528370",
     "url": "https://www.nrk.no/artikkel/butterfly-lekende-film-som-dyrker-det-smale-1528370",
     "type": "Movie",

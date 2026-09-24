@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-23T08:54:42.739Z",
+  "fetchedAt": "2026-09-24T08:50:22.286Z",
   "pageCount": 2,
-  "pluggCount": 2964,
+  "pluggCount": 2965,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "heart-of-the-beast-forrykende-villmarksthriller-1528443",
+      "title": "Forrykende villmarksthriller",
+      "description": "«Heart of the Beast» av regissør David Ayer er en forrykende villmarksthriller fra Alaska med nydelig samspill mellom Brad Pitt og en schäferhund.",
+      "url": "https://www.nrk.no/artikkel/heart-of-the-beast-forrykende-villmarksthriller-1528443",
+      "image": null,
+      "published": "2026-09-23T10:54:58.280Z",
+      "source": "newcms"
+    },
     {
       "id": "butterfly-lekende-film-som-dyrker-det-smale-1528370",
       "title": "Lekende film som dyrker det smale",
