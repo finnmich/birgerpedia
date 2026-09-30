@@ -1,5 +1,57 @@
 [
   {
+    "id": "digger-ligner-pa-lite-annet-1529121",
+    "url": "https://www.nrk.no/artikkel/digger-ligner-pa-lite-annet-1529121",
+    "type": "Movie",
+    "name": "Digger",
+    "originalTitle": null,
+    "headline": "Ligner på lite annet",
+    "abstract": "Tom Cruise er på jakt etter en Oscar i regissør Alejandro González Iñárritus satiriske komedie «Digger», en film som ligner på lite annet.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-09-30T07:47:33.278Z",
+    "modifiedAt": "2026-09-30T07:47:33.278Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/XJw1hlWk_oODIyZawLgp3QPDsW_x1MxTwPP2CfgoB4hw",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama",
+        "komedie"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "9 år",
+      "norgespremiere": "2026-10-02",
+      "norgespremiereRaw": "2. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 704
+  },
+  {
     "id": "heart-of-the-beast-forrykende-villmarksthriller-1528443",
     "url": "https://www.nrk.no/artikkel/heart-of-the-beast-forrykende-villmarksthriller-1528443",
     "type": "Movie",

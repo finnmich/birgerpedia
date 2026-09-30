@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-24T08:50:22.286Z",
+  "fetchedAt": "2026-09-30T10:04:54.956Z",
   "pageCount": 2,
-  "pluggCount": 2965,
+  "pluggCount": 2966,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "digger-ligner-pa-lite-annet-1529121",
+      "title": "Ligner på lite annet",
+      "description": "Tom Cruise er på jakt etter en Oscar i regissør Alejandro González Iñárritus satiriske komedie «Digger», en film som ligner på lite annet.",
+      "url": "https://www.nrk.no/artikkel/digger-ligner-pa-lite-annet-1529121",
+      "image": null,
+      "published": "2026-09-30T07:47:33.278Z",
+      "source": "newcms"
+    },
     {
       "id": "heart-of-the-beast-forrykende-villmarksthriller-1528443",
       "title": "Forrykende villmarksthriller",
