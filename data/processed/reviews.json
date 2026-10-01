@@ -1,5 +1,57 @@
 [
   {
+    "id": "verity-tam-og-ulidelig-lang-1529180",
+    "url": "https://www.nrk.no/artikkel/verity-tam-og-ulidelig-lang-1529180",
+    "type": "Movie",
+    "name": "Verity",
+    "originalTitle": null,
+    "headline": "Tam og ulidelig lang",
+    "abstract": "Filmen «Verity» av regissør Michael Showalter med Anne Hathaway, Dakota Johnson og Josh Hartnett, basert på en roman av Colleen Hoover, er overraskende tam.",
+    "rating": 2,
+    "ratingMax": 6,
+    "publishedAt": "2026-09-30T13:56:00.247Z",
+    "modifiedAt": "2026-09-30T13:56:00.247Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/1GcEWRhaHgBQ4UR8WNSy5AJ-SqmFpkOIppOj_vN6rNmQ",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama",
+        "thriller"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-10-02",
+      "norgespremiereRaw": "2. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 526
+  },
+  {
     "id": "digger-ligner-pa-lite-annet-1529121",
     "url": "https://www.nrk.no/artikkel/digger-ligner-pa-lite-annet-1529121",
     "type": "Movie",

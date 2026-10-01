@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-09-30T10:04:54.956Z",
+  "fetchedAt": "2026-10-01T10:32:56.667Z",
   "pageCount": 2,
-  "pluggCount": 2966,
+  "pluggCount": 2967,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "verity-tam-og-ulidelig-lang-1529180",
+      "title": "Tam og ulidelig lang",
+      "description": "Filmen «Verity» av regissør Michael Showalter med Anne Hathaway, Dakota Johnson og Josh Hartnett, basert på en roman av Colleen Hoover, er overraskende tam.",
+      "url": "https://www.nrk.no/artikkel/verity-tam-og-ulidelig-lang-1529180",
+      "image": null,
+      "published": "2026-09-30T13:56:00.247Z",
+      "source": "newcms"
+    },
     {
       "id": "digger-ligner-pa-lite-annet-1529121",
       "title": "Ligner på lite annet",
