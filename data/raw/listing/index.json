@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-01T10:32:56.667Z",
+  "fetchedAt": "2026-10-07T10:40:38.936Z",
   "pageCount": 2,
-  "pluggCount": 2967,
+  "pluggCount": 2968,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "suser-avgarde-sot-sar-og-sannferdig-1529651",
+      "title": "Søt, sår og snodig",
+      "description": "«Suser avgårde» av regissør Rikke Gregersen med Sarah Francesca Brænne, Fredrik Stenberg Ditlev-Simonsen, Ada Eide og Steinar Klouman Hallert er en morsom og melankolsk film inspirert av musikken til deLillos og tekstene til Lars Lillo-Stenberg.",
+      "url": "https://www.nrk.no/artikkel/suser-avgarde-sot-sar-og-sannferdig-1529651",
+      "image": null,
+      "published": "2026-10-07T09:40:49.172Z",
+      "source": "newcms"
+    },
     {
       "id": "verity-tam-og-ulidelig-lang-1529180",
       "title": "Tam og ulidelig lang",
