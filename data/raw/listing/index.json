@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-07T10:40:38.936Z",
+  "fetchedAt": "2026-10-08T11:00:40.740Z",
   "pageCount": 2,
-  "pluggCount": 2968,
+  "pluggCount": 2969,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "the-social-reckoning-merkelig-torr-og-kjedelig-1529798",
+      "title": "Merkelig tørr og kjedelig",
+      "description": "Aaron Sorkins «The Social Reckoning» med Mikey Madison og Jeremy Allen White er en merkelig tørr og kjedelig oppfølger til David Finchers Facebook-film «The Social Network».",
+      "url": "https://www.nrk.no/artikkel/the-social-reckoning-merkelig-torr-og-kjedelig-1529798",
+      "image": null,
+      "published": "2026-10-08T08:36:05.743Z",
+      "source": "newcms"
+    },
     {
       "id": "suser-avgarde-sot-sar-og-sannferdig-1529651",
       "title": "Søt, sår og snodig",

@@ -1,5 +1,56 @@
 [
   {
+    "id": "the-social-reckoning-merkelig-torr-og-kjedelig-1529798",
+    "url": "https://www.nrk.no/artikkel/the-social-reckoning-merkelig-torr-og-kjedelig-1529798",
+    "type": "Movie",
+    "name": "The Social Reckoning",
+    "originalTitle": null,
+    "headline": "Merkelig tørr og kjedelig",
+    "abstract": "Aaron Sorkins «The Social Reckoning» med Mikey Madison og Jeremy Allen White er en merkelig tørr og kjedelig oppfølger til David Finchers Facebook-film «The Social Network».",
+    "rating": 3,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-08T08:36:05.743Z",
+    "modifiedAt": "2026-10-08T08:36:05.743Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/UatxjmtUOcxBEitH0cWLAALqYaLoc0CFQXpzEXElVkGg",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-10-09",
+      "norgespremiereRaw": "9. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 644
+  },
+  {
     "id": "suser-avgarde-sot-sar-og-sannferdig-1529651",
     "url": "https://www.nrk.no/artikkel/suser-avgarde-sot-sar-og-sannferdig-1529651",
     "type": "Movie",
