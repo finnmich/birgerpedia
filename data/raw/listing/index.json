@@ -1,10 +1,28 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-08T11:00:40.740Z",
+  "fetchedAt": "2026-10-14T09:07:09.980Z",
   "pageCount": 2,
-  "pluggCount": 2969,
+  "pluggCount": 2971,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "whalefall-klaustrofobisk-havsnod-1530093",
+      "title": "Klaustrofobisk havsnød",
+      "description": "«Whalefall» av regissør Brian Duffield med Austin Abrams og Josh Brolin i hovedrollene er et undervannseventyr om en dykker og en spermhval.",
+      "url": "https://www.nrk.no/artikkel/whalefall-klaustrofobisk-havsnod-1530093",
+      "image": null,
+      "published": "2026-10-14T06:53:08.143Z",
+      "source": "newcms"
+    },
+    {
+      "id": "pensjonskuppet-slapp-trygg-og-friksjonslos-1529866",
+      "title": "Slapp, trygg og friksjonsløs",
+      "description": "«Pensjonskuppet» av regissør Gunnbjörg Gunnarsdóttir med Hege Schøyen, Anne Marie Ottersen, Anette Hoff, Bente Børsum og Vivild Falk Berg i hovedrollene er en snill, trygg og friksjonsløs komedie.",
+      "url": "https://www.nrk.no/artikkel/pensjonskuppet-slapp-trygg-og-friksjonslos-1529866",
+      "image": null,
+      "published": "2026-10-14T06:20:50.535Z",
+      "source": "newcms"
+    },
     {
       "id": "the-social-reckoning-merkelig-torr-og-kjedelig-1529798",
       "title": "Merkelig tørr og kjedelig",
