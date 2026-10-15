@@ -1,9 +1,9 @@
 {
-  "builtAt": "2026-10-14T09:07:35.077Z",
-  "total": 3246,
+  "builtAt": "2026-10-15T08:40:36.989Z",
+  "total": 3247,
   "droppedNonBirgerOrInvalid": 2,
   "byType": {
-    "Movie": 3181,
+    "Movie": 3182,
     "TVSeries": 32,
     "Game": 26,
     "MusicEvent": 7
@@ -13,13 +13,13 @@
     "2": 135,
     "3": 524,
     "4": 1336,
-    "5": 1036,
+    "5": 1037,
     "6": 163,
     "∅": 24
   },
   "byPlatform": {
     "2008": 2,
-    "∅": 715,
+    "∅": 716,
     "United International Pictures": 216,
     "SF Studios": 148,
     "Kino": 125,

@@ -1,5 +1,56 @@
 [
   {
+    "id": "markens-grode-storslagen-filmpoesi-1530170",
+    "url": "https://www.nrk.no/artikkel/markens-grode-storslagen-filmpoesi-1530170",
+    "type": "Movie",
+    "name": "Markens grøde",
+    "originalTitle": null,
+    "headline": "Storslagen filmpoesi",
+    "abstract": "«Markens grøde» med Herbert Nordrum, Asta Kamma August, Gard. B. Eidsvold og Anders Baasmo er en ny filmatisering av Knut Hamsun sin klassiske roman, regissert av Hans Petter Moland.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-14T15:45:31.373Z",
+    "modifiedAt": "2026-10-15T06:34:57.579Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/q5tTSGLjojYiefJGUtcxCg4xFp0d7aOySOfyFvhGbuhg",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-10-30",
+      "norgespremiereRaw": "30. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 747
+  },
+  {
     "id": "whalefall-klaustrofobisk-havsnod-1530093",
     "url": "https://www.nrk.no/artikkel/whalefall-klaustrofobisk-havsnod-1530093",
     "type": "Movie",

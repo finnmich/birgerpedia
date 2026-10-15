@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-14T09:07:09.980Z",
+  "fetchedAt": "2026-10-15T08:40:11.912Z",
   "pageCount": 2,
-  "pluggCount": 2971,
+  "pluggCount": 2972,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "markens-grode-storslagen-filmpoesi-1530170",
+      "title": "Storslagen filmpoesi",
+      "description": "«Markens grøde» med Herbert Nordrum, Asta Kamma August, Gard. B. Eidsvold og Anders Baasmo er en ny filmatisering av Knut Hamsun sin klassiske roman, regissert av Hans Petter Moland.",
+      "url": "https://www.nrk.no/artikkel/markens-grode-storslagen-filmpoesi-1530170",
+      "image": null,
+      "published": "2026-10-14T15:45:31.373Z",
+      "source": "newcms"
+    },
     {
       "id": "whalefall-klaustrofobisk-havsnod-1530093",
       "title": "Klaustrofobisk havsnød",
