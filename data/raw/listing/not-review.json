@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T08:40:36.642Z",
+  "updatedAt": "2026-10-16T08:35:26.330Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -36,35 +36,35 @@
     },
     "1.17422405": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17422405",
-      "checkedAt": "2026-10-03T09:30:20.581Z"
+      "checkedAt": "2026-10-16T08:35:02.400Z"
     },
     "1.17309149": {
       "url": "https://www.nrk.no/filmpolitiet/de-beste-filmene-fra-berlinalen-1.17309149",
-      "checkedAt": "2026-10-03T09:30:21.546Z"
+      "checkedAt": "2026-10-16T08:35:03.274Z"
     },
     "1.17227593": {
       "url": "https://www.nrk.no/filmpolitiet/2025_-filmene-vi-gleder-oss-til-1.17227593",
-      "checkedAt": "2026-10-03T09:30:22.610Z"
+      "checkedAt": "2026-10-16T08:35:04.357Z"
     },
     "1.17227736": {
       "url": "https://www.nrk.no/filmpolitiet/2024_-arets-beste-filmer-1.17227736",
-      "checkedAt": "2026-10-03T09:30:23.500Z"
+      "checkedAt": "2026-10-16T08:35:05.238Z"
     },
     "1.17227747": {
       "url": "https://www.nrk.no/filmpolitiet/anbefaling_-de-10-beste-julefilmene-1.17227747",
-      "checkedAt": "2026-10-03T09:30:24.514Z"
+      "checkedAt": "2026-10-16T08:35:06.267Z"
     },
     "1.17227822": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-host-1.17227822",
-      "checkedAt": "2026-10-03T09:30:25.503Z"
+      "checkedAt": "2026-10-16T08:35:07.243Z"
     },
     "1.17227867": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-sommer-1.17227867",
-      "checkedAt": "2026-10-03T09:30:27.148Z"
+      "checkedAt": "2026-10-16T08:35:08.250Z"
     },
     "1.17227900": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17227900",
-      "checkedAt": "2026-10-03T09:30:28.648Z"
+      "checkedAt": "2026-10-16T08:35:09.629Z"
     },
     "1.17227971": {
       "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17227971",
@@ -1180,71 +1180,71 @@
     },
     "1.17236742": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-slashere-1.17236742",
-      "checkedAt": "2026-10-02T10:07:56.078Z"
+      "checkedAt": "2026-10-16T08:35:10.287Z"
     },
     "1.17236840": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-george-clooney-1.17236840",
-      "checkedAt": "2026-10-02T10:07:56.810Z"
+      "checkedAt": "2026-10-16T08:35:11.356Z"
     },
     "1.17236877": {
       "url": "https://www.nrk.no/filmpolitiet/_-hans-og-grete_-1.17236877",
-      "checkedAt": "2026-10-02T10:07:57.848Z"
+      "checkedAt": "2026-10-16T08:35:12.425Z"
     },
     "1.17236911": {
       "url": "https://www.nrk.no/filmpolitiet/baz-pa-blu-ray-1.17236911",
-      "checkedAt": "2026-10-02T10:07:59.035Z"
+      "checkedAt": "2026-10-16T08:35:13.279Z"
     },
     "1.17236938": {
       "url": "https://www.nrk.no/filmpolitiet/stjerne-i-sikte-1.17236938",
-      "checkedAt": "2026-10-02T10:07:59.987Z"
+      "checkedAt": "2026-10-16T08:35:14.422Z"
     },
     "1.17236946": {
       "url": "https://www.nrk.no/filmpolitiet/disse-vant-amanda_-1.17236946",
-      "checkedAt": "2026-10-02T10:08:01.264Z"
+      "checkedAt": "2026-10-16T08:35:15.290Z"
     },
     "1.17236995": {
       "url": "https://www.nrk.no/filmpolitiet/cera-kommer_-1.17236995",
-      "checkedAt": "2026-10-02T10:08:02.010Z"
+      "checkedAt": "2026-10-16T08:35:16.394Z"
     },
     "1.17237006": {
       "url": "https://www.nrk.no/filmpolitiet/john-carter_-1.17237006",
-      "checkedAt": "2026-10-02T10:08:03.436Z"
+      "checkedAt": "2026-10-16T08:35:17.814Z"
     },
     "1.17237011": {
       "url": "https://www.nrk.no/filmpolitiet/legenden-jackie-chan-1.17237011",
-      "checkedAt": "2026-10-02T10:08:04.162Z"
+      "checkedAt": "2026-10-16T08:35:18.268Z"
     },
     "1.17237013": {
       "url": "https://www.nrk.no/filmpolitiet/tom-cruise-rir-igjen_-1.17237013",
-      "checkedAt": "2026-10-02T10:08:05.004Z"
+      "checkedAt": "2026-10-16T08:35:19.309Z"
     },
     "1.17237015": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmvapen-1.17237015",
-      "checkedAt": "2026-10-02T10:08:06.090Z"
+      "checkedAt": "2026-10-16T08:35:20.278Z"
     },
     "1.17237023": {
       "url": "https://www.nrk.no/filmpolitiet/forbuden-film-1.17237023",
-      "checkedAt": "2026-10-02T10:08:07.187Z"
+      "checkedAt": "2026-10-16T08:35:21.349Z"
     },
     "1.17237032": {
       "url": "https://www.nrk.no/filmpolitiet/predatorene-er-tilbake_-1.17237032",
-      "checkedAt": "2026-10-02T10:08:08.066Z"
+      "checkedAt": "2026-10-16T08:35:22.465Z"
     },
     "1.17237199": {
       "url": "https://www.nrk.no/filmpolitiet/steven-seagal-1.17237199",
-      "checkedAt": "2026-10-02T10:08:09.005Z"
+      "checkedAt": "2026-10-16T08:35:23.288Z"
     },
     "1.17237224": {
       "url": "https://www.nrk.no/filmpolitiet/zwart-suksess_-1.17237224",
-      "checkedAt": "2026-10-02T10:08:10.030Z"
+      "checkedAt": "2026-10-16T08:35:24.291Z"
     },
     "1.17237242": {
       "url": "https://www.nrk.no/filmpolitiet/del-toro-har-det-vondt-1.17237242",
-      "checkedAt": "2026-10-02T10:08:11.018Z"
+      "checkedAt": "2026-10-16T08:35:25.287Z"
     },
     "1.17237243": {
       "url": "https://www.nrk.no/filmpolitiet/vampyrer_-aliens-og-cruise-1.17237243",
-      "checkedAt": "2026-10-02T10:08:11.896Z"
+      "checkedAt": "2026-10-16T08:35:26.259Z"
     },
     "1.17237246": {
       "url": "https://www.nrk.no/filmpolitiet/snehvit-blir-slem_-1.17237246",
