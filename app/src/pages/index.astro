@@ -151,7 +151,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         Birger er <em>en mild dommer</em>.
       </h2>
       <p class="section-lede">
-        Halvparten av filmene får en firer eller femmer. Bare {SUMMARY.worst1} {SUMMARY.worst1 === 1 ? 'film' : 'filmer'} har fått en ener på nitten år; {SUMMARY.perfect6} har fått toppkarakter.
+        Halvparten av filmene får en firer eller femmer. Bare {SUMMARY.worst1} {SUMMARY.worst1 === 1 ? 'film' : 'filmer'} har fått en ener på {SUMMARY.yearMax - SUMMARY.yearMin + 1} år; {SUMMARY.perfect6} har fått toppkarakter.
         Trykk på en søyle for å filtrere indeksen.
       </p>
     </header>
@@ -168,7 +168,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         Når terningen viser seks
       </h2>
       <p class="section-lede">
-        Et utvalg av de aller siste filmene som fikk Birgers høyeste karakter — i alt {SUMMARY.perfect6} stykker har stått igjen med en sekser siden 2007.
+        Et utvalg av de aller siste filmene som fikk Birgers høyeste karakter — i alt {SUMMARY.perfect6} stykker har stått igjen med en sekser siden {SUMMARY.yearMin}.
       </p>
     </header>
 

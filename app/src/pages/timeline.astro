@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import Die from '../components/Die.astro';
-import { reviewIndex } from '../lib/data';
+import { reviewIndex, SUMMARY } from '../lib/data';
 import { reviewSlug } from '../lib/slug';
 import { sanitizeQuotes } from '../lib/format';
 import { u } from '../lib/url';
@@ -16,6 +16,7 @@ for (const r of reviewIndex) {
   byYear.set(y, arr);
 }
 const years = [...byYear.keys()].sort((a, b) => b - a);
+const span = SUMMARY.yearMax - SUMMARY.yearMin + 1;
 
 // Most-recent two years are open by default; older years collapse so
 // the page is light at first paint and the user opts in.
@@ -33,11 +34,11 @@ function bins(items: typeof reviewIndex) {
 <Page
   current="timeline"
   title="Tidslinjen — Birgerpedia"
-  description="Fra 2007 til i dag, hvert eneste år av Birger Vestmos anmeldelser, en skala langs nesten to tiår."
+  description={`Fra ${SUMMARY.yearMin} til i dag: hvert eneste år av Birger Vestmos anmeldelser, ${span} år langs én skala.`}
 >
   <header class="page-head">
     <div class="h-eyebrow">Tidslinjen</div>
-    <h1 class="page-title h-display">Nitten år, <em>én anmelder</em></h1>
+    <h1 class="page-title h-display">{span} år, <em>én anmelder</em></h1>
     <p class="page-lede">
       Hver kolonne er et år. Hver flekk er en anmeldelse — fargen forteller
       kastet, plasseringen forteller når. Klikk for å lese.

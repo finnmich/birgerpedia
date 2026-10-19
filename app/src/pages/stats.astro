@@ -1,6 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import StatsDashboard from '../components/vue/StatsDashboard.vue';
+import { SUMMARY } from '../lib/data';
 ---
 
 <Page
@@ -12,7 +13,7 @@ import StatsDashboard from '../components/vue/StatsDashboard.vue';
     <div class="h-eyebrow">Statistikk</div>
     <h1 class="page-title h-display">Et liv i <em>tall</em></h1>
     <p class="page-lede">
-      Når man koker ned nitten år med terningkast til kurver og kart,
+      Når man koker ned {SUMMARY.yearMax - SUMMARY.yearMin + 1} år med terningkast til kurver og kart,
       ser man hva slags anmelder Birger er — og hvordan han endrer seg.
     </p>
   </header>

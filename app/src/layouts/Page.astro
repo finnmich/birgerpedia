@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SearchPalette from '../components/vue/SearchPalette.vue';
 import { u } from '../lib/url';
+import { SUMMARY } from '../lib/data';
 
 interface Props {
   title?: string;
@@ -14,7 +15,7 @@ interface Props {
 
 const {
   title = 'Birgerpedia — en hyllest til Birger Vestmo',
-  description = 'Hver eneste anmeldelse av Birger Vestmo, indeksert. NRK Filmpolitiet 2007–i dag, i ett oppslagsverk.',
+  description = `Hver eneste anmeldelse av Birger Vestmo, indeksert. NRK Filmpolitiet ${SUMMARY.yearMin}–i dag, i ett oppslagsverk.`,
   current = '',
   ogImage = null,
 } = Astro.props;
