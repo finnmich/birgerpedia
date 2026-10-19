@@ -1,6 +1,6 @@
 {
-  "note": "Verified review types for pre-2009 NRK articles whose pages carry no schema.org itemReviewed, so parse-article cannot derive one. Each entry was classified by reading Birger own review text (he consistently writes «filmen» or «spillet»), cross-checked against the TMDB match where one exists. Applied by build-dataset.mjs. Only add an id here after actually reading the article.",
-  "verifiedAt": "2026-08-16",
+  "note": "Verified review types for NRK articles whose markup gives none (pre-2009 pages with no schema.org itemReviewed) or the wrong one (a run of 2010–2014 film reviews tagged MusicEvent/«Konsert»). Each entry was classified by reading Birger own review text (he consistently writes «filmen» or «spillet»), cross-checked against the TMDB match where one exists. Applied by build-dataset.mjs. Only add an id here after actually reading the article.",
+  "verifiedAt": "2026-10-19",
   "types": {
     "1.6881878": {
       "type": "Game",
@@ -291,6 +291,41 @@
       "type": "Game",
       "name": "Warhawk",
       "basis": "body: «Du kjemper mot opptil 32 andre spillere online»"
+    },
+    "1.17232071": {
+      "type": "Movie",
+      "name": "Björk: Biophilia Live",
+      "basis": "body: «Den nye konsertfilmen … settes opp på et utvalg norske kinoer»; markup sier MusicEvent"
+    },
+    "1.17232497": {
+      "type": "Movie",
+      "name": "The Salvation",
+      "basis": "body: «Kristian Levrings The Salvation er en westernfilm»; markup sier MusicEvent"
+    },
+    "1.17232510": {
+      "type": "Movie",
+      "name": "Grace of Monaco",
+      "basis": "body: «regissør Olivier Dahan … Grace of Monaco», Cannes; markup sier MusicEvent"
+    },
+    "1.17236177": {
+      "type": "Movie",
+      "name": "Vann til elefantene",
+      "basis": "body: «dette til en severdig film», Robert Pattinson; markup sier MusicEvent"
+    },
+    "1.17236268": {
+      "type": "Movie",
+      "name": "Justin Bieber: Never Say Never",
+      "basis": "body: «Jeg ”bare” liker filmen»; markup sier MusicEvent"
+    },
+    "1.17236522": {
+      "type": "Movie",
+      "name": "Tomme tønner 2 – Det Brune Gullet",
+      "basis": "body: «regissørene Sebastian Dalén og Leon Bashir»; markup sier MusicEvent"
+    },
+    "1.17236647": {
+      "type": "Movie",
+      "name": "Cornelis",
+      "basis": "body: «regissør Amir Chamdims film om den nederlandske sangpoeten»; markup sier MusicEvent"
     }
   }
 }

@@ -296,6 +296,27 @@
       "title": "Penguins of Madagascar (2014)",
       "basis": "factbox regi «Eric Darnell og Simon J. Smith»"
     },
+    "1.17232071": {
+      "name": "Björk: Biophilia Live",
+      "tmdbId": 261830,
+      "mediaType": "movie",
+      "title": "Björk: Biophilia Live (2014)",
+      "basis": "konsertfilmen fra 2014 (anmeldelsesteksten); var lagret som bom fordi NRK-tittelen manglet"
+    },
+    "1.17232497": {
+      "name": "The Salvation",
+      "tmdbId": 266285,
+      "mediaType": "movie",
+      "title": "The Salvation (2014)",
+      "basis": "«Kristian Levrings The Salvation» (anmeldelsesteksten); var lagret som bom fordi NRK-tittelen manglet"
+    },
+    "1.17232510": {
+      "name": "Grace of Monaco",
+      "tmdbId": 215211,
+      "mediaType": "movie",
+      "title": "Grace of Monaco (2014)",
+      "basis": "«regissør Olivier Dahan» (anmeldelsesteksten); var lagret som bom fordi NRK-tittelen manglet"
+    },
     "1.17232525": {
       "name": "Bad Neighbours",
       "tmdbId": 195589,
@@ -421,6 +442,13 @@
       "mediaType": "tv",
       "title": "Big Love (2006)",
       "basis": "tittel og år"
+    },
+    "1.17236177": {
+      "name": "Water For Elephants",
+      "tmdbId": 55787,
+      "mediaType": "movie",
+      "title": "Water for Elephants (2011)",
+      "basis": "Robert Pattinson, sirkusmiljø (anmeldelsesteksten); var lagret som bom fordi NRK-tittelen manglet"
     },
     "1.17236204": {
       "name": "World Invasion: Battle Los Angeles",

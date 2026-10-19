@@ -26,9 +26,9 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES_DIR = resolve(ROOT, 'data/raw/articles');
 const OUT_DIR = resolve(ROOT, 'data/processed');
 const REVIEWS_OUT = resolve(OUT_DIR, 'reviews.json');
-// Hand-verified types for pre-2009 articles whose pages carry no
-// schema.org itemReviewed for the parser to read one off. See the note in
-// the file itself — entries are added only after reading the review.
+// Hand-verified types for articles whose markup carries none (pre-2009) or
+// the wrong one (2010–2014 films tagged MusicEvent). See the note in the
+// file itself — entries are added only after reading the review.
 const TYPE_OVERRIDES = resolve(ROOT, 'data/type-overrides.json');
 // Birger's 2000–2006 reviews, recovered from the Wayback Machine by
 // scripts/legacy/. They predate the author API and most are gone from
@@ -116,7 +116,8 @@ async function main() {
       const r = byId.get(id);
       if (!r || !o?.type || r.type === o.type) continue;
       r.type = o.type;
-      r.reviewType ??= REVIEW_TYPE_LABEL[o.type] ?? null;
+      // The markup's label described the wrong type too («Konsert» on films).
+      r.reviewType = REVIEW_TYPE_LABEL[o.type] ?? r.reviewType ?? null;
       overridden++;
     }
   } catch { /* no override file — every type comes from the markup */ }

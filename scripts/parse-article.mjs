@@ -268,7 +268,9 @@ function extractReviewInfo(html) {
   if (!block) return out;
 
   const h3 = /<h3[^>]*>([\s\S]*?)<\/h3>/i.exec(block);
-  if (h3) out.titleLine = stripTags(h3[1]).trim();
+  // Some 2010–2014 pages ship an empty <h3>; `|| null` lets the name fall
+  // through to the JSON-LD name/headline instead of staying ''.
+  if (h3) out.titleLine = stripTags(h3[1]).trim() || null;
 
   // The position of the first inner <div> is the boundary between header
   // (h3, optional original-title secondary p) and body (credits + meta).

@@ -75622,8 +75622,8 @@
   {
     "id": "1.17232071",
     "url": "https://www.nrk.no/filmpolitiet/bjork_-biophilia-live-1.17232071",
-    "type": "MusicEvent",
-    "name": "",
+    "type": "Movie",
+    "name": "Björk: Biophilia Live",
     "originalTitle": null,
     "headline": "Björk: Biophilia Live",
     "abstract": "Björk: Biophilia Live",
@@ -75640,7 +75640,7 @@
     "image": "https://gfx.nrk.no/bHXJtzAAkY2dolQAWWEwvQW1B4tN--68my4nDwgSin9w.jpg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -78098,8 +78098,8 @@
   {
     "id": "1.17232497",
     "url": "https://www.nrk.no/filmpolitiet/the-salvation-1.17232497",
-    "type": "MusicEvent",
-    "name": "",
+    "type": "Movie",
+    "name": "The Salvation",
     "originalTitle": null,
     "headline": "The Salvation",
     "abstract": "The Salvation",
@@ -78116,7 +78116,7 @@
     "image": "https://gfx.nrk.no/Zlx_SG-18q_oLFrLJDLs_g6seOMapQ3DKCNaq32OJHAg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -78250,8 +78250,8 @@
   {
     "id": "1.17232510",
     "url": "https://www.nrk.no/filmpolitiet/grace-of-monaco-1.17232510",
-    "type": "MusicEvent",
-    "name": "",
+    "type": "Movie",
+    "name": "Grace of Monaco",
     "originalTitle": null,
     "headline": "Grace of Monaco",
     "abstract": "Grace of Monaco",
@@ -78268,7 +78268,7 @@
     "image": "https://gfx.nrk.no/CTvcsfRtQiGDv3PvMu7QAQQduAjrdeC9vrCAJcU5Puqw.jpg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -100366,8 +100366,8 @@
   {
     "id": "1.17236177",
     "url": "https://www.nrk.no/filmpolitiet/vann-til-elefantene-1.17236177",
-    "type": "MusicEvent",
-    "name": "",
+    "type": "Movie",
+    "name": "Water For Elephants",
     "originalTitle": null,
     "headline": "Vann til elefantene",
     "abstract": "Vann til elefantene",
@@ -100384,7 +100384,7 @@
     "image": "https://gfx.nrk.no/_yTT-UTZtQoVX2ABhNdVmwdLyEZBXh7B62WeOZa5DKMg.jpg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -101038,7 +101038,7 @@
   {
     "id": "1.17236268",
     "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-justin-bieber_-never-say-never-1.17236268",
-    "type": "MusicEvent",
+    "type": "Movie",
     "name": "Justin Bieber: Never Say Never",
     "originalTitle": null,
     "headline": "Justin Bieber: Never Say Never",
@@ -101056,7 +101056,7 @@
     "image": "https://gfx.nrk.no/rJkrxxxjefNlDYK-Adpg6glmKs9EFS_3QHbHlqcwJNvA.jpg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -102903,7 +102903,7 @@
   {
     "id": "1.17236522",
     "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-tomme-tonner-2-_-det-brune-gullet-1.17236522",
-    "type": "MusicEvent",
+    "type": "Movie",
     "name": "Tomme tønner 2 – Det Brune Gullet",
     "originalTitle": null,
     "headline": "Tomme tønner 2 – Det Brune Gullet",
@@ -102921,7 +102921,7 @@
     "image": "https://gfx.nrk.no/DLgFOgdCrGI69QB_-OYpQgkm19bgfBRTUvvvwbr4SGxQ.jpg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
@@ -104248,7 +104248,7 @@
   {
     "id": "1.17236647",
     "url": "https://www.nrk.no/filmpolitiet/anmeldelse_-cornelis-1.17236647",
-    "type": "MusicEvent",
+    "type": "Movie",
     "name": "Cornelis",
     "originalTitle": null,
     "headline": "Cornelis",
@@ -104266,7 +104266,7 @@
     "image": "https://gfx.nrk.no/8wEN_H0QPwHCgNkwYWWL9wIga4MaXgs3svBk17l3N_zQ.jpg",
     "section": "filmpolitiet",
     "platform": null,
-    "reviewType": "Konsert",
+    "reviewType": "Film",
     "factbox": {
       "tittel": null,
       "originaltittel": null,
