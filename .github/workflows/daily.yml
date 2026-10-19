@@ -54,7 +54,7 @@ jobs:
         with:
           fetch-depth: 0              # we'll commit on top of main
 
-      # Node 24 is the Active LTS line. Astro 7 requires >=22.12.0, so the
+      # Node 24 is the Active LTS line. Astro 7 requires >=22.22.0, so the
       # previous Node 20 pin can no longer build the site.
       - uses: actions/setup-node@v7
         with:

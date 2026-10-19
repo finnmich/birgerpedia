@@ -13,20 +13,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/vue": "^7.0.2",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vue": "^7.1.1",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.2.2",
+    "astro": "^7.4.1",
     "minisearch": "^7.2.0",
     "tailwindcss": "^4.3.3",
-    "vue": "^3.5.41"
+    "vue": "^3.5.44"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@types/node": "^24.13.3",
+    "@astrojs/check": "^0.9.11",
+    "@types/node": "^24.19.2",
     "typescript": "^6.0.3"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.22.0"
   }
 }
