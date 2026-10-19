@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, h, defineComponent } from 'vue';
 import Die from './Die.vue';
-import { u } from '../../lib/url';
+import { u, dataUrl } from '../../lib/url';
 import { countryName, countryFlag } from '../../lib/countries.mjs';
 
 // Tiny inline avatar helper to keep the template tidy (no separate file).
@@ -98,7 +98,7 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const res = await fetch(u('/data/stats.json'));
+    const res = await fetch(dataUrl('stats.json'));
     stats.value = await res.json();
   } catch (e: any) { error.value = e.message; }
 });

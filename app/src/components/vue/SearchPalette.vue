@@ -2,7 +2,7 @@
 import { computed, nextTick, onMounted, onBeforeUnmount, ref, watch } from 'vue';
 import MiniSearch from 'minisearch';
 import Die from './Die.vue';
-import { u } from '../../lib/url';
+import { u, dataUrl } from '../../lib/url';
 
 interface ReviewDoc {
   id: string;
@@ -147,7 +147,7 @@ function scheduleIdle(fn: () => Promise<void> | void) {
 async function loadReviews() {
   loadingReviews.value = true;
   try {
-    const rRes = await fetch(u('/data/reviews.json'));
+    const rRes = await fetch(dataUrl('reviews.json'));
     const rRaw: any[] = await rRes.json();
     reviews.value = rRaw.map((r) => {
       const year = Number(r.publishedAt?.slice(0, 4)) || 0;
@@ -186,7 +186,7 @@ async function loadReviews() {
 async function loadPeople() {
   if (peopleLoaded.value) return;
   try {
-    const pRes = await fetch(u('/data/people.json'));
+    const pRes = await fetch(dataUrl('people.json'));
     const pRaw = await pRes.json();
     people.value = pRaw as PersonDoc[];
     peopleSearch = new MiniSearch({
@@ -203,7 +203,7 @@ async function loadPeople() {
 async function loadCategories() {
   if (categoriesLoaded.value) return;
   try {
-    const sRes = await fetch(u('/data/stats.json'));
+    const sRes = await fetch(dataUrl('stats.json'));
     const sRaw = await sRes.json();
     const cats: CategoryDoc[] = [];
     for (const g of sRaw.topGenres ?? []) {

@@ -17,3 +17,10 @@ export function u(path: string): string {
   if (/^([a-z][a-z0-9+.-]*:|#|\/\/)/i.test(path)) return path;   // already absolute/scheme
   return BASE + path.replace(/^\/+/, '');
 }
+
+// URL for a JSON file in public/data/, tagged with the build's data hash so
+// a deploy that changes the data can never be read through a stale cached
+// copy. Use this for every fetch of /data/*.json.
+export function dataUrl(file: string): string {
+  return `${u(`/data/${file}`)}?v=${__DATA_VERSION__}`;
+}

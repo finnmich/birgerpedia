@@ -2,7 +2,7 @@
 import { computed, ref, onMounted, watch, nextTick } from 'vue';
 import MiniSearch from 'minisearch';
 import Die from './Die.vue';
-import { u } from '../../lib/url';
+import { u, dataUrl } from '../../lib/url';
 import { countryName, countryFlag } from '../../lib/countries.mjs';
 
 interface Review {
@@ -41,7 +41,7 @@ const searchInput = ref<HTMLInputElement | null>(null);
 let mini: MiniSearch | null = null;
 
 onMounted(async () => {
-  const res = await fetch(u('/data/reviews.json'));
+  const res = await fetch(dataUrl('reviews.json'));
   const raw: any[] = await res.json();
   reviews.value = raw.map((r, i) => {
     const year = Number(r.publishedAt?.slice(0, 4)) || 0;

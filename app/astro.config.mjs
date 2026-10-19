@@ -3,6 +3,26 @@ import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { createHash } from 'node:crypto';
+import { readdirSync, readFileSync } from 'node:fs';
+
+// Cache-busting tag for the JSON in public/data/. Those files keep fixed
+// URLs across deploys, so a browser can keep an old copy while the new JS
+// expects new fields (e.g. `countries`). Hashing their contents means the
+// fetch URL changes exactly when the data does. Computed at config load,
+// which runs after `prebuild`/`predev` (sync-data.mjs) has written them.
+function dataVersion() {
+  const dir = new URL('./public/data/', import.meta.url);
+  const h = createHash('sha256');
+  try {
+    for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
+      h.update(f).update(readFileSync(new URL(f, dir)));
+    }
+  } catch {
+    h.update(String(Date.now()));   // no data yet — any fresh value will do
+  }
+  return h.digest('hex').slice(0, 10);
+}
 
 // Resolve the canonical site URL. In CI we *must* know it — otherwise every
 // link inside sitemap.xml, feed.xml and the OG meta tags resolves against the
@@ -40,6 +60,7 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    define: { __DATA_VERSION__: JSON.stringify(dataVersion()) },
   },
 
   // `hover` is the default. We previously set this to `viewport`, but pages
