@@ -23350,5 +23350,741 @@
     "imdbVotes": null,
     "rated": null,
     "awards": null
+  },
+  "tt0012349": {
+    "rt": 100,
+    "metacritic": null,
+    "imdbRating": 8.2,
+    "imdbVotes": 147374,
+    "rated": "Passed",
+    "awards": "2 wins total"
+  },
+  "tt0080120": {
+    "rt": 88,
+    "metacritic": 65,
+    "imdbRating": 7.5,
+    "imdbVotes": 121210,
+    "rated": "R",
+    "awards": null
+  },
+  "tt0102984": {
+    "rt": 38,
+    "metacritic": 42,
+    "imdbRating": 6.1,
+    "imdbVotes": 11388,
+    "rated": "R",
+    "awards": "1 nomination total"
+  },
+  "tt0107212": {
+    "rt": 60,
+    "metacritic": 51,
+    "imdbRating": 6.6,
+    "imdbVotes": 6853,
+    "rated": "PG-13",
+    "awards": null
+  },
+  "tt0120681": {
+    "rt": 57,
+    "metacritic": 54,
+    "imdbRating": 6.7,
+    "imdbVotes": 173369,
+    "rated": "R",
+    "awards": "15 nominations total"
+  },
+  "tt0216279": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6,
+    "imdbVotes": 545,
+    "rated": null,
+    "awards": "1 nomination"
+  },
+  "tt0231402": {
+    "rt": 11,
+    "metacritic": 37,
+    "imdbRating": 4.9,
+    "imdbVotes": 27733,
+    "rated": "PG",
+    "awards": "1 win & 2 nominations total"
+  },
+  "tt0250223": {
+    "rt": 88,
+    "metacritic": null,
+    "imdbRating": 6.7,
+    "imdbVotes": 64048,
+    "rated": "PG",
+    "awards": "1 win & 4 nominations total"
+  },
+  "tt0253200": {
+    "rt": 79,
+    "metacritic": 78,
+    "imdbRating": 6.9,
+    "imdbVotes": 6836,
+    "rated": "R",
+    "awards": "2 wins & 5 nominations"
+  },
+  "tt0265116": {
+    "rt": 84,
+    "metacritic": 81,
+    "imdbRating": 7,
+    "imdbVotes": 2499,
+    "rated": null,
+    "awards": "4 wins & 4 nominations"
+  },
+  "tt0266079": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 7,
+    "imdbVotes": 838,
+    "rated": null,
+    "awards": "15 wins & 22 nominations"
+  },
+  "tt0267626": {
+    "rt": 60,
+    "metacritic": 58,
+    "imdbRating": 6.7,
+    "imdbVotes": 73065,
+    "rated": "PG-13",
+    "awards": "1 win & 2 nominations total"
+  },
+  "tt0286261": {
+    "rt": 82,
+    "metacritic": 72,
+    "imdbRating": 7.5,
+    "imdbVotes": 11650,
+    "rated": "R",
+    "awards": "3 wins & 13 nominations"
+  },
+  "tt0297234": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 5.6,
+    "imdbVotes": 2061,
+    "rated": null,
+    "awards": "3 wins"
+  },
+  "tt0298911": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6.9,
+    "imdbVotes": 459,
+    "rated": null,
+    "awards": "6 wins & 6 nominations"
+  },
+  "tt0299977": {
+    "rt": null,
+    "metacritic": 85,
+    "imdbRating": 7.9,
+    "imdbVotes": 195588,
+    "rated": "PG-13",
+    "awards": "Nominated for 1 Oscar. 46 wins & 48 nominations total"
+  },
+  "tt0306414": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 9.3,
+    "imdbVotes": 441233,
+    "rated": "TV-MA",
+    "awards": "Nominated for 2 Primetime Emmys. 18 wins & 59 nominations total"
+  },
+  "tt0308496": {
+    "rt": 43,
+    "metacritic": null,
+    "imdbRating": 6.5,
+    "imdbVotes": 1050,
+    "rated": "R",
+    "awards": "1 nomination"
+  },
+  "tt0324197": {
+    "rt": 66,
+    "metacritic": 71,
+    "imdbRating": 6.4,
+    "imdbVotes": 11751,
+    "rated": "R",
+    "awards": "2 wins & 1 nomination"
+  },
+  "tt0329767": {
+    "rt": 83,
+    "metacritic": 69,
+    "imdbRating": 6.8,
+    "imdbVotes": 8116,
+    "rated": "R",
+    "awards": "10 wins & 21 nominations"
+  },
+  "tt0348853": {
+    "rt": 70,
+    "metacritic": 69,
+    "imdbRating": 6.3,
+    "imdbVotes": 5506,
+    "rated": null,
+    "awards": "2 nominations total"
+  },
+  "tt0358135": {
+    "rt": 46,
+    "metacritic": 47,
+    "imdbRating": 6.2,
+    "imdbVotes": 53142,
+    "rated": "PG-13",
+    "awards": "7 nominations total"
+  },
+  "tt0365485": {
+    "rt": 75,
+    "metacritic": 65,
+    "imdbRating": 6.7,
+    "imdbVotes": 48111,
+    "rated": "R",
+    "awards": "1 win & 6 nominations total"
+  },
+  "tt0384766": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 8.7,
+    "imdbVotes": 207631,
+    "rated": "TV-MA",
+    "awards": "Won 7 Primetime Emmys. 19 wins & 36 nominations total"
+  },
+  "tt0392465": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6.7,
+    "imdbVotes": 9706,
+    "rated": "PG-13",
+    "awards": null
+  },
+  "tt0401445": {
+    "rt": 26,
+    "metacritic": 47,
+    "imdbRating": 6.9,
+    "imdbVotes": 108246,
+    "rated": "PG-13",
+    "awards": "1 win & 2 nominations total"
+  },
+  "tt0401997": {
+    "rt": 83,
+    "metacritic": 74,
+    "imdbRating": 7,
+    "imdbVotes": 64216,
+    "rated": "PG-13",
+    "awards": "1 win & 3 nominations total"
+  },
+  "tt0403358": {
+    "rt": 59,
+    "metacritic": 58,
+    "imdbRating": 6.4,
+    "imdbVotes": 57407,
+    "rated": "R",
+    "awards": "2 wins & 10 nominations total"
+  },
+  "tt0421030": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 7.7,
+    "imdbVotes": 24818,
+    "rated": "TV-MA",
+    "awards": "Nominated for 9 Primetime Emmys. 7 wins & 50 nominations total"
+  },
+  "tt0431915": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6.3,
+    "imdbVotes": 171,
+    "rated": null,
+    "awards": "2 wins & 4 nominations"
+  },
+  "tt0452345": {
+    "rt": 58,
+    "metacritic": null,
+    "imdbRating": 6.5,
+    "imdbVotes": 610,
+    "rated": "PG",
+    "awards": "7 wins & 12 nominations"
+  },
+  "tt0455960": {
+    "rt": 19,
+    "metacritic": 28,
+    "imdbRating": 5.6,
+    "imdbVotes": 48000,
+    "rated": "R",
+    "awards": "2 wins & 2 nominations total"
+  },
+  "tt0758746": {
+    "rt": 26,
+    "metacritic": 34,
+    "imdbRating": 5.5,
+    "imdbVotes": 128490,
+    "rated": "R",
+    "awards": "2 wins & 5 nominations total"
+  },
+  "tt0776804": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 5.6,
+    "imdbVotes": 1120,
+    "rated": null,
+    "awards": "2 wins & 2 nominations"
+  },
+  "tt0805647": {
+    "rt": null,
+    "metacritic": 47,
+    "imdbRating": 5.4,
+    "imdbVotes": 53014,
+    "rated": "PG",
+    "awards": "10 nominations total"
+  },
+  "tt0808279": {
+    "rt": 53,
+    "metacritic": 44,
+    "imdbRating": 6.5,
+    "imdbVotes": 111366,
+    "rated": "R",
+    "awards": "1 win & 6 nominations total"
+  },
+  "tt0816462": {
+    "rt": 25,
+    "metacritic": 36,
+    "imdbRating": 5.2,
+    "imdbVotes": 106612,
+    "rated": "R",
+    "awards": "2 nominations total"
+  },
+  "tt0857265": {
+    "rt": 37,
+    "metacritic": 49,
+    "imdbRating": 6.3,
+    "imdbVotes": 34064,
+    "rated": "R",
+    "awards": "2 wins & 6 nominations total"
+  },
+  "tt0891527": {
+    "rt": 28,
+    "metacritic": 47,
+    "imdbRating": 6.2,
+    "imdbVotes": 57418,
+    "rated": "R",
+    "awards": "3 nominations total"
+  },
+  "tt1016223": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 3.4,
+    "imdbVotes": 278,
+    "rated": null,
+    "awards": null
+  },
+  "tt1034415": {
+    "rt": 65,
+    "metacritic": 64,
+    "imdbRating": 6.7,
+    "imdbVotes": 106889,
+    "rated": "R",
+    "awards": "28 wins & 75 nominations total"
+  },
+  "tt1067583": {
+    "rt": 60,
+    "metacritic": 52,
+    "imdbRating": 6.9,
+    "imdbVotes": 124764,
+    "rated": "PG-13",
+    "awards": "4 wins & 13 nominations total"
+  },
+  "tt1071875": {
+    "rt": 18,
+    "metacritic": 34,
+    "imdbRating": 4.4,
+    "imdbVotes": 136640,
+    "rated": "PG-13",
+    "awards": "4 nominations total"
+  },
+  "tt1179056": {
+    "rt": 14,
+    "metacritic": 35,
+    "imdbRating": 5.2,
+    "imdbVotes": 116285,
+    "rated": "R",
+    "awards": "2 wins & 11 nominations total"
+  },
+  "tt1217613": {
+    "rt": 37,
+    "metacritic": 37,
+    "imdbRating": 5.7,
+    "imdbVotes": 191671,
+    "rated": "PG-13",
+    "awards": "1 win & 4 nominations total"
+  },
+  "tt12221748": {
+    "rt": null,
+    "metacritic": 66,
+    "imdbRating": 7,
+    "imdbVotes": 6749,
+    "rated": "PG",
+    "awards": "Nominated for 4 Primetime Emmys. 1 win & 6 nominations total"
+  },
+  "tt1223934": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6.7,
+    "imdbVotes": 6516,
+    "rated": null,
+    "awards": "2 wins & 3 nominations"
+  },
+  "tt1291652": {
+    "rt": 85,
+    "metacritic": 75,
+    "imdbRating": 6.7,
+    "imdbVotes": 20948,
+    "rated": "R",
+    "awards": "4 wins & 1 nomination total"
+  },
+  "tt13393128": {
+    "rt": 85,
+    "metacritic": 69,
+    "imdbRating": 7.3,
+    "imdbVotes": 1700,
+    "rated": null,
+    "awards": "2 nominations total"
+  },
+  "tt14176542": {
+    "rt": 60,
+    "metacritic": 55,
+    "imdbRating": 6.7,
+    "imdbVotes": 16847,
+    "rated": "R",
+    "awards": "Nominated for 1 Oscar. 18 wins & 50 nominations total"
+  },
+  "tt1459026": {
+    "rt": 88,
+    "metacritic": null,
+    "imdbRating": 5.9,
+    "imdbVotes": 2031,
+    "rated": null,
+    "awards": "4 nominations"
+  },
+  "tt1483831": {
+    "rt": 90,
+    "metacritic": 85,
+    "imdbRating": 6.9,
+    "imdbVotes": 12342,
+    "rated": "R",
+    "awards": "17 wins & 15 nominations total"
+  },
+  "tt1502407": {
+    "rt": 79,
+    "metacritic": 67,
+    "imdbRating": 6.5,
+    "imdbVotes": 189309,
+    "rated": "R",
+    "awards": "4 wins & 27 nominations total"
+  },
+  "tt1540011": {
+    "rt": 38,
+    "metacritic": 47,
+    "imdbRating": 5,
+    "imdbVotes": 54311,
+    "rated": "R",
+    "awards": "3 wins & 7 nominations total"
+  },
+  "tt1615918": {
+    "rt": 10,
+    "metacritic": 24,
+    "imdbRating": 4.5,
+    "imdbVotes": 45821,
+    "rated": "G",
+    "awards": "2 wins & 1 nomination total"
+  },
+  "tt1682181": {
+    "rt": 85,
+    "metacritic": 74,
+    "imdbRating": 7.3,
+    "imdbVotes": 10721,
+    "rated": "PG-13",
+    "awards": "9 wins & 21 nominations total"
+  },
+  "tt1727388": {
+    "rt": 83,
+    "metacritic": 68,
+    "imdbRating": 7.4,
+    "imdbVotes": 165165,
+    "rated": "PG-13",
+    "awards": "5 wins & 31 nominations total"
+  },
+  "tt1802197": {
+    "rt": 37,
+    "metacritic": 43,
+    "imdbRating": 7,
+    "imdbVotes": 11724,
+    "rated": "R",
+    "awards": "3 wins & 2 nominations total"
+  },
+  "tt1832382": {
+    "rt": 99,
+    "metacritic": 95,
+    "imdbRating": 8.3,
+    "imdbVotes": 280979,
+    "rated": "PG-13",
+    "awards": "Won 1 Oscar. 89 wins & 52 nominations total"
+  },
+  "tt1911658": {
+    "rt": 74,
+    "metacritic": 53,
+    "imdbRating": 6.7,
+    "imdbVotes": 118542,
+    "rated": "PG",
+    "awards": "8 nominations total"
+  },
+  "tt2004420": {
+    "rt": 72,
+    "metacritic": 68,
+    "imdbRating": 6.3,
+    "imdbVotes": 349291,
+    "rated": "R",
+    "awards": "7 wins & 13 nominations total"
+  },
+  "tt2094018": {
+    "rt": 64,
+    "metacritic": 55,
+    "imdbRating": 6.3,
+    "imdbVotes": 32107,
+    "rated": "PG-13",
+    "awards": "1 nomination total"
+  },
+  "tt2095649": {
+    "rt": 10,
+    "metacritic": 21,
+    "imdbRating": 5.7,
+    "imdbVotes": 22353,
+    "rated": "Not Rated",
+    "awards": "Nominated for 2 Primetime Emmys. 1 win & 5 nominations total"
+  },
+  "tt2179121": {
+    "rt": 71,
+    "metacritic": 66,
+    "imdbRating": 7.3,
+    "imdbVotes": 20437,
+    "rated": "PG",
+    "awards": "2 wins & 3 nominations total"
+  },
+  "tt21823658": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": null,
+    "imdbVotes": 406,
+    "rated": null,
+    "awards": "3 wins & 5 nominations"
+  },
+  "tt2305051": {
+    "rt": 88,
+    "metacritic": 74,
+    "imdbRating": 7.1,
+    "imdbVotes": 147631,
+    "rated": "R",
+    "awards": "Nominated for 2 Oscars. 13 wins & 71 nominations total"
+  },
+  "tt2639336": {
+    "rt": 61,
+    "metacritic": 54,
+    "imdbRating": 6.1,
+    "imdbVotes": 42832,
+    "rated": "R",
+    "awards": "2 wins & 4 nominations total"
+  },
+  "tt2720680": {
+    "rt": 72,
+    "metacritic": 64,
+    "imdbRating": 6.7,
+    "imdbVotes": 46951,
+    "rated": "R",
+    "awards": "1 win & 8 nominations total"
+  },
+  "tt2752200": {
+    "rt": 73,
+    "metacritic": 63,
+    "imdbRating": 6.7,
+    "imdbVotes": 41374,
+    "rated": "Not Rated",
+    "awards": "3 wins & 7 nominations total"
+  },
+  "tt2850272": {
+    "rt": 68,
+    "metacritic": 56,
+    "imdbRating": 6.5,
+    "imdbVotes": 7203,
+    "rated": "Unrated",
+    "awards": "1 nomination total"
+  },
+  "tt32263650": {
+    "rt": 100,
+    "metacritic": null,
+    "imdbRating": 7.3,
+    "imdbVotes": 771,
+    "rated": null,
+    "awards": "9 wins & 12 nominations total"
+  },
+  "tt3431188": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 5.8,
+    "imdbVotes": 451,
+    "rated": "TV-PG",
+    "awards": "2 wins & 2 nominations total"
+  },
+  "tt3455830": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6.5,
+    "imdbVotes": 179,
+    "rated": null,
+    "awards": "3 wins & 6 nominations"
+  },
+  "tt3464896": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 7.8,
+    "imdbVotes": 5885,
+    "rated": "TV-MA",
+    "awards": "Nominated for 1 Primetime Emmy. 25 wins & 85 nominations total"
+  },
+  "tt34969560": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": null,
+    "imdbVotes": null,
+    "rated": null,
+    "awards": null
+  },
+  "tt3626442": {
+    "rt": 77,
+    "metacritic": 67,
+    "imdbRating": 8,
+    "imdbVotes": 504,
+    "rated": "Not Rated",
+    "awards": "1 nomination"
+  },
+  "tt3801730": {
+    "rt": 94,
+    "metacritic": 65,
+    "imdbRating": 6.8,
+    "imdbVotes": 766,
+    "rated": null,
+    "awards": "6 wins & 2 nominations total"
+  },
+  "tt4291590": {
+    "rt": 83,
+    "metacritic": 77,
+    "imdbRating": 5.9,
+    "imdbVotes": 8120,
+    "rated": "Not Rated",
+    "awards": "7 wins & 16 nominations total"
+  },
+  "tt4298958": {
+    "rt": 84,
+    "metacritic": 60,
+    "imdbRating": 7.4,
+    "imdbVotes": 14474,
+    "rated": "Not Rated",
+    "awards": "7 wins & 8 nominations total"
+  },
+  "tt4359416": {
+    "rt": 96,
+    "metacritic": 91,
+    "imdbRating": 7.3,
+    "imdbVotes": 16789,
+    "rated": "Not Rated",
+    "awards": "8 wins & 8 nominations"
+  },
+  "tt4419834": {
+    "rt": null,
+    "metacritic": null,
+    "imdbRating": 6.3,
+    "imdbVotes": 200,
+    "rated": null,
+    "awards": "2 wins & 4 nominations total"
+  },
+  "tt5852632": {
+    "rt": 100,
+    "metacritic": null,
+    "imdbRating": 6.6,
+    "imdbVotes": 947,
+    "rated": "G",
+    "awards": "Won 1 Primetime Emmy. 2 wins & 1 nomination total"
+  },
+  "tt6304046": {
+    "rt": 92,
+    "metacritic": 74,
+    "imdbRating": 6.9,
+    "imdbVotes": 40256,
+    "rated": "Not Rated",
+    "awards": "16 wins & 47 nominations total"
+  },
+  "tt6444838": {
+    "rt": 88,
+    "metacritic": 74,
+    "imdbRating": 6.5,
+    "imdbVotes": 2295,
+    "rated": "Not Rated",
+    "awards": "1 win & 6 nominations"
+  },
+  "tt7125774": {
+    "rt": 70,
+    "metacritic": 53,
+    "imdbRating": 7.5,
+    "imdbVotes": 15216,
+    "rated": "PG-13",
+    "awards": "3 wins & 3 nominations total"
+  },
+  "tt7328154": {
+    "rt": null,
+    "metacritic": 80,
+    "imdbRating": 5.7,
+    "imdbVotes": 4740,
+    "rated": null,
+    "awards": "11 wins & 21 nominations"
+  },
+  "tt8075192": {
+    "rt": 99,
+    "metacritic": 93,
+    "imdbRating": 7.9,
+    "imdbVotes": 96891,
+    "rated": "R",
+    "awards": "Nominated for 1 Oscar. 50 wins & 98 nominations total"
+  },
+  "tt8254556": {
+    "rt": 84,
+    "metacritic": 73,
+    "imdbRating": 7.1,
+    "imdbVotes": 18245,
+    "rated": "R",
+    "awards": "33 wins & 39 nominations total"
+  },
+  "tt8430054": {
+    "rt": 98,
+    "metacritic": 91,
+    "imdbRating": 7.9,
+    "imdbVotes": 21414,
+    "rated": "PG-13",
+    "awards": "Nominated for 3 Oscars. 97 wins & 152 nominations total"
+  },
+  "tt8544498": {
+    "rt": 84,
+    "metacritic": 66,
+    "imdbRating": 6.7,
+    "imdbVotes": 57539,
+    "rated": "R",
+    "awards": "6 nominations total"
+  },
+  "tt8850222": {
+    "rt": 55,
+    "metacritic": 51,
+    "imdbRating": 5.5,
+    "imdbVotes": 45015,
+    "rated": "Not Rated",
+    "awards": "8 wins & 20 nominations total"
+  },
+  "tt9812474": {
+    "rt": 86,
+    "metacritic": 68,
+    "imdbRating": 6.3,
+    "imdbVotes": 45517,
+    "rated": "R",
+    "awards": "24 wins & 32 nominations total"
   }
 }
