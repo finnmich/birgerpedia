@@ -1,0 +1,845 @@
+{
+  "note": "Verified TMDB matches for reviews the automatic matcher got wrong or can't confirm. Each entry pins a review to a TMDB id (tmdbId null = no single TMDB title, e.g. a DVD box set). Found by scripts/audit-tmdb.mjs and checked by hand against the NRK factbox director, the review text, or both — `basis` says which. Applied by scripts/enrich-tmdb.mjs (re-fetches any cached match that disagrees) and app/scripts/sync-data.mjs (never ships a disagreeing one). Only add an id here after checking it.",
+  "verifiedAt": "2026-10-19",
+  "overrides": {
+    "1.17659765": {
+      "name": "Christy",
+      "tmdbId": 1290242,
+      "mediaType": "movie",
+      "title": "Christy (2025)",
+      "basis": "factbox regi «Brendan Canty»"
+    },
+    "1.17253376": {
+      "name": "SKI",
+      "tmdbId": 1401601,
+      "mediaType": "movie",
+      "title": "SKI - The Greatest Ski Tour of All Time (2024)",
+      "basis": "factbox regi «Nikolai Schirmer»"
+    },
+    "1.17227872": {
+      "name": "Eksplosjoner i hjertet",
+      "tmdbId": 958239,
+      "mediaType": "movie",
+      "title": "Eksplosjoner i hjertet (2024)",
+      "basis": "factbox regi «Yen» er avkortet; Yenni Lee; dagens match er riktig"
+    },
+    "1.16859744": {
+      "name": "Immaculate",
+      "tmdbId": 1041613,
+      "mediaType": "movie",
+      "title": "Immaculate (2024)",
+      "basis": "factbox staver regissøren «Michael Mahon»; Michael Mohan; dagens match er riktig"
+    },
+    "1.17228506": {
+      "name": "Storm",
+      "tmdbId": 654076,
+      "mediaType": "movie",
+      "title": "Storm (2022)",
+      "basis": "factbox regi «Erika Calmeyer»"
+    },
+    "1.17228508": {
+      "name": "Ett sekunds lykke",
+      "tmdbId": 575089,
+      "mediaType": "movie",
+      "title": "一秒钟 / One Second (2020)",
+      "basis": "Zhang Yimou (factbox staver «Zhimou Yang»); dagens match er riktig"
+    },
+    "1.17228530": {
+      "name": "The Whale",
+      "tmdbId": 785084,
+      "mediaType": "movie",
+      "title": "The Whale (2022)",
+      "basis": "factbox staver regissøren «Aronofksy»; dagens match er riktig"
+    },
+    "1.17228534": {
+      "name": "Bardo",
+      "tmdbId": 685691,
+      "mediaType": "movie",
+      "title": "Bardo, falsa crónica de unas cuantas verdades (2022)",
+      "basis": "factbox regi «Alejandro G. Iñárritu»"
+    },
+    "1.17228564": {
+      "name": "Prinsessen",
+      "tmdbId": 913868,
+      "mediaType": "movie",
+      "title": "The Princess (2022)",
+      "basis": "factbox regi «Ed Perkins»"
+    },
+    "1.17228770": {
+      "name": "Lamb",
+      "tmdbId": 788929,
+      "mediaType": "movie",
+      "title": "Dýrið (2021)",
+      "basis": "factbox regi «Valdimar Jóhansson»"
+    },
+    "1.17228796": {
+      "name": "Småen",
+      "tmdbId": 10098,
+      "mediaType": "movie",
+      "title": "The Kid (1921)",
+      "basis": "factbox regi «Charles Chaplin»"
+    },
+    "1.17228851": {
+      "name": "Flukt",
+      "tmdbId": 680813,
+      "mediaType": "movie",
+      "title": "Flugt (2021)",
+      "basis": "factbox regi «Jonas Poher Rasmussen»"
+    },
+    "1.17228974": {
+      "name": "Roald Dahls Heksene",
+      "tmdbId": 531219,
+      "mediaType": "movie",
+      "title": "Roald Dahl's The Witches / Roald Dahls Heksene (2020)",
+      "basis": "factbox regi «Robert Zemeckis»"
+    },
+    "1.17228985": {
+      "name": "Monster",
+      "tmdbId": 489932,
+      "mediaType": "movie",
+      "title": "Monster (2021)",
+      "basis": "factbox regi «Anthony Mandler»"
+    },
+    "1.17229037": {
+      "name": "Small Axe",
+      "tmdbId": 90705,
+      "mediaType": "tv",
+      "title": "Small Axe (2020)",
+      "basis": "Steve McQueens BBC-serie; NRK typet den som film"
+    },
+    "1.17229062": {
+      "name": "Sannheten",
+      "tmdbId": 517468,
+      "mediaType": "movie",
+      "title": "La Vérité (2019)",
+      "basis": "factbox regi «Hirokazu Kore-eda»"
+    },
+    "1.17229064": {
+      "name": "The Way Back",
+      "tmdbId": 529485,
+      "mediaType": "movie",
+      "title": "The Way Back (2020)",
+      "basis": "factbox regi «Gavin O'Connor»"
+    },
+    "1.17229215": {
+      "name": "Peninsula",
+      "tmdbId": 581392,
+      "mediaType": "movie",
+      "title": "반도 (2020)",
+      "basis": "factbox regi «Yeon Sang-ho»"
+    },
+    "1.17229273": {
+      "name": "Michelle Obama – Min historie",
+      "tmdbId": 699280,
+      "mediaType": "movie",
+      "title": "Becoming (2020)",
+      "basis": "factbox regi «Nadia Hallgren»"
+    },
+    "1.17229411": {
+      "name": "Flukten fra Øst-Tyskland",
+      "tmdbId": 483983,
+      "mediaType": "movie",
+      "title": "Ballon (2018)",
+      "basis": "factbox regi «Michael Bully Herbig»"
+    },
+    "1.17229593": {
+      "name": "Stalker",
+      "tmdbId": 471506,
+      "mediaType": "movie",
+      "title": "Greta (2019)",
+      "basis": "factbox regi «Neil Jordan»"
+    },
+    "1.17229607": {
+      "name": "Holiday",
+      "tmdbId": 490033,
+      "mediaType": "movie",
+      "title": "Holiday (2018)",
+      "basis": "factbox regi «Isabella Eklöf»"
+    },
+    "1.17229680": {
+      "name": "Shoplifters",
+      "tmdbId": 505192,
+      "mediaType": "movie",
+      "title": "万引き家族 (2018)",
+      "basis": "factbox regi «Hirokazu Kore-eda»"
+    },
+    "1.17229722": {
+      "name": "Suspiria",
+      "tmdbId": 361292,
+      "mediaType": "movie",
+      "title": "Suspiria (2018)",
+      "basis": "factbox regi «Luca Guadagnino»"
+    },
+    "1.17229742": {
+      "name": "Girl",
+      "tmdbId": 515916,
+      "mediaType": "movie",
+      "title": "Girl (2018)",
+      "basis": "factbox regi «Lukas Dhont»"
+    },
+    "1.17229750": {
+      "name": "Halloween",
+      "tmdbId": 424139,
+      "mediaType": "movie",
+      "title": "Halloween (2018)",
+      "basis": "factbox regi «David Gordon Green»"
+    },
+    "1.17229755": {
+      "name": "Grensen",
+      "tmdbId": 517839,
+      "mediaType": "movie",
+      "title": "Gräns (2018)",
+      "basis": "factbox staver regissøren «Ali Abassi»; dagens match er riktig"
+    },
+    "1.17229984": {
+      "name": "The Workshop",
+      "tmdbId": 444397,
+      "mediaType": "movie",
+      "title": "L'Atelier (2017)",
+      "basis": "factbox regi «Laurent Cantet»"
+    },
+    "1.17230306": {
+      "name": "Thelma",
+      "tmdbId": 401898,
+      "mediaType": "movie",
+      "title": "Thelma (2017)",
+      "basis": "factbox regi «Joachim Trier»"
+    },
+    "1.17230598": {
+      "name": "Pingvinenes marsj 2",
+      "tmdbId": 405931,
+      "mediaType": "movie",
+      "title": "L'empereur (2017)",
+      "basis": "factbox regi «Luc Jacquet»; oppfølgeren, ikke Pingvinenes marsj (2005)"
+    },
+    "1.17230764": {
+      "name": "Evolution",
+      "tmdbId": 330770,
+      "mediaType": "movie",
+      "title": "Évolution (2016)",
+      "basis": "factbox regi «Lucile Hadzihalilovic»"
+    },
+    "1.17230787": {
+      "name": "De forviste",
+      "tmdbId": 361257,
+      "mediaType": "movie",
+      "title": "El destierro (2015)",
+      "basis": "factbox regi «Arturo Ruiz Serrano»"
+    },
+    "1.17230815": {
+      "name": "Blair Witch",
+      "tmdbId": 351211,
+      "mediaType": "movie",
+      "title": "Blair Witch (2016)",
+      "basis": "factbox regi «Adam Wingard»"
+    },
+    "1.17230942": {
+      "name": "Under kirsebærtrærne",
+      "tmdbId": 319373,
+      "mediaType": "movie",
+      "title": "あん (2015)",
+      "basis": "factbox regi «Naomi Kawase»"
+    },
+    "1.17231150": {
+      "name": "London Has Fallen",
+      "tmdbId": 267860,
+      "mediaType": "movie",
+      "title": "London Has Fallen (2016)",
+      "basis": "factbox staver regissøren «Babak Janafi»; dagens match er riktig"
+    },
+    "1.17231287": {
+      "name": "Self/less",
+      "tmdbId": 238615,
+      "mediaType": "movie",
+      "title": "Self/less (2015)",
+      "basis": "factbox staver regissøren «Tarsem Sing»; dagens match er riktig"
+    },
+    "1.17231380": {
+      "name": "Høst",
+      "tmdbId": 363916,
+      "mediaType": "movie",
+      "title": "Høst (2015)",
+      "basis": "factbox regi «Jan Vardøen»"
+    },
+    "1.17231383": {
+      "name": "Taxi Teheran",
+      "tmdbId": 320006,
+      "mediaType": "movie",
+      "title": "تاکسی (2015)",
+      "basis": "factbox regi «Jafar Panahi»"
+    },
+    "1.17231420": {
+      "name": "Knutsen &amp; Ludvigsen og den fæle Rasputin",
+      "tmdbId": 361128,
+      "mediaType": "movie",
+      "title": "Knutsen & Ludvigsen og den fæle Rasputin (2015)",
+      "basis": "factbox regi «Rasmus A. Sivertsen og Rune Spaans»"
+    },
+    "1.17231801": {
+      "name": "Wild",
+      "tmdbId": 228970,
+      "mediaType": "movie",
+      "title": "Wild (2014)",
+      "basis": "factbox regi «Jean-Marc Vallée»"
+    },
+    "1.17231814": {
+      "name": "Drone",
+      "tmdbId": 297859,
+      "mediaType": "movie",
+      "title": "Drone (2014)",
+      "basis": "factbox regi «Tonje Hessen Schei»"
+    },
+    "1.17231946": {
+      "name": "Madagaskarpingvinene",
+      "tmdbId": 270946,
+      "mediaType": "movie",
+      "title": "Penguins of Madagascar (2014)",
+      "basis": "factbox regi «Eric Darnell og Simon J. Smith»"
+    },
+    "1.17232525": {
+      "name": "Bad Neighbours",
+      "tmdbId": 195589,
+      "mediaType": "movie",
+      "title": "Neighbors (2014)",
+      "basis": "factbox regi «Nicholas Stoller»"
+    },
+    "1.17232941": {
+      "name": "Hours",
+      "tmdbId": 172803,
+      "mediaType": "movie",
+      "title": "Hours (2013)",
+      "basis": "factbox regi «Eric Heisserer»"
+    },
+    "1.17233444": {
+      "name": "The Way Way Back",
+      "tmdbId": 147773,
+      "mediaType": "movie",
+      "title": "The Way Way Back (2013)",
+      "basis": "factbox regi «Nat Faxon og Jim Rash»"
+    },
+    "1.17233686": {
+      "name": "Ung og vakker",
+      "tmdbId": 184314,
+      "mediaType": "movie",
+      "title": "Jeune & Jolie (2013)",
+      "basis": "factbox regi François Ozon; originaltittel feilstavet «Joile»"
+    },
+    "1.17234253": {
+      "name": "The Door",
+      "tmdbId": 51365,
+      "mediaType": "movie",
+      "title": "Die Tür (2009)",
+      "basis": "factbox regi «Anno Saul»"
+    },
+    "1.17234266": {
+      "name": "Bully",
+      "tmdbId": 84404,
+      "mediaType": "movie",
+      "title": "Bully (2011)",
+      "basis": "factbox regi «Lee Hirsch»"
+    },
+    "1.17234346": {
+      "name": "Snabba Cash II",
+      "tmdbId": 92647,
+      "mediaType": "movie",
+      "title": "Snabba cash II (2012)",
+      "basis": "factbox staver regissøren «Babak Janafi»; dagens match er riktig"
+    },
+    "1.17234517": {
+      "name": "Det er bare fornavnet",
+      "tmdbId": 112198,
+      "mediaType": "movie",
+      "title": "Le Prénom (2012)",
+      "basis": "factbox regi Alexandre de la Patellière"
+    },
+    "1.17234603": {
+      "name": "Jaws",
+      "tmdbId": 578,
+      "mediaType": "movie",
+      "title": "Jaws / Haisommer (1975)",
+      "basis": "factbox regi «Steven Spielberg»"
+    },
+    "1.17235050": {
+      "name": "The Lady",
+      "tmdbId": 77878,
+      "mediaType": "movie",
+      "title": "The Lady (2011)",
+      "basis": "factbox regi «Luc Besson»"
+    },
+    "1.17235086": {
+      "name": "Titanic 3D",
+      "tmdbId": 597,
+      "mediaType": "movie",
+      "title": "Titanic (1997)",
+      "basis": "factbox regi «James Cameron»"
+    },
+    "1.17235250": {
+      "name": "Ghost Rider 2 - Spirit of Vengeance",
+      "tmdbId": 71676,
+      "mediaType": "movie",
+      "title": "Ghost Rider: Spirit of Vengeance (2011)",
+      "basis": "factbox regi «Neveldine/Taylor»"
+    },
+    "1.17235405": {
+      "name": "Nader og Simin - Et brudd",
+      "tmdbId": 60243,
+      "mediaType": "movie",
+      "title": "جدایی نادر از سیمین (2011)",
+      "basis": "factbox regi «Asghar Farhadi»"
+    },
+    "1.17235407": {
+      "name": "Alvin og gjengen 3",
+      "tmdbId": 55301,
+      "mediaType": "movie",
+      "title": "Alvin and the Chipmunks: Chipwrecked / Alvin og gjengen 3: Chip-o-hoi (2011)",
+      "basis": "factbox regi «Mike Mitchell»"
+    },
+    "1.17235506": {
+      "name": "Indian Summer",
+      "tmdbId": 33506,
+      "mediaType": "movie",
+      "title": "Indian Summer (1993)",
+      "basis": "factbox regi Mike Binder; DVD (Mill Creek)"
+    },
+    "1.17235793": {
+      "name": "Conan The Barbarian",
+      "tmdbId": 37430,
+      "mediaType": "movie",
+      "title": "Conan the Barbarian (2011)",
+      "basis": "factbox regi «Marcus Nispel»"
+    },
+    "1.17235818": {
+      "name": "Cry-baby",
+      "tmdbId": 9768,
+      "mediaType": "movie",
+      "title": "Cry-Baby (1990)",
+      "basis": "factbox regi «John Waters»"
+    },
+    "1.17236067": {
+      "name": "Big Love",
+      "tmdbId": 4392,
+      "mediaType": "tv",
+      "title": "Big Love (2006)",
+      "basis": "tittel og år"
+    },
+    "1.17236204": {
+      "name": "World Invasion: Battle Los Angeles",
+      "tmdbId": 44943,
+      "mediaType": "movie",
+      "title": "Battle: Los Angeles (2011)",
+      "basis": "factbox regi «Jonathan Liebesman»"
+    },
+    "1.17236290": {
+      "name": "Pax",
+      "tmdbId": 53817,
+      "mediaType": "movie",
+      "title": "Pax (2010)",
+      "basis": "factbox regi «Annette Sjursen»"
+    },
+    "1.17236627": {
+      "name": "Alien Anthology",
+      "tmdbId": null,
+      "basis": "«Alien Anthology»: Blu-ray-boks, ikke én film"
+    },
+    "1.17236696": {
+      "name": "A Nightmare on Elm Street (2010)",
+      "tmdbId": 23437,
+      "mediaType": "movie",
+      "title": "A Nightmare on Elm Street (2010)",
+      "basis": "factbox regi «Samuel Bayer»"
+    },
+    "1.17237287": {
+      "name": "Cash",
+      "tmdbId": 29920,
+      "mediaType": "movie",
+      "title": "Snabba cash (2010)",
+      "basis": "factbox regi «Daniel Espinosa»"
+    },
+    "1.17237310": {
+      "name": "Robin Hood",
+      "tmdbId": 20662,
+      "mediaType": "movie",
+      "title": "Robin Hood (2010)",
+      "basis": "factbox regi «Kevin Reynolds» er feil; Ridley Scotts Robin Hood (2010); dagens match er riktig"
+    },
+    "1.17237356": {
+      "name": "Libanon",
+      "tmdbId": 32084,
+      "mediaType": "movie",
+      "title": "לבנון (2009)",
+      "basis": "tittel og år"
+    },
+    "1.17237399": {
+      "name": "Apen",
+      "tmdbId": 38307,
+      "mediaType": "movie",
+      "title": "Apan (2009)",
+      "basis": "factbox regi «Jesper Ganslandt»"
+    },
+    "1.17237781": {
+      "name": "Friday the 13th",
+      "tmdbId": 13207,
+      "mediaType": "movie",
+      "title": "Friday the 13th (2009)",
+      "basis": "factbox regi «Marcus Nispel»"
+    },
+    "1.17237898": {
+      "name": "Skjult",
+      "tmdbId": 24821,
+      "mediaType": "movie",
+      "title": "Skjult (2009)",
+      "basis": "factbox staver regissøren «Pål Øye»; Pål Øie; dagens match er riktig"
+    },
+    "1.6357387": {
+      "name": "En julefortelling",
+      "tmdbId": 8892,
+      "mediaType": "movie",
+      "title": "Un conte de Noël (2008)",
+      "basis": "tittel og år"
+    },
+    "1.17238188": {
+      "name": "Big Love",
+      "tmdbId": 4392,
+      "mediaType": "tv",
+      "title": "Big Love (2006)",
+      "basis": "HBO-serien (plattform HBO); NRK typet den som film"
+    },
+    "1.17238237": {
+      "name": "Funny Games",
+      "tmdbId": 8461,
+      "mediaType": "movie",
+      "title": "Funny Games (2007)",
+      "basis": "anmeldt april 2008, Celluloid Dreams: Hanekes amerikanske nyinnspilling, ikke originalen fra 1997"
+    },
+    "1.17238238": {
+      "name": "Avsløringen",
+      "tmdbId": 4169,
+      "mediaType": "movie",
+      "title": "Breach (2007)",
+      "basis": "utgiver «Double Agent Productions»; TMDBs norske tittel er «Avsløringen»"
+    },
+    "1.17238239": {
+      "name": "A Good Year",
+      "tmdbId": 9726,
+      "mediaType": "movie",
+      "title": "A Good Year (2006)",
+      "basis": "tittel og år"
+    },
+    "1.17238259": {
+      "name": "The Wire",
+      "tmdbId": 1438,
+      "mediaType": "tv",
+      "title": "The Wire (2002)",
+      "basis": "HBO-serien; NRK typet den som film"
+    },
+    "1.17238296": {
+      "name": "W.",
+      "tmdbId": 10523,
+      "mediaType": "movie",
+      "title": "W. (2008)",
+      "basis": "factbox regi «Oliver Stone»"
+    },
+    "1.17238306": {
+      "name": "Løver for lam",
+      "tmdbId": 4515,
+      "mediaType": "movie",
+      "title": "Lions for Lambs (2007)",
+      "basis": "factbox regi Robert Redford"
+    },
+    "1.17238309": {
+      "name": "Skyggespill",
+      "tmdbId": 4520,
+      "mediaType": "movie",
+      "title": "Sleuth (2007)",
+      "basis": "factbox regi Kenneth Branagh"
+    },
+    "1.17238354": {
+      "name": "Stone Cold",
+      "tmdbId": 21338,
+      "mediaType": "movie",
+      "title": "Stone Cold (1991)",
+      "basis": "factbox regi «Craig R. Baxley»"
+    },
+    "1.17238360": {
+      "name": "The Hitcher",
+      "tmdbId": 8398,
+      "mediaType": "movie",
+      "title": "The Hitcher (2007)",
+      "basis": "factbox regi «Dave Meyers»"
+    },
+    "1.17238361": {
+      "name": "Supervoksen",
+      "tmdbId": 16013,
+      "mediaType": "movie",
+      "title": "Supervoksen (2006)",
+      "basis": "factbox regi «Christina Rosendahl»"
+    },
+    "1.17238391": {
+      "name": "No. 2",
+      "tmdbId": 12828,
+      "mediaType": "movie",
+      "title": "No. 2 (2006)",
+      "basis": "factbox regi «Toa Fraser»"
+    },
+    "1.17238408": {
+      "name": "Evan Almighty",
+      "tmdbId": 2698,
+      "mediaType": "movie",
+      "title": "Evan Almighty (2007)",
+      "basis": "factbox staver regissøren «Tom Shaydac»; dagens match er riktig"
+    },
+    "wb.5816854": {
+      "name": "Superman collection",
+      "tmdbId": null,
+      "basis": "«Superman – ultimate collector’s edition»: DVD-boks, ikke én film"
+    },
+    "wb.5799037": {
+      "name": "Mesteren",
+      "tmdbId": 84213,
+      "mediaType": "movie",
+      "title": "Mistrz (2005)",
+      "basis": "polsk film med Konstantin Lavronenko som knivkaster (anmeldelsesteksten)"
+    },
+    "wb.5788097": {
+      "name": "Rome",
+      "tmdbId": 1891,
+      "mediaType": "tv",
+      "title": "Rome (2005)",
+      "basis": "«Rome - sesong 1 (DVD)», HBO-serien"
+    },
+    "wb.5763436": {
+      "name": "Rock’n roller",
+      "tmdbId": 282334,
+      "mediaType": "movie",
+      "title": "It's Hard to be a Rock'n Roller (2006)",
+      "basis": "overskrift «Its hard to be a rock`n`roller»; dagens match er riktig"
+    },
+    "wb.5763417": {
+      "name": "Mozart",
+      "tmdbId": 23478,
+      "mediaType": "movie",
+      "title": "Mozart and the Whale (2005)",
+      "basis": "overskrift «Mozart and the whale»"
+    },
+    "wb.5653868": {
+      "name": "Night Watch",
+      "tmdbId": 3040,
+      "mediaType": "movie",
+      "title": "Night Watch / Ночной дозор (2004)",
+      "basis": "Bekmambetovs film; var matchet mot oppfølgeren Day Watch"
+    },
+    "wb.5614776": {
+      "name": "Matador",
+      "tmdbId": 9515,
+      "mediaType": "movie",
+      "title": "The Matador (2005)",
+      "basis": "Pierce Brosnan og Greg Kinnear (anmeldelsesteksten)"
+    },
+    "wb.5560877": {
+      "name": "Sin City",
+      "tmdbId": 187,
+      "mediaType": "movie",
+      "title": "Sin City (2005)",
+      "basis": "tittel og år"
+    },
+    "wb.5372705": {
+      "name": "The Warriors",
+      "tmdbId": 11474,
+      "mediaType": "movie",
+      "title": "The Warriors (1979)",
+      "basis": "tittel og år"
+    },
+    "1.17238423": {
+      "name": "Sin City",
+      "tmdbId": 187,
+      "mediaType": "movie",
+      "title": "Sin City (2005)",
+      "basis": "factbox regi «Robert Rodriguez»"
+    },
+    "wb.5303490": {
+      "name": "King Kong production diaries",
+      "tmdbId": 82864,
+      "mediaType": "movie",
+      "title": "King Kong: Peter Jackson's Production Diaries (2005)",
+      "basis": "dagens match er riktig"
+    },
+    "wb.5243055": {
+      "name": "Batman",
+      "tmdbId": null,
+      "basis": "«Batman-filmene (DVD)»: DVD-boks, ikke én film"
+    },
+    "1.17238425": {
+      "name": "The 40 Year Old Virgin",
+      "tmdbId": 6957,
+      "mediaType": "movie",
+      "title": "The 40 Year Old Virgin (2005)",
+      "basis": "factbox regi «Adam McKay» er feil; Judd Apatow regisserte; dagens match er riktig"
+    },
+    "wb.5036833": {
+      "name": "Jurassic Park",
+      "tmdbId": null,
+      "basis": "«Jurassic Park – The Ultimate Collection»: DVD-boks, ikke én film"
+    },
+    "wb.4810375": {
+      "name": "Thomas Hylland Eriksen og (...) origamijenta",
+      "tmdbId": 331166,
+      "mediaType": "movie",
+      "title": "Thomas Hylland Eriksen og historien om Origamijenta (2005)",
+      "basis": "dagens match er riktig"
+    },
+    "wb.4645104": {
+      "name": "Heat",
+      "tmdbId": 949,
+      "mediaType": "movie",
+      "title": "Heat (1995)",
+      "basis": "«Heat (DVD)», «”Heat” fra 1995» (anmeldelsesteksten)"
+    },
+    "wb.4509557": {
+      "name": "Svigers er aller verst – Meet the Fockers",
+      "tmdbId": 693,
+      "mediaType": "movie",
+      "title": "Meet the Fockers (2004)",
+      "basis": "dagens match er riktig"
+    },
+    "wb.4484139": {
+      "name": "Skal vi danse",
+      "tmdbId": 4380,
+      "mediaType": "movie",
+      "title": "Shall We Dance? (2004)",
+      "basis": "anmeldt 2005; handlingen i ingressen"
+    },
+    "wb.4403742": {
+      "name": "Forbannelsen- The Grudge",
+      "tmdbId": 1970,
+      "mediaType": "movie",
+      "title": "The Grudge (2004)",
+      "basis": "«Forbannelsen - The Grudge»; dagens match er riktig"
+    },
+    "wb.3888156": {
+      "name": "Hop",
+      "tmdbId": 153576,
+      "mediaType": "movie",
+      "title": "Hop (2002)",
+      "basis": "factbox regi «Dominique Standaert»"
+    },
+    "wb.3697632": {
+      "name": "Hun, han og henne",
+      "tmdbId": 38376,
+      "mediaType": "movie",
+      "title": "Nathalie... (2003)",
+      "basis": "factbox regi Anne Fontaine; fransk trekantdrama"
+    },
+    "wb.3697586": {
+      "name": "Ulvetid",
+      "tmdbId": 24190,
+      "mediaType": "movie",
+      "title": "Le temps du loup (2003)",
+      "basis": "factbox regi Michael Haneke"
+    },
+    "wb.3646529": {
+      "name": "Leo",
+      "tmdbId": 30862,
+      "mediaType": "movie",
+      "title": "Leo (2002)",
+      "basis": "factbox regi «Mehdi Norowzian»"
+    },
+    "wb.2778629": {
+      "name": "Wilbur",
+      "tmdbId": 156,
+      "mediaType": "movie",
+      "title": "Wilbur begår selvmord (2002)",
+      "basis": "factbox regi «Lone Scherfig»"
+    },
+    "wb.2721788": {
+      "name": "X-men 2",
+      "tmdbId": 36658,
+      "mediaType": "movie",
+      "title": "X2 (2003)",
+      "basis": "tittel og år"
+    },
+    "wb.2684232": {
+      "name": "Hero",
+      "tmdbId": 79,
+      "mediaType": "movie",
+      "title": "Hero / 英雄 (2002)",
+      "basis": "factbox regi Zhang Yimou"
+    },
+    "wb.2537001": {
+      "name": "Alt eller ingenting",
+      "tmdbId": 12454,
+      "mediaType": "movie",
+      "title": "All or Nothing (2002)",
+      "basis": "factbox regi Mike Leigh"
+    },
+    "wb.2285533": {
+      "name": "Kaos",
+      "tmdbId": 44164,
+      "mediaType": "movie",
+      "title": "Chaos (2001)",
+      "basis": "factbox regi Coline Serreau"
+    },
+    "wb.2240432": {
+      "name": "K-19",
+      "tmdbId": 8665,
+      "mediaType": "movie",
+      "title": "K-19: The Widowmaker (2002)",
+      "basis": "tittel og år"
+    },
+    "wb.2202500": {
+      "name": "Klassefesten",
+      "tmdbId": 77351,
+      "mediaType": "movie",
+      "title": "Klassfesten (2002)",
+      "basis": "«den svenske filmen ”Klassefesten”» (anmeldelsesteksten)"
+    },
+    "wb.2130513": {
+      "name": "Jason Bourne",
+      "tmdbId": 2501,
+      "mediaType": "movie",
+      "title": "The Bourne Identity (2002)",
+      "basis": "dagens match er riktig"
+    },
+    "wb.1843774": {
+      "name": "Siste runde",
+      "tmdbId": 14778,
+      "mediaType": "movie",
+      "title": "Last Orders (2001)",
+      "basis": "fire gamle venner og en urne (anmeldelsesteksten)"
+    },
+    "wb.1723161": {
+      "name": "Asterix og Obelix",
+      "tmdbId": 2899,
+      "mediaType": "movie",
+      "title": "Astérix & Obélix: Mission Cléopâtre (2002)",
+      "basis": "overskrift «Asterix og Obelix: Oppdrag Cleopatra»"
+    },
+    "wb.1720454": {
+      "name": "Jack the Ripper",
+      "tmdbId": 768,
+      "mediaType": "movie",
+      "title": "From Hell (2001)",
+      "basis": "«From Hell», Johnny Depp, brødrene Hughes (anmeldelsesteksten)"
+    },
+    "wb.1220514": {
+      "name": "Crocodile",
+      "tmdbId": 9290,
+      "mediaType": "movie",
+      "title": "Crocodile Dundee in Los Angeles (2001)",
+      "basis": "overskrift «Crocodile Dundee i Los Angeles»"
+    },
+    "wb.1204806": {
+      "name": "Wild about Harry",
+      "tmdbId": 75778,
+      "mediaType": "movie",
+      "title": "Wild About Harry (2000)",
+      "basis": "tittel og år"
+    },
+    "wb.1204755": {
+      "name": "Den eneste",
+      "tmdbId": 156635,
+      "mediaType": "movie",
+      "title": "You're the One (2000)",
+      "basis": "spansk s/h-film, Lydia Bosch, Iñaki Miramón, Manuel Lozano (anmeldelsesteksten)"
+    }
+  }
+}

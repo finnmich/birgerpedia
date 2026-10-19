@@ -26,6 +26,8 @@ const OMDB_RATINGS_PATH = resolve(SRC, 'omdb-ratings.json');
 // cold-start skip-list, and the file sync-data reads as a baseline before
 // merging in any fresh per-review enrichments.
 const TMDB_SNAPSHOT_PATH = resolve(SRC, 'tmdb-enrichment.json');
+// Hand-verified TMDB matches (see the file's own note).
+const TMDB_OVERRIDES_PATH = resolve(ROOT, '..', 'data', 'tmdb-overrides.json');
 const PUB = resolve(ROOT, 'public', 'data');
 const INTERNAL = resolve(ROOT, 'src', '_data');
 
@@ -67,6 +69,15 @@ let enrichment = {};
 try { enrichment = JSON.parse(await readFile(TMDB_SNAPSHOT_PATH, 'utf8')); } catch {}
 const snapshotKeys = new Set(Object.keys(enrichment));
 
+// enrich-tmdb.mjs re-fetches any match that disagrees with a pin in
+// data/tmdb-overrides.json, but a per-review file or snapshot entry from
+// before the pin must never ship in the meantime. Works on both shapes:
+// per-review files carry `match.tmdbId`, snapshot entries `tmdbId`.
+let tmdbOverrides = {};
+try { tmdbOverrides = JSON.parse(await readFile(TMDB_OVERRIDES_PATH, 'utf8')).overrides ?? {}; } catch {}
+const contradictsPin = (id, e) =>
+  id in tmdbOverrides && (e.miss ? null : e.match?.tmdbId ?? e.tmdbId ?? null) !== tmdbOverrides[id].tmdbId;
+
 // ----- 1. Trim the per-record list shipped to /reviews -----
 const reviewsRaw = JSON.parse(await readFile(resolve(SRC, 'reviews.json'), 'utf8'));
 // Same-day dedupe runs BEFORE we trim, since it needs the enrichment lookup
@@ -93,7 +104,7 @@ async function dedupeSameDay(reviews) {
   // cache → no per-review files) silently skipped dedupe entirely.
   const tmdbOf = new Map();
   for (const [id, e] of Object.entries(enrichment)) {
-    if (!e?.miss && e?.tmdbId) tmdbOf.set(id, e.tmdbId);
+    if (!e?.miss && e?.tmdbId && !contradictsPin(id, e)) tmdbOf.set(id, e.tmdbId);
   }
   try {
     const enrFiles = await readdir(ENR_SRC);
@@ -101,7 +112,7 @@ async function dedupeSameDay(reviews) {
       if (!f.endsWith('.json') || f.startsWith('_')) continue;
       try {
         const raw = JSON.parse(await readFile(resolve(ENR_SRC, f), 'utf8'));
-        if (raw?.miss) continue;
+        if (raw?.miss || contradictsPin(raw.reviewId, raw)) continue;
         const tmdbId = raw?.match?.tmdbId;
         if (tmdbId && raw.reviewId) tmdbOf.set(raw.reviewId, tmdbId);
       } catch {}
@@ -229,6 +240,7 @@ function backfillCountryCodes(enr) {
     if (!f.endsWith('.json') || f.startsWith('_')) continue;
     let raw;
     try { raw = JSON.parse(await readFile(resolve(ENR_SRC, f), 'utf8')); } catch { continue; }
+    if (contradictsPin(raw.reviewId, raw)) continue;
     if (raw.miss || !raw.tmdb) {
       enrichment[raw.reviewId] = { miss: true };
       misses++;
@@ -327,6 +339,10 @@ function backfillCountryCodes(enr) {
         : (enrichment[raw.reviewId]?.watchProvidersNO ?? null),
     };
     hits++;
+  }
+  // The snapshot can predate a pin too; no data beats the wrong film.
+  for (const [id, e] of Object.entries(enrichment)) {
+    if (contradictsPin(id, e)) enrichment[id] = { miss: true };
   }
   backfillCountryCodes(enrichment);
   await writeFile(resolve(INTERNAL, 'enrichment.json'), JSON.stringify(enrichment));

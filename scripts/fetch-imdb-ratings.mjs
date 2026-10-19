@@ -28,6 +28,7 @@ import {
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ENR_DIR = resolve(ROOT, 'data/processed/enrichment');
+const TMDB_AGGREGATE = resolve(ROOT, 'data/processed/tmdb-enrichment.json');
 const RAW_DIR = resolve(ROOT, 'data/raw');
 const OUT = resolve(ROOT, 'data/processed/imdb-ratings.json');
 const TSV_GZ = resolve(RAW_DIR, 'imdb-ratings.tsv.gz');
@@ -55,8 +56,13 @@ async function main() {
   }
 
   // 2. Build the set of IMDb ids we actually need
+  // The per-review cache is mostly empty on CI, so the committed TMDB
+  // aggregate is the main source — reading only the cache shrank the
+  // committed lookup to the handful of titles enriched that day.
   const wanted = new Set();
-  for (const f of await readdir(ENR_DIR)) {
+  let enrichmentFiles = [];
+  try { enrichmentFiles = await readdir(ENR_DIR); } catch {}
+  for (const f of enrichmentFiles) {
     if (!f.endsWith('.json') || f.startsWith('_')) continue;
     try {
       const r = JSON.parse(await readFile(resolve(ENR_DIR, f), 'utf8'));
@@ -64,6 +70,10 @@ async function main() {
       if (imdb) wanted.add(imdb);
     } catch {}
   }
+  try {
+    const aggregate = JSON.parse(await readFile(TMDB_AGGREGATE, 'utf8'));
+    for (const rec of Object.values(aggregate)) if (rec?.external?.imdb) wanted.add(rec.external.imdb);
+  } catch { /* no aggregate yet — the cache alone will do */ }
   console.log(`[imdb] looking up ${wanted.size} ids from the corpus`);
 
   // 3. Stream-scan the TSV, picking out only the rows we need

@@ -516,5 +516,19 @@
         "headline": "Mamma Mia!"
       }
     ]
+  },
+  {
+    "tmdbId": "36658",
+    "day": "2003-04-29",
+    "kept": {
+      "id": "wb.2721788",
+      "headline": "X-men 2, gled dere!"
+    },
+    "dropped": [
+      {
+        "id": "wb.2720418",
+        "headline": null
+      }
+    ]
   }
 ]

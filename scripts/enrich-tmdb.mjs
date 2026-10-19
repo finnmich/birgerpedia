@@ -10,13 +10,13 @@
 //   2. Export it: `export TMDB_API_KEY=…`
 //   3. node scripts/enrich-tmdb.mjs --limit=20    (smoke test)
 //
-// Match strategy (in order — first hit wins):
-//   1. originalTitle + year (most reliable for non-English films)
-//   2. name + year
-//   3. name (no year, take the most-popular hit, log low confidence)
+// Match strategy: tmdb-matcher.mjs searches both titles with and without
+// the review year and ranks the hits by the NRK factbox director, then
+// title, then era. data/tmdb-overrides.json pins hand-verified matches and
+// wins over both the matcher and any cached result.
 //
 // Output: data/processed/enrichment/<id>.json with
-//   { match: { tmdbId, mediaType, confidence, query }, tmdb: {…} }
+//   { match: { tmdbId, mediaType, confidence, override? }, tmdb: {…} }
 // Phase-3 build merges these into the final dataset on demand.
 
 import { readFile, readdir } from 'node:fs/promises';
@@ -28,7 +28,9 @@ import {
   atomicWriteJson,
   ensureDir,
   fileExists,
+  readJsonIfExists,
 } from './util.mjs';
+import { TMDB, tmdbClient, findBest } from './tmdb-matcher.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const REVIEWS = resolve(ROOT, 'data/processed/reviews.json');
@@ -39,24 +41,9 @@ const ENRICH_DIR = resolve(ROOT, 'data/processed/enrichment');
 // data/processed/enrichment/ is empty by gitignore) doesn't re-enrich the
 // entire corpus from TMDB.
 const TMDB_SNAPSHOT = resolve(ROOT, 'data/processed/tmdb-enrichment.json');
+const OVERRIDES = resolve(ROOT, 'data/tmdb-overrides.json');
 
-const TMDB = 'https://api.themoviedb.org/3';
 const KEY = process.env.TMDB_API_KEY;
-
-// NRK's API leaks HTML entities into name fields (`God&#039;s Own Country`,
-// `Deadpool &amp; Wolverine`). Decode before querying TMDB — the literal
-// entity string causes 27 otherwise-findable titles to register as misses.
-const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
-function decodeEntities(s) {
-  if (!s) return s;
-  return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, code) => {
-    if (code[0] === '#') {
-      const cp = code[1] === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10);
-      return Number.isFinite(cp) && cp > 0 ? String.fromCodePoint(cp) : m;
-    }
-    return NAMED_ENTITIES[code.toLowerCase()] ?? m;
-  });
-}
 
 async function main() {
   if (!KEY) {
@@ -71,19 +58,46 @@ async function main() {
 
   // Snapshot skip-list. Misses are also recorded — we don't want to keep
   // re-asking TMDB about a film we couldn't match yesterday.
-  const knownInSnapshot = new Set();
-  try {
-    const snap = JSON.parse(await readFile(TMDB_SNAPSHOT, 'utf8'));
-    for (const id of Object.keys(snap)) knownInSnapshot.add(id);
-  } catch { /* fresh project, no snapshot */ }
+  let snap = {};
+  try { snap = JSON.parse(await readFile(TMDB_SNAPSHOT, 'utf8')); } catch { /* fresh project, no snapshot */ }
+  const knownInSnapshot = new Set(Object.keys(snap));
+  const overrides = (await readJsonIfExists(OVERRIDES))?.overrides ?? {};
 
   // TMDB allows ~50 req/s but we keep it gentle.
   const limiter = new RateLimiter({ minIntervalMs: 250 });
+  const client = tmdbClient({
+    key: KEY,
+    fetchJson: async (url) => (await politeFetch(url, { limiter, redact: KEY })).json(),
+  });
 
-  let hit = 0, miss = 0, cached = 0, knownDigest = 0, errors = 0, games = 0;
+  let hit = 0, miss = 0, cached = 0, knownDigest = 0, errors = 0, games = 0, pinned = 0;
   for (let i = 0; i < targets.length; i++) {
     const r = targets[i];
     const out = resolve(ENRICH_DIR, `${r.id}.json`);
+
+    // A pinned match is re-fetched whenever what we hold disagrees with it:
+    // the per-review cache in CI predates the pin, and the snapshot may too.
+    const pin = overrides[r.id];
+    if (pin) {
+      // undefined = nothing held yet, null = held as a miss.
+      const held = (await readJsonIfExists(out)) ?? snap[r.id];
+      const heldId = held && (held.miss ? null : held.match?.tmdbId ?? held.tmdbId);
+      if (!refresh && heldId === pin.tmdbId) { cached++; continue; }
+      pinned++;
+      if (pin.tmdbId == null) {
+        await atomicWriteJson(out, { reviewId: r.id, name: r.name, miss: true, reason: 'override' });
+        continue;
+      }
+      try {
+        const detail = await fetchTmdbDetail(pin.tmdbId, pin.mediaType, limiter);
+        await writeHit(out, r, { mediaType: pin.mediaType, tmdbId: pin.tmdbId, confidence: 'high', override: true }, detail);
+      } catch (e) {
+        errors++;
+        console.warn(`  [override-err] ${r.id}: ${e.message}`);
+      }
+      continue;
+    }
+
     if (!refresh && await fileExists(out)) { cached++; continue; }
     if (!refresh && knownInSnapshot.has(r.id)) { knownDigest++; continue; }
 
@@ -98,70 +112,40 @@ async function main() {
       continue;
     }
 
-    const year = r.publishedAt?.slice(0, 4);
-    const cleanName = decodeEntities(r.name);
-    const cleanOriginal = decodeEntities(r.originalTitle);
-    const candidates = [];
-    if (cleanOriginal && cleanOriginal !== cleanName) {
-      candidates.push({ q: cleanOriginal, year });
-    }
-    candidates.push({ q: cleanName, year });
-    candidates.push({ q: cleanName }); // fallback no-year
-
-    const wantTV = r.type === 'TVSeries';
-    let match = null, tmdb = null;
-    for (const c of candidates) {
-      const found = await searchTmdb(c.q, c.year, wantTV, limiter);
-      if (found) { match = { ...c, mediaType: wantTV ? 'tv' : 'movie' }; tmdb = found; break; }
-    }
-    if (!match) { miss++; await atomicWriteJson(out, { reviewId: r.id, name: r.name, miss: true }); continue; }
+    const best = await findBest(client, r);
+    if (!best) { miss++; await atomicWriteJson(out, { reviewId: r.id, name: r.name, miss: true }); continue; }
 
     // Pull richer detail (cast/crew/keywords).
     let detail = null;
     try {
-      detail = await fetchTmdbDetail(tmdb.id, match.mediaType, limiter);
+      detail = await fetchTmdbDetail(best.c.id, best.c.mediaType, limiter);
     } catch (e) {
       errors++;
       console.warn(`  [detail-err] ${r.id}: ${e.message}`);
     }
-
-    const enrichedAt = new Date().toISOString();
-    await atomicWriteJson(out, {
-      reviewId: r.id, name: r.name, originalTitle: r.originalTitle,
-      match: { ...match, tmdbId: tmdb.id, confidence: confidenceFor(r, tmdb) },
-      tmdb: detail ?? tmdb,
-      enrichedAt,
-      // watch/providers rides on the detail call (see append_to_response).
-      // Stamp the timestamp so fetch-watch-providers.mjs's --max-age check
-      // doesn't immediately re-fetch this title on the next daily run.
-      providersFetchedAt: detail?.['watch/providers'] ? enrichedAt : null,
-    });
+    // 'high' when the director confirms it or the title and year both fit;
+    // findBest only returns candidates that are at least plausible.
+    const { s } = best;
+    const confidence = s.dir === 1 || (s.title >= 0.9 && s.yearClose) ? 'high' : 'medium';
+    await writeHit(out, r, { mediaType: best.c.mediaType, tmdbId: best.c.id, confidence }, detail ?? best.c);
     hit++;
     if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} games=${games} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
   }
-  console.log(`\n[enrich] done. hit=${hit} miss=${miss} games=${games} (skipped, not on TMDB) cached=${cached} knownDigest=${knownDigest} err=${errors}`);
+  console.log(`\n[enrich] done. hit=${hit} miss=${miss} games=${games} (skipped, not on TMDB) pinned=${pinned} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
 }
 
-async function searchTmdb(query, year, wantTV, limiter) {
-  const path = wantTV ? '/search/tv' : '/search/movie';
-  const params = new URLSearchParams({ api_key: KEY, query, language: 'nb-NO', include_adult: 'false' });
-  if (year) params.set(wantTV ? 'first_air_date_year' : 'year', year);
-  const res = await politeFetch(`${TMDB}${path}?${params}`, { limiter, redact: KEY });
-  const json = await res.json();
-  // TMDB's year-filtered search is NOT popularity-sorted — fringe titles
-  // that merely contain the query word can outrank the actual film
-  // ("Couture" → "Ocker Couture", an 11-min short, above the Winocour
-  // film). Re-rank the first page ourselves: exact title match first,
-  // then popularity.
-  const q = query.toLowerCase();
-  const best = (json.results ?? [])
-    .map((r) => {
-      const titles = [r.title, r.original_title, r.name, r.original_name]
-        .filter(Boolean).map((s) => s.toLowerCase());
-      return { r, exact: titles.includes(q) ? 1 : 0, pop: r.popularity ?? 0 };
-    })
-    .sort((a, b) => b.exact - a.exact || b.pop - a.pop);
-  return best[0]?.r ?? null;
+async function writeHit(out, r, match, tmdb) {
+  const enrichedAt = new Date().toISOString();
+  await atomicWriteJson(out, {
+    reviewId: r.id, name: r.name, originalTitle: r.originalTitle,
+    match,
+    tmdb,
+    enrichedAt,
+    // watch/providers rides on the detail call (see append_to_response).
+    // Stamp the timestamp so fetch-watch-providers.mjs's --max-age check
+    // doesn't immediately re-fetch this title on the next daily run.
+    providersFetchedAt: tmdb?.['watch/providers'] ? enrichedAt : null,
+  });
 }
 
 async function fetchTmdbDetail(id, mediaType, limiter) {
@@ -173,20 +157,6 @@ async function fetchTmdbDetail(id, mediaType, limiter) {
   });
   const res = await politeFetch(`${TMDB}/${mediaType}/${id}?${params}`, { limiter, redact: KEY });
   return res.json();
-}
-
-function confidenceFor(review, tmdb) {
-  // Trivial first cut: title-similarity-bucket + year-match. Phase-2.5
-  // can replace this with Levenshtein / TMDB popularity weighting.
-  const refs = [review.originalTitle, review.name].filter(Boolean).map((s) => s.toLowerCase());
-  const cands = [tmdb.title, tmdb.original_title, tmdb.name, tmdb.original_name].filter(Boolean).map((s) => s.toLowerCase());
-  const exact = refs.some((r) => cands.includes(r));
-  const yearReview = review.publishedAt?.slice(0, 4);
-  const yearTmdb = (tmdb.release_date ?? tmdb.first_air_date ?? '').slice(0, 4);
-  const yearOk = yearReview && yearTmdb && Math.abs(Number(yearReview) - Number(yearTmdb)) <= 1;
-  if (exact && yearOk) return 'high';
-  if (exact || yearOk) return 'medium';
-  return 'low';
 }
 
 function arg(name) {
