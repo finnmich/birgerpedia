@@ -13,7 +13,7 @@
 import { mkdir, copyFile, readdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isConfidentMatch } from '../src/lib/tmdb-match.mjs';
+import { isConfidentMatch, heldTmdbId } from '../src/lib/tmdb-match.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC  = resolve(ROOT, '..', 'data', 'processed');
@@ -71,12 +71,14 @@ const snapshotKeys = new Set(Object.keys(enrichment));
 
 // enrich-tmdb.mjs re-fetches any match that disagrees with a pin in
 // data/tmdb-overrides.json, but a per-review file or snapshot entry from
-// before the pin must never ship in the meantime. Works on both shapes:
-// per-review files carry `match.tmdbId`, snapshot entries `tmdbId`.
+// before the pin must never ship in the meantime: no data beats the wrong
+// film. The snapshot is scrubbed here; per-review files as they're read.
 let tmdbOverrides = {};
 try { tmdbOverrides = JSON.parse(await readFile(TMDB_OVERRIDES_PATH, 'utf8')).overrides ?? {}; } catch {}
-const contradictsPin = (id, e) =>
-  id in tmdbOverrides && (e.miss ? null : e.match?.tmdbId ?? e.tmdbId ?? null) !== tmdbOverrides[id].tmdbId;
+const contradictsPin = (id, e) => id in tmdbOverrides && heldTmdbId(e) !== tmdbOverrides[id].tmdbId;
+for (const id of Object.keys(tmdbOverrides)) {
+  if (enrichment[id] && contradictsPin(id, enrichment[id])) enrichment[id] = { miss: true };
+}
 
 // ----- 1. Trim the per-record list shipped to /reviews -----
 const reviewsRaw = JSON.parse(await readFile(resolve(SRC, 'reviews.json'), 'utf8'));
@@ -104,7 +106,7 @@ async function dedupeSameDay(reviews) {
   // cache → no per-review files) silently skipped dedupe entirely.
   const tmdbOf = new Map();
   for (const [id, e] of Object.entries(enrichment)) {
-    if (!e?.miss && e?.tmdbId && !contradictsPin(id, e)) tmdbOf.set(id, e.tmdbId);
+    if (!e?.miss && e?.tmdbId) tmdbOf.set(id, e.tmdbId);
   }
   try {
     const enrFiles = await readdir(ENR_SRC);
@@ -339,10 +341,6 @@ function backfillCountryCodes(enr) {
         : (enrichment[raw.reviewId]?.watchProvidersNO ?? null),
     };
     hits++;
-  }
-  // The snapshot can predate a pin too; no data beats the wrong film.
-  for (const [id, e] of Object.entries(enrichment)) {
-    if (contradictsPin(id, e)) enrichment[id] = { miss: true };
   }
   backfillCountryCodes(enrichment);
   await writeFile(resolve(INTERNAL, 'enrichment.json'), JSON.stringify(enrichment));

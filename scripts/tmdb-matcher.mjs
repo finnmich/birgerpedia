@@ -13,9 +13,11 @@
 // NRK's factbox names the director for most reviews, which is the one
 // signal that tells these apart, so candidates are ranked on it first.
 
-export const TMDB = 'https://api.themoviedb.org/3';
+const TMDB = 'https://api.themoviedb.org/3';
+const SHORTLIST = 8;     // candidates verified per ordering in findBest
+export const NEAR_EXACT = 0.9;
 
-export function normalize(s) {
+function normalize(s) {
   return String(s ?? '')
     .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
@@ -24,9 +26,8 @@ export function normalize(s) {
     .trim();
 }
 
-// Levenshtein ratio in [0, 1] on normalized strings.
-export function similarity(a, b) {
-  a = normalize(a); b = normalize(b);
+// Levenshtein ratio in [0, 1]; callers pass normalized strings.
+function similarity(a, b) {
   if (!a || !b) return 0;
   if (a === b) return 1;
   let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
@@ -44,7 +45,7 @@ export function similarity(a, b) {
 // enough: TMDB often lists an older film only under its English or
 // original title (Biler → Cars), with the Norwegian one among the
 // alternatives.
-export function candidateTitles(c) {
+function candidateTitles(c) {
   return [c.title, c.original_title, c.name, c.original_name, ...(c.altTitles ?? [])].filter(Boolean);
 }
 
@@ -62,33 +63,28 @@ function sequelOf(a, b) {
   return baseA === baseB && numA !== numB;
 }
 
-/** True when the candidate is another instalment of the reviewed title. */
-export function sequelConflict(refs, cand) {
-  const nr = refs.map(normalize), nt = candidateTitles(cand).map(normalize);
-  if (nr.some((r) => nt.includes(r))) return false;
-  return nr.some((r) => nt.some((t) => sequelOf(r, t)));
-}
-
-// Best similarity between any review title and any candidate title. A
-// review title of two or more words that the candidate's own title starts
-// with counts as a strong match («Ringenes herre» → «Ringenes herre -
-// Ringens brorskap»); alternative titles are too varied for that.
-export function titleScore(refs, cand) {
+// `title`: best similarity between any review title and any candidate
+// title. A review title of two or more words that the candidate's own title
+// starts with counts as a strong match («Ringenes herre» → «Ringenes herre
+// - Ringens brorskap»); alternative titles are too varied for that.
+// `sequel`: the candidate is another instalment of the reviewed title —
+// a sequel pair and no exact title anywhere.
+function titleMatch(refs, cand) {
   const own = new Set([cand.title, cand.original_title, cand.name, cand.original_name].filter(Boolean).map(normalize));
-  let best = 0;
-  for (const r of refs) {
-    const nr = normalize(r);
-    for (const t of candidateTitles(cand)) {
-      const nt = normalize(t);
-      if (sequelOf(nr, nt)) continue;
-      best = Math.max(best, similarity(nr, nt));
-      if (own.has(nt) && nr.includes(' ') && nt.startsWith(nr + ' ')) best = Math.max(best, 0.8);
+  const titles = candidateTitles(cand).map(normalize);
+  let title = 0, exact = false, sequel = false;
+  for (const nr of refs) {
+    for (const nt of titles) {
+      if (nr === nt) exact = true;
+      if (sequelOf(nr, nt)) { sequel = true; continue; }
+      title = Math.max(title, similarity(nr, nt));
+      if (own.has(nt) && nr.includes(' ') && nt.startsWith(nr + ' ')) title = Math.max(title, 0.8);
     }
   }
-  return best;
+  return { title, sequel: sequel && !exact };
 }
 
-export function releaseYear(c) {
+function releaseYear(c) {
   const y = Number((c.release_date ?? c.first_air_date ?? '').slice(0, 4));
   return y || null;
 }
@@ -113,7 +109,7 @@ function sameName(nrk, tmdb) {
  * every director's name plus their TMDB aliases, since TMDB now often
  * lists people in their own script (是枝裕和 for Kore-eda).
  */
-export function directorVerdict(regi, names) {
+function directorVerdict(regi, names) {
   if (!regi || !names?.length) return 0;
   const text = Array.isArray(regi) ? regi.join(', ') : String(regi);
   if (/flere|diverse|m\.\s*fl/i.test(text)) return 0;
@@ -123,7 +119,7 @@ export function directorVerdict(regi, names) {
 }
 
 /**
- * Score a candidate for a review. `ctx` = { refs, reviewYear, regi }.
+ * Score a candidate for a review. `ctx` comes from reviewContext().
  * A film released more than a year after the review was published can't
  * be the one reviewed («Skyggespill», 2007 → Sherlock Holmes 2011) —
  * unless the director confirms it, since TMDB sometimes dates a film by a
@@ -134,10 +130,9 @@ export function scoreCandidate(ctx, cand, directorNames) {
   const dir = directorVerdict(ctx.regi, directorNames);
   return {
     eligible: dir === 1 || !(y && ctx.reviewYear && y > ctx.reviewYear + 1),
-    sequel: sequelConflict(ctx.refs, cand),
     dir,
     yearClose: !!(y && ctx.reviewYear && Math.abs(ctx.reviewYear - y) <= 1),
-    title: titleScore(ctx.refs, cand),
+    ...titleMatch(ctx.refs, cand),
     pop: cand.popularity ?? 0,
   };
 }
@@ -146,22 +141,22 @@ export function scoreCandidate(ctx, cand, directorNames) {
 // director signal — when the title genuinely resembles the review's. Edit
 // distance is lenient on short titles («Edison City» is 0.64 from «Sin
 // City»), hence the high bar.
-export const TITLE_OK = 0.75;
+const TITLE_OK = 0.75;
 export const acceptable = (s) => s.eligible && !s.sequel && s.dir >= 0 && (s.dir === 1 || s.title >= TITLE_OK);
 
 // Director first; then a near-exact title over a near year, since a
 // re-release keeps its title but not its date («The Warriors» on DVD in
 // 2006 is the 1979 film, not 2007's "The Warriors: The Way Home").
-export function compareScores(a, b) {
+function compareScores(a, b) {
   return (b.dir - a.dir)
-    || (Number(b.title >= 0.9) - Number(a.title >= 0.9))
+    || (Number(b.title >= NEAR_EXACT) - Number(a.title >= NEAR_EXACT))
     || (Number(b.yearClose) - Number(a.yearClose))
     || (b.pop - a.pop);
 }
 
-/** Minimal TMDB v3 client with per-run caches for credits, aliases and titles. */
+/** Minimal TMDB v3 client with per-run caches for details and aliases. */
 export function tmdbClient({ key, fetchJson }) {
-  const credits = new Map(), aliases = new Map(), titles = new Map();
+  const details = new Map(), aliases = new Map();
   const get = (path, params = {}) =>
     fetchJson(`${TMDB}${path}?${new URLSearchParams({ api_key: key, ...params })}`);
 
@@ -181,31 +176,31 @@ export function tmdbClient({ key, fetchJson }) {
     return aliases.get(person.id);
   }
 
+  // One detail call serves both the directors and the alternative titles.
+  function detail(id, mediaType) {
+    const k = `${mediaType}/${id}`;
+    if (!details.has(k)) {
+      details.set(k, get(`/${mediaType}/${id}`, { append_to_response: 'credits,alternative_titles,translations' }).catch(() => ({})));
+    }
+    return details.get(k);
+  }
+
   // Every director's name and aliases. TV directors are per-episode, so a
   // series is judged on its creators instead.
   async function directorNames(id, mediaType) {
-    const k = `${mediaType}/${id}`;
-    if (!credits.has(k)) {
-      let people = [];
-      if (mediaType === 'tv') people = (await get(`/tv/${id}`).catch(() => ({}))).created_by ?? [];
-      else people = ((await get(`/movie/${id}/credits`).catch(() => ({}))).crew ?? []).filter((c) => c.job === 'Director');
-      const names = [];
-      for (const p of people) names.push(...await personNames(p));
-      credits.set(k, names);
-    }
-    return credits.get(k);
+    const d = await detail(id, mediaType);
+    const people = mediaType === 'tv' ? d.created_by ?? [] : (d.credits?.crew ?? []).filter((c) => c.job === 'Director');
+    const names = [];
+    for (const p of people) names.push(...await personNames(p));
+    return names;
   }
 
   // Alternative titles and translated titles, in every language.
   async function altTitles(id, mediaType) {
-    const k = `${mediaType}/${id}`;
-    if (!titles.has(k)) {
-      const d = await get(`/${mediaType}/${id}`, { append_to_response: 'alternative_titles,translations' }).catch(() => ({}));
-      const alt = d.alternative_titles?.titles ?? d.alternative_titles?.results ?? [];
-      const tr = d.translations?.translations ?? [];
-      titles.set(k, [...alt.map((t) => t.title), ...tr.map((t) => t.data?.title ?? t.data?.name)].filter(Boolean));
-    }
-    return titles.get(k);
+    const d = await detail(id, mediaType);
+    const alt = d.alternative_titles?.titles ?? d.alternative_titles?.results ?? [];
+    const tr = d.translations?.translations ?? [];
+    return [...alt.map((t) => t.title), ...tr.map((t) => t.data?.title ?? t.data?.name)].filter(Boolean);
   }
 
   return { get, search, directorNames, altTitles };
@@ -232,12 +227,12 @@ export async function scoreFully(client, ctx, cand) {
  * before (festival premieres) and no year (re-releases), then checks the
  * director of the strongest few.
  */
-export async function findBest(client, review, { maxVerify = 16 } = {}) {
+export async function findBest(client, review) {
   const ctx = reviewContext(review);
   const mediaType = review.type === 'TVSeries' ? 'tv' : 'movie';
   const pool = new Map(), hits = new Map();
-  for (const q of new Set(ctx.refs)) {
-    for (const year of [ctx.reviewYear, ctx.reviewYear && ctx.reviewYear - 1, null]) {
+  for (const q of ctx.queries) {
+    for (const year of new Set([ctx.reviewYear, ctx.reviewYear && ctx.reviewYear - 1, null])) {
       for (const c of await client.search(q, year, mediaType)) {
         if (!pool.has(c.id)) pool.set(c.id, c);
         hits.set(c.id, (hits.get(c.id) ?? 0) + 1);
@@ -252,17 +247,20 @@ export async function findBest(client, review, { maxVerify = 16 } = {}) {
   const all = [...pool.values()].map((c) => ({ c, s: scoreCandidate(ctx, c, []), h: hits.get(c.id) }));
   const byEra = [...all].sort((a, b) => (Number(b.s.yearClose) - Number(a.s.yearClose)) || (b.h - a.h) || (b.s.title - a.s.title) || (b.s.pop - a.s.pop));
   const byTitle = [...all].sort((a, b) => (b.s.title - a.s.title) || (b.h - a.h) || (b.s.pop - a.s.pop));
-  const prelim = new Set([...byEra.slice(0, maxVerify / 2), ...byTitle.slice(0, maxVerify / 2)].map(({ c }) => c));
+  const prelim = new Set([...byEra.slice(0, SHORTLIST), ...byTitle.slice(0, SHORTLIST)].map(({ c }) => c));
   const scored = [];
   for (const c of prelim) scored.push({ c, ...await scoreFully(client, ctx, c) });
   const best = scored.filter(({ s }) => acceptable(s)).sort((a, b) => compareScores(a.s, b.s))[0];
   return best ?? null;
 }
 
+// `queries` are the review's titles as searched; `refs` the same titles
+// normalized once for every comparison.
 export function reviewContext(review) {
-  const refs = [review.originalTitle, review.name].filter(Boolean).map((s) => decodeEntities(s));
+  const queries = [...new Set([review.originalTitle, review.name].filter(Boolean).map(decodeEntities))];
   return {
-    refs,
+    queries,
+    refs: queries.map(normalize),
     reviewYear: Number(review.publishedAt?.slice(0, 4)) || null,
     regi: review.factbox?.regi ?? null,
   };
@@ -272,7 +270,7 @@ export function reviewContext(review) {
 // `Deadpool &amp; Wolverine`). Decode before querying TMDB — the literal
 // entity string causes 27 otherwise-findable titles to register as misses.
 const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
-export function decodeEntities(s) {
+function decodeEntities(s) {
   if (!s) return s;
   return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, code) => {
     if (code[0] === '#') {

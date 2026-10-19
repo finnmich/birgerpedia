@@ -24,6 +24,7 @@ import {
   atomicWriteJson,
   ensureDir,
   fileExists,
+  readJsonIfExists,
 } from './util.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -70,10 +71,8 @@ async function main() {
       if (imdb) wanted.add(imdb);
     } catch {}
   }
-  try {
-    const aggregate = JSON.parse(await readFile(TMDB_AGGREGATE, 'utf8'));
-    for (const rec of Object.values(aggregate)) if (rec?.external?.imdb) wanted.add(rec.external.imdb);
-  } catch { /* no aggregate yet — the cache alone will do */ }
+  const aggregate = (await readJsonIfExists(TMDB_AGGREGATE)) ?? {};
+  for (const rec of Object.values(aggregate)) if (rec?.external?.imdb) wanted.add(rec.external.imdb);
   console.log(`[imdb] looking up ${wanted.size} ids from the corpus`);
 
   // 3. Stream-scan the TSV, picking out only the rows we need

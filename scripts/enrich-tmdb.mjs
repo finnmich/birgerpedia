@@ -30,7 +30,8 @@ import {
   fileExists,
   readJsonIfExists,
 } from './util.mjs';
-import { TMDB, tmdbClient, findBest } from './tmdb-matcher.mjs';
+import { tmdbClient, findBest, NEAR_EXACT } from './tmdb-matcher.mjs';
+import { heldTmdbId } from '../app/src/lib/tmdb-match.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const REVIEWS = resolve(ROOT, 'data/processed/reviews.json');
@@ -58,9 +59,7 @@ async function main() {
 
   // Snapshot skip-list. Misses are also recorded — we don't want to keep
   // re-asking TMDB about a film we couldn't match yesterday.
-  let snap = {};
-  try { snap = JSON.parse(await readFile(TMDB_SNAPSHOT, 'utf8')); } catch { /* fresh project, no snapshot */ }
-  const knownInSnapshot = new Set(Object.keys(snap));
+  const snap = (await readJsonIfExists(TMDB_SNAPSHOT)) ?? {};
   const overrides = (await readJsonIfExists(OVERRIDES))?.overrides ?? {};
 
   // TMDB allows ~50 req/s but we keep it gentle.
@@ -79,17 +78,15 @@ async function main() {
     // the per-review cache in CI predates the pin, and the snapshot may too.
     const pin = overrides[r.id];
     if (pin) {
-      // undefined = nothing held yet, null = held as a miss.
       const held = (await readJsonIfExists(out)) ?? snap[r.id];
-      const heldId = held && (held.miss ? null : held.match?.tmdbId ?? held.tmdbId);
-      if (!refresh && heldId === pin.tmdbId) { cached++; continue; }
+      if (!refresh && held && heldTmdbId(held) === pin.tmdbId) { cached++; continue; }
       pinned++;
       if (pin.tmdbId == null) {
         await atomicWriteJson(out, { reviewId: r.id, name: r.name, miss: true, reason: 'override' });
         continue;
       }
       try {
-        const detail = await fetchTmdbDetail(pin.tmdbId, pin.mediaType, limiter);
+        const detail = await fetchTmdbDetail(client, pin.tmdbId, pin.mediaType);
         await writeHit(out, r, { mediaType: pin.mediaType, tmdbId: pin.tmdbId, confidence: 'high', override: true }, detail);
       } catch (e) {
         errors++;
@@ -99,7 +96,7 @@ async function main() {
     }
 
     if (!refresh && await fileExists(out)) { cached++; continue; }
-    if (!refresh && knownInSnapshot.has(r.id)) { knownDigest++; continue; }
+    if (!refresh && r.id in snap) { knownDigest++; continue; }
 
     // TMDB indexes films and TV, not games. Searching it for a game review
     // doesn't fail cleanly — it returns a confident-looking wrong film, so
@@ -118,7 +115,7 @@ async function main() {
     // Pull richer detail (cast/crew/keywords).
     let detail = null;
     try {
-      detail = await fetchTmdbDetail(best.c.id, best.c.mediaType, limiter);
+      detail = await fetchTmdbDetail(client, best.c.id, best.c.mediaType);
     } catch (e) {
       errors++;
       console.warn(`  [detail-err] ${r.id}: ${e.message}`);
@@ -126,7 +123,7 @@ async function main() {
     // 'high' when the director confirms it or the title and year both fit;
     // findBest only returns candidates that are at least plausible.
     const { s } = best;
-    const confidence = s.dir === 1 || (s.title >= 0.9 && s.yearClose) ? 'high' : 'medium';
+    const confidence = s.dir === 1 || (s.title >= NEAR_EXACT && s.yearClose) ? 'high' : 'medium';
     await writeHit(out, r, { mediaType: best.c.mediaType, tmdbId: best.c.id, confidence }, detail ?? best.c);
     hit++;
     if ((i + 1) % 25 === 0) console.log(`  [${i + 1}/${targets.length}] hit=${hit} miss=${miss} games=${games} cached=${cached} knownDigest=${knownDigest} err=${errors}`);
@@ -148,15 +145,13 @@ async function writeHit(out, r, match, tmdb) {
   });
 }
 
-async function fetchTmdbDetail(id, mediaType, limiter) {
-  const params = new URLSearchParams({
-    api_key: KEY, language: 'nb-NO',
+function fetchTmdbDetail(client, id, mediaType) {
+  return client.get(`/${mediaType}/${id}`, {
+    language: 'nb-NO',
     // `watch/providers` rides on the same request — TMDB's append_to_response
     // bundles it into the detail response, no extra HTTP hop.
     append_to_response: 'credits,keywords,external_ids,videos,release_dates,watch/providers',
   });
-  const res = await politeFetch(`${TMDB}/${mediaType}/${id}?${params}`, { limiter, redact: KEY });
-  return res.json();
 }
 
 function arg(name) {

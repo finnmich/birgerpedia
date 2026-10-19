@@ -217,11 +217,15 @@ export function avgRatingFor(items: ReviewIndexEntry[]): number | null {
   return rated.reduce((s, r) => s + (r.rating ?? 0), 0) / rated.length;
 }
 
+const yearMin = Math.min(...reviewIndex.map((r) => r.year || 9999));
+const yearMax = Math.max(...reviewIndex.map((r) => r.year || 0));
+
 export const SUMMARY = {
   total: reviewIndex.length,
   rated: reviewIndex.filter((r) => r.rating != null).length,
-  yearMin: Math.min(...reviewIndex.map((r) => r.year || 9999)),
-  yearMax: Math.max(...reviewIndex.map((r) => r.year || 0)),
+  yearMin,
+  yearMax,
+  years: yearMax - yearMin + 1,
   perfect6: reviewIndex.filter((r) => r.rating === 6).length,
   worst1: reviewIndex.filter((r) => r.rating === 1).length,
   movies: reviewIndex.filter((r) => r.type === 'Movie').length,

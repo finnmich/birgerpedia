@@ -89,7 +89,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         <p class="lede">
           Hver eneste anmeldelse av <em>Birger Vestmo</em>, NRK Filmpolitiets
           mest standhaftige stemme — indeksert, søkbar, og krysset med metadata
-          fra TMDB. {SUMMARY.total.toLocaleString('nb-NO')} verker, {SUMMARY.yearMax - SUMMARY.yearMin + 1} år, ett menneskes mening.
+          fra TMDB. {SUMMARY.total.toLocaleString('nb-NO')} verker, {SUMMARY.years} år, ett menneskes mening.
         </p>
 
         <ul class="big-stats t-mono">
@@ -151,7 +151,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         Birger er <em>en mild dommer</em>.
       </h2>
       <p class="section-lede">
-        Halvparten av filmene får en firer eller femmer. Bare {SUMMARY.worst1} {SUMMARY.worst1 === 1 ? 'film' : 'filmer'} har fått en ener på {SUMMARY.yearMax - SUMMARY.yearMin + 1} år; {SUMMARY.perfect6} har fått toppkarakter.
+        Halvparten av filmene får en firer eller femmer. Bare {SUMMARY.worst1} {SUMMARY.worst1 === 1 ? 'film' : 'filmer'} har fått en ener på {SUMMARY.years} år; {SUMMARY.perfect6} har fått toppkarakter.
         Trykk på en søyle for å filtrere indeksen.
       </p>
     </header>

@@ -19,10 +19,10 @@
 // Proposals are reviewed by hand; the accepted ones go into
 // data/tmdb-overrides.json, which enrich-tmdb.mjs and sync-data.mjs apply.
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { RateLimiter, politeFetch, ensureDir } from './util.mjs';
+import { RateLimiter, politeFetch, readJsonIfExists, atomicWriteJson } from './util.mjs';
 import { tmdbClient, findBest, reviewContext, scoreCandidate, scoreFully, acceptable } from './tmdb-matcher.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -34,8 +34,7 @@ if (!KEY) { console.error('ERROR: set TMDB_API_KEY'); process.exit(2); }
 
 const reviews = JSON.parse(await readFile(resolve(ROOT, 'data/processed/reviews.json'), 'utf8'));
 const snap = JSON.parse(await readFile(resolve(ROOT, 'data/processed/tmdb-enrichment.json'), 'utf8'));
-let overrides = {};
-try { overrides = JSON.parse(await readFile(resolve(ROOT, 'data/tmdb-overrides.json'), 'utf8')).overrides ?? {}; } catch {}
+const overrides = (await readJsonIfExists(resolve(ROOT, 'data/tmdb-overrides.json')))?.overrides ?? {};
 
 const limiter = new RateLimiter({ minIntervalMs: 60 });
 const client = tmdbClient({
@@ -62,30 +61,28 @@ for (const r of reviews) {
   const ctx = reviewContext(r);
   const cur = asCandidate(e);
 
+  if (checked % 250 === 0) console.log(`  [${checked}] passed=${passed} proposals=${proposals.length}`);
+
   // Cheap pass first: the snapshot already carries the first director.
   const first = e.crew?.director?.name;
-  let s = scoreCandidate(ctx, cur, first ? [first] : []);
-  if (!acceptable(s) || (ctx.regi && s.dir !== 1)) {
-    let names;
-    ({ s, names } = await scoreFully(client, ctx, cur));
-    if (acceptable(s)) { passed++; continue; }
+  const quick = scoreCandidate(ctx, cur, first ? [first] : []);
+  if (acceptable(quick) && !(ctx.regi && quick.dir !== 1)) { passed++; continue; }
+  const { s, names } = await scoreFully(client, ctx, cur);
+  if (acceptable(s)) { passed++; continue; }
 
-    const best = await findBest(client, r);
-    const exactCurrent = s.eligible && s.yearClose && s.title >= 0.95;
-    const from = brief(cur, s, names);
-    const review = { id: r.id, name: r.name, originalTitle: r.originalTitle, type: r.type, publishedAt: r.publishedAt, regi: ctx.regi, rating: r.rating };
-    if (exactCurrent && !(best && best.s.dir === 1 && best.s.yearClose)) {
-      proposals.push({ action: 'keep', review, from, to: best ? brief(best.c, best.s, best.names) : null });
-    } else if (best && best.c.id !== cur.id) {
-      proposals.push({ action: 'switch', review, from, to: brief(best.c, best.s, best.names) });
-    } else {
-      proposals.push({ action: 'unmatch', review, from, to: null });
-    }
-  } else passed++;
-  if (checked % 250 === 0) console.log(`  [${checked}] passed=${passed} proposals=${proposals.length}`);
+  const best = await findBest(client, r);
+  const exactCurrent = s.eligible && s.yearClose && s.title >= 0.95;
+  const from = brief(cur, s, names);
+  const review = { id: r.id, name: r.name, originalTitle: r.originalTitle, type: r.type, publishedAt: r.publishedAt, regi: ctx.regi, rating: r.rating };
+  if (exactCurrent && !(best && best.s.dir === 1 && best.s.yearClose)) {
+    proposals.push({ action: 'keep', review, from, to: best ? brief(best.c, best.s, best.names) : null });
+  } else if (best && best.c.id !== cur.id) {
+    proposals.push({ action: 'switch', review, from, to: brief(best.c, best.s, best.names) });
+  } else {
+    proposals.push({ action: 'unmatch', review, from, to: null });
+  }
 }
 
-await ensureDir(dirname(OUT));
-await writeFile(OUT, JSON.stringify(proposals, null, 2));
+await atomicWriteJson(OUT, proposals);
 const n = (a) => proposals.filter((p) => p.action === a).length;
 console.log(`[audit] checked=${checked} passed=${passed} switch=${n('switch')} unmatch=${n('unmatch')} keep=${n('keep')} → ${OUT}`);

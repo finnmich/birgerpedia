@@ -117,18 +117,15 @@ const volMax = computed(() => Math.max(160, Math.ceil(maxYearlyN.value / 20) * 2
 const volY = (n: number) => H - 20 - (n / volMax.value) * (H - 40);
 const avgY = (v: number) => H - 20 - ((v - 2.5) / 3) * (H - 40);
 
-function linePath(points: { year: number; y: number }[], all: { year: number }[], sy: (v: number) => number) {
-  return points.map((p, i) => `${i ? 'L' : 'M'} ${pixelOf(p.year, all).toFixed(1)} ${sy(p.y).toFixed(1)}`).join(' ');
-}
+const yearX = (year: number) => pixelOf(year, stats.value?.reviewsPerYear ?? []);
+const linePath = (points: { x: number; y: number }[]) =>
+  points.map((p, i) => `${i ? 'L' : 'M'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
 
-const yearlyPath = computed(() => {
-  const a = stats.value?.reviewsPerYear ?? [];
-  return linePath(a.map((d) => ({ year: d.year, y: d.n })), a, volY);
-});
-const yearlyAvgPath = computed(() => {
-  const a = stats.value?.reviewsPerYear ?? [];
-  return linePath(a.filter((d) => d.avg != null).map((d) => ({ year: d.year, y: d.avg! })), a, avgY);
-});
+const avgYears = computed(() => (stats.value?.reviewsPerYear ?? []).filter((d) => d.avg != null));
+const yearlyPath = computed(() =>
+  linePath((stats.value?.reviewsPerYear ?? []).map((d) => ({ x: yearX(d.year), y: volY(d.n) }))));
+const yearlyAvgPath = computed(() =>
+  linePath(avgYears.value.map((d) => ({ x: yearX(d.year), y: avgY(d.avg!) }))));
 const yearTicks = computed(() => {
   const a = stats.value?.reviewsPerYear ?? [];
   if (!a.length) return [];
@@ -348,7 +345,7 @@ const wordsByRating = computed(() => {
                 font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ y }}</text>
         </g>
         <path :d="yearlyAvgPath" stroke="#E8B946" stroke-width="2" fill="none" />
-        <g v-for="d in stats.reviewsPerYear.filter((x) => x.avg != null)" :key="`avg${d.year}`">
+        <g v-for="d in avgYears" :key="`avg${d.year}`">
           <circle :cx="pixelOf(d.year, stats.reviewsPerYear)"
                   :cy="avgY(d.avg!)"
                   r="3" fill="#E8B946" />
