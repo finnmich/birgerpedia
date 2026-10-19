@@ -85,6 +85,7 @@ export interface Enrichment {
   revenue: number | null;
   productionCompanies: string[];
   productionCountries: string[];
+  productionCountryCodes?: string[];     // ISO 3166-1, parallel to productionCountries
   spokenLanguages: string[];
   crew: {
     director: { name: string; profile: string | null } | null;

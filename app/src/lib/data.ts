@@ -16,6 +16,7 @@ import type { Review, ReviewIndexEntry } from './types';
 import { reviewSlug } from './slug';
 import { decodeEntities } from './format';
 import { enrichmentFor } from './enrichment';
+import { isConfidentMatch } from './tmdb-match.mjs';
 
 // Same resolution strategy as enrichment.ts — `process.cwd()` is stable
 // across `astro dev` and `astro build` (it's the app/ directory both times),
@@ -39,8 +40,12 @@ const _droppedSet = new Set(_dropped);
 // freeze the slug against the raw (still-encoded) name so already-deployed
 // URLs like /reviews/god-039-s-own-country-17230143 keep resolving.
 function decodeReview(r: Review): Review & { _stableSlug: string } {
+  const e = enrichmentFor(r.id);
   return {
     ...backfillFactbox(r),
+    // ISO production countries, gated like the slim index in sync-data.mjs
+    // so a review page only links countries the /reviews filter knows.
+    countries: isConfidentMatch(e) ? e.productionCountryCodes ?? [] : [],
     _stableSlug: reviewSlug(r.name, r.id),
     name: decodeEntities(r.name),
     originalTitle: r.originalTitle ? decodeEntities(r.originalTitle) : r.originalTitle,
@@ -57,7 +62,7 @@ function decodeReview(r: Review): Review & { _stableSlug: string } {
 function backfillFactbox(r: Review): Review {
   if (/^\d+\./.test(String(r.id))) return r;           // legacy id → untouched
   const e = enrichmentFor(r.id);
-  if (!e || (e.confidence !== 'high' && e.confidence !== 'medium')) return r;
+  if (!isConfidentMatch(e)) return r;
   const fb = r.factbox ?? ({} as Review['factbox']);
   return {
     ...r,

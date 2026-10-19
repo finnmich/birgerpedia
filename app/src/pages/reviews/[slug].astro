@@ -23,6 +23,7 @@ function externalFor(reviewId: string) {
 }
 import { eligibleSlugs } from '../../lib/people';
 import { u } from '../../lib/url';
+import { countryName } from '../../lib/countries.mjs';
 
 // Whether a name has a person page worth linking to. Splits joint credits
 // like "Phil Lord og Christopher Miller" so each gets its own anchor.
@@ -464,7 +465,11 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
           {tmdb.productionCountries.length > 0 && (
             <li>
               <span class="lab">Land</span>
-              <span class="val">{tmdb.productionCountries.join(', ')}</span>
+              <span class="val">
+                {r.countries?.length
+                  ? r.countries.map((c, i) => <>{i > 0 && ', '}<a href={u(`/reviews?c=${c}`)}>{countryName(c)}</a></>)
+                  : tmdb.productionCountries.join(', ')}
+              </span>
             </li>
           )}
           {tmdb.productionCompanies.length > 0 && (

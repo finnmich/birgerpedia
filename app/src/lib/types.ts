@@ -67,6 +67,7 @@ export interface Review {
   factbox: Factbox;
   wordCount: number;
   legacy?: LegacySource;
+  countries?: string[];                  // ISO 3166-1, confident TMDB matches only (lib/data.ts)
 }
 
 export interface ReviewIndexEntry extends Review {

@@ -3,6 +3,7 @@ import { computed, ref, onMounted, watch, nextTick } from 'vue';
 import MiniSearch from 'minisearch';
 import Die from './Die.vue';
 import { u } from '../../lib/url';
+import { countryName, countryFlag } from '../../lib/countries.mjs';
 
 interface Review {
   id: string; url: string; type: string; name: string;
@@ -10,6 +11,7 @@ interface Review {
   rating: number | null; publishedAt: string | null;
   image: string | null; platform: string | null;
   factbox: any;
+  countries?: string[];        // ISO 3166-1 codes from TMDB (sync-data.mjs)
   year: number; decade: number; slug: string;
   no: number;                  // chronological review number, oldest = 1
 }
@@ -23,12 +25,14 @@ const ratings = ref<Set<number>>(new Set());
 const types = ref<Set<string>>(new Set());
 const genres = ref<Set<string>>(new Set());
 const platforms = ref<Set<string>>(new Set());
+const countries = ref<Set<string>>(new Set());
 const decades = ref<Set<number>>(new Set());
 const yearMin = ref<number | null>(null);
 const yearMax = ref<number | null>(null);
 const sort = ref<'newest' | 'oldest' | 'rating-high' | 'rating-low' | 'a-z' | 'z-a'>('newest');
 const view = ref<'list' | 'grid'>('list');
 const expandGenres = ref(false);
+const expandCountries = ref(false);
 const limit = ref(60);
 
 const searchInput = ref<HTMLInputElement | null>(null);
@@ -59,7 +63,7 @@ onMounted(async () => {
 });
 
 watch(
-  [q, ratings, types, genres, platforms, decades, yearMin, yearMax, sort, view],
+  [q, ratings, types, genres, platforms, countries, decades, yearMin, yearMax, sort, view],
   () => { syncToUrl(); limit.value = 60; },
   { deep: true },
 );
@@ -112,6 +116,22 @@ const allPlatforms = computed(() => {
   return [...m.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) => ({ k, n }));
 });
 
+const allCountries = computed(() => {
+  const m = new Map<string, number>();
+  for (const r of reviews.value)
+    for (const c of r.countries ?? []) m.set(c, (m.get(c) ?? 0) + 1);
+  return [...m.entries()].sort((a, b) => b[1] - a[1])
+    .map(([k, n]) => ({ k, n, name: countryName(k), flag: countryFlag(k) }));
+});
+
+// Collapsed view: top 12, plus any selected country further down the list
+// (e.g. arriving via /reviews?c=KR from the stats page) so it stays visible.
+const shownCountries = computed(() =>
+  expandCountries.value
+    ? allCountries.value
+    : allCountries.value.filter((c, i) => i < 12 || countries.value.has(c.k))
+);
+
 function bucket(p: string | null): string {
   if (!p) return 'ukjent';
   const s = p.toLowerCase();
@@ -156,6 +176,7 @@ const filtered = computed<Review[]>(() => {
   if (types.value.size)   pool = pool.filter((r) => types.value.has(r.type));
   if (genres.value.size)  pool = pool.filter((r) => (r.factbox?.sjanger ?? []).some((g: string) => genres.value.has(g.toLowerCase())));
   if (platforms.value.size) pool = pool.filter((r) => platforms.value.has(bucket(r.platform)));
+  if (countries.value.size) pool = pool.filter((r) => (r.countries ?? []).some((c) => countries.value.has(c)));
   if (decades.value.size) pool = pool.filter((r) => decades.value.has(r.decade));
   if (yearMin.value != null) pool = pool.filter((r) => r.year >= yearMin.value!);
   if (yearMax.value != null) pool = pool.filter((r) => r.year <= yearMax.value!);
@@ -179,6 +200,7 @@ const activeCount = computed(() =>
   types.value.size +
   genres.value.size +
   platforms.value.size +
+  countries.value.size +
   decades.value.size +
   (q.value.trim() ? 1 : 0) +
   (yearMin.value != null ? 1 : 0) +
@@ -196,6 +218,7 @@ function toggleRating(n: number) { ratings.value = toggleSet(ratings.value, n); 
 function toggleType(t: string)   { types.value   = toggleSet(types.value, t); }
 function toggleGenre(g: string)  { genres.value  = toggleSet(genres.value, g); }
 function togglePlatform(p: string) { platforms.value = toggleSet(platforms.value, p); }
+function toggleCountry(c: string) { countries.value = toggleSet(countries.value, c); }
 function toggleDecade(d: number) { decades.value = toggleSet(decades.value, d); }
 
 function clearAll() {
@@ -204,6 +227,7 @@ function clearAll() {
   types.value = new Set();
   genres.value = new Set();
   platforms.value = new Set();
+  countries.value = new Set();
   decades.value = new Set();
   yearMin.value = null;
   yearMax.value = null;
@@ -278,6 +302,7 @@ function syncToUrl() {
   if (types.value.size)   p.set('t', [...types.value].join(','));
   if (genres.value.size)  p.set('g', [...genres.value].join(','));
   if (platforms.value.size) p.set('p', [...platforms.value].join(','));
+  if (countries.value.size) p.set('c', [...countries.value].join(','));
   if (decades.value.size) p.set('d', [...decades.value].sort().join(','));
   if (yearMin.value != null) p.set('y0', String(yearMin.value));
   if (yearMax.value != null) p.set('y1', String(yearMax.value));
@@ -295,6 +320,7 @@ function hydrateFromUrl() {
   types.value   = new Set((p.get('t') ?? '').split(',').filter(Boolean));
   genres.value  = new Set((p.get('g') ?? '').split(',').filter(Boolean));
   platforms.value = new Set((p.get('p') ?? '').split(',').filter(Boolean));
+  countries.value = new Set((p.get('c') ?? '').toUpperCase().split(',').filter(Boolean));
   decades.value = new Set((p.get('d') ?? '').split(',').filter(Boolean).map(Number));
   const y0 = p.get('y0'); const y1 = p.get('y1');
   yearMin.value = y0 ? Number(y0) : null;
@@ -320,6 +346,7 @@ const activeChips = computed<ActiveChip[]>(() => {
   for (const d of decades.value) out.push({ kind: 'decade', label: `${d}-tallet`, remove: () => toggleDecade(d) });
   for (const g of genres.value) out.push({ kind: 'genre', label: g, remove: () => toggleGenre(g) });
   for (const p of platforms.value) out.push({ kind: 'platform', label: p, remove: () => togglePlatform(p) });
+  for (const c of countries.value) out.push({ kind: 'country', label: `${countryFlag(c)} ${countryName(c)}`.trim(), remove: () => toggleCountry(c) });
   if (yearMin.value != null) out.push({ kind: 'year', label: `≥ ${yearMin.value}`, remove: () => { yearMin.value = null; } });
   if (yearMax.value != null) out.push({ kind: 'year', label: `≤ ${yearMax.value}`, remove: () => { yearMax.value = null; } });
   return out;
@@ -444,6 +471,27 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
           <button v-for="p in allPlatforms" :key="p.k" type="button"
             class="chip" :aria-pressed="platforms.has(p.k)" @click="togglePlatform(p.k)">
             {{ p.k }} <span class="n">{{ p.n }}</span>
+          </button>
+        </div>
+      </section>
+
+      <section v-if="allCountries.length">
+        <div class="row-between">
+          <div class="h-eyebrow">Land</div>
+          <button v-if="allCountries.length > 12" type="button" class="lite-btn" @click="expandCountries = !expandCountries">
+            {{ expandCountries ? 'Færre' : `+${allCountries.length - 12}` }}
+          </button>
+        </div>
+        <div class="chip-row chip-grid">
+          <button
+            v-for="c in shownCountries"
+            :key="c.k"
+            type="button"
+            class="chip"
+            :aria-pressed="countries.has(c.k)"
+            @click="toggleCountry(c.k)"
+          >
+            <span aria-hidden="true">{{ c.flag }}</span> {{ c.name }} <span class="n">{{ c.n }}</span>
           </button>
         </div>
       </section>

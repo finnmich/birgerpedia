@@ -2,6 +2,7 @@
 import { computed, onMounted, ref, h, defineComponent } from 'vue';
 import Die from './Die.vue';
 import { u } from '../../lib/url';
+import { countryName, countryFlag } from '../../lib/countries.mjs';
 
 // Tiny inline avatar helper to keep the template tidy (no separate file).
 const PersonAvatar = defineComponent({
@@ -46,6 +47,9 @@ interface YearFav {
   year: number; id: string; slug: string; name: string; rating: number; regi: string | null;
 }
 
+interface RatingSummary { n: number; avg: number | null; hist: number[]; }
+interface CountryRow extends RatingSummary { code: string; }
+
 interface Stats {
   builtAt: string;
   total: number;
@@ -70,7 +74,11 @@ interface Stats {
   topComposers: NamedRow[];
   topEditors: NamedRow[];
   topDistributors: NamedRow[];
-  topCountries: NamedRow[];
+  countries: CountryRow[];
+  norway: {
+    other: RatingSummary;
+    perYear: { year: number; no: RatingSummary; other: RatingSummary }[];
+  };
   topLanguages: NamedRow[];
   lovedDirectors: DirectorRow[];
   harshDirectors: DirectorRow[];
@@ -172,6 +180,87 @@ function wordColor(w: { count: number; avg: number }) {
   }
   const k = (t - 0.5) * 2;
   return `color-mix(in srgb, #B6AC9D ${(1 - k) * 80}%, #E8B946 ${k * 90 + 10}%)`;
+}
+
+// ---------- Countries ----------
+// Diverging scale for the 1–6 distribution strip: red for the low dice,
+// neutral khaki in the middle, gold for the high ones — the same poles the
+// heatmap uses.
+const DIE_COLORS = [
+  '#D43E2D',
+  'color-mix(in srgb, #D43E2D 55%, #4A4138)',
+  '#5E554B',
+  '#8F8577',
+  'color-mix(in srgb, #E8B946 55%, #8F8577)',
+  '#E8B946',
+];
+const COUNTRY_MIN_FOR_AVG = 10;   // avg sorts ignore countries thinner than this
+const COUNTRY_PREVIEW = 15;
+const countrySort = ref<'n' | 'high' | 'low'>('n');
+const showAllCountries = ref(false);
+const ratedOf = (s: RatingSummary) => s.hist.reduce((a, b) => a + b, 0);
+
+// Display fields resolved once per load; stats.json ships codes only.
+const countriesNamed = computed(() =>
+  (stats.value?.countries ?? []).map((c) => ({ ...c, name: countryName(c.code), flag: countryFlag(c.code), rated: ratedOf(c) }))
+);
+// Norway's totals are its own row; "with a country" = Norway + the rest.
+const norwayRow = computed(() => countriesNamed.value.find((c) => c.code === 'NO') ?? null);
+const countryCoverage = computed(() => (norwayRow.value?.n ?? 0) + (stats.value?.norway.other.n ?? 0));
+
+const countryRows = computed(() => {
+  const rows = countriesNamed.value;
+  if (countrySort.value === 'n') return rows;
+  const dir = countrySort.value === 'high' ? -1 : 1;
+  return rows
+    .filter((c) => c.rated >= COUNTRY_MIN_FOR_AVG && c.avg != null)
+    .sort((a, b) => dir * (a.avg! - b.avg!) || b.n - a.n);
+});
+const countryVisible = computed(() =>
+  showAllCountries.value ? countryRows.value : countryRows.value.slice(0, COUNTRY_PREVIEW)
+);
+const countryMaxN = computed(() => Math.max(1, ...countriesNamed.value.map((c) => c.n)));
+
+function histSegments(hist: number[]) {
+  const total = hist.reduce((a, b) => a + b, 0) || 1;
+  return hist.map((n, i) => ({ rating: i + 1, n, pct: (n / total) * 100, color: DIE_COLORS[i] }))
+    .filter((s) => s.n > 0);
+}
+function fmtAvg(x: number | null) { return x == null ? '—' : x.toFixed(2).replace('.', ','); }
+function pct(n: number, of: number) { return String(of ? Math.round((n / of) * 1000) / 10 : 0).replace('.', ','); }
+
+// Norway vs the rest, yearly average. Years where either side has fewer
+// than NV_MIN rated reviews are left out — a three-film year is noise.
+const NV_W = 720, NV_H = 220, NV_PADL = 30, NV_PADR = 64, NV_PADT = 16, NV_PADB = 22;
+const NV_MIN = 5;
+const nvYears = computed(() =>
+  (stats.value?.norway.perYear ?? []).filter((y) => ratedOf(y.no) >= NV_MIN && ratedOf(y.other) >= NV_MIN)
+);
+const nvDomain = computed(() => {
+  const vals = nvYears.value.flatMap((y) => [y.no.avg!, y.other.avg!]);
+  if (!vals.length) return { lo: 3, hi: 5 };
+  return { lo: Math.min(3.5, Math.floor(Math.min(...vals) * 2) / 2), hi: Math.max(4.5, Math.ceil(Math.max(...vals) * 2) / 2) };
+});
+function nvX(year: number) {
+  const ys = nvYears.value;
+  if (ys.length < 2) return NV_PADL;
+  const a = ys[0].year, b = ys.at(-1)!.year;
+  return NV_PADL + ((year - a) / Math.max(1, b - a)) * (NV_W - NV_PADL - NV_PADR);
+}
+function nvY(v: number) {
+  const { lo, hi } = nvDomain.value;
+  return NV_H - NV_PADB - ((v - lo) / (hi - lo)) * (NV_H - NV_PADT - NV_PADB);
+}
+const nvTicks = computed(() => {
+  const { lo, hi } = nvDomain.value;
+  const out: number[] = [];
+  for (let v = lo; v <= hi + 1e-9; v += 0.5) out.push(Math.round(v * 10) / 10);
+  return out;
+});
+function nvPath(side: 'no' | 'other') {
+  return nvYears.value
+    .map((y, i) => `${i ? 'L' : 'M'} ${nvX(y.year).toFixed(1)} ${nvY(y[side].avg!).toFixed(1)}`)
+    .join(' ');
 }
 
 const wordsByRating = computed(() => {
@@ -643,11 +732,122 @@ const wordsByRating = computed(() => {
       </div>
     </section>
 
-    <!-- ============== Distributors / Countries / Languages ============== -->
-    <section v-if="stats.topDistributors.length || stats.topCountries.length || stats.topLanguages.length" class="card wide">
+    <!-- ============== Countries ============== -->
+    <section v-if="stats.countries?.length" class="card wide">
+      <header class="card-head">
+        <div class="h-eyebrow">Geografi</div>
+        <h2 class="card-title">Hvor kommer filmene fra?</h2>
+        <p class="card-lede italic">
+          Produksjonsland fra TMDB for {{ countryCoverage.toLocaleString('nb-NO') }} av
+          {{ stats.total.toLocaleString('nb-NO') }} anmeldelser. Samproduksjoner teller for hvert land,
+          så andelene summerer ikke til 100 %. Min. 3 anmeldelser.
+        </p>
+      </header>
+
+      <!-- Norway vs the rest -->
+      <div v-if="norwayRow" class="nv-tiles">
+        <div class="nv-tile">
+          <span class="nv-label h-eyebrow gold">🇳🇴 Norsk</span>
+          <span class="nv-num">{{ fmtAvg(norwayRow.avg) }}</span>
+          <span class="nv-sub t-mono">
+            snitt · {{ norwayRow.n }} anm. · {{ pct(norwayRow.n, countryCoverage) }} %
+          </span>
+        </div>
+        <div class="nv-tile">
+          <span class="nv-label h-eyebrow">Resten av verden</span>
+          <span class="nv-num">{{ fmtAvg(stats.norway.other.avg) }}</span>
+          <span class="nv-sub t-mono">
+            snitt · {{ stats.norway.other.n.toLocaleString('nb-NO') }} anm.
+          </span>
+        </div>
+        <div class="nv-tile">
+          <span class="nv-label h-eyebrow">Seksere</span>
+          <span class="nv-num">
+            {{ pct(norwayRow.hist[5], norwayRow.rated) }}<span class="nv-unit"> %</span>
+            <span class="nv-vs">mot {{ pct(stats.norway.other.hist[5], ratedOf(stats.norway.other)) }} %</span>
+          </span>
+          <span class="nv-sub t-mono">andel norske mot resten</span>
+        </div>
+      </div>
+
+      <figure v-if="nvYears.length >= 3" class="nv-chart">
+        <figcaption class="nv-legend t-mono">
+          <span><i class="sw" style="background:#E8B946"></i>Norsk</span>
+          <span><i class="sw" style="background:#B6AC9D"></i>Resten</span>
+          <span class="muted">snittkast per år · år med min. {{ NV_MIN }} av hver</span>
+        </figcaption>
+        <svg :viewBox="`0 0 ${NV_W} ${NV_H}`" preserveAspectRatio="none" class="chart"
+             role="img" aria-label="Snittkast per år for norske filmer mot resten av verden">
+          <g v-for="t in nvTicks" :key="`nvt${t}`">
+            <line :x1="NV_PADL" :x2="NV_W - NV_PADR" :y1="nvY(t)" :y2="nvY(t)"
+                  stroke="#3A3330" stroke-dasharray="2 4" />
+            <text :x="NV_PADL - 6" :y="nvY(t) + 3" text-anchor="end"
+                  font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ String(t).replace('.', ',') }}</text>
+          </g>
+          <path :d="nvPath('other')" stroke="#B6AC9D" stroke-width="2" fill="none" />
+          <path :d="nvPath('no')" stroke="#E8B946" stroke-width="2" fill="none" />
+          <g v-for="y in nvYears" :key="`nv${y.year}`">
+            <circle :cx="nvX(y.year)" :cy="nvY(y.other.avg!)" r="4" fill="#B6AC9D" stroke="#181312" stroke-width="2" />
+            <circle :cx="nvX(y.year)" :cy="nvY(y.no.avg!)" r="4" fill="#E8B946" stroke="#181312" stroke-width="2" />
+            <rect :x="nvX(y.year) - 10" :y="NV_PADT" width="20" :height="NV_H - NV_PADT - NV_PADB"
+                  fill="transparent" class="nv-hit">
+              <title>{{ y.year }} — norsk {{ fmtAvg(y.no.avg) }} ({{ y.no.n }}), resten {{ fmtAvg(y.other.avg) }} ({{ y.other.n }})</title>
+            </rect>
+            <text v-if="y.year % 5 === 0" :x="nvX(y.year)" :y="NV_H - 6" text-anchor="middle"
+                  font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ y.year }}</text>
+          </g>
+          <template v-if="nvYears.length">
+            <text :x="nvX(nvYears.at(-1)!.year) + 8" :y="nvY(nvYears.at(-1)!.no.avg!) + 3"
+                  font-family="JetBrains Mono" font-size="9" fill="#F4EFE6">Norsk</text>
+            <text :x="nvX(nvYears.at(-1)!.year) + 8" :y="nvY(nvYears.at(-1)!.other.avg!) + 3"
+                  font-family="JetBrains Mono" font-size="9" fill="#B6AC9D">Resten</text>
+          </template>
+        </svg>
+      </figure>
+
+      <!-- Full country table -->
+      <div class="country-controls">
+        <div class="seg" role="group" aria-label="Sorter land">
+          <button type="button" :aria-pressed="countrySort === 'n'" @click="countrySort = 'n'">Flest</button>
+          <button type="button" :aria-pressed="countrySort === 'high'" @click="countrySort = 'high'">Høyest snitt</button>
+          <button type="button" :aria-pressed="countrySort === 'low'" @click="countrySort = 'low'">Lavest snitt</button>
+        </div>
+        <div class="kast-legend t-mono" aria-hidden="true">
+          <span v-for="(c, i) in DIE_COLORS" :key="`kl${i}`"><i class="sw" :style="{ background: c }"></i>{{ i + 1 }}</span>
+        </div>
+      </div>
+      <p v-if="countrySort !== 'n'" class="caption italic">Bare land med minst {{ COUNTRY_MIN_FOR_AVG }} terningkast.</p>
+
+      <ol class="country-list">
+        <li v-for="(c, i) in countryVisible" :key="c.code">
+          <span class="t-mono rank">{{ String(i + 1).padStart(2, '0') }}</span>
+          <a class="rank-name" :href="u(`/reviews?c=${c.code}`)" :title="`Se alle anmeldelser fra ${c.name}`">
+            <span class="c-flag" aria-hidden="true">{{ c.flag }}</span>{{ c.name }}
+          </a>
+          <span class="rank-bar" :title="`${c.n} anmeldelser`">
+            <span :style="{ width: `${(c.n / countryMaxN) * 100}%` }"></span>
+          </span>
+          <span class="c-dist" role="img"
+                :aria-label="`Fordeling: ${c.hist.map((n, j) => `${n} × ${j + 1}`).join(', ')}`">
+            <span v-for="seg in histSegments(c.hist)" :key="seg.rating"
+                  :style="{ width: `${seg.pct}%`, background: seg.color }"
+                  :title="`${seg.n} × terningkast ${seg.rating} (${Math.round(seg.pct)} %)`"></span>
+          </span>
+          <span class="t-mono n">{{ c.n }}</span>
+          <span class="t-mono badge" :class="avgClass(c.avg)">{{ fmtAvg(c.avg) }}</span>
+        </li>
+      </ol>
+      <button v-if="countryRows.length > COUNTRY_PREVIEW" type="button" class="more-btn"
+              @click="showAllCountries = !showAllCountries">
+        {{ showAllCountries ? 'Vis færre' : `Vis alle ${countryRows.length} land` }}
+      </button>
+    </section>
+
+    <!-- ============== Distributors / Languages ============== -->
+    <section v-if="stats.topDistributors.length || stats.topLanguages.length" class="card wide">
       <header class="card-head">
         <div class="h-eyebrow">Strømmer & kilder</div>
-        <h2 class="card-title">Hvor kommer filmene fra?</h2>
+        <h2 class="card-title">Hvem slipper filmene — og på hvilket språk?</h2>
       </header>
       <div class="crew-grid">
         <div v-if="stats.topDistributors.length" class="crew-col">
@@ -658,17 +858,6 @@ const wordsByRating = computed(() => {
               <span class="rank-bar"><span :style="{ width: `${((d.avg ?? 0) / 6) * 100}%` }"></span></span>
               <span class="t-mono badge" :class="avgClass(d.avg)">{{ d.avg != null ? d.avg.toFixed(2).replace('.', ',') : '—' }}</span>
               <span class="t-mono n">{{ d.n }}</span>
-            </li>
-          </ol>
-        </div>
-        <div v-if="stats.topCountries.length" class="crew-col">
-          <h3 class="h-eyebrow">Land</h3>
-          <ol class="rank-list mini">
-            <li v-for="c in stats.topCountries.slice(0, 8)" :key="c.key">
-              <span class="rank-name">{{ c.key }}</span>
-              <span class="rank-bar"><span :style="{ width: `${((c.avg ?? 0) / 6) * 100}%` }"></span></span>
-              <span class="t-mono badge" :class="avgClass(c.avg)">{{ c.avg != null ? c.avg.toFixed(2).replace('.', ',') : '—' }}</span>
-              <span class="t-mono n">{{ c.n }}</span>
             </li>
           </ol>
         </div>
@@ -1246,8 +1435,8 @@ const wordsByRating = computed(() => {
   grid-template-columns: minmax(100px, 1fr) minmax(60px, 1.5fr) auto auto;
   padding-block: 0.42rem;
 }
-.rank-list .rank { color: var(--color-stamp); font-size: 0.7rem; }
-.rank-list .rank-name {
+.rank-list .rank, .country-list .rank { color: var(--color-stamp); font-size: 0.7rem; }
+.rank-list .rank-name, .country-list .rank-name {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 96, "SOFT" 30, "WONK" 1;
   font-weight: 600;
@@ -1262,37 +1451,114 @@ const wordsByRating = computed(() => {
   transition: color .2s ease, border-color .2s ease;
 }
 a.rank-name:hover { color: var(--color-spark); border-bottom-color: var(--color-spark); }
-.rank-list .rank-bar {
+.rank-list .rank-bar, .country-list .rank-bar {
   display: block;
   height: 5px;
   background: var(--color-leader-3);
   position: relative;
   overflow: hidden;
 }
-.rank-list .rank-bar > span {
+.rank-list .rank-bar > span, .country-list .rank-bar > span {
   position: absolute; inset: 0 auto 0 0;
   background: linear-gradient(90deg, var(--color-paper), var(--color-paper-3));
 }
-.rank-list .badge {
+.rank-list .badge, .country-list .badge {
   font-size: 0.72rem;
   padding: 0.18rem 0.42rem;
   text-align: center;
   min-width: 40px;
   border: 1px solid var(--color-line-dark);
 }
-.rank-list .badge.gold {
+.rank-list .badge.gold, .country-list .badge.gold {
   background: color-mix(in srgb, var(--color-spark) 15%, transparent);
   border-color: color-mix(in srgb, var(--color-spark) 50%, transparent);
   color: var(--color-spark);
 }
-.rank-list .badge.red {
+.rank-list .badge.red, .country-list .badge.red {
   background: color-mix(in srgb, var(--color-stamp) 12%, transparent);
   border-color: color-mix(in srgb, var(--color-stamp) 50%, transparent);
   color: var(--color-stamp);
 }
-.rank-list .n { color: var(--fg-mute); font-size: 0.72rem; min-width: 24px; text-align: right; }
+.rank-list .n, .country-list .n { color: var(--fg-mute); font-size: 0.72rem; min-width: 24px; text-align: right; }
 
 .h-eyebrow.gold { color: var(--color-spark); }
+
+/* ----- Countries ----- */
+.nv-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-block: 0.6rem 0.2rem;
+  border-top: 1px solid var(--color-line-dark);
+}
+.nv-tile { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.nv-num {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-paper);
+  font-variant-numeric: tabular-nums;
+}
+.nv-unit { font-size: 0.55em; color: var(--fg-mute); font-weight: 400; }
+.nv-vs {
+  font-family: var(--font-body); font-style: italic; font-weight: 400;
+  font-size: 0.42em; letter-spacing: 0; color: var(--fg-mute); margin-left: 0.3em;
+}
+.nv-sub { font-size: 0.68rem; color: var(--fg-mute); }
+.nv-chart { margin: 0.4rem 0 0; }
+.nv-legend, .kast-legend {
+  display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-items: center;
+  font-size: 0.68rem; color: var(--color-paper-2);
+}
+.kast-legend { gap: 0.6rem; color: var(--fg-mute); }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.35rem; vertical-align: -1px; }
+.nv-hit { cursor: default; }
+.nv-hit:hover { fill: color-mix(in srgb, #F4EFE6 6%, transparent); }
+
+.country-controls {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.8rem;
+  margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--color-line-dark);
+}
+.seg { display: inline-flex; border: 1px solid var(--color-line-dark); }
+.seg button {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em;
+  padding: 0.4rem 0.7rem; background: transparent; color: var(--fg-mute);
+  border: 0; border-right: 1px solid var(--color-line-dark); cursor: pointer;
+}
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--color-paper); color: var(--color-ink); }
+.seg button:hover:not([aria-pressed="true"]) { color: var(--color-paper); }
+
+.country-list { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+.country-list li {
+  display: grid;
+  grid-template-columns: 26px minmax(110px, 1.1fr) minmax(40px, 0.7fr) minmax(90px, 1.6fr) 34px auto;
+  gap: 0.7rem;
+  align-items: center;
+  padding-block: 0.45rem;
+  border-bottom: 1px dashed var(--color-line-dark);
+}
+.country-list li:last-child { border-bottom: 0; }
+.c-flag { margin-right: 0.45rem; font-size: 1rem; }
+.c-dist { display: flex; gap: 2px; height: 10px; }
+.c-dist > span { display: block; min-width: 2px; }
+.c-dist > span:first-child { border-radius: 3px 0 0 3px; }
+.c-dist > span:last-child { border-radius: 0 3px 3px 0; }
+.more-btn {
+  align-self: flex-start; margin-top: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em;
+  background: transparent; border: 1px solid var(--color-line-dark);
+  color: var(--color-paper-2); padding: 0.35rem 0.7rem; cursor: pointer;
+}
+.more-btn:hover { color: var(--color-spark); border-color: var(--color-spark); }
+@media (max-width: 700px) {
+  .nv-tiles { grid-template-columns: 1fr 1fr; }
+  .country-list li { grid-template-columns: 22px minmax(0, 1fr) minmax(70px, 1fr) 30px auto; gap: 0.5rem; }
+  .country-list .rank-bar { display: none; }
+}
 .h-eyebrow.red { color: var(--color-stamp); }
 
 /* ----- Actor grid ----- */

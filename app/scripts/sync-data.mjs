@@ -13,6 +13,7 @@
 import { mkdir, copyFile, readdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isConfidentMatch } from '../src/lib/tmdb-match.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC  = resolve(ROOT, '..', 'data', 'processed');
@@ -157,8 +158,7 @@ function trimReview(r, enr) {
   // factboxes stay verbatim-NRK. Gated on match confidence so a wrong
   // TMDB match can't inject people into credits/people pages.
   const isNewCms = !/^\d+\./.test(String(r.id));
-  const t = isNewCms && enr && !enr.miss &&
-    (enr.confidence === 'high' || enr.confidence === 'medium') ? enr : null;
+  const t = isNewCms && isConfidentMatch(enr) ? enr : null;
   const out = {
     id: r.id,
     name: decodeEntities(r.name),
@@ -184,7 +184,31 @@ function trimReview(r, enr) {
       distributor: fb.distributor ?? null,
     },
   };
+  // Production countries as ISO codes. NRK's factbox `land` is empty across
+  // the corpus, so this is TMDB-only — and confidence-gated for every
+  // record, old or new, since a wrong match would misfile the film.
+  // Omitted when empty; readers default to [].
+  const countries = isConfidentMatch(enr) ? enr.productionCountryCodes ?? [] : [];
+  if (countries.length) out.countries = countries;
   return out;
+}
+
+// Snapshot entries written before `productionCountryCodes` existed, and
+// whose raw file isn't on this machine, only have English names. Fill
+// their codes from the name→code pairs every other entry already carries.
+// Once written back to the snapshot this is a no-op.
+function backfillCountryCodes(enr) {
+  const codeOf = new Map();
+  for (const e of Object.values(enr)) {
+    const codes = e?.productionCountryCodes, names = e?.productionCountries;
+    if (codes && names && codes.length === names.length) {
+      e.productionCountries.forEach((name, i) => codeOf.set(name, codes[i]));
+    }
+  }
+  for (const e of Object.values(enr)) {
+    if (!e || e.miss || e.productionCountryCodes) continue;
+    e.productionCountryCodes = (e.productionCountries ?? []).map((n) => codeOf.get(n)).filter(Boolean);
+  }
 }
 
 // ----- 2. Aggregate full enrichment for build-time SSG only -----
@@ -275,6 +299,7 @@ function trimReview(r, enr) {
       revenue: t.revenue ?? null,
       productionCompanies: (t.production_companies ?? []).slice(0, 6).map((c) => c.name),
       productionCountries: (t.production_countries ?? []).map((c) => c.name),
+      productionCountryCodes: (t.production_countries ?? []).map((c) => c.iso_3166_1).filter(Boolean),
       spokenLanguages: (t.spoken_languages ?? []).map((l) => l.english_name ?? l.name),
       crew: {
         director: dir ? { name: dir.name, profile: dir.profile_path ? `https://image.tmdb.org/t/p/w185${dir.profile_path}` : null } : null,
@@ -303,6 +328,7 @@ function trimReview(r, enr) {
     };
     hits++;
   }
+  backfillCountryCodes(enrichment);
   await writeFile(resolve(INTERNAL, 'enrichment.json'), JSON.stringify(enrichment));
   // Mirror the build-time aggregate to the committable snapshot location.
   // That way the daily workflow can git-add a single fresh JSON that next
@@ -597,6 +623,7 @@ function computeStats(reviews, tmdb, enrichment, externalRatings) {
 
   // Helper: tally a (key → {n, sum, rated, slug?}) map into a sorted top-N
   // array of { key, n, avg, slug }, optionally with a min-N gate.
+  const avgOf = (v) => (v.rated ? Math.round((v.sum / v.rated) * 1000) / 1000 : null);
   const collect = (rows, opts = {}) => {
     const minN = opts.minN ?? 3;
     const limit = opts.limit ?? 18;
@@ -605,7 +632,8 @@ function computeStats(reviews, tmdb, enrichment, externalRatings) {
       .filter(([, v]) => v.n >= minN)
       .map(([key, v]) => ({
         key, n: v.n,
-        avg: v.rated ? Math.round((v.sum / v.rated) * 1000) / 1000 : null,
+        avg: avgOf(v),
+        ...(opts.withHist ? { hist: v.hist } : {}),
         ...(opts.withSlug ? { slug: personSlug(key) } : {}),
         ...(opts.profileFor ? { profile: opts.profileFor.get(key) ?? null } : {}),
       }));
@@ -622,14 +650,18 @@ function computeStats(reviews, tmdb, enrichment, externalRatings) {
       for (const name of extract(r)) {
         const k = name.trim();
         if (!k) continue;
-        const cur = m.get(k) ?? { n: 0, sum: 0, rated: 0 };
+        const cur = m.get(k) ?? { n: 0, sum: 0, rated: 0, hist: [0, 0, 0, 0, 0, 0] };
         cur.n++;
-        if (r.rating != null) { cur.sum += r.rating; cur.rated++; }
+        if (r.rating != null) { cur.sum += r.rating; cur.rated++; cur.hist[r.rating - 1]++; }
         m.set(k, cur);
       }
     }
     return m;
   };
+  // {n, avg, hist} for a single tally bucket (or an empty one).
+  const summarize = (v) => v
+    ? { n: v.n, avg: avgOf(v), hist: v.hist }
+    : { n: 0, avg: null, hist: [0, 0, 0, 0, 0, 0] };
 
   // Profile photos collected from TMDB enrichment so person rankings can
   // show a portrait. Same case-insensitive trick as lib/people.ts.
@@ -731,19 +763,21 @@ function computeStats(reviews, tmdb, enrichment, externalRatings) {
   const distMap = tallyByName((r) => r.factbox?.distributor ? [r.factbox.distributor] : []);
   const topDistributors = collect(distMap, { minN: 6, limit: 18 });
 
-  // ----- Production countries (TMDB) -----
-  const countryMap = new Map();
-  for (const r of reviews) {
-    const e = enrichment?.[r.id];
-    if (!e || e.miss) continue;
-    for (const c of e.productionCountries ?? []) {
-      const cur = countryMap.get(c) ?? { n: 0, sum: 0, rated: 0 };
-      cur.n++;
-      if (r.rating != null) { cur.sum += r.rating; cur.rated++; }
-      countryMap.set(c, cur);
-    }
-  }
-  const topCountries = collect(countryMap, { minN: 4, limit: 18 });
+  // ----- Production countries (ISO codes, confidence-gated in trimReview) -----
+  // Co-productions count once for every country involved. Norway's own
+  // totals are its row in `countries`; `norway` adds the complement
+  // ("the rest" = has a country, but not Norway) and a per-year split.
+  const countries = collect(tallyByName((r) => r.countries ?? []), { minN: 3, limit: Infinity, withHist: true })
+    .map(({ key, ...v }) => ({ code: key, ...v }));
+  const sideOf = (r) => (r.countries?.length ? (r.countries.includes('NO') ? 'no' : 'other') : null);
+  const otherMap = tallyByName((r) => (sideOf(r) === 'other' ? ['other'] : []));
+  const nvMap = tallyByName((r) => (sideOf(r) && yearOf(r) ? [`${yearOf(r)}:${sideOf(r)}`] : []));
+  const nvAt = (key) => summarize(nvMap.get(key));
+  const norway = {
+    other: summarize(otherMap.get('other')),
+    perYear: [...new Set([...nvMap.keys()].map((k) => Number(k.split(':')[0])))].sort((a, b) => a - b)
+      .map((year) => ({ year, no: nvAt(`${year}:no`), other: nvAt(`${year}:other`) })),
+  };
 
   // ----- Spoken languages (TMDB) -----
   const langMap = new Map();
@@ -827,7 +861,8 @@ function computeStats(reviews, tmdb, enrichment, externalRatings) {
     topComposers,
     topEditors,
     topDistributors,
-    topCountries,
+    countries,
+    norway,
     topLanguages,
     lovedDirectors,
     harshDirectors,
