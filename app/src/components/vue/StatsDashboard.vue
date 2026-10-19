@@ -105,34 +105,35 @@ onMounted(async () => {
 
 // ---------- chart helpers ----------
 const W = 720, H = 220;
-function bandPath(data: { x: number; y: number }[], w = W, h = H, padX = 30, padY = 20) {
-  if (!data.length) return '';
-  const xs = data.map((d) => d.x), ys = data.map((d) => d.y);
-  const xMin = Math.min(...xs), xMax = Math.max(...xs);
-  const yMin = Math.min(...ys), yMax = Math.max(...ys);
-  const sx = (x: number) => padX + ((x - xMin) / Math.max(1, xMax - xMin)) * (w - padX * 2);
-  const sy = (y: number) => h - padY - ((y - yMin) / Math.max(0.0001, yMax - yMin)) * (h - padY * 2);
-  return data.map((d, i) => `${i === 0 ? 'M' : 'L'} ${sx(d.x).toFixed(1)} ${sy(d.y).toFixed(1)}`).join(' ');
-}
-
 function pixelOf(year: number, points: { year: number }[]) {
   if (points.length < 2) return 0;
   const xMin = points[0].year, xMax = points.at(-1)!.year;
   return 30 + ((year - xMin) / Math.max(1, xMax - xMin)) * (W - 60);
 }
 
-const yearlyPath = computed(() =>
-  stats.value ? bandPath(stats.value.reviewsPerYear.map((d) => ({ x: d.year, y: d.n }))) : ''
-);
-const yearlyAvgPath = computed(() =>
-  stats.value ? bandPath(stats.value.reviewsPerYear.filter((d) => d.avg != null).map((d) => ({ x: d.year, y: d.avg! }))) : ''
-);
+const maxYearlyN = computed(() => Math.max(1, ...(stats.value?.reviewsPerYear.map((d) => d.n) ?? [1])));
+// Fixed y-scales shared by each chart's line, dots and gridlines.
+const volMax = computed(() => Math.max(160, Math.ceil(maxYearlyN.value / 20) * 20));
+const volY = (n: number) => H - 20 - (n / volMax.value) * (H - 40);
+const avgY = (v: number) => H - 20 - ((v - 2.5) / 3) * (H - 40);
+
+function linePath(points: { year: number; y: number }[], all: { year: number }[], sy: (v: number) => number) {
+  return points.map((p, i) => `${i ? 'L' : 'M'} ${pixelOf(p.year, all).toFixed(1)} ${sy(p.y).toFixed(1)}`).join(' ');
+}
+
+const yearlyPath = computed(() => {
+  const a = stats.value?.reviewsPerYear ?? [];
+  return linePath(a.map((d) => ({ year: d.year, y: d.n })), a, volY);
+});
+const yearlyAvgPath = computed(() => {
+  const a = stats.value?.reviewsPerYear ?? [];
+  return linePath(a.filter((d) => d.avg != null).map((d) => ({ year: d.year, y: d.avg! })), a, avgY);
+});
 const yearTicks = computed(() => {
   const a = stats.value?.reviewsPerYear ?? [];
   if (!a.length) return [];
   return a.filter((_, i) => i % 3 === 0 || i === a.length - 1);
 });
-const maxYearlyN = computed(() => Math.max(1, ...(stats.value?.reviewsPerYear.map((d) => d.n) ?? [1])));
 const heatmapMax = computed(() => {
   if (!stats.value) return 1;
   let m = 1;
@@ -309,14 +310,16 @@ const wordsByRating = computed(() => {
           </linearGradient>
         </defs>
         <g v-for="y in [50, 100, 150]" :key="y">
-          <line :x1="30" :x2="W - 30" :y1="H - 20 - (y / 160) * (H - 40)" :y2="H - 20 - (y / 160) * (H - 40)"
+          <line :x1="30" :x2="W - 30" :y1="volY(y)" :y2="volY(y)"
                 stroke="#3A3330" stroke-dasharray="2 4" />
+          <text :x="W - 25" :y="volY(y) - 2"
+                font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ y }}</text>
         </g>
         <path :d="`${yearlyPath} L ${W - 30} ${H - 20} L ${30} ${H - 20} Z`" fill="url(#g-vol)" />
         <path :d="yearlyPath" stroke="#F4EFE6" stroke-width="1.6" fill="none" />
         <g v-for="d in stats.reviewsPerYear" :key="d.year">
           <circle :cx="pixelOf(d.year, stats.reviewsPerYear)"
-                  :cy="H - 20 - (d.n / 160) * (H - 40)" r="3" fill="#D43E2D" />
+                  :cy="volY(d.n)" r="3" fill="#D43E2D" />
         </g>
         <g v-for="t in yearTicks" :key="`t${t.year}`">
           <text :x="pixelOf(t.year, stats.reviewsPerYear)" :y="H - 4"
@@ -339,16 +342,15 @@ const wordsByRating = computed(() => {
       <svg :viewBox="`0 0 ${W} ${H}`" preserveAspectRatio="none" class="chart">
         <g v-for="y in [3, 4, 5]" :key="y">
           <line :x1="30" :x2="W - 30"
-                :y1="H - 20 - ((y - 2.5) / 3) * (H - 40)"
-                :y2="H - 20 - ((y - 2.5) / 3) * (H - 40)"
+                :y1="avgY(y)" :y2="avgY(y)"
                 stroke="#3A3330" stroke-dasharray="2 4" />
-          <text :x="W - 25" :y="H - 22 - ((y - 2.5) / 3) * (H - 40)"
+          <text :x="W - 25" :y="avgY(y) - 2"
                 font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ y }}</text>
         </g>
         <path :d="yearlyAvgPath" stroke="#E8B946" stroke-width="2" fill="none" />
         <g v-for="d in stats.reviewsPerYear.filter((x) => x.avg != null)" :key="`avg${d.year}`">
           <circle :cx="pixelOf(d.year, stats.reviewsPerYear)"
-                  :cy="H - 20 - ((d.avg! - 2.5) / 3) * (H - 40)"
+                  :cy="avgY(d.avg!)"
                   r="3" fill="#E8B946" />
         </g>
         <g v-for="t in yearTicks" :key="`av-t${t.year}`">
@@ -467,9 +469,10 @@ const wordsByRating = computed(() => {
             <text :x="scX(t)" :y="SC_H - 8" text-anchor="middle"
                   font-family="JetBrains Mono" font-size="9" fill="#7A6F62">{{ t }}</text>
           </g>
-          <text :x="scX(2)" :y="scY(5) + 4" font-family="JetBrains Mono" font-size="9"
+          <!-- Ratings are whole numbers, so the half-rows are always free of dots. -->
+          <text :x="scX(0.5)" :y="scY(5.5) + 3" font-family="JetBrains Mono" font-size="9"
                 fill="#7A6F62" letter-spacing="2">BIRGER MILDERE</text>
-          <text :x="scX(8)" :y="scY(2) + 4" text-anchor="end" font-family="JetBrains Mono" font-size="9"
+          <text :x="scX(10)" :y="scY(1.5) + 3" text-anchor="end" font-family="JetBrains Mono" font-size="9"
                 fill="#7A6F62" letter-spacing="2">BIRGER STRENGERE</text>
 
           <a v-for="p in stats.scatter" :key="p.id" :href="u(`/reviews/${p.slug}`)">
