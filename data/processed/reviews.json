@@ -1,5 +1,57 @@
 [
   {
+    "id": "tony-hjertevarmt-om-stjernekokken-1530636",
+    "url": "https://www.nrk.no/artikkel/tony-hjertevarmt-om-stjernekokken-1530636",
+    "type": "Movie",
+    "name": "Tony",
+    "originalTitle": null,
+    "headline": "Hjertevarmt om stjernekokken",
+    "abstract": "Regissør Matt Johnsons «Tony» er en hjertevarm film om stjernekokken Anthony Bordains sommer som 19-åring, med Dominic Sessa, Antonio Banderas, Emilia Jones og Leo Woodall i hovedrollene. ",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-21T07:47:59.038Z",
+    "modifiedAt": "2026-10-21T07:47:59.038Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/injmv-9lxZo_J3lJcDCNiAWPjBXgkjwqiPJZ48n7TvrQ",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama",
+        "komedie"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-10-23",
+      "norgespremiereRaw": "23. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 503
+  },
+  {
     "id": "markens-grode-storslagen-filmpoesi-1530170",
     "url": "https://www.nrk.no/artikkel/markens-grode-storslagen-filmpoesi-1530170",
     "type": "Movie",
