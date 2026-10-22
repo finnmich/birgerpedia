@@ -1,5 +1,58 @@
 [
   {
+    "id": "clayface-mangler-et-bankende-hjerte-1530668",
+    "url": "https://www.nrk.no/artikkel/clayface-mangler-et-bankende-hjerte-1530668",
+    "type": "Movie",
+    "name": "Clayface",
+    "originalTitle": null,
+    "headline": "Mangler et bankende hjerte",
+    "abstract": "Gotham City-filmen «Clayface» fra DC Studios med Tom Rhys Harries, Naomie Ackie og David Dencik mangler et bankende hjerte.",
+    "rating": 3,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-21T19:00:00.000Z",
+    "modifiedAt": "2026-10-21T19:00:00.000Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/c2za5R-KrzzopGdiV6oabgi-_azLk8BrZF7djXFrhK3w",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Action",
+        "eventyr",
+        "superhelt"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-10-23",
+      "norgespremiereRaw": "23. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 511
+  },
+  {
     "id": "tony-hjertevarmt-om-stjernekokken-1530636",
     "url": "https://www.nrk.no/artikkel/tony-hjertevarmt-om-stjernekokken-1530636",
     "type": "Movie",

@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-21T08:57:58.760Z",
+  "fetchedAt": "2026-10-22T09:00:12.070Z",
   "pageCount": 2,
-  "pluggCount": 2973,
+  "pluggCount": 2974,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "clayface-mangler-et-bankende-hjerte-1530668",
+      "title": "Mangler et bankende hjerte",
+      "description": "Gotham City-filmen «Clayface» fra DC Studios med Tom Rhys Harries, Naomie Ackie og David Dencik mangler et bankende hjerte.",
+      "url": "https://www.nrk.no/artikkel/clayface-mangler-et-bankende-hjerte-1530668",
+      "image": null,
+      "published": "2026-10-21T19:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "tony-hjertevarmt-om-stjernekokken-1530636",
       "title": "Hjertevarmt om stjernekokken",
