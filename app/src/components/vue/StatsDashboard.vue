@@ -333,7 +333,7 @@ const wordsByRating = computed(() => {
     <!-- ============== Average rating per year ============== -->
     <section class="card">
       <header class="card-head">
-        <div class="h-eyebrow">Sinn</div>
+        <div class="h-eyebrow">Snitt</div>
         <h2 class="card-title">Snittkast over tid</h2>
       </header>
       <svg :viewBox="`0 0 ${W} ${H}`" preserveAspectRatio="none" class="chart">
@@ -357,7 +357,7 @@ const wordsByRating = computed(() => {
         </g>
       </svg>
       <p class="caption italic">
-        Birgers snitt holder seg tett opp mot fire — han er en balansert anmelder.
+        Snittet har ligget rundt fire hele veien.
       </p>
     </section>
 
@@ -602,7 +602,7 @@ const wordsByRating = computed(() => {
       <header class="card-head">
         <div class="h-eyebrow">Birgers strengeste</div>
         <h2 class="card-title">… og hvem han er hardest mot</h2>
-        <p class="card-lede italic">Samme regel — min. 3 anmeldelser. Vekt: lavest snitt først.</p>
+        <p class="card-lede italic">Min. 3 anmeldelser, lavest snitt først.</p>
       </header>
       <ol class="rank-list">
         <li v-for="(p, i) in stats.harshDirectors.slice(0, 8)" :key="p.key">
@@ -620,8 +620,8 @@ const wordsByRating = computed(() => {
     <section v-if="stats.topActors.length" class="card wide">
       <header class="card-head">
         <div class="h-eyebrow">På lerretet</div>
-        <h2 class="card-title">Mest tilbakevendende skuespillere</h2>
-        <p class="card-lede italic">NRKs faktabokser kombinert med TMDBs cast — derfor bredere enn man skulle tro. Min. 4 opptredener.</p>
+        <h2 class="card-title">Skuespillerne som går igjen</h2>
+        <p class="card-lede italic">Fra NRKs faktabokser og rollelistene hos TMDB. Min. 4 opptredener.</p>
       </header>
       <ul class="actor-grid">
         <li v-for="p in stats.topActors" :key="p.key">
@@ -654,7 +654,7 @@ const wordsByRating = computed(() => {
       <header class="card-head">
         <div class="h-eyebrow">Mannskap</div>
         <h2 class="card-title">Hvem står bak?</h2>
-        <p class="card-lede italic">Foto, musikk og klipp — sett fra både NRKs faktaboks og TMDBs hovedmannskap.</p>
+        <p class="card-lede italic">Foto, musikk og klipp, fra NRKs faktabokser og TMDB.</p>
       </header>
 
       <div class="crew-grid">
@@ -1024,7 +1024,7 @@ const wordsByRating = computed(() => {
       <header class="card-head">
         <div class="h-eyebrow">Toppen av hvert år</div>
         <h2 class="card-title">Birgers favoritt — år for år</h2>
-        <p class="card-lede italic">Den høyest-rangerte anmeldelsen i hvert kalenderår. Klikk for å lese.</p>
+        <p class="card-lede italic">Den best likte filmen hvert år.</p>
       </header>
       <ol class="year-fav-grid">
         <li v-for="y in stats.yearFavorites" :key="y.year">

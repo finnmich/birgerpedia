@@ -37,10 +37,10 @@ const totalEligible = eligiblePeople.length;
 >
   <header class="page-head">
     <div class="h-eyebrow">Personene</div>
-    <h1 class="page-title h-display">Bak hver <em>terningkast</em>, et menneske</h1>
+    <h1 class="page-title h-display">Regissører og <em>skuespillere</em></h1>
     <p class="page-lede">
       {totalEligible.toLocaleString('nb-NO')} regissører, manusforfattere, serieskapere og
-      skuespillere figurerer i Birgers korpus. Her er de mest tilbakevendende.
+      skuespillere dukker opp i Birgers anmeldelser. Her er de som går igjen oftest.
     </p>
   </header>
 
@@ -122,9 +122,9 @@ const totalEligible = eligiblePeople.length;
   <!-- =============== Top actors =============== -->
   <section class="grid-section">
     <header class="gs-head">
-      <div class="h-eyebrow">Mest tilbakevendende skuespillere</div>
+      <div class="h-eyebrow">Skuespillerne som går igjen</div>
       <h2 class="gs-title h-headline">{topActors.length} navn</h2>
-      <p class="gs-lede italic">Inkluderer både NRKs faktabokser og TMDBs cast — derfor bredere enn man skulle tro.</p>
+      <p class="gs-lede italic">Basert på både NRKs faktabokser og rollelistene hos TMDB.</p>
     </header>
     <ul class="people-grid people-grid--dense">
       {topActors.map((p) => (

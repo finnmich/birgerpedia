@@ -22,7 +22,7 @@ export const GET: APIRoute = () => {
     <title>Birgerpedia — siste anmeldelser</title>
     <link>${SITE}/</link>
     <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>De ferskeste terningkastene fra Birger Vestmo, indeksert.</description>
+    <description>De nyeste anmeldelsene fra Birger Vestmo.</description>
     <language>nb-NO</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     ${items.map((r) => `

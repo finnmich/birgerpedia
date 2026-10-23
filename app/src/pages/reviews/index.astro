@@ -7,15 +7,15 @@ import { SUMMARY } from '../../lib/data';
 <Page
   current="reviews"
   title="Indeksen — Birgerpedia"
-  description={`Hele Vestmos korpus i ett bord: ${SUMMARY.total.toLocaleString('nb-NO')} anmeldelser å filtrere på terningkast, sjanger, regissør og format.`}
+  description={`Alle Birger Vestmos ${SUMMARY.total.toLocaleString('nb-NO')} anmeldelser. Filtrer på terningkast, sjanger, regissør og format.`}
 >
   <header class="page-head">
     <div class="h-eyebrow">Indeksen</div>
-    <h1 class="page-title h-display">Hele <em>korpuset</em></h1>
+    <h1 class="page-title h-display">Alle <em>anmeldelsene</em></h1>
     <p class="page-lede">
       {SUMMARY.total.toLocaleString('nb-NO')} anmeldelser fra {SUMMARY.yearMin} til i dag.
-      Søk på tittel, regissør, skuespiller eller sjanger. Filtre kombineres fritt;
-      adressefeltet holder oversikten.
+      Søk på tittel, regissør, skuespiller eller sjanger. Filtrene kan kombineres,
+      og lenken oppdateres så du kan dele søket.
     </p>
   </header>
 

@@ -87,9 +87,9 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
           <span class="line line-2"><span class="ped">pedia</span></span>
         </h1>
         <p class="lede">
-          Hver eneste anmeldelse av <em>Birger Vestmo</em>, NRK Filmpolitiets
-          mest standhaftige stemme — indeksert, søkbar, og krysset med metadata
-          fra TMDB. {SUMMARY.total.toLocaleString('nb-NO')} verker, {SUMMARY.years} år, ett menneskes mening.
+          Alle anmeldelsene <em>Birger Vestmo</em> har skrevet for NRK Filmpolitiet,
+          samlet på ett sted. {SUMMARY.total.toLocaleString('nb-NO')} anmeldelser over {SUMMARY.years} år,
+          med filmdata fra TMDB.
         </p>
 
         <ul class="big-stats t-mono">
@@ -168,7 +168,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         Når terningen viser seks
       </h2>
       <p class="section-lede">
-        Et utvalg av de aller siste filmene som fikk Birgers høyeste karakter — i alt {SUMMARY.perfect6} stykker har stått igjen med en sekser siden {SUMMARY.yearMin}.
+        Tre tilfeldige seksere. Birger har delt ut {SUMMARY.perfect6} av dem siden {SUMMARY.yearMin}.
       </p>
     </header>
 
@@ -238,8 +238,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
         La arkivet <em>velge for deg</em>
       </h2>
       <p class="section-lede">
-        {SUMMARY.total.toLocaleString('nb-NO')} anmeldelser å grave i. Slå en terning
-        og se hvor du havner — trykk «Slå igjen» så mange ganger du vil.
+        Vet du ikke hva du skal se? Slå terningen og få en tilfeldig anmeldelse.
       </p>
     </header>
 
@@ -271,7 +270,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
     </div>
 
     <div class="taxa-col">
-      <div class="h-eyebrow">Sjangere etter volum</div>
+      <div class="h-eyebrow">Største sjangere</div>
       <ol class="taxa-list taxa-grid">
         {top10Genres.map((g, i) => (
           <li>
@@ -285,7 +284,7 @@ const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
     </div>
 
     <div class="taxa-col taxa-stats">
-      <div class="h-eyebrow">Korpus etter type</div>
+      <div class="h-eyebrow">Filmer, serier og spill</div>
       <div class="bigstats">
         <div class="bigstat">
           <span class="bs-num t-mono">{SUMMARY.movies.toLocaleString('nb-NO')}</span>
