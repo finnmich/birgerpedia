@@ -24,6 +24,8 @@ function externalFor(reviewId: string) {
 import { eligibleSlugs } from '../../lib/people';
 import { u } from '../../lib/url';
 import { countryName } from '../../lib/countries.mjs';
+import { BIRGER, NRK, breadcrumbs, workType } from '../../lib/seo';
+import { isConfidentMatch } from '../../lib/tmdb-match.mjs';
 
 // Whether a name has a person page worth linking to. Splits joint credits
 // like "Phil Lord og Christopher Miller" so each gets its own anchor.
@@ -120,13 +122,62 @@ function verdict(score: number | null | undefined, kind: 'r6' | 'r10' | 'r100'):
   if (pct <= 40) return 'red';
   return 'paper';
 }
+
+// schema.org: Birger's review (published by NRK, so `url` is the NRK
+// article) of the work, plus the breadcrumb trail shown in the page head.
+const fb = r.factbox ?? ({} as Partial<typeof r.factbox>);
+const people = (names: string | null | undefined) =>
+  personLinks(names).map((n) => ({ '@type': 'Person', name: n.name }));
+const work: Record<string, unknown> = {
+  '@type': workType(r.type),
+  name: sanitizeQuotes(r.name),
+  ...(r.originalTitle && r.originalTitle !== r.name && { alternateName: r.originalTitle }),
+  ...(fb.produksjonsAr && { dateCreated: fb.produksjonsAr }),
+  ...(fb.sjanger?.length && { genre: fb.sjanger }),
+  ...(heroImage && { image: heroImage }),
+  ...(fb.regi && { director: people(fb.regi) }),
+  ...(fb.serieskaper && { creator: people(fb.serieskaper) }),
+  ...(fb.skuespillere?.length && {
+    actor: fb.skuespillere.slice(0, 8).map((name) => ({ '@type': 'Person', name })),
+  }),
+  // sameAs asserts identity, so only for matches we trust (see tmdb-match.mjs).
+  ...(tmdb && isConfidentMatch(tmdb) && { sameAs: [tmdbUrl(tmdb), imdbUrl(tmdb)].filter(Boolean) }),
+};
+const reviewLd = {
+  '@type': 'Review',
+  ...(r.headline && { name: r.headline }),
+  ...(r.abstract && { description: r.abstract }),
+  url: r.url,
+  inLanguage: 'nb',
+  ...(r.publishedAt && { datePublished: r.publishedAt }),
+  author: BIRGER,
+  publisher: NRK,
+  itemReviewed: work,
+  ...(r.rating != null && {
+    reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 6, worstRating: 1 },
+  }),
+};
+// Many pre-2007 reviews have no headline; their opening paragraph still
+// beats the generic site blurb as a search snippet.
+const clip = (t: string, n = 155) => t.length <= n ? t : `${t.slice(0, t.lastIndexOf(' ', n - 1))} …`;
+const metaDescription = r.headline
+  ? `«${r.headline}» — Birger Vestmos anmeldelse av ${sanitizeQuotes(r.name)}`
+  : r.abstract ? clip(r.abstract) : undefined;
+
+const crumbsLd = breadcrumbs([
+  { name: 'Birgerpedia', path: '/' },
+  { name: 'Anmeldelser', path: '/reviews' },
+  { name: sanitizeQuotes(r.name), path: `/reviews/${r.slug}` },
+]);
 ---
 
 <Page
   current="reviews"
   title={`${sanitizeQuotes(r.name)} — terningkast ${r.rating ?? '—'} — Birgerpedia`}
-  description={r.headline ? `«${r.headline}» — Birger Vestmos anmeldelse av ${sanitizeQuotes(r.name)}` : undefined}
-  ogImage={r.image}
+  description={metaDescription}
+  ogImage={heroImage}
+  ogType="article"
+  jsonLd={[reviewLd, crumbsLd]}
 >
   <article class="review-page">
 

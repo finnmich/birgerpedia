@@ -1,5 +1,6 @@
 ---
 import Page from '../layouts/Page.astro';
+import { abs, SITE_NAME } from '../lib/seo';
 import Card from '../components/Card.astro';
 import Die from '../components/Die.astro';
 import Stamp from '../components/Stamp.astro';
@@ -74,7 +75,16 @@ const heroPool = heroCandidates.map((r) => ({
 const initialIdx = Math.floor(Math.random() * Math.max(1, heroPool.length));
 ---
 
-<Page current="/" ogImage="/og/home.png">
+<Page
+  current="/"
+  jsonLd={[{
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: abs('/'),
+    inLanguage: 'nb',
+    description: `Alle Birger Vestmos anmeldelser for NRK Filmpolitiet fra ${SUMMARY.yearMin} til i dag.`,
+  }]}
+>
   <!-- ============================================
        HERO
        ============================================ -->

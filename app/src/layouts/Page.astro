@@ -5,12 +5,18 @@ import Footer from '../components/Footer.astro';
 import SearchPalette from '../components/vue/SearchPalette.vue';
 import { u } from '../lib/url';
 import { SUMMARY } from '../lib/data';
+import { abs, canonicalFor, ldJson, DEFAULT_OG_IMAGE, SITE_NAME } from '../lib/seo';
 
 interface Props {
   title?: string;
   description?: string;
   current?: string;
   ogImage?: string | null;
+  ogType?: 'website' | 'article' | 'profile';
+  // schema.org nodes for this page, emitted as one JSON-LD @graph.
+  jsonLd?: object[];
+  // Keep the page out of search results (and give it no canonical).
+  noindex?: boolean;
 }
 
 const {
@@ -18,7 +24,13 @@ const {
   description = `Alle Birger Vestmos anmeldelser for NRK Filmpolitiet fra ${SUMMARY.yearMin} til i dag, samlet og søkbare.`,
   current = '',
   ogImage = null,
+  ogType = 'website',
+  jsonLd = [],
+  noindex = false,
 } = Astro.props;
+
+const canonical = canonicalFor(Astro.url.pathname);
+const image = abs(ogImage ?? DEFAULT_OG_IMAGE);
 ---
 
 <!doctype html>
@@ -31,11 +43,20 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex
+      ? <meta name="robots" content="noindex" />
+      : <link rel="canonical" href={canonical} />}
 
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="nb_NO" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:type" content={ogType} />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {jsonLd.length > 0 && <script type="application/ld+json" set:html={ldJson(jsonLd)} />}
 
     <link rel="preconnect" href="https://gfx.nrk.no" crossorigin />
 

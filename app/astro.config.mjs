@@ -56,7 +56,11 @@ export default defineConfig({
   // as a repo variable so the workflow's build step picks it up automatically.
   site: SITE ?? 'https://birgerpedia.local',
   base: BASE,
-  integrations: [vue({ jsx: false }), sitemap()],
+  integrations: [
+    vue({ jsx: false }),
+    // /random is a noindex redirect stub — keep it out of the sitemap too.
+    sitemap({ filter: (page) => !new URL(page).pathname.endsWith('/random/') }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

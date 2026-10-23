@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /random
-Sitemap: /sitemap-index.xml

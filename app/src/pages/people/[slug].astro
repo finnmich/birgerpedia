@@ -5,6 +5,7 @@ import Die from '../../components/Die.astro';
 import { eligiblePeople, findPerson, type PersonRole } from '../../lib/people';
 import { sanitizeQuotes, ratingLabel } from '../../lib/format';
 import { u } from '../../lib/url';
+import { breadcrumbs } from '../../lib/seo';
 
 export async function getStaticPaths() {
   return eligiblePeople.map((p) => ({ params: { slug: p.slug }, props: { slug: p.slug } }));
@@ -69,6 +70,17 @@ if (p.asActor)    subtitleRoles.push(`${p.asActor} ${p.asActor === 1 ? 'rolle' :
 if (p.asCinematographer) subtitleRoles.push(`${p.asCinematographer} som fotograf`);
 if (p.asComposer)        subtitleRoles.push(`${p.asComposer} som komponist`);
 if (p.asEditor)          subtitleRoles.push(`${p.asEditor} som klipper`);
+
+const personLd = {
+  '@type': 'Person',
+  name: p.name,
+  ...(p.profile && { image: p.profile }),
+};
+const crumbsLd = breadcrumbs([
+  { name: 'Birgerpedia', path: '/' },
+  { name: 'Personer', path: '/people' },
+  { name: p.name, path: `/people/${p.slug}` },
+]);
 ---
 
 <Page
@@ -76,6 +88,8 @@ if (p.asEditor)          subtitleRoles.push(`${p.asEditor} som klipper`);
   title={`${p.name} — Birgerpedia`}
   description={`Hvert av Birger Vestmos terningkast på ${p.name}: ${subtitleRoles.join(', ')}.`}
   ogImage={p.profile}
+  ogType="profile"
+  jsonLd={[personLd, crumbsLd]}
 >
   <article class="person">
     <nav class="crumbs h-eyebrow">
