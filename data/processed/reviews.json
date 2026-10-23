@@ -1,5 +1,56 @@
 [
   {
+    "id": "naza-nodt-til-a-gjore-inntrykk-1530716",
+    "url": "https://www.nrk.no/artikkel/naza-nodt-til-a-gjore-inntrykk-1530716",
+    "type": "Movie",
+    "name": "Naza",
+    "originalTitle": null,
+    "headline": "Nødt til å gjøre inntrykk",
+    "abstract": "«Naza» av regissørene Yuval Abraham og Rachel Szor er en sterk dokumentar om Israels krigføring i Gaza og den palestinske befolkningens lidelser.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-22T13:36:15.887Z",
+    "modifiedAt": "2026-10-22T13:36:15.887Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/r35tDPCx0MZzO5uMK6vgPQ6h7XPaHMP3wIgBiZIuPIcw",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Dokumentar"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "15 år",
+      "norgespremiere": "2026-10-23",
+      "norgespremiereRaw": "23. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 766
+  },
+  {
     "id": "clayface-mangler-et-bankende-hjerte-1530668",
     "url": "https://www.nrk.no/artikkel/clayface-mangler-et-bankende-hjerte-1530668",
     "type": "Movie",

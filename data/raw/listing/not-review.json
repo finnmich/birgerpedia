@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T09:00:38.159Z",
+  "updatedAt": "2026-10-23T08:55:46.949Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -640,103 +640,103 @@
     },
     "1.17231406": {
       "url": "https://www.nrk.no/filmpolitiet/_-han-er-en-stor-regissor_-1.17231406",
-      "checkedAt": "2026-10-10T10:12:55.568Z"
+      "checkedAt": "2026-10-23T08:55:22.368Z"
     },
     "1.17231439": {
       "url": "https://www.nrk.no/filmpolitiet/flyktninger-pa-film-1.17231439",
-      "checkedAt": "2026-10-10T10:12:56.573Z"
+      "checkedAt": "2026-10-23T08:55:22.967Z"
     },
     "1.17231462": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmer-om-diktatur-1.17231462",
-      "checkedAt": "2026-10-10T10:12:57.550Z"
+      "checkedAt": "2026-10-23T08:55:23.992Z"
     },
     "1.17231621": {
       "url": "https://www.nrk.no/filmpolitiet/er-dette-arets-gullpalme-vinner_-1.17231621",
-      "checkedAt": "2026-10-10T10:12:58.899Z"
+      "checkedAt": "2026-10-23T08:55:24.957Z"
     },
     "1.17231626": {
       "url": "https://www.nrk.no/filmpolitiet/fikk-ideen-til-sin-nye-film-hjemme-1.17231626",
-      "checkedAt": "2026-10-10T10:12:59.557Z"
+      "checkedAt": "2026-10-23T08:55:26.007Z"
     },
     "1.17231630": {
       "url": "https://www.nrk.no/filmpolitiet/blir-gjenkjent-som-batmans-butler-1.17231630",
-      "checkedAt": "2026-10-10T10:13:00.561Z"
+      "checkedAt": "2026-10-23T08:55:27.346Z"
     },
     "1.17231639": {
       "url": "https://www.nrk.no/filmpolitiet/_-seksualitet-er-en-privatsak-1.17231639",
-      "checkedAt": "2026-10-10T10:13:01.794Z"
+      "checkedAt": "2026-10-23T08:55:28.194Z"
     },
     "1.17231640": {
       "url": "https://www.nrk.no/filmpolitiet/ville-ikke-kommentere-buingen-1.17231640",
-      "checkedAt": "2026-10-10T10:13:02.572Z"
+      "checkedAt": "2026-10-23T08:55:28.955Z"
     },
     "1.17231641": {
       "url": "https://www.nrk.no/filmpolitiet/_-filmens-fremtid-er-pa-tv-1.17231641",
-      "checkedAt": "2026-10-10T10:13:03.528Z"
+      "checkedAt": "2026-10-23T08:55:30.281Z"
     },
     "1.17231642": {
       "url": "https://www.nrk.no/filmpolitiet/dette-er-triers-sterkeste-konkurrenter-1.17231642",
-      "checkedAt": "2026-10-10T10:13:04.809Z"
+      "checkedAt": "2026-10-23T08:55:31.175Z"
     },
     "1.17231643": {
       "url": "https://www.nrk.no/filmpolitiet/_-teateret-forandret-livet-mitt_-1.17231643",
-      "checkedAt": "2026-10-10T10:13:05.876Z"
+      "checkedAt": "2026-10-23T08:55:32.223Z"
     },
     "1.17231647": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-hadde-vaert-fint-a-ha-et-manus_-1.17231647",
-      "checkedAt": "2026-10-10T10:13:06.754Z"
+      "checkedAt": "2026-10-23T08:55:33.193Z"
     },
     "1.17231648": {
       "url": "https://www.nrk.no/filmpolitiet/kontroversiell-sexdokumentar-i-cannes-1.17231648",
-      "checkedAt": "2026-10-10T10:13:07.772Z"
+      "checkedAt": "2026-10-23T08:55:34.202Z"
     },
     "1.17231650": {
       "url": "https://www.nrk.no/filmpolitiet/_-vi-er-ikke-filmkritikere_-1.17231650",
-      "checkedAt": "2026-10-10T10:13:08.574Z"
+      "checkedAt": "2026-10-23T08:55:35.229Z"
     },
     "1.17231653": {
       "url": "https://www.nrk.no/filmpolitiet/7-cannes-filmer-a-se-opp-for-1.17231653",
-      "checkedAt": "2026-10-10T10:13:09.549Z"
+      "checkedAt": "2026-10-23T08:55:36.387Z"
     },
     "1.17231743": {
       "url": "https://www.nrk.no/filmpolitiet/verdens-toffeste-actionhelt_-1.17231743",
-      "checkedAt": "2026-10-10T10:13:10.589Z"
+      "checkedAt": "2026-10-23T08:55:36.959Z"
     },
     "1.17231933": {
       "url": "https://www.nrk.no/filmpolitiet/topp-10_-2015-filmene-vi-gleder-oss-mest-til-1.17231933",
-      "checkedAt": "2026-10-10T10:13:11.582Z"
+      "checkedAt": "2026-10-23T08:55:37.969Z"
     },
     "1.17231950": {
       "url": "https://www.nrk.no/filmpolitiet/2014_-arets-beste-filmer-1.17231950",
-      "checkedAt": "2026-10-11T10:24:35.621Z"
+      "checkedAt": "2026-10-23T08:55:40.450Z"
     },
     "1.17231978": {
       "url": "https://www.nrk.no/filmpolitiet/her-er-de-forste-bildene-fra-_star-wars_-the-force-awakens_-1.17231978",
-      "checkedAt": "2026-10-11T10:24:36.082Z"
+      "checkedAt": "2026-10-23T08:55:41.052Z"
     },
     "1.17232157": {
       "url": "https://www.nrk.no/filmpolitiet/_-sunt-med-norsk-skepsis-i-dette-oppstyret-1.17232157",
-      "checkedAt": "2026-10-11T10:24:36.836Z"
+      "checkedAt": "2026-10-23T08:55:42.015Z"
     },
     "1.17232159": {
       "url": "https://www.nrk.no/filmpolitiet/_-fortjener-oscar-for-ullmann-film_-1.17232159",
-      "checkedAt": "2026-10-11T10:24:37.984Z"
+      "checkedAt": "2026-10-23T08:55:42.891Z"
     },
     "1.11919444": {
       "url": "https://www.nrk.no/kultur/vennlig-mottagelse-av-norske-filmer-1.11919444",
-      "checkedAt": "2026-10-11T10:24:38.785Z"
+      "checkedAt": "2026-10-23T08:55:44.126Z"
     },
     "1.17232161": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-far-briste-eller-baere_-1.17232161",
-      "checkedAt": "2026-10-11T10:24:39.791Z"
+      "checkedAt": "2026-10-23T08:55:44.707Z"
     },
     "1.17232163": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-er-ikke-en-selvbiografisk-film_-1.17232163",
-      "checkedAt": "2026-10-11T10:24:40.767Z"
+      "checkedAt": "2026-10-23T08:55:45.707Z"
     },
     "1.17232263": {
       "url": "https://www.nrk.no/filmpolitiet/_--filmen-matte-bli-voldelig_-1.17232263",
-      "checkedAt": "2026-10-11T10:24:41.811Z"
+      "checkedAt": "2026-10-23T08:55:46.731Z"
     },
     "1.17232395": {
       "url": "https://www.nrk.no/filmpolitiet/kortfilmpris_-_-vant-vi_-er-det-sant_-1.17232395",

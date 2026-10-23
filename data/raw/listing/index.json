@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-22T09:00:12.070Z",
+  "fetchedAt": "2026-10-23T08:55:21.275Z",
   "pageCount": 2,
-  "pluggCount": 2974,
+  "pluggCount": 2975,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "naza-nodt-til-a-gjore-inntrykk-1530716",
+      "title": "Nødt til å gjøre inntrykk",
+      "description": "«Naza» av regissørene Yuval Abraham og Rachel Szor er en sterk dokumentar om Israels krigføring i Gaza og den palestinske befolkningens lidelser.",
+      "url": "https://www.nrk.no/artikkel/naza-nodt-til-a-gjore-inntrykk-1530716",
+      "image": null,
+      "published": "2026-10-22T13:36:15.887Z",
+      "source": "newcms"
+    },
     {
       "id": "clayface-mangler-et-bankende-hjerte-1530668",
       "title": "Mangler et bankende hjerte",
