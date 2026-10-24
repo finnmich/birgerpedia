@@ -1,5 +1,56 @@
 [
   {
+    "id": "sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
+    "url": "https://www.nrk.no/artikkel/sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
+    "type": "Movie",
+    "name": "Sangen fra skogene",
+    "originalTitle": null,
+    "headline": "Mørk, mystisk og magisk",
+    "abstract": "Den franske naturdokumentaren «Sangen fra skogene»  drar til Norge for å finne tiur.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-23T14:31:36.113Z",
+    "modifiedAt": "2026-10-23T14:31:36.113Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/UHLQCAFhAkkfOAYbbFIeRgLjcivjUlzyy1wCn-w78lDQ",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Dokumentar"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "Tillatt for alle",
+      "norgespremiere": "2026-10-23",
+      "norgespremiereRaw": "23. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 519
+  },
+  {
     "id": "naza-nodt-til-a-gjore-inntrykk-1530716",
     "url": "https://www.nrk.no/artikkel/naza-nodt-til-a-gjore-inntrykk-1530716",
     "type": "Movie",

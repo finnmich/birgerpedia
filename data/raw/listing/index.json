@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-23T08:55:21.275Z",
+  "fetchedAt": "2026-10-24T08:29:00.141Z",
   "pageCount": 2,
-  "pluggCount": 2975,
+  "pluggCount": 2976,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
+      "title": "Mørk, mystisk og magisk",
+      "description": "Den franske naturdokumentaren «Sangen fra skogene»  drar til Norge for å finne tiur.",
+      "url": "https://www.nrk.no/artikkel/sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
+      "image": null,
+      "published": "2026-10-23T14:31:36.113Z",
+      "source": "newcms"
+    },
     {
       "id": "naza-nodt-til-a-gjore-inntrykk-1530716",
       "title": "Nødt til å gjøre inntrykk",
