@@ -75,7 +75,10 @@ export default defineConfig({
   // `data-astro-prefetch="viewport"` on individual links that benefit.
   prefetch: { defaultStrategy: 'hover', prefetchAll: false },
 
-  build: { inlineStylesheets: 'auto' },
+  // Render two pages at a time — GitHub's hosted runners have 2 vCPUs. With
+  // ~11k pages this cut rendering ~15% locally; higher values gain little,
+  // since page rendering is single-threaded JS and memory use grows.
+  build: { inlineStylesheets: 'auto', concurrency: 2 },
 
   // Astro 7 changed the default to 'jsx', which strips whitespace using JSX
   // rules. That silently eats the significant space between adjacent inline
