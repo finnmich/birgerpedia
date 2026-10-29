@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-24T08:29:00.141Z",
+  "fetchedAt": "2026-10-29T10:32:53.104Z",
   "pageCount": 2,
-  "pluggCount": 2976,
+  "pluggCount": 2977,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "wildwood-episk-eventyrstund-1531158",
+      "title": "Episk eventyrstund",
+      "description": "«Wildwood» i regi av Travis Knight er ei episk eventyrstund frå stop motion-animatørene i selskapet Laika.",
+      "url": "https://www.nrk.no/artikkel/wildwood-episk-eventyrstund-1531158",
+      "image": null,
+      "published": "2026-10-28T11:48:49.318Z",
+      "source": "newcms"
+    },
     {
       "id": "sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
       "title": "Mørk, mystisk og magisk",

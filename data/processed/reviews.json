@@ -1,5 +1,57 @@
 [
   {
+    "id": "wildwood-episk-eventyrstund-1531158",
+    "url": "https://www.nrk.no/artikkel/wildwood-episk-eventyrstund-1531158",
+    "type": "Movie",
+    "name": "Wildwood",
+    "originalTitle": null,
+    "headline": "Episk eventyrstund",
+    "abstract": "«Wildwood» i regi av Travis Knight er ei episk eventyrstund frå stop motion-animatørene i selskapet Laika.",
+    "rating": 5,
+    "ratingMax": 6,
+    "publishedAt": "2026-10-28T11:48:49.318Z",
+    "modifiedAt": "2026-10-28T11:48:49.318Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/pfOUbz9cL3lDR2rIikDqXQ7WCwnkuiwwlVvPUEh9lrvg",
+    "section": null,
+    "platform": null,
+    "reviewType": "Film",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Eventyr",
+        "animasjon"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "12 år",
+      "norgespremiere": "2026-10-30",
+      "norgespremiereRaw": "30. oktober 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 630
+  },
+  {
     "id": "sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
     "url": "https://www.nrk.no/artikkel/sangen-fra-skogene-mork-mystisk-og-magisk-1530873",
     "type": "Movie",
