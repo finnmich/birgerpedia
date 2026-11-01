@@ -64,6 +64,18 @@ const links = [
       document.dispatchEvent(new CustomEvent('vmx:open-search'));
     });
   });
+
+  // Publish the header's rendered height as --vmx-header-h for anything that
+  // sticks just below it (the Indeks filter toggle). Under 760px the nav
+  // wraps onto extra rows, so a fixed offset would tuck such elements
+  // underneath the header, which paints over them.
+  const siteHeader = document.querySelector<HTMLElement>('.site-header');
+  if (siteHeader) {
+    new ResizeObserver(([entry]) => {
+      const height = entry.borderBoxSize?.[0]?.blockSize ?? siteHeader.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--vmx-header-h', `${height}px`);
+    }).observe(siteHeader, { box: 'border-box' });
+  }
 </script>
 
 <style>

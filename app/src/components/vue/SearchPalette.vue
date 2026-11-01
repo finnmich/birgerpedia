@@ -92,6 +92,10 @@ onBeforeUnmount(() => {
 });
 
 function onKeydown(e: KeyboardEvent) {
+  // A modal <dialog> (the Indeks filter drawer on narrow screens) owns the
+  // keyboard while it's open. The palette would open underneath it, inert
+  // and invisible, and only appear once the dialog closed.
+  if (document.querySelector('dialog:modal')) return;
   // Cmd-K / Ctrl-K — open globally
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
     e.preventDefault();

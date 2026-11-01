@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, watch, nextTick } from 'vue';
+import { computed, ref, onMounted, onBeforeUnmount, watch } from 'vue';
 import MiniSearch from 'minisearch';
 import Die from './Die.vue';
 import { u, dataUrl } from '../../lib/url';
@@ -284,6 +284,10 @@ function installShortcuts() {
     const target = e.target as HTMLElement;
     if (target?.matches?.('input, textarea, select') && e.key !== 'Escape') return;
 
+    // While the filter drawer is open, Escape is the <dialog>'s: it closes
+    // the drawer. It must not also wipe the filters the reader just picked.
+    if (e.key === 'Escape' && showFilters.value) return;
+
     if (e.key === '/' || e.key === 's') {
       e.preventDefault();
       searchInput.value?.focus();
@@ -369,177 +373,290 @@ const activeChips = computed<ActiveChip[]>(() => {
   return out;
 });
 
-// ---- Mobile filter drawer ----
+// ---- Filter panel: sidebar on wide screens, modal drawer on narrow ones ----
+// Under the breakpoint the panel is a <dialog> opened with showModal(). That
+// puts it in the top layer: above the sticky site header, regardless of
+// `main`'s stacking context. The page behind it goes inert, and Escape closes
+// it. It carries its own close button, so the way out never depends on where
+// the page is scrolled. The server renders the desktop <aside>; the switch
+// happens after mount, so hydration always matches the SSR markup.
+const DRAWER_QUERY = '(max-width: 980px)';   // keep in sync with the CSS below
+const drawerMode = ref(false);
 const showFilters = ref(false);
-function toggleFilters() { showFilters.value = !showFilters.value; }
+const filtersEl = ref<HTMLElement | null>(null);
+const filterToggle = ref<HTMLButtonElement | null>(null);
+const drawerClose = ref<HTMLButtonElement | null>(null);
+const resultsEl = ref<HTMLElement | null>(null);
+let drawerQuery: MediaQueryList | null = null;
+let filterKeyAtOpen = '';
+
+// Identity of the current result list, to tell whether the reader changed it
+// while the drawer was open. Sort is included because "Nullstill" resets it.
+const filterKey = computed(() =>
+  [sort.value, ...activeChips.value.map((c) => `${c.kind}:${c.label}`)].join('|'));
+
+function syncDrawerMode() {
+  const narrow = drawerQuery?.matches ?? false;
+  if (narrow === drawerMode.value) return;
+  drawerMode.value = narrow;
+  // Widening past the breakpoint (rotating a tablet, resizing a window) with
+  // the drawer open: close it so the top layer and inertness go too. Vue
+  // hasn't re-rendered yet, so filtersEl is still the dialog, and the close
+  // handler already sees that we've left drawer mode.
+  if (!narrow) closeFilters();
+}
+
+onMounted(() => {
+  drawerQuery = window.matchMedia(DRAWER_QUERY);
+  syncDrawerMode();
+  drawerQuery.addEventListener('change', syncDrawerMode);
+});
+onBeforeUnmount(() => drawerQuery?.removeEventListener('change', syncDrawerMode));
+
+function openFilters() {
+  const dialog = filtersEl.value;
+  if (!(dialog instanceof HTMLDialogElement) || dialog.open) return;
+  filterKeyAtOpen = filterKey.value;
+  dialog.showModal();
+  showFilters.value = true;
+  // Start on the close button rather than the search field: focusing an
+  // input would throw the on-screen keyboard over the filters.
+  drawerClose.value?.focus();
+}
+
+function closeFilters() {
+  const dialog = filtersEl.value;
+  if (dialog instanceof HTMLDialogElement && dialog.open) dialog.close();
+}
+
+// The dialog's `close` event fires for every way out: the buttons, Escape,
+// or closeFilters() on a breakpoint change.
+function onDrawerClose() {
+  showFilters.value = false;
+  if (!drawerMode.value) return;
+  filterToggle.value?.focus({ preventScroll: true });
+  if (filterKey.value !== filterKeyAtOpen) revealResults();
+}
+
+// New filters replace the list under the reader, so their old scroll offset
+// now points into the middle of different results (or past the end). Bring
+// the top of the results back to just below the sticky filter toggle.
+function revealResults() {
+  const results = resultsEl.value, toggle = filterToggle.value;
+  if (!results || !toggle) return;
+  const overshoot = results.getBoundingClientRect().top - toggle.getBoundingClientRect().bottom;
+  if (overshoot < 0) window.scrollBy({ top: overshoot - 12, behavior: 'instant' });
+}
 </script>
 
 <template>
-  <div class="layout" :class="{ 'filters-open': showFilters }">
-    <!-- mobile filter toggle -->
-    <button class="mobile-filter-btn" type="button" @click="toggleFilters" :aria-expanded="showFilters">
+  <div class="layout">
+    <!-- Narrow screens only: opens the filter drawer. Sticks just below the
+         site header, whose live height Header.astro publishes as
+         --vmx-header-h (the header wraps onto extra rows on phones). -->
+    <button
+      ref="filterToggle"
+      class="mobile-filter-btn"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="vmx-filters"
+      :aria-label="activeCount ? `Filtre, ${activeCount} aktive` : 'Filtre'"
+      @click="openFilters"
+    >
       <span>Filtre</span>
       <span v-if="activeCount" class="mfb-count">{{ activeCount }}</span>
-      <span class="mfb-icon" aria-hidden="true">{{ showFilters ? '×' : '☰' }}</span>
+      <span class="mfb-icon" aria-hidden="true">☰</span>
     </button>
 
-    <!-- ============= sidebar / filters ============= -->
-    <aside class="filters">
-      <div class="search">
-        <label class="h-eyebrow row-between" for="q">
-          <span>Søk</span>
-          <kbd class="kbd">/</kbd>
-        </label>
-        <div class="search-box">
-          <input
-            id="q"
-            ref="searchInput"
-            v-model="q"
-            class="field"
-            type="search"
-            placeholder="tittel, regissør, skuespiller, sjanger…"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button v-if="q" class="clear" type="button" @click="q = ''" aria-label="Tøm søk">×</button>
-        </div>
+    <!-- ============= sidebar (wide) / modal drawer (narrow) ============= -->
+    <component
+      :is="drawerMode ? 'dialog' : 'aside'"
+      id="vmx-filters"
+      ref="filtersEl"
+      :class="['filters', drawerMode ? 'filters--drawer' : 'filters--sidebar']"
+      :aria-label="drawerMode ? undefined : 'Filtre'"
+      :aria-labelledby="drawerMode ? 'vmx-filters-title' : undefined"
+      @close="onDrawerClose"
+    >
+      <div v-if="drawerMode" class="drawer-head">
+        <h2 id="vmx-filters-title" class="drawer-title h-eyebrow">
+          Filtre
+          <span v-if="activeCount" class="mfb-count">{{ activeCount }}</span>
+        </h2>
+        <button ref="drawerClose" type="button" class="drawer-close" aria-label="Lukk filtre" @click="closeFilters">
+          <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </button>
       </div>
 
-      <section>
-        <div class="h-eyebrow">Terningkast</div>
-        <div class="dice-row">
-          <button v-for="n in 6" :key="n" type="button"
-            class="die-pill" :aria-pressed="ratings.has(n)"
-            @click="toggleRating(n)">
-            <Die :value="n" :size="34" :rotate="0" variant="paper" />
-            <span class="t-meta">{{ reviews.filter(r => r.rating === n).length.toLocaleString('nb-NO') }}</span>
-          </button>
-        </div>
-      </section>
-
-      <section>
-        <div class="h-eyebrow">Type</div>
-        <div class="chip-row">
-          <button v-for="t in [['Movie','filmer'],['TVSeries','serier'],['Game','spill']]" :key="t[0]"
-            type="button" class="chip" :aria-pressed="types.has(t[0])"
-            @click="toggleType(t[0])">{{ t[1] }}</button>
-        </div>
-      </section>
-
-      <section>
-        <div class="h-eyebrow">Tiår</div>
-        <div class="chip-row">
-          <button v-for="d in allDecades" :key="d.k" type="button"
-            class="chip chip-decade" :aria-pressed="decades.has(d.k)"
-            @click="toggleDecade(d.k)">
-            <span class="dec-num">{{ d.k }}–</span>
-            <span class="n">{{ d.n }}</span>
-          </button>
-        </div>
-      </section>
-
-      <section>
-        <div class="h-eyebrow">År</div>
-        <div class="year-range">
-          <input
-            type="range" :min="yearBounds.min" :max="yearBounds.max"
-            :value="yearMin ?? yearBounds.min"
-            @input="(e: any) => yearMin = +e.target.value === yearBounds.min ? null : +e.target.value"
-            aria-label="Fra år"
-          />
-          <input
-            type="range" :min="yearBounds.min" :max="yearBounds.max"
-            :value="yearMax ?? yearBounds.max"
-            @input="(e: any) => yearMax = +e.target.value === yearBounds.max ? null : +e.target.value"
-            aria-label="Til år"
-          />
-          <div class="year-labels t-mono">
-            <span>{{ yearMin ?? yearBounds.min }}</span>
-            <span>–</span>
-            <span>{{ yearMax ?? yearBounds.max }}</span>
+      <div class="filters-body">
+        <div class="search">
+          <label class="h-eyebrow row-between" for="q">
+            <span>Søk</span>
+            <kbd class="kbd">/</kbd>
+          </label>
+          <div class="search-box">
+            <input
+              id="q"
+              ref="searchInput"
+              v-model="q"
+              class="field"
+              type="search"
+              placeholder="tittel, regissør, skuespiller, sjanger…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button v-if="q" class="clear" type="button" @click="q = ''" aria-label="Tøm søk">×</button>
           </div>
         </div>
-      </section>
 
-      <section>
-        <div class="row-between">
-          <div class="h-eyebrow">Sjanger</div>
-          <button v-if="allGenres.length > 14" type="button" class="lite-btn" @click="expandGenres = !expandGenres">
-            {{ expandGenres ? 'Færre' : `+${allGenres.length - 14}` }}
-          </button>
-        </div>
-        <div class="chip-row chip-grid">
-          <button
-            v-for="g in (expandGenres ? allGenres : allGenres.slice(0, 14))"
-            :key="g.k"
-            type="button"
-            class="chip"
-            :aria-pressed="genres.has(g.k)"
-            @click="toggleGenre(g.k)"
-          >
-            {{ g.k }} <span class="n">{{ g.n }}</span>
-          </button>
-        </div>
-      </section>
+        <section>
+          <div class="h-eyebrow">Terningkast</div>
+          <div class="dice-row">
+            <button v-for="n in 6" :key="n" type="button"
+              class="die-pill" :aria-pressed="ratings.has(n)"
+              @click="toggleRating(n)">
+              <Die :value="n" :size="34" :rotate="0" variant="paper" />
+              <span class="t-meta">{{ reviews.filter(r => r.rating === n).length.toLocaleString('nb-NO') }}</span>
+            </button>
+          </div>
+        </section>
 
-      <section>
-        <div class="h-eyebrow">Format</div>
-        <div class="chip-row">
-          <button v-for="p in allPlatforms" :key="p.k" type="button"
-            class="chip" :aria-pressed="platforms.has(p.k)" @click="togglePlatform(p.k)">
-            {{ p.k }} <span class="n">{{ p.n }}</span>
-          </button>
-        </div>
-      </section>
+        <section>
+          <div class="h-eyebrow">Type</div>
+          <div class="chip-row">
+            <button v-for="t in [['Movie','filmer'],['TVSeries','serier'],['Game','spill']]" :key="t[0]"
+              type="button" class="chip" :aria-pressed="types.has(t[0])"
+              @click="toggleType(t[0])">{{ t[1] }}</button>
+          </div>
+        </section>
 
-      <section v-if="allLanguages.length">
-        <div class="h-eyebrow">Språk</div>
-        <div class="chip-row">
-          <button v-for="l in allLanguages" :key="l.k" type="button"
-            class="chip" :aria-pressed="languages.has(l.k)" @click="toggleLanguage(l.k)">
-            {{ languageName(l.k) }} <span class="n">{{ l.n }}</span>
-          </button>
-        </div>
-      </section>
+        <section>
+          <div class="h-eyebrow">Tiår</div>
+          <div class="chip-row">
+            <button v-for="d in allDecades" :key="d.k" type="button"
+              class="chip chip-decade" :aria-pressed="decades.has(d.k)"
+              @click="toggleDecade(d.k)">
+              <span class="dec-num">{{ d.k }}–</span>
+              <span class="n">{{ d.n }}</span>
+            </button>
+          </div>
+        </section>
 
-      <section v-if="allCountries.length">
-        <div class="row-between">
-          <div class="h-eyebrow">Land</div>
-          <button v-if="allCountries.length > 12" type="button" class="lite-btn" @click="expandCountries = !expandCountries">
-            {{ expandCountries ? 'Færre' : `+${allCountries.length - 12}` }}
-          </button>
-        </div>
-        <div class="chip-row chip-grid">
-          <button
-            v-for="c in shownCountries"
-            :key="c.k"
-            type="button"
-            class="chip"
-            :aria-pressed="countries.has(c.k)"
-            @click="toggleCountry(c.k)"
-          >
-            <span aria-hidden="true">{{ c.flag }}</span> {{ c.name }} <span class="n">{{ c.n }}</span>
-          </button>
-        </div>
-      </section>
+        <section>
+          <div class="h-eyebrow">År</div>
+          <div class="year-range">
+            <input
+              type="range" :min="yearBounds.min" :max="yearBounds.max"
+              :value="yearMin ?? yearBounds.min"
+              @input="(e: any) => yearMin = +e.target.value === yearBounds.min ? null : +e.target.value"
+              aria-label="Fra år"
+            />
+            <input
+              type="range" :min="yearBounds.min" :max="yearBounds.max"
+              :value="yearMax ?? yearBounds.max"
+              @input="(e: any) => yearMax = +e.target.value === yearBounds.max ? null : +e.target.value"
+              aria-label="Til år"
+            />
+            <div class="year-labels t-mono">
+              <span>{{ yearMin ?? yearBounds.min }}</span>
+              <span>–</span>
+              <span>{{ yearMax ?? yearBounds.max }}</span>
+            </div>
+          </div>
+        </section>
 
-      <button v-if="activeCount" class="btn btn-stamp clear-all" type="button" @click="clearAll">
-        Nullstill {{ activeCount }} {{ activeCount === 1 ? 'filter' : 'filtre' }}
-      </button>
-      <button v-else class="btn" type="button" disabled>Ingen filtre aktive</button>
+        <section>
+          <div class="row-between">
+            <div class="h-eyebrow">Sjanger</div>
+            <button v-if="allGenres.length > 14" type="button" class="lite-btn" @click="expandGenres = !expandGenres">
+              {{ expandGenres ? 'Færre' : `+${allGenres.length - 14}` }}
+            </button>
+          </div>
+          <div class="chip-row chip-grid">
+            <button
+              v-for="g in (expandGenres ? allGenres : allGenres.slice(0, 14))"
+              :key="g.k"
+              type="button"
+              class="chip"
+              :aria-pressed="genres.has(g.k)"
+              @click="toggleGenre(g.k)"
+            >
+              {{ g.k }} <span class="n">{{ g.n }}</span>
+            </button>
+          </div>
+        </section>
 
-      <details class="kbd-help">
-        <summary class="h-eyebrow">Hurtigtaster</summary>
-        <ul class="kbd-list t-mono">
-          <li><kbd class="kbd">/</kbd> <span>fokus søk</span></li>
-          <li><kbd class="kbd">r</kbd> <span>tilfeldig fra treffene</span></li>
-          <li><kbd class="kbd">esc</kbd> <span>tøm filtre</span></li>
-        </ul>
-      </details>
-    </aside>
+        <section>
+          <div class="h-eyebrow">Format</div>
+          <div class="chip-row">
+            <button v-for="p in allPlatforms" :key="p.k" type="button"
+              class="chip" :aria-pressed="platforms.has(p.k)" @click="togglePlatform(p.k)">
+              {{ p.k }} <span class="n">{{ p.n }}</span>
+            </button>
+          </div>
+        </section>
+
+        <section v-if="allLanguages.length">
+          <div class="h-eyebrow">Språk</div>
+          <div class="chip-row">
+            <button v-for="l in allLanguages" :key="l.k" type="button"
+              class="chip" :aria-pressed="languages.has(l.k)" @click="toggleLanguage(l.k)">
+              {{ languageName(l.k) }} <span class="n">{{ l.n }}</span>
+            </button>
+          </div>
+        </section>
+
+        <section v-if="allCountries.length">
+          <div class="row-between">
+            <div class="h-eyebrow">Land</div>
+            <button v-if="allCountries.length > 12" type="button" class="lite-btn" @click="expandCountries = !expandCountries">
+              {{ expandCountries ? 'Færre' : `+${allCountries.length - 12}` }}
+            </button>
+          </div>
+          <div class="chip-row chip-grid">
+            <button
+              v-for="c in shownCountries"
+              :key="c.k"
+              type="button"
+              class="chip"
+              :aria-pressed="countries.has(c.k)"
+              @click="toggleCountry(c.k)"
+            >
+              <span aria-hidden="true">{{ c.flag }}</span> {{ c.name }} <span class="n">{{ c.n }}</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- The drawer has its own reset button in its footer. -->
+        <template v-if="!drawerMode">
+          <button v-if="activeCount" class="btn btn-stamp clear-all" type="button" @click="clearAll">
+            Nullstill {{ activeCount }} {{ activeCount === 1 ? 'filter' : 'filtre' }}
+          </button>
+          <button v-else class="btn" type="button" disabled>Ingen filtre aktive</button>
+        </template>
+
+        <details class="kbd-help">
+          <summary class="h-eyebrow">Hurtigtaster</summary>
+          <ul class="kbd-list t-mono">
+            <li><kbd class="kbd">/</kbd> <span>fokus søk</span></li>
+            <li><kbd class="kbd">r</kbd> <span>tilfeldig fra treffene</span></li>
+            <li><kbd class="kbd">esc</kbd> <span>{{ drawerMode ? 'lukk filtre' : 'tøm filtre' }}</span></li>
+          </ul>
+        </details>
+      </div>
+
+      <div v-if="drawerMode" class="drawer-foot">
+        <button type="button" class="btn drawer-reset" :disabled="!activeCount" @click="clearAll">Nullstill</button>
+        <button type="button" class="btn btn-stamp drawer-apply" @click="closeFilters">
+          {{ loaded ? `Vis ${filtered.length.toLocaleString('nb-NO')} treff` : 'Vis treff' }}
+        </button>
+      </div>
+    </component>
 
     <!-- ============= main grid ============= -->
-    <section class="main">
+    <section ref="resultsEl" class="main">
       <!-- Active filter chips (visible only when filters are active) -->
       <Transition name="chips">
         <div v-if="activeChips.length" class="active-chips">
@@ -669,7 +786,7 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
 .mobile-filter-btn {
   display: none;
   position: sticky;
-  top: 64px;
+  top: var(--vmx-header-h, 64px);
   z-index: 30;
   align-self: stretch;
   align-items: center;
@@ -750,19 +867,102 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
 .chips-enter-from, .chips-leave-to { opacity: 0; transform: translateY(-4px); }
 
 /* ------ filters ------ */
-.filters {
-  position: sticky;
-  top: 84px;
+.filters-body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+.filters--sidebar {
+  position: sticky;
+  top: 84px;
   max-height: calc(100dvh - 100px);
   overflow-y: auto;
   padding-right: 0.75rem;
   padding-bottom: 1rem;
 }
-.filters::-webkit-scrollbar { width: 4px; }
-.filters::-webkit-scrollbar-thumb { background: var(--color-line-dark); }
+.filters--sidebar::-webkit-scrollbar { width: 4px; }
+.filters--sidebar::-webkit-scrollbar-thumb { background: var(--color-line-dark); }
+
+/* Drawer: a full-viewport modal <dialog>. Pinned head and foot, and only the
+   body between them scrolls, so the close button is always on screen. */
+.filters--drawer {
+  /* Undo the UA's centred-box dialog styles. */
+  position: fixed;
+  inset: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--color-leader);
+  color: var(--fg);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+/* Only when open — a bare `display` here would override the UA's
+   `dialog:not([open]) { display: none }` and show the closed drawer. */
+.filters--drawer[open] {
+  display: flex;
+  flex-direction: column;
+  animation: vmx-drawer-in .3s var(--ease-paper);
+}
+.filters--drawer::backdrop { background: rgb(14 11 10 / 0.6); }
+@keyframes vmx-drawer-in {
+  from { transform: translateY(-100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .filters--drawer[open] { animation: none; }
+}
+
+.drawer-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.8rem 0.6rem 1.4rem;
+  border-bottom: 1px solid var(--color-line-dark);
+}
+.drawer-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  color: var(--color-paper);
+}
+.drawer-close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  background: transparent;
+  border: 1px solid var(--color-line-dark);
+  color: var(--color-paper);
+  cursor: pointer;
+  transition: border-color .15s ease;
+}
+.drawer-close:hover { border-color: var(--color-paper); }
+
+.filters--drawer .filters-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.4rem 1.4rem 2rem;
+}
+
+.drawer-foot {
+  flex: none;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.8rem 1.4rem calc(0.8rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--color-line-dark);
+}
+.drawer-apply { flex: 1; }
+.drawer-reset:disabled { opacity: 0.4; pointer-events: none; }
 
 .row-between { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 
@@ -1033,19 +1233,9 @@ section { display: flex; flex-direction: column; gap: 0.7rem; }
 @media (max-width: 980px) {
   .layout { grid-template-columns: 1fr; }
   .mobile-filter-btn { display: flex; }
-  .filters {
-    position: fixed;
-    inset: 0 0 0 0;
-    z-index: 25;
-    background: var(--color-leader);
-    padding: 5rem 1.4rem 2rem;
-    max-height: none;
-    overflow-y: auto;
-    transform: translateY(-100%);
-    transition: transform .3s var(--ease-paper);
-    border-bottom: 0;
-  }
-  .layout.filters-open .filters { transform: translateY(0); }
+  /* Before hydration swaps in the drawer, keep the SSR sidebar out of the
+     single-column flow. */
+  .filters--sidebar { display: none; }
   .list--list .row { grid-template-columns: 50px minmax(0, 2fr) minmax(0, 1.4fr) auto; }
   .list--list .kicker { display: none; }
 }
@@ -1055,4 +1245,15 @@ section { display: flex; flex-direction: column; gap: 0.7rem; }
   .list--list .title-text { white-space: normal; font-size: 1.05rem; }
   .active-chips { padding-block: 0.4rem 0.6rem; margin-bottom: 0.5rem; }
 }
+</style>
+
+<style>
+/* Freeze the page while the filter drawer is open. A modal dialog makes the
+   page inert but not unscrollable: without this, a swipe on the drawer's head
+   or foot, or past the end of its list, still scrolls the page underneath.
+   Set on body, not html: body's overflow propagates to the viewport, so body
+   stays a non-scroller and the sticky header and toggle keep their place.
+   (On html, body's own overflow-x: hidden would stop propagating and turn
+   body into a scroll container, unsticking them.) */
+body:has(dialog.filters--drawer[open]) { overflow: hidden; }
 </style>
