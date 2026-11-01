@@ -185,6 +185,8 @@ function trimReview(r, enr) {
     slug: slugifyForReview(r.name, r.id),
     image: r.image ?? null,
     platform: r.platform ?? null,
+    // Only the exceptions ship — ~2,600 "nb"s would just bloat the index.
+    ...(r.language && r.language !== 'nb' ? { language: r.language } : {}),
     factbox: {
       regi: fb.regi ?? t?.crew?.director?.name ?? null,
       serieskaper: fb.serieskaper ?? (t?.crew?.creators?.length ? t.crew.creators.join(', ') : null),
@@ -878,6 +880,10 @@ function computeStats(reviews, tmdb, enrichment, externalRatings) {
     countries,
     norway,
     topLanguages,
+    writtenIn: reviews
+      .filter((r) => r.language)
+      .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''))
+      .map((r) => ({ id: r.id, slug: r.slug, name: r.name, rating: r.rating, language: r.language, year: yearOf(r) })),
     lovedDirectors,
     harshDirectors,
     lovedGenres,

@@ -5,7 +5,7 @@ import Stamp from '../../components/Stamp.astro';
 import Card from '../../components/Card.astro';
 import { reviewIndex } from '../../lib/data';
 import { reviewSlug, slugify } from '../../lib/slug';
-import { formatNorwegianDate, formatRuntime, ratingLabel, sanitizeQuotes } from '../../lib/format';
+import { formatNorwegianDate, formatRuntime, languageName, ratingLabel, sanitizeQuotes } from '../../lib/format';
 import type { ReviewIndexEntry } from '../../lib/types';
 import { enrichmentFor, tmdbUrl, imdbUrl } from '../../lib/enrichment';
 import { readFileSync } from 'node:fs';
@@ -196,6 +196,7 @@ const crumbsLd = breadcrumbs([
           <div class="r-kicker h-kicker">
             {r.reviewType ?? 'Anmeldelse'}
             {r.platform && (<><span class="sep">·</span><span>{r.platform}</span></>)}
+            {r.language && r.language !== 'nb' && (<><span class="sep">·</span><span lang={r.language}>{languageName(r.language)}</span></>)}
           </div>
 
           <h1 class="r-title h-display">{sanitizeQuotes(r.name)}</h1>
@@ -205,7 +206,7 @@ const crumbsLd = breadcrumbs([
           )}
 
           {r.headline && (
-            <p class="r-headline italic">«{sanitizeQuotes(r.headline)}»</p>
+            <p class="r-headline italic" lang={r.language ?? undefined}>«{sanitizeQuotes(r.headline)}»</p>
           )}
 
           <ul class="r-credits t-mono">

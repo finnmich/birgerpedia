@@ -4,6 +4,7 @@ import MiniSearch from 'minisearch';
 import Die from './Die.vue';
 import { u, dataUrl } from '../../lib/url';
 import { countryName, countryFlag } from '../../lib/countries.mjs';
+import { languageName } from '../../lib/format';
 
 interface Review {
   id: string; url: string; type: string; name: string;
@@ -12,6 +13,7 @@ interface Review {
   image: string | null; platform: string | null;
   factbox: any;
   countries?: string[];        // ISO 3166-1 codes from TMDB (sync-data.mjs)
+  language?: string;           // only set when not bokmål (sync-data.mjs)
   year: number; decade: number; slug: string;
   no: number;                  // chronological review number, oldest = 1
 }
@@ -26,6 +28,7 @@ const types = ref<Set<string>>(new Set());
 const genres = ref<Set<string>>(new Set());
 const platforms = ref<Set<string>>(new Set());
 const countries = ref<Set<string>>(new Set());
+const languages = ref<Set<string>>(new Set());
 const decades = ref<Set<number>>(new Set());
 const yearMin = ref<number | null>(null);
 const yearMax = ref<number | null>(null);
@@ -63,7 +66,7 @@ onMounted(async () => {
 });
 
 watch(
-  [q, ratings, types, genres, platforms, countries, decades, yearMin, yearMax, sort, view],
+  [q, ratings, types, genres, platforms, countries, languages, decades, yearMin, yearMax, sort, view],
   () => { syncToUrl(); limit.value = 60; },
   { deep: true },
 );
@@ -113,6 +116,13 @@ const allPlatforms = computed(() => {
     const b = bucket(r.platform);
     m.set(b, (m.get(b) ?? 0) + 1);
   }
+  return [...m.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) => ({ k, n }));
+});
+
+// Bokmål reviews carry no language, so this lists only the exceptions.
+const allLanguages = computed(() => {
+  const m = new Map<string, number>();
+  for (const r of reviews.value) if (r.language) m.set(r.language, (m.get(r.language) ?? 0) + 1);
   return [...m.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) => ({ k, n }));
 });
 
@@ -177,6 +187,7 @@ const filtered = computed<Review[]>(() => {
   if (genres.value.size)  pool = pool.filter((r) => (r.factbox?.sjanger ?? []).some((g: string) => genres.value.has(g.toLowerCase())));
   if (platforms.value.size) pool = pool.filter((r) => platforms.value.has(bucket(r.platform)));
   if (countries.value.size) pool = pool.filter((r) => (r.countries ?? []).some((c) => countries.value.has(c)));
+  if (languages.value.size) pool = pool.filter((r) => r.language != null && languages.value.has(r.language));
   if (decades.value.size) pool = pool.filter((r) => decades.value.has(r.decade));
   if (yearMin.value != null) pool = pool.filter((r) => r.year >= yearMin.value!);
   if (yearMax.value != null) pool = pool.filter((r) => r.year <= yearMax.value!);
@@ -201,6 +212,7 @@ const activeCount = computed(() =>
   genres.value.size +
   platforms.value.size +
   countries.value.size +
+  languages.value.size +
   decades.value.size +
   (q.value.trim() ? 1 : 0) +
   (yearMin.value != null ? 1 : 0) +
@@ -219,6 +231,7 @@ function toggleType(t: string)   { types.value   = toggleSet(types.value, t); }
 function toggleGenre(g: string)  { genres.value  = toggleSet(genres.value, g); }
 function togglePlatform(p: string) { platforms.value = toggleSet(platforms.value, p); }
 function toggleCountry(c: string) { countries.value = toggleSet(countries.value, c); }
+function toggleLanguage(l: string) { languages.value = toggleSet(languages.value, l); }
 function toggleDecade(d: number) { decades.value = toggleSet(decades.value, d); }
 
 function clearAll() {
@@ -228,6 +241,7 @@ function clearAll() {
   genres.value = new Set();
   platforms.value = new Set();
   countries.value = new Set();
+  languages.value = new Set();
   decades.value = new Set();
   yearMin.value = null;
   yearMax.value = null;
@@ -303,6 +317,7 @@ function syncToUrl() {
   if (genres.value.size)  p.set('g', [...genres.value].join(','));
   if (platforms.value.size) p.set('p', [...platforms.value].join(','));
   if (countries.value.size) p.set('c', [...countries.value].join(','));
+  if (languages.value.size) p.set('l', [...languages.value].join(','));
   if (decades.value.size) p.set('d', [...decades.value].sort().join(','));
   if (yearMin.value != null) p.set('y0', String(yearMin.value));
   if (yearMax.value != null) p.set('y1', String(yearMax.value));
@@ -321,6 +336,7 @@ function hydrateFromUrl() {
   genres.value  = new Set((p.get('g') ?? '').split(',').filter(Boolean));
   platforms.value = new Set((p.get('p') ?? '').split(',').filter(Boolean));
   countries.value = new Set((p.get('c') ?? '').toUpperCase().split(',').filter(Boolean));
+  languages.value = new Set((p.get('l') ?? '').split(',').filter(Boolean));
   decades.value = new Set((p.get('d') ?? '').split(',').filter(Boolean).map(Number));
   const y0 = p.get('y0'); const y1 = p.get('y1');
   yearMin.value = y0 ? Number(y0) : null;
@@ -346,6 +362,7 @@ const activeChips = computed<ActiveChip[]>(() => {
   for (const d of decades.value) out.push({ kind: 'decade', label: `${d}-tallet`, remove: () => toggleDecade(d) });
   for (const g of genres.value) out.push({ kind: 'genre', label: g, remove: () => toggleGenre(g) });
   for (const p of platforms.value) out.push({ kind: 'platform', label: p, remove: () => togglePlatform(p) });
+  for (const l of languages.value) out.push({ kind: 'language', label: languageName(l), remove: () => toggleLanguage(l) });
   for (const c of countries.value) out.push({ kind: 'country', label: `${countryFlag(c)} ${countryName(c)}`.trim(), remove: () => toggleCountry(c) });
   if (yearMin.value != null) out.push({ kind: 'year', label: `≥ ${yearMin.value}`, remove: () => { yearMin.value = null; } });
   if (yearMax.value != null) out.push({ kind: 'year', label: `≤ ${yearMax.value}`, remove: () => { yearMax.value = null; } });
@@ -471,6 +488,16 @@ function toggleFilters() { showFilters.value = !showFilters.value; }
           <button v-for="p in allPlatforms" :key="p.k" type="button"
             class="chip" :aria-pressed="platforms.has(p.k)" @click="togglePlatform(p.k)">
             {{ p.k }} <span class="n">{{ p.n }}</span>
+          </button>
+        </div>
+      </section>
+
+      <section v-if="allLanguages.length">
+        <div class="h-eyebrow">Språk</div>
+        <div class="chip-row">
+          <button v-for="l in allLanguages" :key="l.k" type="button"
+            class="chip" :aria-pressed="languages.has(l.k)" @click="toggleLanguage(l.k)">
+            {{ languageName(l.k) }} <span class="n">{{ l.n }}</span>
           </button>
         </div>
       </section>

@@ -29,6 +29,20 @@ export function pad(n: number, width = 4): string {
   return String(n).padStart(width, '0');
 }
 
+// Written language of a review (Review.language, a primary subtag). Bokmål
+// is the default and never labelled; these are the exceptions.
+const LANGUAGE_NAMES: Record<string, string> = {
+  nb: 'bokmål',
+  nn: 'nynorsk',
+  sme: 'nordsamisk',
+  en: 'engelsk',
+};
+
+export function languageName(code: string | null | undefined): string {
+  if (!code) return '';
+  return LANGUAGE_NAMES[code] ?? code;
+}
+
 export function pluralize(n: number, one: string, many: string): string {
   return `${n.toLocaleString('nb-NO')} ${n === 1 ? one : many}`;
 }

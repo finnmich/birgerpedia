@@ -64,6 +64,7 @@ export interface Review {
   section: string | null;
   platform: string | null;               // Kino | Netflix | distributor
   reviewType: string | null;             // Film | Serie | Spill
+  language?: string | null;              // nb | nn | sme | … (unset on Wayback-era records)
   factbox: Factbox;
   wordCount: number;
   legacy?: LegacySource;

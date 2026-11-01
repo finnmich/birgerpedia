@@ -3,6 +3,7 @@ import { computed, onMounted, ref, h, defineComponent } from 'vue';
 import Die from './Die.vue';
 import { u, dataUrl } from '../../lib/url';
 import { countryName, countryFlag } from '../../lib/countries.mjs';
+import { languageName } from '../../lib/format';
 
 // Tiny inline avatar helper to keep the template tidy (no separate file).
 const PersonAvatar = defineComponent({
@@ -80,6 +81,8 @@ interface Stats {
     perYear: { year: number; no: RatingSummary; other: RatingSummary }[];
   };
   topLanguages: NamedRow[];
+  // Reviews NRK tags as written in something other than bokmål
+  writtenIn: { id: string; slug: string; name: string; rating: number | null; language: string; year: number }[];
   lovedDirectors: DirectorRow[];
   harshDirectors: DirectorRow[];
   lovedGenres: NamedRow[];
@@ -873,6 +876,27 @@ const wordsByRating = computed(() => {
           </ol>
         </div>
       </div>
+    </section>
+
+    <!-- ============== Written language (målform) ============== -->
+    <section v-if="stats.writtenIn?.length" class="card">
+      <header class="card-head">
+        <div class="h-eyebrow">Målform</div>
+        <h2 class="card-title">Når Birger ikke skriver bokmål</h2>
+        <p class="card-lede italic">
+          Nesten alt er på bokmål. Dette er unntakene, ifølge NRKs egen språkmerking
+          (som mangler for anmeldelsene fra 2000–2006).
+        </p>
+      </header>
+      <ol class="rank-list mini">
+        <li v-for="r in stats.writtenIn" :key="r.id">
+          <a class="rank-name" :href="u(`/reviews/${r.slug}`)">{{ r.name }}</a>
+          <span class="t-mono" :lang="r.language">{{ languageName(r.language) }}</span>
+          <span class="t-mono badge" :class="avgClass(r.rating)">{{ r.rating ?? '—' }}</span>
+          <span class="t-mono n">{{ r.year }}</span>
+        </li>
+      </ol>
+      <a class="dec-link" :href="u(`/reviews?l=${[...new Set(stats.writtenIn.map((r) => r.language))].join(',')}`)">Se dem i indeksen →</a>
     </section>
 
     <!-- ============== Birger vs the world — cross-source bucket comparison ============== -->
