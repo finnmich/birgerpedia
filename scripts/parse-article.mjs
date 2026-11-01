@@ -129,6 +129,7 @@ export function parseArticle(html, { url, id } = {}) {
 
     platform: reviewInfo.platformLine ?? newcms.platform ?? null, // Kino, Netflix, HBO, Viaplay, …
     reviewType: reviewInfo.reviewType ?? reviewTypeFromItemType(itemReviewed['@type']),
+    language: pickLanguage(ld, html),             // nb | nn | sme | en | …
 
     bodyText: body.text,
     wordCount: body.wordCount,
@@ -216,6 +217,14 @@ function extractLegacyReview(html, meta, url) {
     };
   }
   return null;
+}
+
+// The written language of the article: JSON-LD inLanguage, else <html lang>.
+// Reduced to the primary subtag — "nb-NO" → "nb", "nn-NO" → "nn", "sme".
+// Almost everything is bokmål; a handful are nynorsk or Northern Sámi.
+function pickLanguage(ld, html) {
+  const tag = ld.inLanguage ?? html.match(/<html\b[^>]*\blang=["']([^"']+)["']/i)?.[1];
+  return typeof tag === 'string' && tag ? tag.split('-')[0].toLowerCase() : null;
 }
 
 function extractMetaTags(html) {
@@ -398,8 +407,17 @@ function extractNewCmsMeta(html) {
     const v = m ? decodeEntities(m[1]).trim() : '';
     return v || null;
   };
+  // Since ~autumn 2026 the blob is gone; the header's definition list
+  //   <dt …>Plattform</dt><dd …>Kino</dd>
+  // is the only place the platform appears.
+  const header = {};
+  for (const m of html.matchAll(/<dt\b[^>]*>(.*?)<\/dt>\s*<dd\b[^>]*>(.*?)<\/dd>/gs)) {
+    const k = decodeEntities(m[1].replace(/<[^>]+>/g, '')).trim();
+    const v = decodeEntities(m[2].replace(/<[^>]+>/g, '')).trim();
+    if (k && v) header[k] ??= v;
+  }
   return {
-    platform: pick('platform'),
+    platform: pick('platform') ?? header.Plattform ?? null,
     originalTitle: pick('originalTitle'),
   };
 }

@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-10-31T10:02:03.492Z",
+  "builtAt": "2026-11-01T09:51:58.577Z",
   "total": 3252,
   "droppedNonBirgerOrInvalid": 2,
   "byType": {
@@ -18,10 +18,10 @@
   },
   "byPlatform": {
     "2008": 2,
-    "∅": 721,
+    "∅": 703,
     "United International Pictures": 216,
     "SF Studios": 148,
-    "Kino": 125,
+    "Kino": 143,
     "Norsk Filmdistribusjon": 116,
     "Arthaus": 99,
     "Nordisk Film Distribusjon AS": 99,

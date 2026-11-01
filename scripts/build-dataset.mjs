@@ -59,6 +59,7 @@ function slim(r) {
     section: r.section,
     platform: r.platform,
     reviewType: r.reviewType,
+    language: r.language ?? null,
     factbox: r.factbox,
     wordCount: r.wordCount,
   };
