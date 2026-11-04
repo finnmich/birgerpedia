@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T11:27:55.552Z",
+  "updatedAt": "2026-11-04T11:43:17.264Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -472,103 +472,103 @@
     },
     "1.17230490": {
       "url": "https://www.nrk.no/filmpolitiet/_-ser-meg-selv-i-rubens-filmer-1.17230490",
-      "checkedAt": "2026-10-21T08:58:07.652Z"
+      "checkedAt": "2026-11-04T11:42:52.939Z"
     },
     "1.17230493": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-matte-lage-denne-filmen_-1.17230493",
-      "checkedAt": "2026-10-21T08:58:08.672Z"
+      "checkedAt": "2026-11-04T11:42:54.039Z"
     },
     "1.17230494": {
       "url": "https://www.nrk.no/filmpolitiet/skandalevisning-i-cannes-1.17230494",
-      "checkedAt": "2026-10-21T08:58:09.623Z"
+      "checkedAt": "2026-11-04T11:42:54.889Z"
     },
     "1.13523419": {
       "url": "https://www.nrk.no/kultur/netflix_-premierefilm-buet-ut-under-filmfestivalen-i-cannes-1.13523419",
-      "checkedAt": "2026-10-21T08:58:10.773Z"
+      "checkedAt": "2026-11-04T11:42:56.285Z"
     },
     "1.17230497": {
       "url": "https://www.nrk.no/filmpolitiet/russisk-suksess-i-cannes-1.17230497",
-      "checkedAt": "2026-10-21T08:58:11.633Z"
+      "checkedAt": "2026-11-04T11:42:57.228Z"
     },
     "1.17230504": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-en-liste-over-de-jeg-ikke-liker-1.17230504",
-      "checkedAt": "2026-10-21T08:58:12.342Z"
+      "checkedAt": "2026-11-04T11:42:58.144Z"
     },
     "1.17230506": {
       "url": "https://www.nrk.no/filmpolitiet/firedobbel-nicole-kidman-i-cannes-1.17230506",
-      "checkedAt": "2026-10-21T08:58:13.601Z"
+      "checkedAt": "2026-11-04T11:42:58.983Z"
     },
     "1.17230509": {
       "url": "https://www.nrk.no/filmpolitiet/_-han-er-et-spesielt-beist_-1.17230509",
-      "checkedAt": "2026-10-21T08:58:14.416Z"
+      "checkedAt": "2026-11-04T11:42:59.888Z"
     },
     "1.17230540": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-banker-i-bordet-1.17230540",
-      "checkedAt": "2026-10-21T08:58:15.362Z"
+      "checkedAt": "2026-11-04T11:43:01.118Z"
     },
     "1.17230630": {
       "url": "https://www.nrk.no/filmpolitiet/_-dette-er-ikke-min-familie-1.17230630",
-      "checkedAt": "2026-10-21T08:58:16.426Z"
+      "checkedAt": "2026-11-04T11:43:01.904Z"
     },
     "1.17230645": {
       "url": "https://www.nrk.no/filmpolitiet/_la-la-land_-blir-beste-film-1.17230645",
-      "checkedAt": "2026-10-21T08:58:17.624Z"
+      "checkedAt": "2026-11-04T11:43:03.217Z"
     },
     "1.17230676": {
       "url": "https://www.nrk.no/filmpolitiet/forelsket-seg-i-alene-hjemme-1.17230676",
-      "checkedAt": "2026-10-21T08:58:18.609Z"
+      "checkedAt": "2026-11-04T11:43:03.894Z"
     },
     "1.17230677": {
       "url": "https://www.nrk.no/filmpolitiet/_-var-redd-for-a-bli-slaktet-1.17230677",
-      "checkedAt": "2026-10-21T08:58:19.375Z"
+      "checkedAt": "2026-11-04T11:43:05.081Z"
     },
     "1.17230680": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-rive-ned-murer-1.17230680",
-      "checkedAt": "2026-10-21T08:58:20.384Z"
+      "checkedAt": "2026-11-04T11:43:05.913Z"
     },
     "1.17230683": {
       "url": "https://www.nrk.no/filmpolitiet/politisk-ladet-apning-i-berlin-1.17230683",
-      "checkedAt": "2026-10-21T08:58:21.404Z"
+      "checkedAt": "2026-11-04T11:43:06.847Z"
     },
     "1.17230710": {
       "url": "https://www.nrk.no/filmpolitiet/godt-norsk-pa-tiff-1.17230710",
-      "checkedAt": "2026-10-21T08:58:22.391Z"
+      "checkedAt": "2026-11-04T11:43:08.118Z"
     },
     "1.17230726": {
       "url": "https://www.nrk.no/filmpolitiet/disse-vinner-golden-globe-i-natt-1.17230726",
-      "checkedAt": "2026-10-21T08:58:23.964Z"
+      "checkedAt": "2026-11-04T11:43:09.489Z"
     },
     "1.17230742": {
       "url": "https://www.nrk.no/filmpolitiet/topp-10_-filmene-vi-gleder-oss-til-i-2017-1.17230742",
-      "checkedAt": "2026-10-22T09:00:13.686Z"
+      "checkedAt": "2026-11-04T11:43:09.856Z"
     },
     "1.17230748": {
       "url": "https://www.nrk.no/filmpolitiet/2016_-arets-beste-filmer-1.17230748",
-      "checkedAt": "2026-10-22T09:00:14.678Z"
+      "checkedAt": "2026-11-04T11:43:10.960Z"
     },
     "1.17230818": {
       "url": "https://www.nrk.no/filmpolitiet/_-dorene-i-hollywood-er-apnet-videre-na-1.17230818",
-      "checkedAt": "2026-10-22T09:00:15.662Z"
+      "checkedAt": "2026-11-04T11:43:12.104Z"
     },
     "1.17230913": {
       "url": "https://www.nrk.no/filmpolitiet/6-filmer-som-redder-verden.-litt.-1.17230913",
-      "checkedAt": "2026-10-22T09:00:16.914Z"
+      "checkedAt": "2026-11-04T11:43:12.897Z"
     },
     "1.17230988": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-elsker-a-fortelle-historier-1.17230988",
-      "checkedAt": "2026-10-22T09:00:17.644Z"
+      "checkedAt": "2026-11-04T11:43:13.902Z"
     },
     "1.17231004": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-apenbart-gjort-noe-riktig-1.17231004",
-      "checkedAt": "2026-10-22T09:00:18.779Z"
+      "checkedAt": "2026-11-04T11:43:15.074Z"
     },
     "1.17231024": {
       "url": "https://www.nrk.no/filmpolitiet/ingen-pris-til-den-beste-filmen-1.17231024",
-      "checkedAt": "2026-10-22T09:00:19.894Z"
+      "checkedAt": "2026-11-04T11:43:15.853Z"
     },
     "1.17231025": {
       "url": "https://www.nrk.no/filmpolitiet/dromte-om-a-vaere-16-arig-jente-1.17231025",
-      "checkedAt": "2026-10-22T09:00:20.661Z"
+      "checkedAt": "2026-11-04T11:43:17.050Z"
     },
     "1.17231031": {
       "url": "https://www.nrk.no/filmpolitiet/var-pa-syre-i-flere-filmklipp-1.17231031",

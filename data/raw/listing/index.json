@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-10-29T10:32:53.104Z",
+  "fetchedAt": "2026-11-04T11:42:52.322Z",
   "pageCount": 2,
-  "pluggCount": 2977,
+  "pluggCount": 2978,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "julenissens-verksted-sjarmerande-eventyrspenning-1531569",
+      "title": "Sjarmerande eventyrspenning",
+      "description": "Den animerte barnefilmen «Julenissens verksted», basert på eit høyrespel av Thorbjørn Egner, er fin eventyrspenning med lun forteljarglede.",
+      "url": "https://www.nrk.no/artikkel/julenissens-verksted-sjarmerande-eventyrspenning-1531569",
+      "image": null,
+      "published": "2026-11-03T12:36:21.570Z",
+      "source": "newcms"
+    },
     {
       "id": "wildwood-episk-eventyrstund-1531158",
       "title": "Episk eventyrstund",
