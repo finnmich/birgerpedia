@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T11:43:17.264Z",
+  "updatedAt": "2026-11-05T11:42:38.015Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -572,103 +572,103 @@
     },
     "1.17231031": {
       "url": "https://www.nrk.no/filmpolitiet/var-pa-syre-i-flere-filmklipp-1.17231031",
-      "checkedAt": "2026-10-22T09:00:21.665Z"
+      "checkedAt": "2026-11-05T11:42:13.518Z"
     },
     "1.17231034": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-handler-om-a-ta-sjanser-1.17231034",
-      "checkedAt": "2026-10-22T09:00:22.655Z"
+      "checkedAt": "2026-11-05T11:42:14.343Z"
     },
     "1.17231037": {
       "url": "https://www.nrk.no/filmpolitiet/_-dette-er-ikke-typen-film-man-gjor-veldig-mye-research-for-1.17231037",
-      "checkedAt": "2026-10-22T09:00:23.618Z"
+      "checkedAt": "2026-11-05T11:42:15.157Z"
     },
     "1.17231039": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-er-mye-mere-glam_-1.17231039",
-      "checkedAt": "2026-10-22T09:00:24.928Z"
+      "checkedAt": "2026-11-05T11:42:16.427Z"
     },
     "1.17231040": {
       "url": "https://www.nrk.no/filmpolitiet/disse-kan-vinne-gullpalmen-1.17231040",
-      "checkedAt": "2026-10-22T09:00:25.840Z"
+      "checkedAt": "2026-11-05T11:42:17.443Z"
     },
     "1.17231042": {
       "url": "https://www.nrk.no/filmpolitiet/_-han-er-sin-egen-sjanger_-1.17231042",
-      "checkedAt": "2026-10-22T09:00:26.655Z"
+      "checkedAt": "2026-11-05T11:42:18.461Z"
     },
     "1.17231044": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-lage-filmer-resten-av-livet_-1.17231044",
-      "checkedAt": "2026-10-22T09:00:27.868Z"
+      "checkedAt": "2026-11-05T11:42:19.372Z"
     },
     "1.17231046": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-burde-gjore-deg-sint_-1.17231046",
-      "checkedAt": "2026-10-22T09:00:28.649Z"
+      "checkedAt": "2026-11-05T11:42:20.397Z"
     },
     "1.17231050": {
       "url": "https://www.nrk.no/filmpolitiet/_-det-blir-ikke-en-president-trump_-1.17231050",
-      "checkedAt": "2026-10-22T09:00:29.875Z"
+      "checkedAt": "2026-11-05T11:42:21.422Z"
     },
     "1.17231057": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-vil-ikke-konkurrere-1.17231057",
-      "checkedAt": "2026-10-22T09:00:30.840Z"
+      "checkedAt": "2026-11-05T11:42:22.359Z"
     },
     "1.17231060": {
       "url": "https://www.nrk.no/filmpolitiet/festival-for-gamle-menn-1.17231060",
-      "checkedAt": "2026-10-22T09:00:31.820Z"
+      "checkedAt": "2026-11-05T11:42:23.397Z"
     },
     "1.17231124": {
       "url": "https://www.nrk.no/filmpolitiet/filmpolitiets-tv-paske-1.17231124",
-      "checkedAt": "2026-10-22T09:00:33.101Z"
+      "checkedAt": "2026-11-05T11:42:24.827Z"
     },
     "1.17231156": {
       "url": "https://www.nrk.no/filmpolitiet/endelig-oscar-til-leo-1.17231156",
-      "checkedAt": "2026-10-22T09:00:34.297Z"
+      "checkedAt": "2026-11-05T11:42:25.919Z"
     },
     "1.17231157": {
       "url": "https://www.nrk.no/filmpolitiet/disse-vinner-oscar-i-ar-1.17231157",
-      "checkedAt": "2026-10-22T09:00:34.953Z"
+      "checkedAt": "2026-11-05T11:42:26.499Z"
     },
     "1.17231251": {
       "url": "https://www.nrk.no/filmpolitiet/disse-vinner-golden-globe-i-natt-1.17231251",
-      "checkedAt": "2026-10-22T09:00:36.512Z"
+      "checkedAt": "2026-11-05T11:42:28.362Z"
     },
     "1.17231261": {
       "url": "https://www.nrk.no/filmpolitiet/topp-10_-filmene-vi-gleder-oss-til-i-2016-1.17231261",
-      "checkedAt": "2026-10-22T09:00:36.784Z"
+      "checkedAt": "2026-11-05T11:42:29.075Z"
     },
     "1.17231374": {
       "url": "https://www.nrk.no/filmpolitiet/_star-wars_-har-blitt-myte-1.17231374",
-      "checkedAt": "2026-10-22T09:00:37.958Z"
+      "checkedAt": "2026-11-05T11:42:29.814Z"
     },
     "1.17231406": {
       "url": "https://www.nrk.no/filmpolitiet/_-han-er-en-stor-regissor_-1.17231406",
-      "checkedAt": "2026-10-23T08:55:22.368Z"
+      "checkedAt": "2026-11-05T11:42:30.614Z"
     },
     "1.17231439": {
       "url": "https://www.nrk.no/filmpolitiet/flyktninger-pa-film-1.17231439",
-      "checkedAt": "2026-10-23T08:55:22.967Z"
+      "checkedAt": "2026-11-05T11:42:31.601Z"
     },
     "1.17231462": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmer-om-diktatur-1.17231462",
-      "checkedAt": "2026-10-23T08:55:23.992Z"
+      "checkedAt": "2026-11-05T11:42:32.596Z"
     },
     "1.17231621": {
       "url": "https://www.nrk.no/filmpolitiet/er-dette-arets-gullpalme-vinner_-1.17231621",
-      "checkedAt": "2026-10-23T08:55:24.957Z"
+      "checkedAt": "2026-11-05T11:42:33.958Z"
     },
     "1.17231626": {
       "url": "https://www.nrk.no/filmpolitiet/fikk-ideen-til-sin-nye-film-hjemme-1.17231626",
-      "checkedAt": "2026-10-23T08:55:26.007Z"
+      "checkedAt": "2026-11-05T11:42:34.822Z"
     },
     "1.17231630": {
       "url": "https://www.nrk.no/filmpolitiet/blir-gjenkjent-som-batmans-butler-1.17231630",
-      "checkedAt": "2026-10-23T08:55:27.346Z"
+      "checkedAt": "2026-11-05T11:42:36.133Z"
     },
     "1.17231639": {
       "url": "https://www.nrk.no/filmpolitiet/_-seksualitet-er-en-privatsak-1.17231639",
-      "checkedAt": "2026-10-23T08:55:28.194Z"
+      "checkedAt": "2026-11-05T11:42:36.885Z"
     },
     "1.17231640": {
       "url": "https://www.nrk.no/filmpolitiet/ville-ikke-kommentere-buingen-1.17231640",
-      "checkedAt": "2026-10-23T08:55:28.955Z"
+      "checkedAt": "2026-11-05T11:42:37.802Z"
     },
     "1.17231641": {
       "url": "https://www.nrk.no/filmpolitiet/_-filmens-fremtid-er-pa-tv-1.17231641",
