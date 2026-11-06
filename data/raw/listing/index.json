@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-04T11:42:52.322Z",
+  "fetchedAt": "2026-11-06T11:40:47.707Z",
   "pageCount": 2,
-  "pluggCount": 2978,
+  "pluggCount": 2979,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "godzilla-minus-zero-megaloman-monsterfilm-1532199",
+      "title": "Megaloman monsterfilm",
+      "description": "Monsterfilmen «Godzilla Minus Zero» av regissør Takashi Yamazaki er ein god oppfølgjar til «Godzilla Minus One»",
+      "url": "https://www.nrk.no/artikkel/godzilla-minus-zero-megaloman-monsterfilm-1532199",
+      "image": null,
+      "published": "2026-11-05T12:12:49.901Z",
+      "source": "newcms"
+    },
     {
       "id": "julenissens-verksted-sjarmerande-eventyrspenning-1531569",
       "title": "Sjarmerande eventyrspenning",
