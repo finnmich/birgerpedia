@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T10:46:35.829Z",
+  "updatedAt": "2026-11-08T10:52:08.544Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -876,103 +876,103 @@
     },
     "1.17233628": {
       "url": "https://www.nrk.no/filmpolitiet/festen-1.17233628",
-      "checkedAt": "2026-10-25T08:48:07.751Z"
+      "checkedAt": "2026-11-08T10:51:44.716Z"
     },
     "1.17233661": {
       "url": "https://www.nrk.no/filmpolitiet/dette-er-de-beste-cannes-filmene_-1.17233661",
-      "checkedAt": "2026-10-25T08:48:08.453Z"
+      "checkedAt": "2026-11-08T10:51:45.069Z"
     },
     "1.17233669": {
       "url": "https://www.nrk.no/filmpolitiet/dod-sno-zombier-fenger-cannes-1.17233669",
-      "checkedAt": "2026-10-25T08:48:09.129Z"
+      "checkedAt": "2026-11-08T10:51:46.708Z"
     },
     "1.17233670": {
       "url": "https://www.nrk.no/filmpolitiet/skal-lage-norsk-black-metal-thriller-1.17233670",
-      "checkedAt": "2026-10-25T08:48:10.337Z"
+      "checkedAt": "2026-11-08T10:51:47.188Z"
     },
     "1.17233676": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-er-den-moderne-h.c.-andersen_-1.17233676",
-      "checkedAt": "2026-10-25T08:48:11.176Z"
+      "checkedAt": "2026-11-08T10:51:48.514Z"
     },
     "1.17233679": {
       "url": "https://www.nrk.no/filmpolitiet/_-endelig_-sporsmalet-jeg-har-ventet-pa_-1.17233679",
-      "checkedAt": "2026-10-25T08:48:12.444Z"
+      "checkedAt": "2026-11-08T10:51:49.291Z"
     },
     "1.17233681": {
       "url": "https://www.nrk.no/filmpolitiet/_-vi-ler-hele-tiden_-1.17233681",
-      "checkedAt": "2026-10-25T08:48:13.181Z"
+      "checkedAt": "2026-11-08T10:51:50.202Z"
     },
     "1.17233684": {
       "url": "https://www.nrk.no/filmpolitiet/_-dette-er-min-mest-personlige-film-1.17233684",
-      "checkedAt": "2026-10-25T08:48:14.459Z"
+      "checkedAt": "2026-11-08T10:51:51.029Z"
     },
     "1.11032890": {
       "url": "https://www.nrk.no/tromsogfinnmark/dette-ble-for-mye-for-fransk-politi-1.11032890",
-      "checkedAt": "2026-10-25T08:48:15.234Z"
+      "checkedAt": "2026-11-08T10:51:52.065Z"
     },
     "1.17233690": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-forsoker-ikke-a-romme-fra-harry-potter_-1.17233690",
-      "checkedAt": "2026-10-25T08:48:16.180Z"
+      "checkedAt": "2026-11-08T10:51:53.436Z"
     },
     "1.17233695": {
       "url": "https://www.nrk.no/filmpolitiet/oppdaget-sin-neste-film-pa-tog-i-sibir-1.17233695",
-      "checkedAt": "2026-10-25T08:48:17.245Z"
+      "checkedAt": "2026-11-08T10:51:54.152Z"
     },
     "1.17233699": {
       "url": "https://www.nrk.no/filmpolitiet/den-rode-loperen-er-klar-for-leo_-1.17233699",
-      "checkedAt": "2026-10-25T08:48:18.590Z"
+      "checkedAt": "2026-11-08T10:51:55.504Z"
     },
     "1.17233730": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-levande-bilar-1.17233730",
-      "checkedAt": "2026-10-25T08:48:19.584Z"
+      "checkedAt": "2026-11-08T10:51:56.334Z"
     },
     "1.17233795": {
       "url": "https://www.nrk.no/filmpolitiet/her-er-arets-cannes-filmer_-1.17233795",
-      "checkedAt": "2026-10-25T08:48:20.400Z"
+      "checkedAt": "2026-11-08T10:51:57.219Z"
     },
     "1.17233812": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-zombiefilmer-1.17233812",
-      "checkedAt": "2026-10-25T08:48:21.177Z"
+      "checkedAt": "2026-11-08T10:51:58.039Z"
     },
     "1.17233921": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-disneyfilmer-vi-vil-se-i-nye-versjoner-1.17233921",
-      "checkedAt": "2026-10-25T08:48:22.181Z"
+      "checkedAt": "2026-11-08T10:51:59.218Z"
     },
     "1.17233969": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-tom-hanks-1.17233969",
-      "checkedAt": "2026-10-25T08:48:23.530Z"
+      "checkedAt": "2026-11-08T10:52:00.014Z"
     },
     "1.17233995": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-arnold-oneliners-1.17233995",
-      "checkedAt": "2026-10-26T09:28:06.722Z"
+      "checkedAt": "2026-11-08T10:52:01.047Z"
     },
     "1.17234025": {
       "url": "https://www.nrk.no/filmpolitiet/disse-filmene-vinner-oscar_-1.17234025",
-      "checkedAt": "2026-10-26T09:28:08.092Z"
+      "checkedAt": "2026-11-08T10:52:02.055Z"
     },
     "1.17234169": {
       "url": "https://www.nrk.no/filmpolitiet/vil-endre-svenskenes-nasjonale-identitet-1.17234169",
-      "checkedAt": "2026-10-26T09:28:08.299Z"
+      "checkedAt": "2026-11-08T10:52:03.014Z"
     },
     "1.17234172": {
       "url": "https://www.nrk.no/filmpolitiet/_-aeresdrap-fra-et-annet-perspektiv-1.17234172",
-      "checkedAt": "2026-10-26T09:28:09.309Z"
+      "checkedAt": "2026-11-08T10:52:04.039Z"
     },
     "1.17234203": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-tom-cruise-1.17234203",
-      "checkedAt": "2026-10-26T09:28:10.313Z"
+      "checkedAt": "2026-11-08T10:52:05.441Z"
     },
     "1.17234405": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-gangsterfilmer-1.17234405",
-      "checkedAt": "2026-10-26T09:28:11.263Z"
+      "checkedAt": "2026-11-08T10:52:06.259Z"
     },
     "1.17234573": {
       "url": "https://www.nrk.no/filmpolitiet/se-traileren-til-tommy-wirkolas-hollywood-film_-1.17234573",
-      "checkedAt": "2026-10-26T09:28:12.310Z"
+      "checkedAt": "2026-11-08T10:52:07.044Z"
     },
     "1.17234594": {
       "url": "https://www.nrk.no/filmpolitiet/hva-kan-disse-kjekkasene-fa-til-sammen_-1.17234594",
-      "checkedAt": "2026-10-26T09:28:13.306Z"
+      "checkedAt": "2026-11-08T10:52:08.435Z"
     },
     "1.17234616": {
       "url": "https://www.nrk.no/filmpolitiet/tony-scott-kjedet-meg-aldri_-1.17234616",
