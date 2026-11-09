@@ -1,38 +1,38 @@
 {
-  "updatedAt": "2026-11-08T10:52:08.544Z",
+  "updatedAt": "2026-11-09T12:17:44.380Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
       "url": "https://www.nrk.no/artikkel/10-filmer-vi-gleder-oss-til-i-host-1523805",
-      "checkedAt": "2026-10-27T09:25:28.760Z"
+      "checkedAt": "2026-11-09T12:17:19.941Z"
     },
     "1.17890800": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-2026-1.17890800",
-      "checkedAt": "2026-10-27T09:25:29.742Z"
+      "checkedAt": "2026-11-09T12:17:20.906Z"
     },
     "1.17886037": {
       "url": "https://www.nrk.no/filmpolitiet/filmpolitiet-sine-hoydepunkter-fra-filmfestivalen-i-cannes-1.17886037",
-      "checkedAt": "2026-10-27T09:25:30.729Z"
+      "checkedAt": "2026-11-09T12:17:21.908Z"
     },
     "1.17675349": {
       "url": "https://www.nrk.no/filmpolitiet/2026_-filmene-vi-gleder-oss-til-1.17675349",
-      "checkedAt": "2026-10-27T09:25:31.641Z"
+      "checkedAt": "2026-11-09T12:17:22.925Z"
     },
     "1.17675345": {
       "url": "https://www.nrk.no/filmpolitiet/2025_-arets-beste-filmar-1.17675345",
-      "checkedAt": "2026-10-27T09:25:32.606Z"
+      "checkedAt": "2026-11-09T12:17:23.931Z"
     },
     "1.17662765": {
       "url": "https://www.nrk.no/filmpolitiet/ti-tips-fra-filmpolitiet_-de-heteste-filmene-og-seriene-du-kan-stromme-na-1.17662765",
-      "checkedAt": "2026-10-27T09:25:33.707Z"
+      "checkedAt": "2026-11-09T12:17:24.948Z"
     },
     "1.17657961": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-pixar-filmene-1.17657961",
-      "checkedAt": "2026-10-27T09:25:34.672Z"
+      "checkedAt": "2026-11-09T12:17:25.894Z"
     },
     "1.17572729": {
       "url": "https://www.nrk.no/filmpolitiet/ti-filmar-vi-gler-oss-til-i-haust-1.17572729",
-      "checkedAt": "2026-10-27T09:25:35.624Z"
+      "checkedAt": "2026-11-09T12:17:26.973Z"
     },
     "1.17422405": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17422405",
@@ -976,71 +976,71 @@
     },
     "1.17234616": {
       "url": "https://www.nrk.no/filmpolitiet/tony-scott-kjedet-meg-aldri_-1.17234616",
-      "checkedAt": "2026-10-26T09:28:14.635Z"
+      "checkedAt": "2026-11-09T12:17:28.131Z"
     },
     "1.17234625": {
       "url": "https://www.nrk.no/filmpolitiet/overraskende-amanda-vinner-1.17234625",
-      "checkedAt": "2026-10-26T09:28:15.511Z"
+      "checkedAt": "2026-11-09T12:17:29.072Z"
     },
     "1.17234630": {
       "url": "https://www.nrk.no/filmpolitiet/hvem-vinner-amandaprisene_-1.17234630",
-      "checkedAt": "2026-10-26T09:28:16.571Z"
+      "checkedAt": "2026-11-09T12:17:30.148Z"
     },
     "1.17234640": {
       "url": "https://www.nrk.no/filmpolitiet/dette-er-hostens-storste-filmer_-1.17234640",
-      "checkedAt": "2026-10-26T09:28:17.559Z"
+      "checkedAt": "2026-11-09T12:17:30.920Z"
     },
     "1.17234764": {
       "url": "https://www.nrk.no/filmpolitiet/kinosommeren-1982_-the-thing-1.17234764",
-      "checkedAt": "2026-10-26T09:28:18.301Z"
+      "checkedAt": "2026-11-09T12:17:31.910Z"
     },
     "1.17234839": {
       "url": "https://www.nrk.no/filmpolitiet/kvartfinale-a_-wolverine-vs-hulken_-1.17234839",
-      "checkedAt": "2026-10-26T09:28:19.454Z"
+      "checkedAt": "2026-11-09T12:17:33.037Z"
     },
     "1.17234869": {
       "url": "https://www.nrk.no/filmpolitiet/retur-for-ett-av-historiens-beste-filmpar_-1.17234869",
-      "checkedAt": "2026-10-26T09:28:20.302Z"
+      "checkedAt": "2026-11-09T12:17:33.886Z"
     },
     "1.17234949": {
       "url": "https://www.nrk.no/filmpolitiet/de-beste-og-verste-cannes-filmene-1.17234949",
-      "checkedAt": "2026-10-26T09:28:21.681Z"
+      "checkedAt": "2026-11-09T12:17:34.884Z"
     },
     "1.17234954": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-elsker-a-skremme-meg-selv_-1.17234954",
-      "checkedAt": "2026-10-26T09:28:22.355Z"
+      "checkedAt": "2026-11-09T12:17:36.137Z"
     },
     "1.17234959": {
       "url": "https://www.nrk.no/filmpolitiet/vil-heller-spille-morder-enn-rasist-1.17234959",
-      "checkedAt": "2026-10-26T09:28:23.596Z"
+      "checkedAt": "2026-11-09T12:17:36.893Z"
     },
     "1.17234962": {
       "url": "https://www.nrk.no/filmpolitiet/cannes-filmene-som-lurer-deg_-1.17234962",
-      "checkedAt": "2026-10-26T09:28:24.464Z"
+      "checkedAt": "2026-11-09T12:17:38.038Z"
     },
     "1.17234969": {
       "url": "https://www.nrk.no/filmpolitiet/cannes-film-inspirert-av-bjugn-saken-1.17234969",
-      "checkedAt": "2026-10-26T09:28:25.334Z"
+      "checkedAt": "2026-11-09T12:17:39.055Z"
     },
     "1.17234974": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-liker-brutalitet_-1.17234974",
-      "checkedAt": "2026-10-26T09:28:26.329Z"
+      "checkedAt": "2026-11-09T12:17:39.885Z"
     },
     "1.17235140": {
       "url": "https://www.nrk.no/filmpolitiet/kanonskrell-for-triers-oslo-film_-1.17235140",
-      "checkedAt": "2026-10-26T09:28:27.656Z"
+      "checkedAt": "2026-11-09T12:17:41.240Z"
     },
     "1.17235220": {
       "url": "https://www.nrk.no/filmpolitiet/_-scorsese-er-cinema_-1.17235220",
-      "checkedAt": "2026-10-26T09:28:28.310Z"
+      "checkedAt": "2026-11-09T12:17:42.100Z"
     },
     "1.17235236": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-oscarskandaler-1.17235236",
-      "checkedAt": "2026-10-26T09:28:29.315Z"
+      "checkedAt": "2026-11-09T12:17:43.143Z"
     },
     "1.17235350": {
       "url": "https://www.nrk.no/filmpolitiet/det-blir-gamlekaras-oscar-kveld_-1.17235350",
-      "checkedAt": "2026-10-26T09:28:30.707Z"
+      "checkedAt": "2026-11-09T12:17:44.259Z"
     },
     "1.17235391": {
       "url": "https://www.nrk.no/filmpolitiet/kan-fransk-stumfilm-vinne-oscar_-1.17235391",
