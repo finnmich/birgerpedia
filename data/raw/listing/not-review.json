@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T12:17:44.380Z",
+  "updatedAt": "2026-11-10T11:56:13.676Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -36,35 +36,35 @@
     },
     "1.17422405": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17422405",
-      "checkedAt": "2026-10-28T10:07:15.703Z"
+      "checkedAt": "2026-11-10T11:55:49.446Z"
     },
     "1.17309149": {
       "url": "https://www.nrk.no/filmpolitiet/de-beste-filmene-fra-berlinalen-1.17309149",
-      "checkedAt": "2026-10-28T10:07:16.675Z"
+      "checkedAt": "2026-11-10T11:55:50.443Z"
     },
     "1.17227593": {
       "url": "https://www.nrk.no/filmpolitiet/2025_-filmene-vi-gleder-oss-til-1.17227593",
-      "checkedAt": "2026-10-28T10:07:17.601Z"
+      "checkedAt": "2026-11-10T11:55:51.399Z"
     },
     "1.17227736": {
       "url": "https://www.nrk.no/filmpolitiet/2024_-arets-beste-filmer-1.17227736",
-      "checkedAt": "2026-10-28T10:07:18.644Z"
+      "checkedAt": "2026-11-10T11:55:52.439Z"
     },
     "1.17227747": {
       "url": "https://www.nrk.no/filmpolitiet/anbefaling_-de-10-beste-julefilmene-1.17227747",
-      "checkedAt": "2026-10-28T10:07:19.611Z"
+      "checkedAt": "2026-11-10T11:55:53.413Z"
     },
     "1.17227822": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-host-1.17227822",
-      "checkedAt": "2026-10-28T10:07:20.627Z"
+      "checkedAt": "2026-11-10T11:55:54.632Z"
     },
     "1.17227867": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-sommer-1.17227867",
-      "checkedAt": "2026-10-28T10:07:21.581Z"
+      "checkedAt": "2026-11-10T11:55:55.673Z"
     },
     "1.17227900": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste-cannes-filmene-1.17227900",
-      "checkedAt": "2026-10-28T10:07:22.622Z"
+      "checkedAt": "2026-11-10T11:55:56.396Z"
     },
     "1.17227971": {
       "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17227971",
@@ -1044,71 +1044,71 @@
     },
     "1.17235391": {
       "url": "https://www.nrk.no/filmpolitiet/kan-fransk-stumfilm-vinne-oscar_-1.17235391",
-      "checkedAt": "2026-10-27T09:25:36.868Z"
+      "checkedAt": "2026-11-10T11:55:57.342Z"
     },
     "1.17235416": {
       "url": "https://www.nrk.no/filmpolitiet/2011_-arets-beste-filmer-1.17235416",
-      "checkedAt": "2026-10-27T09:25:37.635Z"
+      "checkedAt": "2026-11-10T11:55:58.437Z"
     },
     "1.17235432": {
       "url": "https://www.nrk.no/filmpolitiet/topp-10_-julefilmer-1.17235432",
-      "checkedAt": "2026-10-27T09:25:38.655Z"
+      "checkedAt": "2026-11-10T11:55:59.658Z"
     },
     "1.17235500": {
       "url": "https://www.nrk.no/filmpolitiet/scorsese-filmer-harry-hole_-1.17235500",
-      "checkedAt": "2026-10-27T09:25:39.632Z"
+      "checkedAt": "2026-11-10T11:56:00.687Z"
     },
     "1.17235609": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmsjaforer-1.17235609",
-      "checkedAt": "2026-10-27T09:25:40.624Z"
+      "checkedAt": "2026-11-10T11:56:01.452Z"
     },
     "1.17235697": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-star-wars-scener-1.17235697",
-      "checkedAt": "2026-10-27T09:25:41.620Z"
+      "checkedAt": "2026-11-10T11:56:02.391Z"
     },
     "1.17235781": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-ninjafilm-1.17235781",
-      "checkedAt": "2026-10-27T09:25:42.638Z"
+      "checkedAt": "2026-11-10T11:56:03.412Z"
     },
     "1.17235783": {
       "url": "https://www.nrk.no/filmpolitiet/limbo-i-amandarus_-1.17235783",
-      "checkedAt": "2026-10-27T09:25:43.642Z"
+      "checkedAt": "2026-11-10T11:56:04.606Z"
     },
     "1.17235784": {
       "url": "https://www.nrk.no/filmpolitiet/slik-var-amanda-festen_-1.17235784",
-      "checkedAt": "2026-10-27T09:25:44.636Z"
+      "checkedAt": "2026-11-10T11:56:05.661Z"
     },
     "1.17235844": {
       "url": "https://www.nrk.no/filmpolitiet/se-mot-stjernene_-1.17235844",
-      "checkedAt": "2026-10-27T09:25:45.577Z"
+      "checkedAt": "2026-11-10T11:56:06.424Z"
     },
     "1.17235857": {
       "url": "https://www.nrk.no/filmpolitiet/filmen-om-utoya-_-en-utenkelig-tanke_-1.17235857",
-      "checkedAt": "2026-10-27T09:25:46.957Z"
+      "checkedAt": "2026-11-10T11:56:07.404Z"
     },
     "1.17235867": {
       "url": "https://www.nrk.no/filmpolitiet/kan-film-gi-deg-hap_-1.17235867",
-      "checkedAt": "2026-10-27T09:25:47.632Z"
+      "checkedAt": "2026-11-10T11:56:08.671Z"
     },
     "1.17235974": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-filmlaerere-1.17235974",
-      "checkedAt": "2026-10-27T09:25:48.850Z"
+      "checkedAt": "2026-11-10T11:56:09.419Z"
     },
     "1.17236059": {
       "url": "https://www.nrk.no/filmpolitiet/filmpolitiets-kortfilmpris-2011-1.17236059",
-      "checkedAt": "2026-10-27T09:25:49.859Z"
+      "checkedAt": "2026-11-10T11:56:10.450Z"
     },
     "1.17236087": {
       "url": "https://www.nrk.no/filmpolitiet/slik-fester-nordmenn-i-cannes-1.17236087",
-      "checkedAt": "2026-10-27T09:25:50.642Z"
+      "checkedAt": "2026-11-10T11:56:11.664Z"
     },
     "1.17236088": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-hadde-problemer-med-gud-1.17236088",
-      "checkedAt": "2026-10-27T09:25:51.661Z"
+      "checkedAt": "2026-11-10T11:56:12.389Z"
     },
     "1.17236091": {
       "url": "https://www.nrk.no/filmpolitiet/jo-nesbo-bestemmer_-1.17236091",
-      "checkedAt": "2026-10-27T09:25:52.619Z"
+      "checkedAt": "2026-11-10T11:56:13.614Z"
     },
     "1.17236095": {
       "url": "https://www.nrk.no/filmpolitiet/_-kritikere-skremmer-meg_-1.17236095",
