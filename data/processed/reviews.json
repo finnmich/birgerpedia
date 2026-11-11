@@ -1,5 +1,58 @@
 [
   {
+    "id": "velkommen-til-familien-tragikomisk-juledrama-1532674",
+    "url": "https://www.nrk.no/artikkel/velkommen-til-familien-tragikomisk-juledrama-1532674",
+    "type": "Movie",
+    "name": "Velkommen til familien",
+    "originalTitle": null,
+    "headline": "Tragikomisk juledrama",
+    "abstract": "«Velkommen til familien» med Inga Ibsdotter Lilleaas er eit tragikomisk juledrama i regi av Even Hafnor.",
+    "rating": 4,
+    "ratingMax": 6,
+    "publishedAt": "2026-11-11T10:00:06.655Z",
+    "modifiedAt": "2026-11-11T10:13:34.112Z",
+    "author": {
+      "id": null,
+      "name": "Birger Vestmo",
+      "url": "https://www.nrk.no/forfatter/birger-vestmo-3936",
+      "email": "birger.vestmo@nrk.no"
+    },
+    "image": "https://gfx.nrk.no/xFWIwRyXsUPK5i1WEVH2sA8_RHImeJVFJTxDj_0XuThA",
+    "section": null,
+    "platform": "Kino",
+    "reviewType": "Film",
+    "language": "nn",
+    "factbox": {
+      "tittel": null,
+      "originaltittel": null,
+      "regi": null,
+      "serieskaper": null,
+      "manus": null,
+      "skuespillere": null,
+      "distributor": null,
+      "sjanger": [
+        "Drama",
+        "komedie"
+      ],
+      "lengde": null,
+      "lengdeMinutes": null,
+      "aldersgrense": "9 år",
+      "norgespremiere": "2026-11-13",
+      "norgespremiereRaw": "13. november 2026",
+      "produksjonsAr": null,
+      "land": null,
+      "sprak": null,
+      "produsent": null,
+      "foto": null,
+      "musikk": null,
+      "klipp": null,
+      "basertPa": null,
+      "utgiver": null,
+      "spillselskap": null
+    },
+    "wordCount": 584
+  },
+  {
     "id": "godzilla-minus-zero-megaloman-monsterfilm-1532199",
     "url": "https://www.nrk.no/artikkel/godzilla-minus-zero-megaloman-monsterfilm-1532199",
     "type": "Movie",

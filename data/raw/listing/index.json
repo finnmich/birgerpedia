@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-06T11:40:47.707Z",
+  "fetchedAt": "2026-11-11T11:32:41.372Z",
   "pageCount": 2,
-  "pluggCount": 2979,
+  "pluggCount": 2980,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "velkommen-til-familien-tragikomisk-juledrama-1532674",
+      "title": "Tragikomisk juledrama",
+      "description": "«Velkommen til familien» med Inga Ibsdotter Lilleaas er eit tragikomisk juledrama i regi av Even Hafnor.",
+      "url": "https://www.nrk.no/artikkel/velkommen-til-familien-tragikomisk-juledrama-1532674",
+      "image": null,
+      "published": "2026-11-11T10:00:06.655Z",
+      "source": "newcms"
+    },
     {
       "id": "godzilla-minus-zero-megaloman-monsterfilm-1532199",
       "title": "Megaloman monsterfilm",
