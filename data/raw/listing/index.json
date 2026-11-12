@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-11T11:32:41.372Z",
+  "fetchedAt": "2026-11-12T11:58:11.188Z",
   "pageCount": 2,
-  "pluggCount": 2980,
+  "pluggCount": 2981,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "how-to-rob-a-bank-som-ein-apatisk-skrollerunde-1532825",
+      "title": "Som ein apatisk skrollerunde",
+      "description": "Ransfilmen «How to Rob a Bank» av David Leitch med Nicholas Hoult, Zoë Kravitz og John C. Reilly er som ein apatisk skrollerunde på TikTok.",
+      "url": "https://www.nrk.no/artikkel/how-to-rob-a-bank-som-ein-apatisk-skrollerunde-1532825",
+      "image": null,
+      "published": "2026-11-12T11:33:06.410Z",
+      "source": "newcms"
+    },
     {
       "id": "velkommen-til-familien-tragikomisk-juledrama-1532674",
       "title": "Tragikomisk juledrama",
