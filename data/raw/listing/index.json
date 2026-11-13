@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-12T11:58:11.188Z",
+  "fetchedAt": "2026-11-13T11:41:30.310Z",
   "pageCount": 2,
-  "pluggCount": 2981,
+  "pluggCount": 2982,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "ebenezer-mork-morbid-og-eventyrleg-1532708",
+      "title": "Mørk, morbid og eventyrleg",
+      "description": "«Ebenezer» med Johnny Depp, Rupert Grint, Sam Claflin og Ian McKellen er ein mørk, morbid og eventyrleg filmversjon av Charles Dickens’ “Ei juleforteljing”.:",
+      "url": "https://www.nrk.no/artikkel/ebenezer-mork-morbid-og-eventyrleg-1532708",
+      "image": null,
+      "published": "2026-11-12T17:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "how-to-rob-a-bank-som-ein-apatisk-skrollerunde-1532825",
       "title": "Som ein apatisk skrollerunde",
