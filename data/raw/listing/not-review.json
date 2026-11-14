@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13T11:41:54.902Z",
+  "updatedAt": "2026-11-14T11:04:04.596Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -164,47 +164,47 @@
     },
     "1.15492356": {
       "url": "https://www.nrk.no/kultur/anbefaling_-10-filmar-og-tv-seriar-om-idrett-1.15492356",
-      "checkedAt": "2026-10-31T10:01:46.930Z"
+      "checkedAt": "2026-11-14T11:03:39.882Z"
     },
     "1.15499438": {
       "url": "https://www.nrk.no/kultur/anbefaling_-22.-juli-filmer-og--serier-1.15499438",
-      "checkedAt": "2026-10-31T10:01:47.869Z"
+      "checkedAt": "2026-11-14T11:03:40.792Z"
     },
     "1.15479692": {
       "url": "https://www.nrk.no/kultur/anbefaling_-franske-kulturtips-1.15479692",
-      "checkedAt": "2026-10-31T10:01:48.906Z"
+      "checkedAt": "2026-11-14T11:03:41.822Z"
     },
     "1.15485518": {
       "url": "https://www.nrk.no/kultur/anbefaling_-amerikanske-kulturtips-til-4.-juli-1.15485518",
-      "checkedAt": "2026-11-01T10:53:01.986Z"
+      "checkedAt": "2026-11-14T11:03:42.776Z"
     },
     "1.17228942": {
       "url": "https://www.nrk.no/filmpolitiet/10-filmer-vi-gleder-oss-til-i-sommer-1.17228942",
-      "checkedAt": "2026-11-01T10:53:03.023Z"
+      "checkedAt": "2026-11-14T11:03:43.784Z"
     },
     "1.15479647": {
       "url": "https://www.nrk.no/kultur/anbefaling_-20-danske-og-svenske-kulturtips-1.15479647",
-      "checkedAt": "2026-11-01T10:53:03.736Z"
+      "checkedAt": "2026-11-14T11:03:46.201Z"
     },
     "1.17228997": {
       "url": "https://www.nrk.no/filmpolitiet/mangfoldet-var-arets-storste-oscar-vinner-1.17228997",
-      "checkedAt": "2026-11-01T10:53:05.098Z"
+      "checkedAt": "2026-11-14T11:03:46.691Z"
     },
     "1.17229001": {
       "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17229001",
-      "checkedAt": "2026-11-01T10:53:05.717Z"
+      "checkedAt": "2026-11-14T11:03:47.663Z"
     },
     "1.15397956": {
       "url": "https://www.nrk.no/kultur/anbefaling_-ni-filmtips-som-kan-samle-hele-familien-foran-tv-en-1.15397956",
-      "checkedAt": "2026-11-01T10:53:06.679Z"
+      "checkedAt": "2026-11-14T11:03:48.333Z"
     },
     "1.17229048": {
       "url": "https://www.nrk.no/filmpolitiet/10-strommetips-til-golden-globe-helga-1.17229048",
-      "checkedAt": "2026-11-01T10:53:08.087Z"
+      "checkedAt": "2026-11-14T11:03:49.649Z"
     },
     "1.17229102": {
       "url": "https://www.nrk.no/filmpolitiet/2021_-filmene-vi-gleder-oss-til-1.17229102",
-      "checkedAt": "2026-11-01T10:53:08.743Z"
+      "checkedAt": "2026-11-14T11:03:50.391Z"
     },
     "1.17229103": {
       "url": "https://www.nrk.no/filmpolitiet/2021_-seriene-vi-gleder-oss-til-1.17229103",
@@ -1316,59 +1316,59 @@
     },
     "1.6179590": {
       "url": "https://www.nrk.no/kultur/klart-for-amanda_-1.6179590",
-      "checkedAt": "2026-10-31T10:01:50.092Z"
+      "checkedAt": "2026-11-14T11:03:51.600Z"
     },
     "1.5290201": {
       "url": "https://www.nrk.no/kultur/gran-turismo-5-prologue-for-fansen-1.5290201",
-      "checkedAt": "2026-10-31T10:01:51.154Z"
+      "checkedAt": "2026-11-14T11:03:52.428Z"
     },
     "1.4225940": {
       "url": "https://www.nrk.no/kultur/lavt-gir-for-prostreet-1.4225940",
-      "checkedAt": "2026-10-31T10:01:51.907Z"
+      "checkedAt": "2026-11-14T11:03:53.612Z"
     },
     "1.3706304": {
       "url": "https://www.nrk.no/kultur/project-gotham-racing-4-1.3706304",
-      "checkedAt": "2026-10-31T10:01:53.086Z"
+      "checkedAt": "2026-11-14T11:03:54.420Z"
     },
     "1.3625791": {
       "url": "https://www.nrk.no/kultur/medal-of-honor_-airborne-1.3625791",
-      "checkedAt": "2026-10-31T10:01:54.036Z"
+      "checkedAt": "2026-11-14T11:03:55.572Z"
     },
     "1.3240804": {
       "url": "https://www.nrk.no/kultur/filmregissorer-krever-opprydding-1.3240804",
-      "checkedAt": "2026-10-31T10:01:55.047Z"
+      "checkedAt": "2026-11-14T11:03:56.639Z"
     },
     "1.2626505": {
       "url": "https://www.nrk.no/kultur/graw-2-1.2626505",
-      "checkedAt": "2026-10-31T10:01:56.066Z"
+      "checkedAt": "2026-11-14T11:03:57.342Z"
     },
     "1.2624052": {
       "url": "https://www.nrk.no/kultur/gears-of-war-1.2624052",
-      "checkedAt": "2026-10-31T10:01:56.919Z"
+      "checkedAt": "2026-11-14T11:03:58.718Z"
     },
     "1.2402607": {
       "url": "https://www.nrk.no/kultur/crackdown-1.2402607",
-      "checkedAt": "2026-10-31T10:01:57.903Z"
+      "checkedAt": "2026-11-14T11:03:59.400Z"
     },
     "1.2361410": {
       "url": "https://www.nrk.no/kultur/harry-potter-og-fangen-fra-azkaban-1.2361410",
-      "checkedAt": "2026-10-31T10:01:58.894Z"
+      "checkedAt": "2026-11-14T11:04:00.432Z"
     },
     "1.2361638": {
       "url": "https://www.nrk.no/kultur/harry-potter-og-ildbegeret-1.2361638",
-      "checkedAt": "2026-10-31T10:01:59.891Z"
+      "checkedAt": "2026-11-14T11:04:01.402Z"
     },
     "1.2360447": {
       "url": "https://www.nrk.no/kultur/harry-potter-og-mysteriekammeret-1.2360447",
-      "checkedAt": "2026-10-31T10:02:00.831Z"
+      "checkedAt": "2026-11-14T11:04:02.401Z"
     },
     "1.2360842": {
       "url": "https://www.nrk.no/kultur/harry-potter-og-de-vises-stein-1.2360842",
-      "checkedAt": "2026-10-31T10:02:01.874Z"
+      "checkedAt": "2026-11-14T11:04:03.394Z"
     },
     "1.1509267": {
       "url": "https://www.nrk.no/kultur/call-of-duty-3-1.1509267",
-      "checkedAt": "2026-10-31T10:02:03.099Z"
+      "checkedAt": "2026-11-14T11:04:04.592Z"
     }
   }
 }
