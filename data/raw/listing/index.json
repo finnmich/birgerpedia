@@ -1,10 +1,28 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-13T11:41:30.310Z",
+  "fetchedAt": "2026-11-18T12:26:02.714Z",
   "pageCount": 2,
-  "pluggCount": 2982,
+  "pluggCount": 2984,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "you-can-see-everything-ikkje-rart-at-dette-er-ein-snakkis-1533261",
+      "title": "Ikkje rart at dette er ein snakkis!",
+      "description": "«You Can See Everything» av Nathan Fielder og Lance Oppenheim er ein fascinerande dokumentar om den svindeldømde forretningskvinna Elizabeth Holmes.",
+      "url": "https://www.nrk.no/artikkel/you-can-see-everything-ikkje-rart-at-dette-er-ein-snakkis-1533261",
+      "image": null,
+      "published": "2026-11-18T09:01:10.855Z",
+      "source": "newcms"
+    },
+    {
+      "id": "the-hunger-games-sunrise-on-the-reaping-vekkjar-eit-sorgfullt-sinne-1533153",
+      "title": "Vekkjer eit sorgfullt sinne",
+      "description": "«The Hunger Games: Sunrise on the Reaping» av regissør Francis Lawrence med Joseph Zada, Ralph Fiennes, Jesse Plemons og Elle Fanning vekkjer eit sorgfullt sinne.",
+      "url": "https://www.nrk.no/artikkel/the-hunger-games-sunrise-on-the-reaping-vekkjar-eit-sorgfullt-sinne-1533153",
+      "image": null,
+      "published": "2026-11-17T14:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "ebenezer-mork-morbid-og-eventyrleg-1532708",
       "title": "Mørk, morbid og eventyrleg",
