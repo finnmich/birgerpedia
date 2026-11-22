@@ -1,9 +1,9 @@
 {
-  "builtAt": "2026-11-20T12:18:45.536Z",
-  "total": 3259,
+  "builtAt": "2026-11-22T12:07:47.019Z",
+  "total": 3260,
   "droppedNonBirgerOrInvalid": 2,
   "byType": {
-    "Movie": 3201,
+    "Movie": 3202,
     "TVSeries": 32,
     "Game": 26
   },
@@ -12,7 +12,7 @@
     "2": 135,
     "3": 526,
     "4": 1342,
-    "5": 1041,
+    "5": 1042,
     "6": 163,
     "∅": 24
   },
@@ -137,6 +137,7 @@
     "Paramount Vantage": 2,
     "Columbia Pictures Corporation": 2,
     "United Pictures International": 2,
+    "Kino / Netflix": 1,
     "Festivalpremiere: 19. mai. Norgespremiere: 11. sept.": 1,
     "Filmfestivalen i Cannes: 18. mai": 1,
     "13. februar 2026 (Berlinalen)": 1,

@@ -1,10 +1,19 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-18T12:26:02.714Z",
+  "fetchedAt": "2026-11-22T12:07:21.618Z",
   "pageCount": 2,
-  "pluggCount": 2984,
+  "pluggCount": 2985,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "the-further-mis-adventures-of-cliff-booth-arets-kuleste-film-1533611",
+      "title": "Dette er årets kuleste film!",
+      "description": "David Fincher og Quentin Tarantinos «The Further Mis-Adventures of Cliff Booth» med Brad Pitt og Elizabeth Debicki er årets kuleste film!",
+      "url": "https://www.nrk.no/artikkel/the-further-mis-adventures-of-cliff-booth-arets-kuleste-film-1533611",
+      "image": null,
+      "published": "2026-11-20T17:48:52.134Z",
+      "source": "newcms"
+    },
     {
       "id": "you-can-see-everything-ikkje-rart-at-dette-er-ein-snakkis-1533261",
       "title": "Ikkje rart at dette er ein snakkis!",
