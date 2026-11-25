@@ -1,10 +1,28 @@
 {
   "authorId": "18.264",
-  "fetchedAt": "2026-11-22T12:07:21.618Z",
+  "fetchedAt": "2026-11-25T13:42:12.299Z",
   "pageCount": 2,
-  "pluggCount": 2985,
+  "pluggCount": 2987,
   "stoppedEarly": true,
   "plugs": [
+    {
+      "id": "focker-in-law-det-svingar-ikkje-av-komikken-1533950",
+      "title": "Det svingar ikkje av komikken",
+      "description": "Den svake og konservative komedien «Focker In-Law» er ein halvhjerta gjesp med Robert De Niro, Ben Stiller og Ariana Grande.",
+      "url": "https://www.nrk.no/artikkel/focker-in-law-det-svingar-ikkje-av-komikken-1533950",
+      "image": null,
+      "published": "2026-11-25T12:10:59.833Z",
+      "source": "newcms"
+    },
+    {
+      "id": "hexe-det-magiske-riket-manglar-den-ekstra-eventyrmagien-1533853",
+      "title": "Manglar den ekstra eventyrmagien",
+      "description": "«Hexe: det magiske riket» fra Walt Disney Animation Studios manglar den ekstra eventyrmagien.",
+      "url": "https://www.nrk.no/artikkel/hexe-det-magiske-riket-manglar-den-ekstra-eventyrmagien-1533853",
+      "image": null,
+      "published": "2026-11-24T17:00:00.000Z",
+      "source": "newcms"
+    },
     {
       "id": "the-further-mis-adventures-of-cliff-booth-arets-kuleste-film-1533611",
       "title": "Dette er årets kuleste film!",
