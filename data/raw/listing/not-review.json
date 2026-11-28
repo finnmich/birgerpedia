@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T13:17:40.296Z",
+  "updatedAt": "2026-11-28T12:33:29.866Z",
   "note": "Listing plugs with no schema.org Review markup. Skipped by crawl-articles.mjs, re-checked on rotation.",
   "ids": {
     "10-filmer-vi-gleder-oss-til-i-host-1523805": {
@@ -96,35 +96,35 @@
     },
     "1.17228144": {
       "url": "https://www.nrk.no/filmpolitiet/vant-gulloven-i-venezia-1.17228144",
-      "checkedAt": "2026-11-11T11:32:49.080Z"
+      "checkedAt": "2026-11-28T12:33:05.610Z"
     },
     "1.17228331": {
       "url": "https://www.nrk.no/filmpolitiet/10-oscar-filmer-du-bor-se-1.17228331",
-      "checkedAt": "2026-11-12T11:58:11.824Z"
+      "checkedAt": "2026-11-28T12:33:06.561Z"
     },
     "1.17228405": {
       "url": "https://www.nrk.no/filmpolitiet/2023_-filmene-vi-gleder-oss-til-1.17228405",
-      "checkedAt": "2026-11-12T11:58:12.919Z"
+      "checkedAt": "2026-11-28T12:33:07.892Z"
     },
     "1.17228417": {
       "url": "https://www.nrk.no/filmpolitiet/2022_-arets-beste-filmer-1.17228417",
-      "checkedAt": "2026-11-12T11:58:13.680Z"
+      "checkedAt": "2026-11-28T12:33:08.601Z"
     },
     "1.17228521": {
       "url": "https://www.nrk.no/filmpolitiet/5-emmy-serier-du-bor-sjekke-ut-1.17228521",
-      "checkedAt": "2026-11-12T11:58:14.793Z"
+      "checkedAt": "2026-11-28T12:33:09.593Z"
     },
     "1.17228642": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-mest-spennende-cannes-filmene-1.17228642",
-      "checkedAt": "2026-11-12T11:58:15.899Z"
+      "checkedAt": "2026-11-28T12:33:10.882Z"
     },
     "1.17228719": {
       "url": "https://www.nrk.no/filmpolitiet/7-oscar-filmer-du-bor-se-1.17228719",
-      "checkedAt": "2026-11-12T11:58:16.732Z"
+      "checkedAt": "2026-11-28T12:33:11.598Z"
     },
     "1.15841416": {
       "url": "https://www.nrk.no/kultur/anbefaling_-dette-kan-du-oppleve-pa-scener-og-kino-no-1.15841416",
-      "checkedAt": "2026-11-12T11:58:17.720Z"
+      "checkedAt": "2026-11-28T12:33:12.553Z"
     },
     "1.15814981": {
       "url": "https://www.nrk.no/kultur/anbefaling_-ni-tips-til-kultur-med-rasisme-som-tema-1.15814981",
@@ -1112,71 +1112,71 @@
     },
     "1.17236095": {
       "url": "https://www.nrk.no/filmpolitiet/_-kritikere-skremmer-meg_-1.17236095",
-      "checkedAt": "2026-11-11T11:32:49.857Z"
+      "checkedAt": "2026-11-28T12:33:13.887Z"
     },
     "1.17236100": {
       "url": "https://www.nrk.no/filmpolitiet/emily-browning-imponerer-i-cannes-1.17236100",
-      "checkedAt": "2026-11-11T11:32:51.212Z"
+      "checkedAt": "2026-11-28T12:33:14.565Z"
     },
     "1.17236107": {
       "url": "https://www.nrk.no/filmpolitiet/_-jeg-har-store-forventninger_-1.17236107",
-      "checkedAt": "2026-11-11T11:32:52.139Z"
+      "checkedAt": "2026-11-28T12:33:15.790Z"
     },
     "1.17236209": {
       "url": "https://www.nrk.no/filmpolitiet/kanon-for-limbo-1.17236209",
-      "checkedAt": "2026-11-11T11:32:53.256Z"
+      "checkedAt": "2026-11-28T12:33:16.848Z"
     },
     "1.17236352": {
       "url": "https://www.nrk.no/filmpolitiet/kortfilmkonkurransen-stjerneskudd-2011-1.17236352",
-      "checkedAt": "2026-11-11T11:32:53.901Z"
+      "checkedAt": "2026-11-28T12:33:17.835Z"
     },
     "1.17236353": {
       "url": "https://www.nrk.no/filmpolitiet/pameldingskjema-stjerneskudd-2011-1.17236353",
-      "checkedAt": "2026-11-11T11:32:55.022Z"
+      "checkedAt": "2026-11-28T12:33:18.729Z"
     },
     "1.17236460": {
       "url": "https://www.nrk.no/filmpolitiet/samarbeider-med-hollywood-legende-1.17236460",
-      "checkedAt": "2026-11-11T11:32:55.890Z"
+      "checkedAt": "2026-11-28T12:33:19.760Z"
     },
     "1.17236462": {
       "url": "https://www.nrk.no/filmpolitiet/hjelp_-jeg-er-oscar-nominert_-1.17236462",
-      "checkedAt": "2026-11-11T11:32:57.159Z"
+      "checkedAt": "2026-11-28T12:33:20.591Z"
     },
     "1.17236482": {
       "url": "https://www.nrk.no/filmpolitiet/nakensjokk-pa-tiff_-1.17236482",
-      "checkedAt": "2026-11-11T11:32:58.103Z"
+      "checkedAt": "2026-11-28T12:33:21.818Z"
     },
     "1.17236491": {
       "url": "https://www.nrk.no/filmpolitiet/_-i_ll-be-back_-1.17236491",
-      "checkedAt": "2026-11-11T11:32:58.885Z"
+      "checkedAt": "2026-11-28T12:33:22.546Z"
     },
     "1.17236544": {
       "url": "https://www.nrk.no/filmpolitiet/de-10-beste_-basta_-1.17236544",
-      "checkedAt": "2026-11-11T11:33:00.011Z"
+      "checkedAt": "2026-11-28T12:33:23.588Z"
     },
     "1.17236548": {
       "url": "https://www.nrk.no/filmpolitiet/rockeulven-fra-ostblokken-1.17236548",
-      "checkedAt": "2026-11-11T11:33:00.869Z"
+      "checkedAt": "2026-11-28T12:33:24.580Z"
     },
     "1.17236565": {
       "url": "https://www.nrk.no/filmpolitiet/de-beste-filmgavene-1.17236565",
-      "checkedAt": "2026-11-11T11:33:01.893Z"
+      "checkedAt": "2026-11-28T12:33:25.546Z"
     },
     "1.17236694": {
       "url": "https://www.nrk.no/filmpolitiet/noomi-mot-alien_-1.17236694",
-      "checkedAt": "2026-11-11T11:33:03.111Z"
+      "checkedAt": "2026-11-28T12:33:26.749Z"
     },
     "1.17236716": {
       "url": "https://www.nrk.no/filmpolitiet/pa-fest-med-jonas-1.17236716",
-      "checkedAt": "2026-11-11T11:33:03.873Z"
+      "checkedAt": "2026-11-28T12:33:27.720Z"
     },
     "1.17236721": {
       "url": "https://www.nrk.no/filmpolitiet/_-speed-er-bra-for-deg-1.17236721",
-      "checkedAt": "2026-11-11T11:33:04.998Z"
+      "checkedAt": "2026-11-28T12:33:28.755Z"
     },
     "1.17236723": {
       "url": "https://www.nrk.no/filmpolitiet/dolph-lundgren-og-finanskrisa-1.17236723",
-      "checkedAt": "2026-11-11T11:33:06.120Z"
+      "checkedAt": "2026-11-28T12:33:29.792Z"
     },
     "1.17236742": {
       "url": "https://www.nrk.no/filmpolitiet/topp-5_-slashere-1.17236742",
